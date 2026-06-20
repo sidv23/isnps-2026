@@ -1,0 +1,25 @@
+<script>
+  new Freezeframe();
+</script>
+<script>
+  const manual = new Freezeframe('.my-class-3', {
+    trigger: false
+  });
+
+  document
+    .querySelector('.start')
+    .addEventListener('click', () => {
+      manual.start();
+    });
+
+  document
+    .querySelector('.stop')
+    .addEventListener('click', () => {
+      manual.stop();
+    });
+</script>
+<script>
+  new Freezeframe('.my-class-2', {
+    trigger: 'click'
+  });
+</script>

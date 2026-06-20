@@ -1,0 +1,33 @@
+---
+metadata-files: 
+  - metadata.yml
+format: 
+    revealjs:
+      height: 900
+      width: 1600
+      theme:
+        - src/css/theme.scss
+      include-in-header:
+        - file: src/header.html
+      controls: true
+      touch: true
+      scrollable: true
+      history: false
+      navigation-mode: linear
+      code-tools: true
+      self-contained-math: true 
+      menu: false
+---
+
+## Statistical Framework for Multidimensional Scaling {visibility="uncounted" align="center"}
+
+:::{.center}
+![](imgs/mds/plts/bootstrap/radial-1.png){width=40%}
+:::
+
+{{< include src/math/tex-macros >}}
+$$
+\require{enclose}
+\require{physics}
+\require{ams}
+$$

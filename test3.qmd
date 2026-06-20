@@ -1,0 +1,122 @@
+---
+metadata-files: 
+  - metadata.yml
+format: 
+    revealjs:
+      pagetitle: "Statistical MDS"
+      # logo: imgs/extra/ucsd-small.jpeg
+      footer: "[Job Talk • 2026]{.smaller}"
+      slide-number: true
+      width: 1760
+      height: 990
+      theme:
+        - src/css/theme.scss
+      include-in-header:
+        - file: src/header.html
+        - src/chalkboard.html
+      css: src/css/imgbox.css
+      filters:
+        - src/scale-image.lua
+      controls: true
+      touch: true
+      scrollable: true
+      history: false
+      navigation-mode: linear
+      code-tools: true
+      chalkboard:
+        theme: whiteboard
+        boardmarker-width	: 2
+      # embed-resources: true
+      self-contained-math: true
+jupyter: job-talk
+---
+
+
+
+## {.center}
+
+Job Talk • 2026
++br+br+br+br+br
+
+<p></p>
+
+### [A Statistical Framework for+br Multidimensional Scaling From Noisy Data]{.Large}
+
+<o></p>
+[Siddharth Vishwanath]{.ucsd-gold .Large}
+<o></p>
+![](imgs/extra/ucsd.png){width=16%}
+
++br+br+br+br
+
+::: footer
+:::
+
+# Motivation
+
+::: {.large .center}
++br+br
+Modern data is not only big, but also structurally complex. +br+br
+Science, engineering, technology, and society increasingly rely+br on understanding these complex patterns in data.
+:::
+
+{{< include src/math/tex-macros >}}
+$$
+\require{enclose}
+\require{physics}
+\require{ams}
+$$
+
+
+
+
+## Under the hood: Fuk-Nagaev-Type concentration {#appendix-fuk-nagaev visibility="uncounted"}
+
+
+
+Let $\Eps = (\eps_{ij})$ be an $n \times n$ symmetric random matrix with symmetric entries.
+
+:::: {.fragment fragment-index=1 .semi-fade-out}
+:::{.content-box-dblue .small}
+**Bounded Concentration [@bandeira2016sharp].** &emsp; Suppose [$\max_{i,j}|{\eps_{i,j}|} \le K$ a.s.]{.magenta}. +br Then, with probability greater than $1 - O({e^{-t}})$,
+$$
+\norm{\Eps}_2 \lesssim {\max_{i}\sqrt{\sum_{j} \Var(\eps_{ij})} + K \sqrt{t + \log{n}}}
+$$
+:::
+::::
+
++br
+
+:::: {.fragment fragment-index=1 .fade-in}
+:::{.content-box-orange .small}
+**Fuk-Nagaev-Type Concentration [@vishwanath2025minimax]** &emsp; Suppose [$\max_{i,j}\|{\eps_{i,j}\|_{L^q}} \le \sigma$ for $q > 4$]{.magenta}+br Then, for all $0 < r < \frac{(q-4)}{2}$, with probability greater than $1 - O({e^{-t}} + {n^{-r}})$,
+$$
+\norm{\Eps}_2 \lesssim {\max_{i}\sqrt{\sum_{j} \Var(\eps_{ij})} + \sigma n^{(r+2)/q} \sqrt{t + \log{n}}}
+$$
+:::
+::::
+
+
+
+## Illustration
+
+::: {.center .r-stack}
+![](imgs/mds/plts/p2.png){width=55% .fragment .fade-out fragment-index=1}
+
+![](imgs/mds/plts/p1.png){width=98% .fragment .fade-in fragment-index=1}
+:::
+
+::: {.footnote .scriptsize}
+more [experiments in the appendix](#appendix-fourth-moment-plots)
+:::
+
+
+
+
+
+
+
+
+## 
+::: {#refs}
+:::

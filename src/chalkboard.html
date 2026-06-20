@@ -1,0 +1,64 @@
+<!-- Chalkboard -->
+<!-- Place this in your Quarto document where it will be included (e.g., in a custom header or layout file) -->
+<!-- <script>
+    // Function to simulate the Delete key press
+    // Create and style the button once the DOM is ready
+    document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.createElement("button");
+    btn.textContent = "Clear";
+    btn.onclick = simulateDeleteKey;
+    // Style the button to be fixed at the bottom (customize as needed)
+    btn.style.position = "fixed";
+    btn.style.bottom = "20px";
+    btn.style.right = "20px";
+    btn.style.zIndex = 1000;  // Ensure it appears above other elements
+    document.body.appendChild(btn);
+    });
+</script> -->
+
+<script>
+    function simulateDeleteKey() {
+        const deleteEvent = new KeyboardEvent('keydown', {
+            key: 'Delete',
+            keyCode: 46,
+            which: 46,
+            bubbles: true
+        });
+        document.dispatchEvent(deleteEvent);
+    }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Create the button and set its content to an X symbol
+        const btn = document.createElement("button");
+        btn.textContent = "×";  // Using the multiplication sign as an X
+        btn.onclick = simulateDeleteKey;
+
+        // Style the button to be circular and fixed at the bottom right
+        btn.style.position = "fixed";
+        btn.style.top = "20px";
+        btn.style.right = "20px";
+        btn.style.width = "20px";
+        btn.style.height = "20px";
+        btn.style.border = "none";
+        btn.style.borderRadius = "50%";
+        btn.style.backgroundColor = "#333"; // Adjust to match your theme
+        btn.style.color = "#fff";             // Adjust to match your theme
+        btn.style.fontSize = "15px";
+        btn.style.cursor = "pointer";
+        btn.style.zIndex = 0;
+        btn.style.outline = "none";
+        btn.style.boxShadow = "0 0px 0px rgba(0,0,0,0.3)";
+
+        // Optional: Add a simple hover effect
+        btn.addEventListener("mouseenter", function () {
+            btn.style.backgroundColor = "#555";
+        });
+        btn.addEventListener("mouseleave", function () {
+            btn.style.backgroundColor = "#333";
+        });
+
+        document.body.appendChild(btn);
+    });
+</script>

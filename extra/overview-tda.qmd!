@@ -1,0 +1,175 @@
+---
+metadata-files: 
+  - metadata.yml
+format: 
+    revealjs:
+      height: 900
+      width: 1600
+      theme:
+        - src/css/theme.scss
+      include-in-header:
+        - file: src/header.html
+      controls: true
+      touch: true
+      scrollable: true
+      history: false
+      navigation-mode: linear
+      code-tools: true
+      self-contained-math: true
+      menu: false
+---
+
+## [Fast and Robust Topological Inference]{style="font-size: 165%;"}
+
+:::{.center}
+![](imgs/tda/logo2.png){width=45%}
+:::
+
+{{< include src/math/tex-macros >}}
+$$
+\require{enclose}
+\require{physics}
+\require{ams}
+$$
+
+:::: {.Large style="color: white;"}
+::: {#refs}
+:::
+::::
+
+
+
+## Adversarially Robust Persistence Diagrams
+
+::: {.center}
+<iframe src="https://sidvishwanath.com/persistence-diagram/index-cols.html" width="100%" height="540px" style="border:none;"></iframe>
+:::
+
+::: {.r-stack .center width="80%"}
+
+::: {.content-box-solid-lightorange}
+Given a collection of $n$ points $X \in \R^{n \times p}$,+br $\dgm(X)$ encodes multiscale geometric & topological information underlying $X$
+:::
+
+::: {.content-box-solid-lightorange .fragment fragment-index=2}
+Persistence diagrams are **stable** in the Hausdorff metric, i.e.,+br
+small perturbations to $X$ lead to small changes in $\dgm(X)$ (@chazal2016structure)
+:::
+
+::: {.content-box-solid-lightorange .fragment fragment-index=3}
+But, even a few outliers in $X$ can drastically change $\dgm(X)$, i.e.,+br **Stability $\neq$ Robustness**
+:::
+
+::: {.content-box-solid-lightorange .fragment fragment-index=4}
+Our work develops a framework for constructing **adversarially robust** persistence diagrams, $\tilde{\dgm}(X)$. +br Our method is computationally efficient and free of tuning parameters. [@vishwanath2022robust; @vishwanath2020robust]
+:::
+
+:::
+
+
+## Adversarially Robust Persistence Diagrams {visibility="uncounted"}
+
+::: {.small}
+::: {.footnotesize .center}
+$\text{For $m < \frac{n}{2}$,} \quad \text{suppose }  X_{n \times p} = \begin{bmatrix} X^*_{(n-m) \times p} \\ Y_{m \times p} \end{bmatrix}$
+:::
+where $Y$ are **arbitrary outliers** and $X^*$ are drawn from some distribution $\pr$ with $\supp(\pr) = \mathbb{X}$
+:::
+
+
+::: {.content-box-dblue .small}
+**Theorem [@vishwanath2022robust minimax optimality].** &nbsp;&nbsp; For $X \in \Rnp$ in the adversarial setting, let
+
+* $\color{green}{\tilde{\dgm}}(X)$ be the [MoM Dist persistence diagram]{.green}, and 
+* $\color{brown}{\hat{\mathsf{d}}}(X)$ _any persistence diagram estimator_,
+
+::: {.center .small}
+$$
+\begin{aligned}
+\left( \frac{m}{n/2-m} \right)^{1/p} &\lesssim \color{brown}{\inf_{\widehat{\mathsf{d}}}} \ \sup_{\pr}\sup_{Y \in \Rnp}\E\bigg( \text{error}\Big( \color{brown}{\widehat{\mathsf{d}}}(X), \dgm(\mathbb{X}) \Big) \bigg)\\[0.5em]
+&\quad\quad\quad\quad\quad\quad\lesssim \sup_{\pr}\sup_{Y \in \Rnp}\E\bigg( \text{error}\Big( \color{green}{\tilde{\dgm}}(X), \dgm(\mathbb{X}) \Big) \bigg) \lesssim \left( \frac{m\log{n}}{n/2-m} \right)^{1/p}
+\end{aligned}
+$$
+:::
+:::
+
+
+## Adversarially Robust Persistence Diagrams
+
+:::: {.columns}
+
+::: {.column width="50%"}
++br
+![](imgs/tda/logo.png){width=100%}
+:::
+
+::: {.column width="50%"}
++br
+![](imgs/tda/qrcode-robusttda.png){width=60%}
+:::
+
+::::
+
+
+
+## Topology-aware Gradient Flows
+
+:::: {.columns .center style="margin-top: -3%" .scriptsize}
+
+::: {.column width="49%"}
+
+![](imgs/tda/mmd.gif){width=100%}
+
+::: {.content-box-orange .center style="margin-top: -5%;"}
+$\partial_t\mu_t = -\boldsymbol{\nabla}_{\!W} \ \mmd^2(\mu_t, \mu^*)\phantom{\Big(\Big)}$
+:::
+
+:::
+
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="49%" .fragment}
+<!-- <img class="pauseframe" src="images/ibm/tda.gif" /> -->
+![](imgs/tda/tda.gif){width=100%}
+
+::: {.content-box-orange .center style="margin-top: -5%;"}
+$\partial_t\mu_t\! =\!-\boldsymbol{\nabla}_{\!W}\!\Big(\mmd^2(\mu_t, \mu^*)\!+\!W_{\infty}\!( \dgm(\mu_t),\!\dgm(\mu^*) )\Big)$
+:::
+:::
+
+::: {.aside}
+@vishwanath2023topot
+:::
+
+::::
+
+
+## Topology-aware Gradient Flows {visibility="uncounted"}
+
+
+:::: {.columns .center style="margin-top: -3%" .scriptsize}
+
+::: {.column width="49%"}
+![](imgs/tda/qrcode-tdaopt.png)
+<p></p>
+![](imgs/tda/tdaopt.png){width="50%" style="margin-top: -4%;"}
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="49%"}
+![](imgs/tda/tda.gif){width=100%}
+
+::: {.content-box-orange .center style="margin-top: -5%;"}
+$\partial_t\mu_t\! =\!-\boldsymbol{\nabla}_{\!W}\!\Big(\mmd^2(\mu_t, \mu^*)\!+\!W_{\infty}\!( \dgm(\mu_t),\!\dgm(\mu^*) )\Big)$
+:::
+:::
+
+::: {.aside}
+@vishwanath2023topot
+:::
+
+::::

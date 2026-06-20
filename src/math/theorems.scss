@@ -1,0 +1,70 @@
+/*-- scss:defaults --*/
+
+$psublue: #1e407c;
+$psu-blue: #1e407c;
+$black: black;
+$white: white;
+$red: red;
+$blue: blue;
+$green: green;
+$yellow: yellow;
+$nord: #b48ead;
+$nordyellow: #ebcb8b;
+$orange: orange;
+$purple: purple;
+$gray: gray;
+$grey: gray;
+$dblue: #1058ad;
+$orchid: #db43d5;
+$dorange: #ff5900;
+$lblue: #1058ad50;
+
+.main {
+  font-weight: bolder;
+  font-size: 120%;
+  text-shadow: 0 0 3px #424242;
+}
+
+.theorem,
+.definition,
+.lemma,
+.remarks,
+.block {
+  font-size: 90%;
+  border-radius: 15px;
+  margin: 0 0 0px;
+  overflow: hidden;
+  padding: 10px 25px;
+  margin-bottom: 2%;
+  width: 95%;
+  align-self: center;
+}
+
+.theorem {
+  background-color: rgba(dodgerblue, 0.2);
+}
+
+.definition {
+  background-color: rgba($orange, 0.2);
+}
+
+.lemma {
+  background-color: rgba($nordyellow, 0.3);
+}
+
+.remarks {
+  background-color: rgba($nord, 0.3);
+}
+
+.block {
+  background-color: rgba($orange, 0.8);
+}
+
+.callout,
+.callout-note,
+.callout-warning, 
+.callout-tip,
+.callout-important,
+.callout-warning{
+  font-size: 90% !important;
+}

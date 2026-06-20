@@ -1,0 +1,283 @@
+<div style="display:none">
+$$
+\require{enclose}
+\require{ams}
+\require{physics}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\e}{\varepsilon}
+\newcommand{\nn}{\nonumber}
+\newcommand{\half}{\frac{1}{2}}
+\renewcommand{\bar}{\overline}
+\renewcommand{\tilde}{\widetilde}
+\newcommand{\QED}{\null\nobreak\hfill$\blacksquare$}
+\newcommand{\FIN}{\null\nobreak\hfill$\diamondsuit$}
+\newcommand{\FINEQ}{\tag*{$\diamondsuit$}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+%%%% Basic Operations
+\newcommand{\indep}{\perp\hspace*{-0.6em}\perp}
+\renewcommand{\tr}{^{\top}}
+% \renewcommand{\tr}{^{\mathsf{T}}}
+\newcommand{\sq}{^{\circ 2}}
+\newcommand{\inv}{^{-1}}
+\newcommand{\trinv}{^{-\top}}
+\newcommand{\pinv}{^{\dagger}}
+\newcommand{\trpinv}{^{\ddagger}}
+\renewcommand{\hat}{\widehat}
+\renewcommand{\tilde}{\widetilde}
+\newcommand{\argmin}{\mathop{\operatorname{arg\,min}}}
+\newcommand{\argmax}{\mathop{\operatorname{arg\,max}}}
+\newcommand{\arginf}{\mathop{\operatorname{arg\,inf}}}
+\newcommand{\argsup}{\mathop{\operatorname{arg\,sup}}}
+
+%%%% Complex Operations
+
+%% Adjustable Norms and Inner Products
+\newcommandx{\Inner}[2][2={},usedefault]{\mathopen{}\left\langle {#1}_{{}_{}}\,\negthickspace\right\rangle{}_{#2}\mathclose{}}
+\DeclareDocumentCommand\Norm{ l m }{\braces#1{\lVert}{\rVert}{#2}}
+\DeclareDocumentCommand\Opnorm{ l m }{\braces#1{\lVert}{\rVert}{#2}_{2}}
+\DeclareDocumentCommand\Ttinf{ l m }{\braces#1{\lVert}{\rVert}{#2}_{2\to\infty}}
+\DeclareDocumentCommand\Pqnorm{ l m }{\braces#1{\lVert}{\rVert}{#2}_{p\to q}}
+\DeclareDocumentCommand\Frobenius{ l m }{\braces#1{\lVert}{\rVert}{#2}_{F}}
+\DeclareDocumentCommand\Maxnorm{ l m }{\braces#1{\lVert}{\rVert}{#2}_{\max}}
+
+%% Regular size norms and inner products
+\newcommand{\inner}[1]{\mathopen{}\left\langle {#1}\, \right\rangle{}\mathclose{}}
+\renewcommand{\norm}[1]{\|#1\|}
+\newcommand{\opnorm}[1]{\|{#1}\|_{2}}
+\newcommand{\ttinf}[1]{\|{#1}\|_{2\to\infty}}
+\newcommand{\pqnorm}[1]{\|{#1}\|_{p\to q}}
+\newcommand{\frobenius}[1]{\|{#1}\|_{F}}
+\newcommand{\maxnorm}[1]{\|{#1}\|_{\max}}
+
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+
+%%%% Statistics
+\newcommand{\KL}{\mathsf{KL}}
+\newcommand{\iid}{\text{i.i.d.}}
+\newcommand{\simiid}{\sim_\text{iid}}
+% \newcommand{\simiid}{\stackrel{\text{iid}}{\sim}}
+\newcommand{\cov}{\mathrm{Cov}}
+\renewcommand{\var}{\mathrm{Var}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\pr}{\mathbb{P}}
+\newcommand{\prs}{\mathbb{P}{}^*}
+\newcommand{\bprs}{\bar{\mathbb{P}}{}^*}
+\newcommand{\bphi}{\bar{\phi}}
+\newcommand{\qr}{\mathbb{Q}}
+\newcommand{\dirac}{\boldsymbol{\delta}}
+\newcommand{\Op}{{O}_{p}}
+\newcommand{\littleop}{{o}_{p}}
+\newcommand{\omegap}{\Omega_{p}}
+\newcommand{\Ell}{\mathbf{L}}
+
+\newcommand{\eqg}{\stackrel{g}{=}}
+\newcommand{\eqd}{\stackrel{d}{=}}
+
+
+\newcommand{\push}{_{\#}}
+% \newcommand{\ot}{\mathsf{OT}_2}
+\newcommand{\ot}{\varrho_{\mathsf{w}}}
+\newcommand{\pot}{\varrho_{\mathsf{w}, \mathscr{G}}}
+\renewcommand{\k}{\mathsf{k}}
+\renewcommand{\H}{\mathscr{H}}
+% \newcommand{\mmd}{\mathsf{MMD}}
+\newcommand{\mmd}{\varrho_{\k}}
+\newcommand{\pmmd}{\varrho_{\mathsf{\k}, \mathscr{G}}}
+\newcommand{\xmmd}{\varrho^{\mathsf{x}}_{\k}}
+\newcommand{\xbarmmd}{\overline\xmmd}
+% \newcommand{\xbarmmd}{\mathsf{\bar{x}\,\!\mmd}}
+
+% \newcommand{\loss}{\boldsymbol{\ell}}
+% \newcommand{\loss}{\textsc{l}}
+\newcommand{\loss}{\mathsf{L}}
+% \newcommand{\loss}{\text{\usefont{U}{boondoxo}{m}{n}\symbol{"60}}}
+\newcommand{\avg}{_\text{avg}}
+\newcommand{\rmse}{_\text{rmse}}
+\newcommand{\mse}{_\text{mse}}
+\newcommand{\ttinft}{_{2\to\infty}}
+\newcommand{\dttinf}{\rho_{2\to\infty}}
+
+\newcommand{\dtm}{\mathfrak{d}}
+\newcommand{\bottleneck}{B_{\infty}}
+
+%%%% Symbols
+\newcommand{\X}{X}
+\newcommand{\Xc}{\X_c}
+\newcommand{\Y}{Y}
+\newcommand{\Z}{Z}
+\newcommand{\U}{U}
+\newcommand{\Yc}{\Y_c}
+
+\renewcommand{\L}{{\Lambda}}
+\newcommand{\hz}{\hat{z}}
+\newcommand{\D}{D}
+\newcommand{\Dc}{D_c}
+\newcommand{\Del}{\Delta}
+\newcommand{\Delc}{\Delta_c}
+% \newcommand{\G}{\Psi}
+\renewcommand{\P}{\mathscr{P}}
+\newcommand{\del}{\delta}
+\newcommand{\delv}{\boldsymbol{\delta}}
+\renewcommand{\dv}{\boldsymbol{d}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\Eps}{\mathcal{E}}
+\newcommand{\sig}{\sigma}
+
+% \renewcommand{\i}{\mathbf{i}}
+\newcommand{\I}{\mathcal{I}}
+
+
+\newcommand{\h}[1]{\hat{#1}}
+\newcommand{\x}{x}
+\newcommand{\Xv}{\mathrm{X}}
+\newcommand{\hX}{\hat{\X}}
+\newcommand{\htheta}{\hat{{\theta}}}
+\newcommand{\hthetac}{\color{magenta}{\hat{{\theta}}}}
+\newcommand{\hfc}{\color{brown}{\widehat{f}}}
+\newcommand{\hY}{\hat{\Y}}
+\newcommand{\hx}{\hat{x}}
+\newcommand{\hy}{\hat{y}}
+\newcommand{\hU}{{\hat{U}}}
+\newcommand{\hC}{{\hat{C}}}
+\newcommand{\hL}{\hat{\Lambda}}
+
+\newcommand{\tx}{\,\tilde{x}}
+\newcommand{\tX}{\,\tilde{\X}}
+\newcommand{\tuX}{\,\tilde{\X}}
+\newcommand{\teps}{\,\tilde{\eps}}
+\newcommand{\tEps}{\,\tilde{\Eps}}
+
+
+\newcommand{\bEps}{{\bar{\mathcal{E}}}}
+\newcommand{\beps}{{\bar{\eps}}}
+\newcommand{\bX}{{\bar{\X}}}
+\newcommand{\bx}{{\bar{X}}}
+
+\newcommand{\psial}{\psi_{\alpha, L}}
+\newcommand{\Rx}{\varpi}
+
+
+%%%% Linear Algebra
+\newcommand{\onev}{\boldsymbol{1}}
+\newcommand{\zerov}{\boldsymbol{0}}
+\renewcommand{\O}{\mathsf{O}}
+\newcommand{\diag}{\text{diag}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\euc}{\mathcal{G}}
+\newcommand{\Euc}[1]{\mathcal{G}({#1})}
+\newcommand{\orth}[1]{\mathcal{O}({#1})}
+\newcommand{\cs}[1]{\mathsf{CS}({#1})}
+\newcommand{\mds}{\mathsf{CMDS}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\supp}{\text{supp}}
+\newcommand{\diam}{\text{diam}}
+\newcommand{\B}{B}
+\newcommand{\C}{\mathscr{C}}
+\newcommand{\dgm}{\mathsf{dgm}}
+\newcommand{\Rp}{\R^p}
+\newcommand{\Rn}{\R^n}
+\newcommand{\Rnp}{\R^{n \times p}}
+\newcommand{\Rpp}{\R^{p \times p}}
+\newcommand{\Rnn}{\R^{n \times n}}
+
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\Xn}{\bbX_n}
+\newcommand{\Xnhat}{\hat{\bbX}_n}
+\newcommand{\bbXhat}{\hat{\bbX}}
+
+%%%% Lower bound
+\newcommand{\M}{\mathfrak{M}}
+\newcommand{\Mn}{\M_n}
+\newcommand{\rn}{\mathfrak{R}_n}
+\newcommand{\cD}{\mathfrak{D}}
+\newcommand{\Xk}{\X^k}
+\newcommand{\Delk}{\Del(\X^k)}
+\newcommand{\Gammak}{\Gamma(\X^k)}
+\newcommand{\Om}{\Omega}
+\newcommand{\hOm}{\h{\Omega}}
+
+%%%% v1.2
+\newcommand{\emin}{\alpha}
+\newcommand{\emax}{\beta}
+\newcommand{\eigen}{\kappa}
+\newcommand{\xpar}{{\eigen, \Rx}}
+\newcommand{\ps}{{\sigma, \eigen, \Rx}}
+\newcommand{\enn}{\mathsf{N}}
+
+\newcommand{\Cov}{\text{Cov}}
+\newcommand{\Var}{\text{Var}}
+
+% \newcommand{\root}[1]{\frac{1}{\sqrt{#1}}}
+\newcommand{\rootn}{\frac{1}{\sqrt{n}}}
+
+\newcommand{\msigma}{\underline{\sigma}}
+\newcommand{\Msigma}{\overline{\sigma}}
+
+\newcommand{\ta}{\tilde{a}}
+\newcommand{\tb}{\tilde{b}}
+\newcommand{\m}{\mathfrak{m}}
+
+
+\newcommand{\minushalf}{{-1/2}}
+\newcommand{\hlf}{{1/2}}
+\renewcommand{\mit}{{\m_i}/{2}}
+\newcommand{\mt}{{\m}/{2}}
+
+
+\renewcommand{\b}{^{\flat}}
+\newcommand{\s}{^{\sharp}}
+
+
+\newcommand{\hO}{\h{O}}
+\newcommand{\hQ}{\h{Q}}
+\newcommand{\hP}{\h{P}}
+\newcommand{\hg}{\h{g}}
+\newcommand{\hgc}{\color{magenta}{\h{g}}}
+\newcommand{\hgb}{{\hg_{\flat}}}
+\newcommand{\hgs}{{\hg_{\sharp}}}
+
+
+\newcommand{\tv}{\mathsf{d}_{\textsf{\text{TV}}}}
+\newcommand{\kl}{\mathsf{d}_{\textsf{\text{KL}}}}
+\newcommand{\ks}{\mathsf{d}_{\textsf{\text{KS}}}}
+
+
+\newcommand{\mz}{\underline{z}}
+\newcommand{\Mz}{\overline{z}}
+
+
+%%%%% Some constants to fill in later
+\newcommand{\Ccov}{C_{\text{Cov}}}
+
+
+\newcommand{\const}{\mathfrak{C}}
+\newcommand{\conf}{\mathcal{C}}
+\newcommand{\ellipse}{\mathscr{E}}
+\newcommand{\rate}{\mathfrak{R}}
+
+\newcommand{\pars}{{p, \kappa, \Rx, \msigma, \Msigma}}
+\newcommand{\vac}{\textit{V\&A-C}}
+
+\newcommand{\DelGreen}{\color{green}{\Del}}
+\newcommand{\EpsRed}{\color{red}{\Eps}}
+
+\newcommand{\params}{{\kappa, \varpi}}
+
+\newcommand{\pa}[1]{\left(#1\right)}
+\newcommand{\pb}[1]{\left\{#1\right\}}
+\newcommand{\pc}[1]{\left[#1\right]}
+\newcommand{\pA}[1]{\Big(#1\Big)}
+\newcommand{\pB}[1]{\Big\{#1\Big\}}
+\newcommand{\pC}[1]{\Big[#1\Big]}
+\newcommand{\mmd}{\mathsf{MMD}}
+
+\newcommand{\XGreen}{\color{green}{X}}
+\newcommand{\DelXGreen}{\color{green}{\Del(X)}}
+\newcommand{\hXc}{\color{brown}{\overset{\mathbf{\smallsmile}}{X}}}
+$$
+</div>

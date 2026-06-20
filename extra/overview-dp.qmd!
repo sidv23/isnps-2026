@@ -1,0 +1,128 @@
+---
+metadata-files: 
+  - metadata.yml
+format: 
+    revealjs:
+      height: 900
+      width: 1600
+      theme:
+        - src/css/theme.scss
+      include-in-header:
+        - file: src/header.html
+      controls: true
+      touch: true
+      scrollable: true
+      history: false
+      navigation-mode: linear
+      code-tools: true
+      self-contained-math: true 
+      menu: false
+---
+
+## Differentially Private Network Inference {visibility="uncounted" style="font-size: 115%;"}
+
++br+br
+
+:::{.center}
+![](imgs/dp/dp-edge.svg){width=60%}
+:::
+
+{{< include src/math/tex-macros >}}
+
+$$
+\require{enclose}
+\require{physics}
+\require{ams}
+$$
+
+:::: {.Large style="color: white;"}
+::: {#refs}
+:::
+::::
+
+
+## $\varepsilon$-edge Differential Privacy (DP) for Graphs
+
++br
+
+::: {.center}
+![](imgs/dp/dp-mechanism.svg){width=100% scale=2.0}
+:::
+
+
+
+
+## $\varepsilon$-edge Differential Privacy (DP) for Graphs
+
+
+:::: {}
+
+:::{.center}
+<!-- [![](imgs/dp/dp.png){width=100%}]{scale=1.5} -->
+![](imgs/dp/dp-edge.svg){width=50%}
+:::
+
+::: {.small .center}
+A **randomized algorithm** [$\A_{\varepsilon}: \G^n \rightarrow \G^n$]{.dblue} satisfies $\varepsilon$-edge differential privacy if
+$$
+\boxed{\pr\pa{\color{red}{\A_{\varepsilon}(G_1) \in S}} \le e^\e\  \pr\pa{\color{green}{\A_{\varepsilon}(G_2) \in S} }\phantom{\frac{1}{2}}}
+$$
+for all $\color{red}{G_1 = (V, E_1)} \sim \color{green}{G_2=(V,E_2)}$ and $\color{red}{E_1} \Delta \color{green}{E_2}=1$
+:::
+
+
+::::
+
+
+## $\varepsilon$-edge Differential Privacy for Graphs
+
+<!-- ::: {.Large} -->
+::: {.content-box-solid-lightorange}
+
+[**Central Objective:** ]{.large}
+
+* What privacy mechanism $\A_{\varepsilon}$ ensures that the graph $\A_{\varepsilon}(G)$ is [**as close to**]{.orchid} $G$ as possible?+br+br
+* If we have such a mechanism, how should we adjust our downstream inference tasks to account for the privacy mechanism?
+:::
+
+
+
+## $\varepsilon$-DP for GRDPGs
+
+:::: {.columns}
+::: {.column width=60%}
+::: {.content-box-solid-lightorange .small}
+
+[**Overview of @vishwanath2025signal:** ]{.large}
+
+* What privacy mechanism $\A_{\varepsilon}$ ensures that the graph $\A_{\varepsilon}(G)$ is [**as close to**]{.orchid} $G$ as possible?
++br
+    * [[**$\mathsf{edgeflip}$**]{.small} is minimax-optimal for $\varepsilon$-edge DP from GRDPGs]{.red}+br+br
+* If we have such a mechanism, how should we adjust our downstream inference tasks to account for the privacy mechanism?
+    * [We show that a **privacy-adjusted spectral embedding** algorithm optimally recovers latent information]{.red}
+:::
+
+<p></p>
+
+::: {.content-box-blue .small .center}
+The [$\textsf{edgeflip}$]{.footnotesize} mechanism introduces a specific type of geometric distortion in the latent space of the GRDPGs
+:::
+:::
+
+
+
+::: {.column width=40%}
+:::{.center .small}
+![](imgs/dp/venn.png){width=70%}
+
+For latent positions $x_1, \dots, x_n \in \Rp$ associated with nodes $v_1, \dots, v_n$,
+$$
+e_{ij} \sim \text{Bernoulli}\left(x_i^T I_{p,q} x_j\right).
+$$
+:::
+
+:::
+
+
+
+::::

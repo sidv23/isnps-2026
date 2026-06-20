@@ -1,0 +1,11 @@
+{
+    "terminal.integrated.env.osx": {
+
+        // For macOS terminals launched inside VS Code, force Quarto to use
+        // the Python from the repo-managed virtual environment.
+        "VSCODE_TEST_ENV": "from-vscode",
+    },
+    "python-envs.terminal.autoActivationType": "shellStartup",
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python-envs.pythonProjects": [],
+}

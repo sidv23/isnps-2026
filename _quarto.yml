@@ -1,0 +1,10 @@
+cache: true
+execute: 
+  freeze: auto
+project:
+  output-dir: docs
+  render:
+    - index*
+    - test*
+    - overview*
+    - "!old/"

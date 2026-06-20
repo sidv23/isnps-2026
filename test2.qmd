@@ -1,0 +1,193 @@
+---
+metadata-files: 
+  - metadata.yml
+format: 
+    revealjs:
+      pagetitle: "Statistical MDS"
+      # logo: imgs/extra/ucsd-small.jpeg
+      footer: "University of Virginia • 2026"
+      slide-number: true
+      width: 1760
+      height: 990
+      theme:
+        - src/css/theme.scss
+      include-in-header:
+        - file: src/header.html
+        - src/chalkboard.html
+      css: src/css/imgbox.css
+      filters:
+        - src/scale-image.lua
+      controls: true
+      touch: true
+      scrollable: true
+      history: false
+      navigation-mode: linear
+      code-tools: true
+      chalkboard:
+        theme: whiteboard
+        boardmarker-width	: 2
+      # embed-resources: true
+      self-contained-math: true 
+jupyter: job-talk
+---
+
+
+## {.center}
+
++br
+
+{{< include src/math/tex-macros >}}
+$$
+\require{enclose}
+\require{physics}
+\require{ams}
+$$
+
+
+## Example - 2
+
+Senators' voting records in the 116th U.S. Congress from 2019--2021 [@lewis2019voteview]
+$$
+d_{ij} = \% \text{disagreement between senators $i$ and $j$ on roll-call votes}
+$$
+$D = (d_{ij}) \in \R^{100 \times 100}$ and let $\hX = \mds(D, 2) \in \R^{100 \times 2}$ be the  embedding
+
+
+::: {.fragment}
+```{python}
+import plotly.express as px
+import pandas as pd
+import numpy as np
+
+# read distance matrix D from data/senate_116_D.csv
+# no header
+df = pd.read_csv("data/senate_116_D.csv", header=None)
+# read df_codes from data/senate_116_df_codes.csv
+df_codes = pd.read_csv("data/senate_116_df_codes.csv")
+# read X from data/senate_116_X.csv
+X = pd.read_csv("data/senate_116_X.csv", header=None)
+# read Sigmas from data/senate_116_Sigmas.json each as numpy array
+import json
+with open("data/senate_116_Sigma.json", "r") as f:
+    Sigmas = json.load(f)
+    Sigmas = [np.array(Sigma) for Sigma in Sigmas]
+# scatterplot of X colored by party from df_codes
+# white background + no grid + no colorbar + binary colors for 3 party codes
+# red for 200 (Republican), blue for 200 (Republican), purple for 328 (Independent)
+# hover info shows "bioname" from df_codes
+cls = ['red' if p == 200 else 'dodgerblue' if p == 100 else 'purple' for p in df_codes['party_code']]
+
+
+plot_df = pd.DataFrame({
+    "x": X[0],
+    "y": X[1],
+    "party_code": pd.Categorical(df_codes["party_code"]),
+    "bioname": df_codes["bioname"],
+})
+
+fig = px.scatter(
+    plot_df,
+    x="x", y="y",
+    color="party_code",
+    color_discrete_map={100: "dodgerblue", 200: "red", 328: "purple"},
+    hover_name="bioname",
+    hover_data={},  # remove all other hover fields
+)
+
+# show ONLY the bioname (and remove the extra trace-name line)
+fig.update_traces(hovertemplate="%{hovertext}<extra></extra>")
+
+fig.update_traces(hoverlabel_font_size=20, marker=dict(size=15))
+fig.update_layout(template="simple_white", showlegend=False)
+fig.update_xaxes(showgrid=False)
+fig.update_yaxes(showgrid=False)
+fig.update_layout(title_text="US Congress #116 - Senate (2019 - 2021)", title_x=0.5)
+
+fig.show()
+```
+:::
+
+
+
+
+## Senate Voting - Example 2
+
+
+Senators' voting records in the 116th U.S. Congress from 2019--2021 [@lewis2019voteview]
+$$
+d_{ij} = \% \text{disagreement between senators $i$ and $j$ on roll-call votes}.
+$$
+$D = (d_{ij}) \in \R^{100 \times 100}$ and let $\hX = \mds(D, 2) \in \R^{100 \times 2}$ be the  embedding
+
+
+```{python}
+fig = px.scatter(
+    plot_df,
+    x="x", y="y",
+    color="party_code",
+    color_discrete_map={100: "dodgerblue", 200: "red", 328: "purple"},
+    hover_name="bioname",
+    hover_data={},  # remove all other hover fields
+)
+
+# show ONLY the bioname (and remove the extra trace-name line)
+fig.update_traces(hovertemplate="%{hovertext}<extra></extra>")
+
+fig.update_traces(hoverlabel_font_size=20, marker=dict(size=15))
+fig.update_layout(template="simple_white", showlegend=False)
+fig.update_xaxes(showgrid=False)
+fig.update_yaxes(showgrid=False)
+fig.update_layout(title_text="US Congress #116 - Senate (2019 - 2021) ", title_x=0.5)
+
+# add ellipses for each Sigma in Sigmas at location X
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+from numpy import pi, sin, cos
+def ellipse(x_center=0, y_center=0, ax1 = [1, 0],  ax2 = [0,1], a=1, b =1,  N=100):
+    # x_center, y_center the coordinates of ellipse center
+    # ax1 ax2 two orthonormal vectors representing the ellipse axis directions
+    # a, b the ellipse parameters
+    # if np.linalg.norm(ax1) != 1 or np.linalg.norm(ax2) != 1:
+    #     raise ValueError(f'{np.linalg.norm(ax1)}: ax1, ax2 must be unit vectors')
+    if  abs(np.dot(ax1, ax2)) > 1e-06:
+        raise ValueError('ax1, ax2 must be orthogonal vectors')
+    t = np.linspace(0, 2*pi, N)
+    #ellipse parameterization with respect to a system of axes of directions a1, a2
+    xs = a * cos(t)
+    ys = b * sin(t)
+    #rotation matrix
+    R = np.array([ax1, ax2]).T
+    # coordinate of the  ellipse points with respect to the system of axes [1, 0], [0,1] with origin (0,0)
+    xp, yp = np.dot(R, [xs, ys])
+    x = xp + x_center 
+    y = yp + y_center
+    return x, y
+for i in range(len(Sigmas)):
+    Sigma = Sigmas[i]
+    x_center = X.iloc[i, 0]
+    y_center = X.iloc[i, 1]
+    # eigen decomposition of Sigma
+    eigvals, eigvecs = np.linalg.eig(Sigma)
+    # sort eigenvalues and eigenvectors
+    idx = eigvals.argsort()[::-1]
+    eigvals = eigvals[idx]
+    eigvecs = eigvecs[:, idx]
+    # semi-major and semi-minor axes
+    a = np.sqrt(eigvals[0]) * 2
+    b = np.sqrt(eigvals[1]) * 2
+    # angle of rotation
+    angle = np.arctan2(eigvecs[1, 0], eigvecs[0, 0])
+    # get ellipse points
+    x, y = ellipse(x_center=x_center, y_center=y_center, ax1 =[cos(angle), sin(angle)], ax2=[-sin(angle),cos(angle)], a=a/2.2, b =b/1.2)
+    # add scatter with cls color and opacity 0.2
+    fig.add_scatter(x=x, y=y, mode = 'lines', name=df_codes.iloc[i]['bioname'], line=dict(color=cls[i]), fill='toself', opacity=0.2,hoverinfo='skip')
+    # change name font size
+fig.show()
+```
+
+
+
+
+## 
+::: {#refs}
+:::

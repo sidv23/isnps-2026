@@ -1,0 +1,74 @@
+/*-- scss:defaults --*/
+// Include theme-specific fonts
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pragati+Narrow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+@import url('https: //fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Eczar&family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asul&family=Neuton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed&family=Josefin+Sans&family=PT+Sans&family=Sofia+Sans+Condensed&family=Titillium+Web&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Lato&family=Yanone+Kaffeesatz&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asul&family=Encode+Sans+Semi+Condensed&family=Saira+Semi+Condensed&family=Barlow+Semi+Condensed');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fira+Sans+Extra+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+// // // // // // // // 
+
+$saira: 'Saira Semi Condensed';
+$sairaextra: 'Saira Extra Condensed';
+$sofiaextra: 'Sofia Sans Extra Condensed';
+$noto: 'Noto Sans';
+$yanone: 'Yanone Kaffeesatz';
+$inconsolata: 'Inconsolata', monospace;
+$jetbrains: 'JetBrains Mono', monospace;
+$ibm-serif: 'IBM Plex Serif', serif;
+$fira: 'Fira Sans Extra Condensed', sans-serif;
+$pt: 'PT Sans', sans-serif;
+$ptnarrow: 'PT Sans Narrow', sans-serif;
+$sourcesans: 'Source Sans 3';
+$montserrat: 'Montserrat', sans-serif;
+$noto-serif: 'Noto Serif', serif;
+
+
+$titleFont: $yanone;
+// $mainFont: $fira;
+// $mainFont: $pt;
+$mainFont: $ptnarrow;
+$headingFont: $sofiaextra;
+$codeFont: $inconsolata;
+
+
+$mainFontSize: 40px;
+$code-block-font-size: 110%;
+$code-font-size: 110%;
+
+// Vertical spacing between blocks of text
+$blockMargin: 20px;
+
+// Headings
+$headingMargin: 0 0 $blockMargin 0;
+// $headingFont: $yanone;
+$headingLineHeight: 1.2;
+$headingLetterSpacing: normal;
+$headingTextShadow: 0px 0px 5px #424242;
+$headingFontWeight: bold;
+$heading1TextShadow: $headingTextShadow;
+
+$heading1Size: 3.0em;
+$heading2Size: 2.5em;
+$heading3Size: 2.0em;
+$heading4Size: 1.5em;
+
+$presentation-font-size-root: 100px;

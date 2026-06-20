@@ -1,0 +1,68 @@
+
+##  {data-auto-animate="true" data-transition="linear"}
+
+{{< include overview-all.qmd >}}
+
+##  {data-auto-animate="true" data-transition="fade" visibility="uncounted"}
+
+<iframe data-src="https://sidvishwanath.com/job-talk-2026/overview-dp" width=100% height=1000px class="iframebox" style="filter: grayscale(0%);"></iframe>
+
+
+
+
+
+
+
+
+
+
+
+##  {data-auto-animate="true" data-transition="linear" visibility="uncounted"}
+
+{{< include overview-all.qmd >}}
+
+##  {data-auto-animate="true" data-transition="fade" visibility="uncounted"}
+<iframe data-src="https://sidvishwanath.com/job-talk-2026/overview-tda" width=100% height=800px class="iframebox" style="filter: grayscale(0%);"></iframe>
+
+
+
+
+
+
+
+
+
+
+
+##  {data-auto-animate="true" data-transition="linear" visibility="uncounted"}
+{{< include overview-all.qmd >}}
+##  {data-auto-animate="true" data-transition="fade" visibility="uncounted"}
+<iframe data-src="https://sidvishwanath.com/job-talk-2026/overview-mcmc" width=100% height=800px class="iframebox" style="filter: grayscale(0%);"></iframe>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ##  {data-auto-animate="true" data-transition="linear" visibility="uncounted"}
+{{< include overview-all.qmd >}}
+##  {data-auto-animate="true" data-transition="fade" visibility="uncounted"}
+<iframe data-src="https://sidvishwanath.com/job-talk-2026/overview-mds" width=100% height=800px class="iframebox" style="filter: grayscale(0%);"></iframe>
+
+ -->
+
+
+
+
+
+
+
+
+
+##  {data-auto-animate="true" data-transition="linear" visibility="uncounted"}
+{{< include overview-all.qmd >}}

@@ -1,0 +1,157 @@
+/*-- scss:defaults --*/
+:root {
+    --ucsd-navy: #182B49;
+    --ucsd-navy: #1e407c;
+    --ucsd-blue: #00629B;
+    --ucsd-yellow: #FFCD00;
+    --ucsd-gold: #C69214;
+    --red: red;
+    --blue: blue;
+    --green: green;
+    --yellow: yellow;
+    --orange: orange;
+    --purple: purple;
+    --gray: gray;
+    --grey: gray;
+    --dblue: #1058ad;
+    --orchid: #db43d5;
+    --magenta: #D462AD;
+    --dorange: #ff5900;
+    --dodgerblue: #1e90ff;
+    --dpurple: rgb(122, 45, 245);
+    --orange: #FC8900;
+}
+
+$backgroundColor: white; // Background of the presentation
+$mainColor: $ucsd-navy;
+$body-color: $ucsd-navy;
+// Heading
+$headingColor: $ucsd-navy;
+$headingTextShadow: $ucsd-gold;
+// Links and actions
+$linkColor: $ucsd-gold;
+$linkColorHover: darken($linkColor, 20%);
+// Text selection
+$selectionBackgroundColor: #00C6D72a;
+$selectionColor: #000000;
+
+
+// Generates the presentation background, can be overridden
+// to return a background image or gradient
+@mixin bodyBackground() {
+    background: $backgroundColor;
+}
+
+.content-box-square {
+    box-sizing: content-box;
+    background-color: var(--color, #e2e2e2);
+    /* opacity: 0.9; */
+    /* background-color: #e2e2e2; */
+    /* Total width: 160px + (2 * 20px) + (2 * 8px) = 216px
+     Total height: 80px + (2 * 20px) + (2 * 8px) = 136px
+     Content box width: 160px
+     Content box height: 80px */
+}
+
+.content-box-ucsd-navy,
+.content-box-ucsd-navy,
+.content-box-ucsd-blue,
+.content-box-ucsd-yellow,
+.content-box-ucsd-gold,
+.content-box-red,
+.content-box-blue,
+.content-box-green,
+.content-box-yellow,
+.content-box-orange,
+.content-box-purple,
+.content-box-gray,
+.content-box-grey,
+.content-box-dblue,
+.content-box-orchid,
+.content-box-magenta,
+.content-box-dorange,
+.content-box-dodgerblue,
+.content-box-dpurple,
+.content-box-orange,
+.content-box-solid-white,
+.content-box-solid-ucsd-navy,
+.content-box-solid-ucsd-blue,
+.content-box-solid-ucsd-yellow,
+.content-box-solid-ucsd-gold,
+.content-box-solid-lightgold,
+.content-box-solid-lightorange,
+.content-box-solid-red,
+.content-box-solid-blue,
+.content-box-solid-green,
+.content-box-solid-yellow,
+.content-box-solid-orange,
+.content-box-solid-purple,
+.content-box-solid-gray,
+.content-box-solid-grey,
+.content-box-solid-dblue,
+.content-box-solid-orchid,
+.content-box-solid-magenta,
+.content-box-solid-dorange,
+.content-box-solid-dodgerblue,
+.content-box-solid-dpurple,
+.content-box-solid-orange,
+.content-box {
+    /* background-color: var(--color, #e2e2e2); */
+    background-color: var(--color, #e2e2e2);
+    /* opacity: 0.9; */
+    border-radius: 15px;
+    margin: 0 0 0px;
+    overflow: hidden;
+    padding: 10px 25px;
+    width: 95%;
+    align-self: center;
+}
+.content-box-ucsd-navy{background-color: rgba(24, 43, 73, 0.2);}
+.content-box-ucsd-navy{background-color: rgba(30, 64, 124, 0.2);}
+.content-box-ucsd-blue{background-color: rgba(0, 98, 155, 0.2);}
+.content-box-ucsd-yellow{background-color: rgba(255, 205, 0, 0.2);}
+.content-box-ucsd-gold{background-color: rgba(198, 146, 20, 0.2);}
+.content-box-gold{background-color: rgba(198, 146, 20, 0.2);}
+.content-box-red{background-color: rgba(255, 0, 0, 0.2);}
+.content-box-blue{background-color: rgba(0, 0, 255, 0.2);}
+.content-box-green{background-color: rgba(0, 128, 0, 0.2);}
+.content-box-yellow{background-color: rgba(255, 255, 0, 0.2);}
+.content-box-orange{background-color: rgba(255, 165, 0, 0.2);}
+.content-box-purple{background-color: rgba(128, 0, 128, 0.2);}
+.content-box-gray{background-color: rgba(128, 128, 128, 0.2);}
+.content-box-grey{background-color: rgba(128, 128, 128, 0.2);}
+.content-box-dblue{background-color: rgba(16, 88, 173, 0.2);}
+.content-box-orchid{background-color: rgba(219, 67, 213, 0.2);}
+.content-box-magenta{background-color: rgba(212, 98, 173, 0.2);}
+.content-box-dorange{background-color: rgba(255, 89, 0, 0.2);}
+.content-box-dodgerblue{background-color: rgba(30, 144, 255, 0.2);}
+.content-box-dpurple{background-color: rgba(122, 45, 245, 0.2);}
+.content-box-orange{background-color: rgba(252, 137, 0, 0.2);}
+
+
+// create a content box identical to the ones above but with opacity 1.0
+
+.content-box-solid-white{background-color: rgba(255, 255, 255, 1.0);}
+.content-box-solid-ucsd-navy{background-color: rgba(24, 43, 73, 1.0);}
+.content-box-solid-ucsd-navy{background-color: rgba(30, 64, 124, 1.0);}
+.content-box-solid-ucsd-blue{background-color: rgba(0, 98, 155, 1.0);}
+.content-box-solid-ucsd-yellow{background-color: rgba(255, 205, 0, 1.0);}
+.content-box-solid-ucsd-gold{background-color: rgba(198, 146, 20, 1.0);}
+.content-box-solid-gold{background-color: rgba(198, 146, 20, 1.0);}
+.content-box-solid-lightgold{background-color: rgb(205, 167, 77);}
+.content-box-solid-red{background-color: rgba(255, 0, 0, 1.0);}
+.content-box-solid-blue{background-color: rgba(0, 0, 255, 1.0);}
+.content-box-solid-green{background-color: rgba(0, 128, 0, 1.0);}
+.content-box-solid-yellow{background-color: rgba(255, 255, 0, 1.0);}
+.content-box-solid-orange{background-color: rgba(255, 165, 0, 1.0);}
+.content-box-solid-lightorange{background-color: rgb(255, 239, 211);}
+.content-box-solid-purple{background-color: rgba(128, 0, 128, 1.0);}
+.content-box-solid-gray{background-color: rgba(128, 128, 128, 1.0);}
+.content-box-solid-grey{background-color: rgba(128, 128, 128, 1.0);}
+.content-box-solid-dblue{background-color: rgba(16, 88, 173, 1.0);}
+.content-box-solid-orchid{background-color: rgba(219, 67, 213, 1.0);}
+.content-box-solid-magenta{background-color: rgba(212, 98, 173, 1.0);}
+.content-box-solid-dorange{background-color: rgba(255, 89, 0, 1.0);}
+.content-box-solid-dodgerblue{background-color: rgba(30, 144, 255, 1.0);}
+.content-box-solid-dpurple{background-color: rgba(122, 45, 245, 1.0);}
+.content-box-solid-orange{background-color: rgba(252, 137, 0, 1.0);}

@@ -1,0 +1,255 @@
+// Default mixins and settings -----------------
+// @import "template/mixins";
+// @import "template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;1,300;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;1,300;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+@import url('https: //fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Eczar&family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asul&family=Neuton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed&family=Josefin+Sans&family=PT+Sans&family=Sofia+Sans+Condensed&family=Titillium+Web&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Lato&family=Yanone+Kaffeesatz&display=swap');
+
+/*-- scss:defaults --*/
+
+// // // // // // // // 
+// colors
+
+$psublue: #1e407c;
+$psu-blue: #1e407c;
+$black: black;
+$white: white;
+$red: red;
+$blue: blue;
+$green: green;
+$yellow: yellow;
+$orange: orange;
+$purple: purple;
+$gray: gray;
+$grey: gray;
+$dblue: #1058ad;
+$orchid: #db43d5;
+$dorange: #ff5900;
+
+$backgroundColor: #ffffff; // Background of the presentation
+$mainColor: #333;
+$body-color: #333;
+// Heading
+$headingColor: $psu-blue;
+$headingTextShadow: #DD6164;
+// Links and actions
+$linkColor: #DD6164;
+$linkColorHover: darken($linkColor, 20%);
+// Text selection
+$selectionBackgroundColor: #cc5eff2a;
+$selectionColor: #000000;
+
+
+// // // // // // // // 
+// Primary/body text
+// $mainFont: 'Fira Sans Condensed', sans-serif;
+// $mainFont: 'Lato', sans-serif;
+// $mainFont: 'Eczar',serif;
+// $mainFont: 'Source Sans Pro',sans-serif;
+$mainFont: 'PT Sans', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+// $mainFont: 'Fira Sans', sans-serif;
+// $mainFont: 'Lato',sans-serif;
+$mainFontSize: 35px;
+
+// Vertical spacing between blocks of text
+$blockMargin: 20px;
+
+// Headings
+$headingMargin: 0 0 $blockMargin 0;
+// $headingFont: 'Fira Sans Extra Condensed', sans-serif;
+// $headingFont: 'PT Sans Narrow', sans-serif;
+$headingFont: 'Yanone Kaffeesatz', sans-serif;
+$headingLineHeight: 1.2;
+$headingLetterSpacing: normal;
+// $headingTextTransform: uppercase;
+// $headingTextShadow: normal;
+// $headingFontWeight: normal;
+$headingTextShadow: 0px 0px 5px #424242;
+$headingFontWeight: bold;
+$heading1TextShadow: $headingTextShadow;
+
+// $heading1Size: 2.5em;
+// $heading2Size: 2em;
+// $heading3Size: 1.5em;
+// $heading4Size: 1.0em;
+
+$heading1Size: 3.5em;
+$heading2Size: 3.0em;
+$heading3Size: 2.5em;
+$heading4Size: 2.0em;
+
+$codeFont: monospace;
+
+
+// Generates the presentation background, can be overridden
+// to return a background image or gradient
+@mixin bodyBackground() {
+    background: $backgroundColor;
+}
+
+#title-slide {
+
+    text-align: left;
+    background-color: $psu-blue;
+
+    .institute,
+    .quarto-title-affiliation {
+        font-style: italic;
+        font-size: 1.0em;
+    }
+
+    .author,
+    .quarto-title-author-name {
+        color: $white;
+        font-size: 1.5em;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .quarto-title-authors {
+        display: flex;
+        justify-content: left;
+
+        .quarto-title-author {
+            padding-left: 0em;
+            padding-right: 0em;
+            width: 100%;
+        }
+    }
+
+    p.author::before,
+    div.quarto-title-author::before {
+        content: "";
+        display: block;
+        border: none;
+        background-color: darkorange;
+        color: $dorange;
+        height: 3px;
+        margin-bottom: 1em;
+    }
+
+    p,
+    a {
+        color: #7F7F7F;
+    }
+
+    h1 {
+        color: white;
+        font-weight: normal;
+        font-size: 2.5em;
+        padding: 10px;
+        // text-align: left;
+        text-align: center;
+        vertical-align: middle;
+        margin-bottom: 0px;
+        /*text-shadow: none; */
+        text-shadow: 0 0 5px white;
+
+    }
+
+
+    h2 {
+        color: orange !important;
+        /* first of type is master brand red */
+        font-size: 35px;
+        font-weight: normal;
+        padding-left: 20px;
+        padding-bottom: 10px;
+        margin-top: -20px;
+        margin-bottom: 50px;
+        text-align: left;
+        vertical-align: middle;
+        /*text-shadow: none; */
+        text-shadow: 0 0 1px orange;
+    }
+
+
+    h3 {
+        font-size: 28px;
+        font-weight: normal;
+        color: white;
+        padding-left: 20px;
+        margin: 0px;
+        line-height: 1;
+        text-align: left;
+        vertical-align: middle;
+        /*text-shadow: none; */
+        text-shadow: 0 0 1px #002D62;
+    }
+
+    h4 {
+        font-size: 20px;
+        font-weight: normal;
+        color: white;
+        padding-left: 20px;
+        margin: 0px;
+        line-height: 1;
+        text-align: left;
+        vertical-align: middle;
+        /*text-shadow: none; */
+        text-shadow: 0 0 1px #002D62;
+    }
+}
+
+
+.inverse h1 {
+    color: white;
+}
+
+hr,
+.title-slide h2::after,
+.mline h1::after {
+    content: '';
+    display: block;
+    border: none;
+    background-color: #EB811B;
+    color: #EB811B;
+    margin-top: 20px;
+    height: 5px;
+}
+
+// .slide-logo {
+//     display: block !important;
+//     position: fixed !important;
+//     bottom: 0 !important;
+//     right: 10px !important;
+//     max-height: 15% !important;
+//     height: 100% !important;
+//     width: auto !important;
+//     color: $body-color !important;
+// }
+
+.slide-menu-button {
+    left: 10px !important;
+    bottom: 10px !important;
+}
+
+.slide-number,
+.reveal.has-logo .slide-number {
+    bottom: 10px !important;
+    right: 10px !important;
+    top: unset !important;
+    color: $body-color !important;
+}
+
+.cell-output {
+    border: 1px solid $body-color;
+    border-radius: 4px;
+}
+
+/*-- scss:rules --*/
+// Base theme template for reveal.js
+// Theme template ------------------------------
+// @import "template/theme";
+// ---------------------------------------------

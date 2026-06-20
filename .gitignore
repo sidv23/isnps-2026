@@ -1,0 +1,6 @@
+# *.qmd
+/.luarc.json
+
+/.quarto/
+/bak/*
+**/*.quarto_ipynb

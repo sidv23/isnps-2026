@@ -1,0 +1,149 @@
+---
+metadata-files: 
+  - metadata.yml
+format: 
+    revealjs:
+      height: 900
+      width: 1600
+      theme:
+        - src/css/theme.scss
+      include-in-header:
+        - file: src/header.html
+      controls: true
+      touch: true
+      scrollable: true
+      history: false
+      navigation-mode: linear
+      code-tools: true
+      self-contained-math: true
+      menu: false
+---
+
+## High-Dimensional Multimodal Sampling via RA-HMC
+
+:::: {.center}
+![](imgs/mcmc/contour.png){width=70%}
+::::
+
+{{< include src/math/tex-macros >}}
+$$
+\require{enclose}
+\require{physics}
+\require{ams}
+$$
+
+
+## 
+
+:::: {.center}
+Consider the problem of generating samples $\{q_1, \dots, q_n\} \sim \pi(q) \propto e^{-U(q)}$
+
+
+:::: {.columns .small}
+
+::: {.column width="50%"}
+::: {.r-stack}
+::: {.content-box-solid-lightorange .fragment fragment-index=1 .fade-out}
+**Hamiltonian Monte Carlo** 
+
+1. Given state $q$, sample _auxiliary momentum_ $p$[$\sim \mathcal{N}(0, \Sigma)$]{.footnotesize}+br+br
+2. For $(q, p) \sim e^{-H(q,\, p)}$ in the joint state-space+br
+treat [$H(q, p)$]{.footnotesize} as the **Hamiltonian of a physical system**+br+br
+3. Simulate Hamiltonian dynamics for time $T$ using the **Leapfrog Integrator** to propose new state $(q',\  p')$+br+br
+4. Accept/Reject the proposed state with probability+br
+[$\hspace{4em}\displaystyle\alpha(q', q) = \min\pb{ 1, {e^{-H(q',\  p')}}\Big/ e^{-H(q',\  p')} }$]{.footnotesize .center}
+:::
+
+::: {.content-box-solid-lightorange .fragment .fade-in-then-out fragment-index=1}
++br+br
+If $\pi(q) \propto e^{-U(q)}$ has multiple modes,+brHMC can get **trapped**+br+br
+⚠️ Energy barriers prevent transitions between modes ⚠️
++br+br+br
+:::
+
+<!-- ::: {.content-box-solid-white .fragment fragment-index=3}
+<iframe src="https://sidvishwanath.com/mcmc-demo/?algorithm=RA-HMC&target=multimodal&delay=2&tweeningDelay=2" width="100%" height="700px" style="border:none;"></iframe>
+::: -->
+
+::: {.content-box-solid-white .fragment fragment-index=3}
++br
+![](imgs/mcmc/downup3.gif){width=75%}
+:::
+
+
+
+:::
+
+:::
+
+
+
+
+::: {.column width="50%"}
+::: {.r-stack}
+
+::: {.content-box-solid-white}
+![](imgs/mcmc/wo-friction2.gif){width=75%}
+:::
+
+<!-- ::: {.content-box-solid-white}
+<iframe src="https://sidvishwanath.com/mcmc-demo/?algorithm=HamiltonianMC&target=multimodal&delay=2&tweeningDelay=2" width="100%" height="700px" style="border:none;"></iframe>
+::: -->
+
+
+
+::: {.content-box-solid-lightorange .fragment fragment-index=3 .fade-in-then-out}
+**Repelling-Attracting Hamiltonian Monte Carlo** 
+
+1. Given state $q$, sample _auxiliary momentum_ $p$[$\sim \mathcal{N}(0, \Sigma)$]{.footnotesize}+br+br
+2. For $(q, p) \sim e^{-H(q,\, p)}$ in the joint state-space+br
+treat [$H(q, p)$]{.footnotesize} as the **Hamiltonian of a physical system**+br+br
+3. For time $T$ simulate **conformal Hamiltonian dynamics**:
+  * _anti-dissipative_ dynamics for $0 < t < T/2$ 
+  * _dissipative_ dynamics for $T/2 < t < T$
+4. Accept/Reject the proposed state with probability+br
+[$\hspace{4em}\displaystyle\alpha(q', q) = \min\pb{ 1, {e^{-H(q',\  p')}}\Big/ e^{-H(q',\  p')} }$]{.footnotesize .center}
+:::
+
+::: {.content-box-solid-lightorange .fragment .fade-in-then-out fragment-index=5}
++br+br+br+br
+RA-HMC is tuning-free and can efficiently sample from multimodal distributions across 1000s of dimensions
+[@vishwanath2024repelling]
++br+br+br+br
+:::
+
+::: {.content-box-white .fragment fragment-index=6}
+
+:::
+
+:::
+
+:::
+
+::::
+
+
+::::
+
+
+## 
+:::: {.columns}
+
+::: {.column width=45% .content-box-solid-white}
+<iframe src="https://sidvishwanath.com/mcmc-demo/?algorithm=RA-HMC&target=multimodal&delay=2&tweeningDelay=2" width="100%" height="700px" style="border:none;"></iframe>
+:::
+
+::: {.column width=45% .content-box-solid-white}
+<iframe src="https://sidvishwanath.com/mcmc-demo/?algorithm=HamiltonianMC&target=multimodal&delay=2&tweeningDelay=2" width="100%" height="700px" style="border:none;"></iframe>
+:::
+
+::: {.footnote .scriptsize}
+Courtesy the template by [Chi Feng](https://github.com/chi-feng/mcmc-demo/)
+:::
+
+::::
+
+:::: {style="color: white;"}
+::: {#refs}
+:::
+::::

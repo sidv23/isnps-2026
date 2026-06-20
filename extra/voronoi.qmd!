@@ -1,0 +1,30 @@
+::: {style="content: flex; text-align: right; align: right; content-align: right; margin-top: -2%; margin-left:5%;"}
+
+```{r fig.width=15, fig.height=7.5, cache=TRUE}
+#| layout-align: right
+library(plotly)
+# library(httpgd)
+load("./extra/voronoi.RData")
+
+
+df <- X[, ]
+
+plot_ly(
+        data = df, x = ~Var1, y = ~Var2, z = ~Var3,
+        type = "scatter3d", mode = "markers",
+        marker = list(
+                size = 2, symbol = "circle",
+                color = "black", opacity = 0.2
+                )
+        ) %>%
+  layout(scene = list(
+        xaxis = list(showspikes = FALSE, title = ""),
+        yaxis = list(showspikes = FALSE, title = ""),
+        zaxis = list(showspikes = FALSE, title = ""),
+        camera = list(zoom = 10)
+        )
+  )
+
+```
+
+:::

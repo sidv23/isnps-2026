@@ -1,0 +1,86 @@
+// Default mixins and settings -----------------
+// @import "template/mixins";
+// @import "template/settings";
+// ---------------------------------------------
+
+@import "color-names.scss";
+@import "colors.scss";
+@import "fonts.scss";
+@import "font-mods.scss";
+@import "title-slide.scss";
+
+// Generates the presentation background, can be overridden
+// to return a background image or gradient
+@mixin bodyBackground() {
+    background: $backgroundColor;
+}
+
+.inverse h1 {
+    color: $ucsd-gold;
+}
+
+hr,
+.title-slide h2::after,
+.mline h1::after {
+    content: '';
+    display: block;
+    border: none;
+    background-color: $ucsd-gold;
+    color: $ucsd-gold;
+    margin-top: 20px;
+    height: 5px;
+}
+
+// .slide-logo {
+//     display: block !important;
+//     position: fixed !important;
+//     bottom: 0 !important;
+//     right: 10px !important;
+//     max-height: 15% !important;
+//     height: 100% !important;
+//     width: auto !important;
+//     color: $body-color !important;
+// }
+
+.slide-menu-button {
+    left: 10px !important;
+    bottom: 10px !important;
+}
+
+.slide-number,
+.reveal.has-logo .slide-number {
+    bottom: 10px !important;
+    right: 10px !important;
+    top: unset !important;
+    color: $body-color !important;
+}
+
+.cell-output {
+    border: 1px solid $body-color;
+    border-radius: 4px;
+}
+
+/*-- scss:rules --*/
+// Base theme template for reveal.js
+// Theme template ------------------------------
+// @import "template/theme";
+// ---------------------------------------------
+
+.panel-tabset {
+    --panel-tab-foreground: currentColor;
+    --panel-tab-background: unset;
+    --panel-tab-active-foreground: #0148A4;
+    --panel-tab-active-background: unset;
+    --panel-tab-active-border-color: currentColor;
+    --panel-tab-hover-foreground: currentColor;
+    --panel-tab-hover-background: unset;
+    --panel-tab-hover-border-color: currentColor;
+    --panel-tab-inactive-opacity: 0.3;
+    --panel-tabs-border-bottom: #ddd;
+}
+
+.reveal pre.sourceCode code {
+    /* height: 500px; */
+    height: 860px !important;
+    max-height: 2000px !important;
+}
