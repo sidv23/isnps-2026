@@ -102,7 +102,7 @@ $$
 :::{.center}
 Many problems in psychology, sociology, ecology, wireless communication,  neuroscience, bioinformatics, etc.
 +br 
-involve [**relational**]{.ucsd-gold} data in the form of [**pairwise dissimilarities**]{.ucsd-gold} between items
+involve [**relational**]{.uva-orange} data in the form of [**pairwise dissimilarities**]{.uva-orange} between items
 :::
 
 :::: {.columns .center}
@@ -303,13 +303,13 @@ Dates back to [@young1938discussion]. Later rediscovered by [@torgerson1952multi
 
 ## MDS vs Dimension Reduction {#appendix-mds-pca visibility="uncounted"}
 
-| [Comparison]{.ucsd-gold} | MDS | Dimension Reduction+br+br |
+| [Comparison]{.uva-orange} | MDS | Dimension Reduction+br+br |
 |:----|:--------------------:|:-------------------------:|
-| [Data type]{.ucsd-gold} | Pairwise dissimilarities $\Del \in \Rnn$ | Feature vectors $X \in \R^{n \times P}$+br+br+br |
-| [Goal]{.ucsd-gold} | Find configuration $\hX \in \Rnp$ such that $\|\hx_i - \hx_j\| \approx \del_{ij}$ | Find low-dimensional representation $\hX \in \R^{n \times p}$ such that $\hx_i\tr\hx_j \approx x_i\tr x_j$ +br+br|
-| [Spectral algorithm]{.ucsd-gold} | Classical MDS (CMDS) Algorithm $$\hX = 
+| [Data type]{.uva-orange} | Pairwise dissimilarities $\Del \in \Rnn$ | Feature vectors $X \in \R^{n \times P}$+br+br+br |
+| [Goal]{.uva-orange} | Find configuration $\hX \in \Rnp$ such that $\|\hx_i - \hx_j\| \approx \del_{ij}$ | Find low-dimensional representation $\hX \in \R^{n \times p}$ such that $\hx_i\tr\hx_j \approx x_i\tr x_j$ +br+br|
+| [Spectral algorithm]{.uva-orange} | Classical MDS (CMDS) Algorithm $$\hX = 
 \argmin_{Y \in \Rnp} \| \Delc - YY\tr \|_F^2$$ | Principal Component Analysis (PCA) $$\hX = \argmin_{Y \in \R^{n \times p}} \| X X\tr - YY\tr \|_F^2 $$ |
-| [Nonlinear methods]{.ucsd-gold} | Isomap, t-SNE, Non-metric MDS, ... | Kernal PCA, LLE, Laplacian Eigenmaps, ... |
+| [Nonlinear methods]{.uva-orange} | Isomap, t-SNE, Non-metric MDS, ... | Kernal PCA, LLE, Laplacian Eigenmaps, ... |
 
 
 
@@ -452,7 +452,7 @@ $$
 ## MDS under noise
 
 :::{.content-box-grey}
-In practice, the dissimilarity data is often subject to [**noise**]{.ucsd-gold} and/or [**measurement errors**]{.ucsd-gold}, i.e., we observe:
+In practice, the dissimilarity data is often subject to [**noise**]{.uva-orange} and/or [**measurement errors**]{.uva-orange}, i.e., we observe:
 $$
 \begin{aligned}
 d_{ij} &= \color{green}{\del_{ij}} + \color{red}{\eps_{ij}}\\
@@ -479,7 +479,7 @@ $+$
 ## MDS under noise {visibility="uncounted"}
 
 :::{.content-box-grey}
-In practice, the dissimilarity data is often subject to [**noise**]{.ucsd-gold} and/or [**measurement errors**]{.ucsd-gold}, i.e., we observe:
+In practice, the dissimilarity data is often subject to [**noise**]{.uva-orange} and/or [**measurement errors**]{.uva-orange}, i.e., we observe:
 $$
 \begin{aligned}
 d_{ij} &= \color{green}{\del_{ij}} + \color{red}{\eps_{ij}}\\
@@ -498,7 +498,7 @@ $$
 * $\XGreen$ is the configuration matrix underlying the [signal $\Del$]{.green}
 * $\hX = \mds(D, p)$ is the CMDS embedding of $D$
 
-The [**noisy CMDS embedding**]{.ucsd-gold} $\hX$ reflects the variability in $D$ due to $\color{red}{\Eps}$
+The [**noisy CMDS embedding**]{.uva-orange} $\hX$ reflects the variability in $D$ due to $\color{red}{\Eps}$
 :::
 :::
 ::: {.column width="40%" .center}
@@ -787,7 +787,7 @@ fig.show()
 $\hX = \mds(D, p)$
 
 ::: {.fragment fragment-index=1}
-* For any metric $\|\hX - \XGreen\|_{\dagger}$, define the [**reconstruction error***]{.ucsd-gold}:
+* For any metric $\|\hX - \XGreen\|_{\dagger}$, define the [**reconstruction error***]{.uva-orange}:
 
 :::{.center}
 $\displaystyle\ell(\hX, \XGreen) = \min_{g \in \euc} \| g(\hX) -\XGreen\|_{\dagger}$
@@ -899,10 +899,10 @@ Plot.dot(rotatedY, { x: "x", y: "y", r: 4, fill: "blue" })
 
 ## Statistical Estimation and difficulties {auto-animate="false"}
 
-* [**Model:**]{.ucsd-gold}+br+br 
+* [**Model:**]{.uva-orange}+br+br 
 $D = \DelXGreen + \EpsRed$ where $\EpsRed = (\color{red}{\eps_{ij}}) \in \Rnn$ is a **symmetric** and **hollow** $n \times n$ random matrix
 
-* [**Parameters:**]{.ucsd-gold}+br+br
+* [**Parameters:**]{.uva-orange}+br+br
 $\XGreen \in \Rnp$ (configuration matrix underlying $\DelGreen$) [**which consists of $np$ unknown parameters!**]{}
 
 ::: {.center .fragment fragment-index=1}
@@ -910,7 +910,7 @@ As $n \uparrow$ &emsp; then &emsp; $\#$parameters = $np\!\uparrow$ too!
 :::
 
 ::: {.fragment fragment-index=2}
-* [**Observations**:]{.ucsd-gold}+br+br
+* [**Observations**:]{.uva-orange}+br+br
 We have a total of $N = \binom{n}{2}$ observations $\big\{\del_{ij}: i < j\big\}$
 :::
 
@@ -994,8 +994,8 @@ For $\XGreen \in \bbX(\params)$ and $D = \DelXGreen + \EpsRed$, let $\hX = \mds(
 ::: {.content-box-dblue}
 **Definition (CMDS Upper Bound).** The reconstruction error $\ell(\hX,\XGreen)$ has:
 
-* [**convergence rate**]{.ucsd-gold} $R_n \to 0$ 
-* with [**failure probability**]{.ucsd-gold} $\alpha_n \to 0$, if:
+* [**convergence rate**]{.uva-orange} $R_n \to 0$ 
+* with [**failure probability**]{.uva-orange} $\alpha_n \to 0$, if:
 
 $$
 \sup_{D = \DelXGreen + \EpsRed}\pr\Big(\;\; \ell(\hX,\XGreen) \lesssim R_n \;\;\Big) \geq 1 - \alpha_n
@@ -1006,7 +1006,7 @@ $$
 
 ## Can we do better than CMDS? {data-auto-animate="true" align="center"}
 
-Let $\hXc(D) \in \Rnp$ be [**any estimator**]{.ucsd-gold} of $\XGreen$ &nbsp; based on $D = \DelXGreen + \EpsRed$ &nbsp; &nbsp; and for $\XGreen \in \bbX(\params)$
+Let $\hXc(D) \in \Rnp$ be [**any estimator**]{.uva-orange} of $\XGreen$ &nbsp; based on $D = \DelXGreen + \EpsRed$ &nbsp; &nbsp; and for $\XGreen \in \bbX(\params)$
 
 
 :::: {.r-stack}
@@ -1022,9 +1022,9 @@ $$
 :::
 
 ::: {.content-box-dblue .fragment fragment-index=2 .fade-in}
-**Definition ([**Minimax**]{.ucsd-gold} Lower Bound).** 
+**Definition ([**Minimax**]{.uva-orange} Lower Bound).** 
 
-$r_n \to 0$ is a [**minimax**]{.ucsd-gold} [**lower bound**]{} for the reconstruction error $\ell(\hXc,\,\XGreen)$ if:
+$r_n \to 0$ is a [**minimax**]{.uva-orange} [**lower bound**]{} for the reconstruction error $\ell(\hXc,\,\XGreen)$ if:
 
 $$
 \inf_{\hXc} \sup_{D = \color{green}{\Del} + \EpsRed } \pr\Big(\;\; \ell(\hXc,\,\XGreen) \gtrsim r_n\;\; \Big) \ge \frac{1}{2}
@@ -1047,7 +1047,7 @@ Performance of the best conceivable estimator $\displaystyle\Big(\text{i.e., }\i
 ## Reconstruction error metrics
 
 :::{.content-box-grey}
-The [**reconstruction error**]{.ucsd-gold} between the CMDS embedding $\hX$ and the true configuration $\XGreen$ is:
+The [**reconstruction error**]{.uva-orange} between the CMDS embedding $\hX$ and the true configuration $\XGreen$ is:
 $$
 \ell(\hX,\XGreen) = \min_{g \in \euc} \| g(\hX) -\XGreen\|_{\dagger}
 $$
@@ -1074,7 +1074,7 @@ Let $\hX = \mds(D, p)$ &emsp; for &emsp;  $D = \DelXGreen + \EpsRed$ &emsp;and&e
 
 ::: {.content-box-gray .center .footnotesize style="margin-top: -1.2%" .fragment fragment-index=1 .semi-fade-out}
 
-| [Minimax Lower Bound]{.large .ucsd-gold} | &emsp;&emsp;&emsp;&emsp; | [CMDS Upper Bound]{.large .ucsd-gold} |
+| [Minimax Lower Bound]{.large .uva-orange} | &emsp;&emsp;&emsp;&emsp; | [CMDS Upper Bound]{.large .uva-orange} |
 |:-------------------------------:|:---:|:-------------------------------:|
 | $\displaystyle \inf_{\hXc} \sup_{D = \DelXGreen + \EpsRed } \pr\Big(\;\; \ell(\hXc,\,\XGreen) \gtrsim r_n\;\; \Big) \ge \frac{1}{2}$ | | $\displaystyle \sup_{D = \DelXGreen + \EpsRed }\pr\Big(\;\; \ell(\hX, \XGreen) \lesssim R_n \;\;\Big) \;\ge\; 1 - \alpha_n$ |
 :::
@@ -1087,7 +1087,7 @@ Let $\hX = \mds(D, p)$ &emsp; for &emsp;  $D = \DelXGreen + \EpsRed$ &emsp;and&e
 **Theorem [@vishwanath2025minimax].** &emsp; For all &emsp; $0 < r < \frac{q-4}{2}$:+br
 <p></p>
 
-| [Metric]{.ucsd-gold} | [Lower bound $r_n$]{.ucsd-gold} | &emsp;&emsp; | [Upper bound $R_n$]{.ucsd-gold}| &emsp;&emsp; | [ Failure Probability $\alpha_n$]{.ucsd-gold} |
+| [Metric]{.uva-orange} | [Lower bound $r_n$]{.uva-orange} | &emsp;&emsp; | [Upper bound $R_n$]{.uva-orange}| &emsp;&emsp; | [ Failure Probability $\alpha_n$]{.uva-orange} |
 |:---------------------:|:-------------------------------:|:---:|:-------------------------------:|:---:|:-------------------------------:|
 | [$$\ell_{\text{RMSE}}$$]{} | $\displaystyle\frac{\sigma\kappa}{\sqrt{n}}$ | | $\displaystyle\frac{\sigma\kappa}{\sqrt{n}}$ +br | | $O(n^{-2} + n^{-r})$ |
 | [$\ell_{\ttinft}$]{} | $\displaystyle\underline{c}(\params)\cdot \sigma\sqrt{\frac{\log{n}}{n}}$| | $\displaystyle\bar{c}(\params)\cdot \sigma\sqrt{\frac{\log{n}}{n}}$| | $O(n^{-2} + n^{-r})$ +br+br |
@@ -1096,7 +1096,7 @@ Let $\hX = \mds(D, p)$ &emsp; for &emsp;  $D = \DelXGreen + \EpsRed$ &emsp;and&e
 :::
 
 ::: {.small .fragment fragment-index=2 .fade-down}
-* $q > 4$ moments is [necessary]{.ucsd-gold} for consistency
+* $q > 4$ moments is [necessary]{.uva-orange} for consistency
 * Parametric rates (in $n$) for $\ell_{\text{RMSE}}$ and minimax-optimal up to absolute constants
 * Extra [$\sqrt{\log{n}}$]{.small} factor for $\ell_{\ttinft}$ is unavoidable and suggests extreme-value phenomena
 :::
@@ -1134,7 +1134,7 @@ For each reconstruction error $\ell_{\text{RMSE}}, \ell_2$ and $\ell_{\ttinft}$,
 
 ::: {.footnotesize}
 
-| [$\ell(\hX,\XGreen)$]{.ucsd-gold} | [$\displaystyle\widehat{g} = \argmin_{g \in \euc} \| g(\hX) -\XGreen\|_{\dagger}$]{.ucsd-gold} |
+| [$\ell(\hX,\XGreen)$]{.uva-orange} | [$\displaystyle\widehat{g} = \argmin_{g \in \euc} \| g(\hX) -\XGreen\|_{\dagger}$]{.uva-orange} |
 |:---------------------:|:-------------------------------:|
 | $\ell_{\text{RMSE}}$ | $\displaystyle\widehat{g} = \argmin_{g \in \euc}\|g(\hX) - \XGreen\|_F$ |
 | $\ell_{\ttinft}$ | $\displaystyle\widehat{g} = \argmin_{g \in \euc}\|g(\hX) - \XGreen\|_{\ttinft}$ |
@@ -1159,7 +1159,7 @@ $$
 
 ## Under the hood: Procrustes alignment {visibility="uncounted"}
 
-All the upper bounds are proved using $\hgc$ obtained from the [orthogonal Procrustes solution]{.ucsd-gold}, e.g.,
+All the upper bounds are proved using $\hgc$ obtained from the [orthogonal Procrustes solution]{.uva-orange}, e.g.,
 $$
 \begin{aligned}
 \ell_{\ttinft}(\hX,\XGreen) &= \min_{g \in \euc}\|g(\hX) - \XGreen\|_{\ttinft}  \\
@@ -1246,7 +1246,7 @@ $\hX = \mds(D, p)$
 ::: {.fragment fragment-index=1}
 :::{.content-box-gray}
 * For any $\color{Goldenrod}{\boldsymbol{\alpha}} \in (0, 1)$
-* Can we construct $\color{Goldenrod}{\boldsymbol{100 \times (1-\alpha)\%}}$ [**_uniform_ confidence sets**]{.ucsd-gold} 
+* Can we construct $\color{Goldenrod}{\boldsymbol{100 \times (1-\alpha)\%}}$ [**_uniform_ confidence sets**]{.uva-orange} 
 $$
 \conf_{\alpha} = \prod_{i=1}^n \conf_{\alpha, i} \subset \Rp
 $$
@@ -1289,7 +1289,7 @@ $$
 :::: {.r-stack}
 
 ::: {.footnotesize .content-box-gray .fragment .fade-out fragment-index=1}
-[**Tail bound.** ]{.ucsd-gold}  The constant $\color{red}{C_1}$ is unknown and is going to be **too conservative for practical use**
+[**Tail bound.** ]{.uva-orange}  The constant $\color{red}{C_1}$ is unknown and is going to be **too conservative for practical use**
 
 $$
 \begin{aligned}
@@ -1303,7 +1303,7 @@ $$
 
 
 ::: {.footnotesize .content-box-gray .fragment .fade-in-then-semi-out fragment-index=1}
-[**Tail bound.** ]{.ucsd-gold}  The constant $\color{red}{C_1}$ is unknown and is going to be **too conservative for practical use**
+[**Tail bound.** ]{.uva-orange}  The constant $\color{red}{C_1}$ is unknown and is going to be **too conservative for practical use**
 
 $$
 \begin{aligned}
@@ -1324,7 +1324,7 @@ $$
 :::: {.r-stack}
 
 ::: {.footnotesize .content-box-dodgerblue .fragment .fade-in-then-out fragment-index=2}
-[**Distributional approximation.** ]{.ucsd-gold}  Let $\hat{{F}}$ be an estimate for the distribution of $\ttinf{\hX - \hgc(X)}$. The constant $\color{red}{C_2}$ **does not** impact its practical use
+[**Distributional approximation.** ]{.uva-orange}  Let $\hat{{F}}$ be an estimate for the distribution of $\ttinf{\hX - \hgc(X)}$. The constant $\color{red}{C_2}$ **does not** impact its practical use
 
 $$
 \begin{aligned}
@@ -1339,7 +1339,7 @@ where $\rate_n \to 0$
 
 
 ::: {.footnotesize .content-box-dodgerblue .fragment .fade-in fragment-index=3}
-[**Distributional approximation.** ]{.ucsd-gold}  Let $\hat{{F}}$ be an estimate for the distribution of $\ttinf{\hX - \hgc(X)}$. The constant $\color{red}{C_2}$ **does not** impact its practical use
+[**Distributional approximation.** ]{.uva-orange}  Let $\hat{{F}}$ be an estimate for the distribution of $\ttinf{\hX - \hgc(X)}$. The constant $\color{red}{C_2}$ **does not** impact its practical use
 
 $$
 \begin{aligned}
@@ -1732,7 +1732,7 @@ $$
 $$
 
 ::: {.content-box-dblue .center style="width: 100% !important;"}
-Maximum of [**independent**]{.ucsd-gold} $\chi_p$ random variables converges to Gumbel at rate $O\left(\frac{1}{\log{n}}\right)$
+Maximum of [**independent**]{.uva-orange} $\chi_p$ random variables converges to Gumbel at rate $O\left(\frac{1}{\log{n}}\right)$
 :::
 
 :::
@@ -1751,7 +1751,7 @@ $$
 $$
 
 ::: {.content-box-dblue style="width: 100% !important;" .center}
-The random variables in $T_n$ are [**not independent**]{.ucsd-gold}! The main proof uses:+br
+The random variables in $T_n$ are [**not independent**]{.uva-orange}! The main proof uses:+br
 (i) Chen-Stein Poisson approximation &emsp; (ii) a **local** anti-concentration inequality for Gaussian quadratic forms
 :::
 
@@ -1873,7 +1873,7 @@ $\XGreen \in \R^{350 \times 2}$ is the location of the $350$ largest US cities a
 
 +br
 
-| Nominal level $\rightarrow$      | [0.999]{.ucsd-gold} | [0.99]{.ucsd-gold} | [0.975]{.ucsd-gold} | [0.95]{.ucsd-gold} | [0.925]{.ucsd-gold} | [0.9]{.ucsd-gold}    | [0.85]{.ucsd-gold}   | [0.8]{.ucsd-gold}    | [0.75]{.ucsd-gold}   |
+| Nominal level $\rightarrow$      | [0.999]{.uva-orange} | [0.99]{.uva-orange} | [0.975]{.uva-orange} | [0.95]{.uva-orange} | [0.925]{.uva-orange} | [0.9]{.uva-orange}    | [0.85]{.uva-orange}   | [0.8]{.uva-orange}    | [0.75]{.uva-orange}   |
 |-------------|-------|------|-------|------|-------|--------|--------|--------|--------|
 | Gaussian    | **0.998** | 0.992  | 0.983  | 0.954  | 0.932  | **0.902** | **0.851** | **0.789** | **0.707** |
 | Rademacher  | 0.997     | 0.988  | **0.980** | **0.951**  | **0.924** | 0.895     | 0.825     | 0.738     | 0.628     |
@@ -2222,7 +2222,7 @@ fig.show()
 
 # []{.center style="align-items: center;"} {visibility="uncounted"}
 
-[Thank you.]{.LARGE .ucsd-gold .bold .text-shadow}
+[Thank you.]{.LARGE .uva-orange .bold .text-shadow}
 
 
 
@@ -2369,14 +2369,14 @@ $$
 ## Appendix: Comparison {#appendix-fourth-moment-plots visibility="uncounted"}
 +br
 
-| [Metric]{.ucsd-gold} | [CMDS Upper Bound]{.ucsd-gold} | [Minimax Lower Bound]{.ucsd-gold}+br+br |
+| [Metric]{.uva-orange} | [CMDS Upper Bound]{.uva-orange} | [Minimax Lower Bound]{.uva-orange}+br+br |
 |:---------------------:|:-------------------------------:|:-------------------------------:|
-| [$$\ell_{\text{RMSE}}$$]{.ucsd-gold} | $\displaystyle\frac{\sigma\kappa}{\sqrt{n}}$ | $\displaystyle\frac{\sigma\kappa}{\sqrt{n}}$ +br+br |
-| [$\ell_{\ttinft}$]{.ucsd-gold} | $\displaystyle\bar{c}(\params)\cdot \sigma\sqrt{\frac{\log{n}}{n}}$| $\displaystyle\underline{c}(\params)\cdot \sigma\sqrt{\frac{\log{n}}{n}}$ |
+| [$$\ell_{\text{RMSE}}$$]{.uva-orange} | $\displaystyle\frac{\sigma\kappa}{\sqrt{n}}$ | $\displaystyle\frac{\sigma\kappa}{\sqrt{n}}$ +br+br |
+| [$\ell_{\ttinft}$]{.uva-orange} | $\displaystyle\bar{c}(\params)\cdot \sigma\sqrt{\frac{\log{n}}{n}}$| $\displaystyle\underline{c}(\params)\cdot \sigma\sqrt{\frac{\log{n}}{n}}$ |
 
 +br+br
 
-* $q > 4$ moments is [necessary]{.ucsd-gold} for consistency
+* $q > 4$ moments is [necessary]{.uva-orange} for consistency
 * where $\bar{c}(\params) = \kappa^2(\kappa + \Rx)$ and $\underline{c}(\params) = \kappa(1+\kappa\Rx)\inv$
 
 
@@ -2426,7 +2426,7 @@ $\EpsRed = (\color{red}{\eps_{ij}})$ is a random symmetric hollow matrix with:
 
 ## Local covariance information {#appendix-covariance visibility="uncounted"}
 
-* $\ttinf{\hX - \hgc(X)}$ leads to [**uniformly spherical**]{.ucsd-gold} sets
+* $\ttinf{\hX - \hgc(X)}$ leads to [**uniformly spherical**]{.uva-orange} sets
 
 ::: {.footnotesize .center}
 $\displaystyle\Big\{Y \in \Rnp: \ttinf{\hX - Y} \le r \Big\} = \prod_{i=1}^n B(\hx_i, r)$
@@ -2438,12 +2438,12 @@ $\displaystyle\Big\{Y \in \Rnp: \ttinf{\hX - Y} \le r \Big\} = \prod_{i=1}^n B(\
 ::: {.footnotesize .center}
 $\displaystyle\Omega_i := \frac{n}{4} (\XGreen\tr\XGreen)^{-1}\XGreen\tr \Sigma_i\XGreen(\XGreen\tr\XGreen)^{-1} \in \Rpp$
 :::
-captures the [**local covariance structure**]{.ucsd-gold} at each $\hx_i \in \Rp$
+captures the [**local covariance structure**]{.uva-orange} at each $\hx_i \in \Rp$
 :::
 
 
 ::: {.fragment fragment-index=2}
-* Let $E = (e_{ij}) = D - \Del(\hX)$ be the matrix of residuals. The [**plug-in estimator*** for $\Omega_i$]{.ucsd-gold} is
+* Let $E = (e_{ij}) = D - \Del(\hX)$ be the matrix of residuals. The [**plug-in estimator*** for $\Omega_i$]{.uva-orange} is
 
 ::: {.footnotesize .center}
 $\displaystyle\hOm_i := \frac{n}{4} (\hX\tr \hX)^{-1} \hX\tr \h{\Sigma}_i \hX (\hX\tr \hX)^{-1} \in \Rpp$
@@ -2460,7 +2460,7 @@ This is the analogue of White's correction for heteroscedasticity [@white1980het
 
 ## Local covariance information {visibility="uncounted"}
 
-* $\ttinf{\hgc(\hX) - X}$ leads to [**uniformly spherical**]{.ucsd-gold} sets. 
+* $\ttinf{\hgc(\hX) - X}$ leads to [**uniformly spherical**]{.uva-orange} sets. 
 
 ::: {.footnotesize .center}
 $\displaystyle\Big\{X \in \Rnp: \ttinf{\hX - \hgc(X)} \le r \Big\} = \prod_{i=1}^n B(\hx_i, r)$
@@ -2477,7 +2477,7 @@ $$
 
 
 ::: {.fragment fragment-index=2}
-* $\hat T_n$ leads to [**locally ellipsoidal**]{.ucsd-gold} sets
+* $\hat T_n$ leads to [**locally ellipsoidal**]{.uva-orange} sets
 
 ::: {.footnotesize}
 ::: {.center}

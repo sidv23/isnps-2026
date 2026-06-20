@@ -365,7 +365,7 @@
 <section id="pairwise-dissimilarity-data" class="slide level2" data-visibility="uncounted" data-align="center">
 <h2>Pairwise Dissimilarity Data</h2>
 <div class="center">
-<p>Many problems in psychology, sociology, ecology, wireless communication, neuroscience, bioinformatics, etc. <br> involve <span class="ucsd-gold"><strong>relational</strong></span> data in the form of <span class="ucsd-gold"><strong>pairwise dissimilarities</strong></span> between items</p>
+<p>Many problems in psychology, sociology, ecology, wireless communication, neuroscience, bioinformatics, etc. <br> involve <span class="uva-orange"><strong>relational</strong></span> data in the form of <span class="uva-orange"><strong>pairwise dissimilarities</strong></span> between items</p>
 </div>
 <div class="columns center">
 <div class="column" style="width:49%;">
@@ -498,30 +498,30 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;"><span class="ucsd-gold">Comparison</span></th>
+<th style="text-align: left;"><span class="uva-orange">Comparison</span></th>
 <th style="text-align: center;">MDS</th>
 <th style="text-align: center;">Dimension Reduction<br><br></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="ucsd-gold">Data type</span></td>
+<td style="text-align: left;"><span class="uva-orange">Data type</span></td>
 <td style="text-align: center;">Pairwise dissimilarities <span class="math inline">\(\Delta\in \mathbb{R}^{n \times n}\)</span></td>
 <td style="text-align: center;">Feature vectors <span class="math inline">\(X \in \mathbb{R}^{n \times P}\)</span><br><br><br></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="ucsd-gold">Goal</span></td>
+<td style="text-align: left;"><span class="uva-orange">Goal</span></td>
 <td style="text-align: center;">Find configuration <span class="math inline">\(\widehat{X}\in \mathbb{R}^{n \times p}\)</span> such that <span class="math inline">\(\|\widehat{x}_i - \widehat{x}_j\| \approx \delta_{ij}\)</span></td>
 <td style="text-align: center;">Find low-dimensional representation <span class="math inline">\(\widehat{X}\in \mathbb{R}^{n \times p}\)</span> such that <span class="math inline">\(\widehat{x}_i^{\mathsf{T}}\widehat{x}_j \approx x_i^{\mathsf{T}}x_j\)</span> <br><br></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="ucsd-gold">Spectral algorithm</span></td>
+<td style="text-align: left;"><span class="uva-orange">Spectral algorithm</span></td>
 <td style="text-align: center;">Classical MDS (CMDS) Algorithm <span class="math display">\[\widehat{X}=
 \mathop{\operatorname{arg\,min}}_{Y \in \mathbb{R}^{n \times p}} \| \Delta_c- YY^{\mathsf{T}}\|_F^2\]</span></td>
 <td style="text-align: center;">Principal Component Analysis (PCA) <span class="math display">\[\widehat{X}= \mathop{\operatorname{arg\,min}}_{Y \in \mathbb{R}^{n \times p}} \| X X^{\mathsf{T}}- YY^{\mathsf{T}}\|_F^2 \]</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="ucsd-gold">Nonlinear methods</span></td>
+<td style="text-align: left;"><span class="uva-orange">Nonlinear methods</span></td>
 <td style="text-align: center;">Isomap, t-SNE, Non-metric MDS, …</td>
 <td style="text-align: center;">Kernal PCA, LLE, Laplacian Eigenmaps, …</td>
 </tr>
@@ -687,7 +687,7 @@
 <section id="mds-under-noise" class="slide level2">
 <h2>MDS under noise</h2>
 <div class="content-box-grey">
-<p>In practice, the dissimilarity data is often subject to <span class="ucsd-gold"><strong>noise</strong></span> and/or <span class="ucsd-gold"><strong>measurement errors</strong></span>, i.e., we observe: <span class="math display">\[
+<p>In practice, the dissimilarity data is often subject to <span class="uva-orange"><strong>noise</strong></span> and/or <span class="uva-orange"><strong>measurement errors</strong></span>, i.e., we observe: <span class="math display">\[
 \begin{aligned}
 d_{ij} &amp;= \color{green}{\delta_{ij}} + \color{red}{\varepsilon_{ij}}\\
 D &amp;= \underbrace{\color{green}{\Delta}}_{\color{green}{\text{signal}}} + \underbrace{\color{red}{\mathcal{E}}}_{\color{red} {\text{noise}}}
@@ -717,7 +717,7 @@ D &amp;= \underbrace{\color{green}{\Delta}}_{\color{green}{\text{signal}}} + \un
 <section id="mds-under-noise-1" class="slide level2" data-visibility="uncounted">
 <h2>MDS under noise</h2>
 <div class="content-box-grey">
-<p>In practice, the dissimilarity data is often subject to <span class="ucsd-gold"><strong>noise</strong></span> and/or <span class="ucsd-gold"><strong>measurement errors</strong></span>, i.e., we observe: <span class="math display">\[
+<p>In practice, the dissimilarity data is often subject to <span class="uva-orange"><strong>noise</strong></span> and/or <span class="uva-orange"><strong>measurement errors</strong></span>, i.e., we observe: <span class="math display">\[
 \begin{aligned}
 d_{ij} &amp;= \color{green}{\delta_{ij}} + \color{red}{\varepsilon_{ij}}\\
 D &amp;= \underbrace{\color{green}{\Delta}}_{\color{green}{\text{signal}}} + \underbrace{\color{red}{\mathcal{E}}}_{\color{red} {\text{noise}}}
@@ -732,7 +732,7 @@ D &amp;= \underbrace{\color{green}{\Delta}}_{\color{green}{\text{signal}}} + \un
 <li><span class="math inline">\(\color{green}{X}\)</span> is the configuration matrix underlying the <span class="green">signal <span class="math inline">\(\Delta\)</span></span></li>
 <li><span class="math inline">\(\widehat{X}= \mathsf{CMDS}(D, p)\)</span> is the CMDS embedding of <span class="math inline">\(D\)</span></li>
 </ul>
-<p>The <span class="ucsd-gold"><strong>noisy CMDS embedding</strong></span> <span class="math inline">\(\widehat{X}\)</span> reflects the variability in <span class="math inline">\(D\)</span> due to <span class="math inline">\(\color{red}{\mathcal{E}}\)</span></p>
+<p>The <span class="uva-orange"><strong>noisy CMDS embedding</strong></span> <span class="math inline">\(\widehat{X}\)</span> reflects the variability in <span class="math inline">\(D\)</span> due to <span class="math inline">\(\color{red}{\mathcal{E}}\)</span></p>
 </div>
 </div><div class="column center" style="width:40%;">
 <p><img data-src="imgs/mds/plts/embedding.png" style="width:70.0%"></p>
@@ -851,7 +851,7 @@ if (outputEl) {{
 </ul>
 <div class="fragment" data-fragment-index="1">
 <ul>
-<li>For any metric <span class="math inline">\(\|\widehat{X}- \color{green}{X}\|_{\dagger}\)</span>, define the <span class="ucsd-gold"><strong>reconstruction error</strong>*</span>:</li>
+<li>For any metric <span class="math inline">\(\|\widehat{X}- \color{green}{X}\|_{\dagger}\)</span>, define the <span class="uva-orange"><strong>reconstruction error</strong>*</span>:</li>
 </ul>
 <div class="center">
 <p><span class="math inline">\(\displaystyle\ell(\widehat{X}, \color{green}{X}) = \min_{g \in \mathcal{G}} \| g(\widehat{X}) -\color{green}{X}\|_{\dagger}\)</span></p>
@@ -991,15 +991,15 @@ if (outputEl) {{
 <section id="statistical-estimation-and-difficulties" class="slide level2" data-auto-animate="false">
 <h2 data-id="quarto-animate-title">Statistical Estimation and difficulties</h2>
 <ul>
-<li><p><span class="ucsd-gold"><strong>Model:</strong></span><br><br> <span class="math inline">\(D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}\)</span> where <span class="math inline">\(\color{red}{\mathcal{E}}= (\color{red}{\varepsilon_{ij}}) \in \mathbb{R}^{n \times n}\)</span> is a <strong>symmetric</strong> and <strong>hollow</strong> <span class="math inline">\(n \times n\)</span> random matrix</p></li>
-<li><p><span class="ucsd-gold"><strong>Parameters:</strong></span><br><br> <span class="math inline">\(\color{green}{X}\in \mathbb{R}^{n \times p}\)</span> (configuration matrix underlying <span class="math inline">\(\color{green}{\Delta}\)</span>) <span><strong>which consists of <span class="math inline">\(np\)</span> unknown parameters!</strong></span></p></li>
+<li><p><span class="uva-orange"><strong>Model:</strong></span><br><br> <span class="math inline">\(D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}\)</span> where <span class="math inline">\(\color{red}{\mathcal{E}}= (\color{red}{\varepsilon_{ij}}) \in \mathbb{R}^{n \times n}\)</span> is a <strong>symmetric</strong> and <strong>hollow</strong> <span class="math inline">\(n \times n\)</span> random matrix</p></li>
+<li><p><span class="uva-orange"><strong>Parameters:</strong></span><br><br> <span class="math inline">\(\color{green}{X}\in \mathbb{R}^{n \times p}\)</span> (configuration matrix underlying <span class="math inline">\(\color{green}{\Delta}\)</span>) <span><strong>which consists of <span class="math inline">\(np\)</span> unknown parameters!</strong></span></p></li>
 </ul>
 <div class="center fragment" data-fragment-index="1">
 <p>As <span class="math inline">\(n \uparrow\)</span>   then   <span class="math inline">\(\#\)</span>parameters = <span class="math inline">\(np\!\uparrow\)</span> too!</p>
 </div>
 <div class="fragment" data-fragment-index="2">
 <ul>
-<li><span class="ucsd-gold"><strong>Observations</strong>:</span><br><br> We have a total of <span class="math inline">\(N = \binom{n}{2}\)</span> observations <span class="math inline">\(\big\{\delta_{ij}: i &lt; j\big\}\)</span></li>
+<li><span class="uva-orange"><strong>Observations</strong>:</span><br><br> We have a total of <span class="math inline">\(N = \binom{n}{2}\)</span> observations <span class="math inline">\(\big\{\delta_{ij}: i &lt; j\big\}\)</span></li>
 </ul>
 </div>
 </section>
@@ -1051,8 +1051,8 @@ d_{ij} &amp;= \color{green}{\delta_{ij}} + \color{red}{2\delta_{ij}\xi_{ij} + \x
 <div class="content-box-dblue">
 <p><strong>Definition (CMDS Upper Bound).</strong> The reconstruction error <span class="math inline">\(\ell(\widehat{X},\color{green}{X})\)</span> has:</p>
 <ul>
-<li><span class="ucsd-gold"><strong>convergence rate</strong></span> <span class="math inline">\(R_n \to 0\)</span></li>
-<li>with <span class="ucsd-gold"><strong>failure probability</strong></span> <span class="math inline">\(\alpha_n \to 0\)</span>, if:</li>
+<li><span class="uva-orange"><strong>convergence rate</strong></span> <span class="math inline">\(R_n \to 0\)</span></li>
+<li>with <span class="uva-orange"><strong>failure probability</strong></span> <span class="math inline">\(\alpha_n \to 0\)</span>, if:</li>
 </ul>
 <p><span class="math display">\[
 \sup_{D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}}\mathbb{P}\Big(\;\; \ell(\widehat{X},\color{green}{X}) \lesssim R_n \;\;\Big) \geq 1 - \alpha_n
@@ -1061,7 +1061,7 @@ d_{ij} &amp;= \color{green}{\delta_{ij}} + \color{red}{2\delta_{ij}\xi_{ij} + \x
 </section>
 <section id="can-we-do-better-than-cmds" class="slide level2" data-auto-animate="true" data-align="center">
 <h2 data-id="quarto-animate-title">Can we do better than CMDS?</h2>
-<p>Let <span class="math inline">\(\color{brown}{\overset{\mathbf{\smallsmile}}{X}}(D) \in \mathbb{R}^{n \times p}\)</span> be <span class="ucsd-gold"><strong>any estimator</strong></span> of <span class="math inline">\(\color{green}{X}\)</span> &nbsp; based on <span class="math inline">\(D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}\)</span> &nbsp; &nbsp; and for <span class="math inline">\(\color{green}{X}\in \mathbb{X}({\kappa, \varpi})\)</span></p>
+<p>Let <span class="math inline">\(\color{brown}{\overset{\mathbf{\smallsmile}}{X}}(D) \in \mathbb{R}^{n \times p}\)</span> be <span class="uva-orange"><strong>any estimator</strong></span> of <span class="math inline">\(\color{green}{X}\)</span> &nbsp; based on <span class="math inline">\(D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}\)</span> &nbsp; &nbsp; and for <span class="math inline">\(\color{green}{X}\in \mathbb{X}({\kappa, \varpi})\)</span></p>
 <div class="r-stack">
 <div class="content-box-dblue fragment fade-in-then-out" data-fragment-index="1">
 <p><strong>Definition (Lower Bound).</strong></p>
@@ -1071,8 +1071,8 @@ d_{ij} &amp;= \color{green}{\delta_{ij}} + \color{red}{2\delta_{ij}\xi_{ij} + \x
 \]</span></p>
 </div>
 <div class="content-box-dblue fragment fade-in" data-fragment-index="2">
-<p><strong>Definition (<span class="ucsd-gold"><strong>Minimax</strong></span> Lower Bound).</strong></p>
-<p><span class="math inline">\(r_n \to 0\)</span> is a <span class="ucsd-gold"><strong>minimax</strong></span> <span><strong>lower bound</strong></span> for the reconstruction error <span class="math inline">\(\ell(\color{brown}{\overset{\mathbf{\smallsmile}}{X}},\,\color{green}{X})\)</span> if:</p>
+<p><strong>Definition (<span class="uva-orange"><strong>Minimax</strong></span> Lower Bound).</strong></p>
+<p><span class="math inline">\(r_n \to 0\)</span> is a <span class="uva-orange"><strong>minimax</strong></span> <span><strong>lower bound</strong></span> for the reconstruction error <span class="math inline">\(\ell(\color{brown}{\overset{\mathbf{\smallsmile}}{X}},\,\color{green}{X})\)</span> if:</p>
 <p><span class="math display">\[
 \inf_{\color{brown}{\overset{\mathbf{\smallsmile}}{X}}} \sup_{D = \color{green}{\Delta} + \color{red}{\mathcal{E}}} \mathbb{P}\Big(\;\; \ell(\color{brown}{\overset{\mathbf{\smallsmile}}{X}},\,\color{green}{X}) \gtrsim r_n\;\; \Big) \ge \frac{1}{2}
 \]</span></p>
@@ -1086,7 +1086,7 @@ d_{ij} &amp;= \color{green}{\delta_{ij}} + \color{red}{2\delta_{ij}\xi_{ij} + \x
 <section id="reconstruction-error-metrics" class="slide level2">
 <h2>Reconstruction error metrics</h2>
 <div class="content-box-grey">
-<p>The <span class="ucsd-gold"><strong>reconstruction error</strong></span> between the CMDS embedding <span class="math inline">\(\widehat{X}\)</span> and the true configuration <span class="math inline">\(\color{green}{X}\)</span> is: <span class="math display">\[
+<p>The <span class="uva-orange"><strong>reconstruction error</strong></span> between the CMDS embedding <span class="math inline">\(\widehat{X}\)</span> and the true configuration <span class="math inline">\(\color{green}{X}\)</span> is: <span class="math display">\[
 \ell(\widehat{X},\color{green}{X}) = \min_{g \in \mathcal{G}} \| g(\widehat{X}) -\color{green}{X}\|_{\dagger}
 \]</span></p>
 </div>
@@ -1112,9 +1112,9 @@ Let $\hX = \mds(D, p)$ &emsp; for &emsp;  $D = \DelXGreen + \EpsRed$ &emsp;and&e
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: center;"><span class="large ucsd-gold">Minimax Lower Bound</span></th>
+<th style="text-align: center;"><span class="large uva-orange">Minimax Lower Bound</span></th>
 <th style="text-align: center;">    </th>
-<th style="text-align: center;"><span class="large ucsd-gold">CMDS Upper Bound</span></th>
+<th style="text-align: center;"><span class="large uva-orange">CMDS Upper Bound</span></th>
 </tr>
 </thead>
 <tbody>
@@ -1143,12 +1143,12 @@ Let $\hX = \mds(D, p)$ &emsp; for &emsp;  $D = \DelXGreen + \EpsRed$ &emsp;and&e
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: center;"><span class="ucsd-gold">Metric</span></th>
-<th style="text-align: center;"><span class="ucsd-gold">Lower bound <span class="math inline">\(r_n\)</span></span></th>
+<th style="text-align: center;"><span class="uva-orange">Metric</span></th>
+<th style="text-align: center;"><span class="uva-orange">Lower bound <span class="math inline">\(r_n\)</span></span></th>
 <th style="text-align: center;">  </th>
-<th style="text-align: center;"><span class="ucsd-gold">Upper bound <span class="math inline">\(R_n\)</span></span></th>
+<th style="text-align: center;"><span class="uva-orange">Upper bound <span class="math inline">\(R_n\)</span></span></th>
 <th style="text-align: center;">  </th>
-<th style="text-align: center;"><span class="ucsd-gold">Failure Probability <span class="math inline">\(\alpha_n\)</span></span></th>
+<th style="text-align: center;"><span class="uva-orange">Failure Probability <span class="math inline">\(\alpha_n\)</span></span></th>
 </tr>
 </thead>
 <tbody>
@@ -1177,7 +1177,7 @@ Let $\hX = \mds(D, p)$ &emsp; for &emsp;  $D = \DelXGreen + \EpsRed$ &emsp;and&e
 </div>
 <div class="small fragment fade-down" data-fragment-index="2">
 <ul>
-<li><span class="math inline">\(q &gt; 4\)</span> moments is <span class="ucsd-gold">necessary</span> for consistency</li>
+<li><span class="math inline">\(q &gt; 4\)</span> moments is <span class="uva-orange">necessary</span> for consistency</li>
 <li>Parametric rates (in <span class="math inline">\(n\)</span>) for <span class="math inline">\(\ell_{\text{RMSE}}\)</span> and minimax-optimal up to absolute constants</li>
 <li>Extra <span class="small"><span class="math inline">\(\sqrt{\log{n}}\)</span></span> factor for <span class="math inline">\(\ell_{_{2\to\infty}}\)</span> is unavoidable and suggests extreme-value phenomena</li>
 </ul>
@@ -1207,8 +1207,8 @@ Let $\hX = \mds(D, p)$ &emsp; for &emsp;  $D = \DelXGreen + \EpsRed$ &emsp;and&e
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: center;"><span class="ucsd-gold"><span class="math inline">\(\ell(\widehat{X},\color{green}{X})\)</span></span></th>
-<th style="text-align: center;"><span class="ucsd-gold"><span class="math inline">\(\displaystyle\widehat{g} = \mathop{\operatorname{arg\,min}}_{g \in \mathcal{G}} \| g(\widehat{X}) -\color{green}{X}\|_{\dagger}\)</span></span></th>
+<th style="text-align: center;"><span class="uva-orange"><span class="math inline">\(\ell(\widehat{X},\color{green}{X})\)</span></span></th>
+<th style="text-align: center;"><span class="uva-orange"><span class="math inline">\(\displaystyle\widehat{g} = \mathop{\operatorname{arg\,min}}_{g \in \mathcal{G}} \| g(\widehat{X}) -\color{green}{X}\|_{\dagger}\)</span></span></th>
 </tr>
 </thead>
 <tbody>
@@ -1234,7 +1234,7 @@ W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
 </section>
 <section id="under-the-hood-procrustes-alignment-1" class="slide level2" data-visibility="uncounted">
 <h2>Under the hood: Procrustes alignment</h2>
-<p>All the upper bounds are proved using <span class="math inline">\(\color{magenta}{\widehat{g}}\)</span> obtained from the <span class="ucsd-gold">orthogonal Procrustes solution</span>, e.g., <span class="math display">\[
+<p>All the upper bounds are proved using <span class="math inline">\(\color{magenta}{\widehat{g}}\)</span> obtained from the <span class="uva-orange">orthogonal Procrustes solution</span>, e.g., <span class="math display">\[
 \begin{aligned}
 \ell_{_{2\to\infty}}(\widehat{X},\color{green}{X}) &amp;= \min_{g \in \mathcal{G}}\|g(\widehat{X}) - \color{green}{X}\|_{_{2\to\infty}}  \\
 &amp;\color{magenta}{\le} \bbox[yellow]{\| \color{magenta}{\widehat{g}}(\widehat{X}) -\color{green}{X}\|_{_{2\to\infty}} \;\lesssim\; \overline{c}({\kappa, \varpi})\cdot \sigma\sqrt{\frac{\log{n}}{n}}}
@@ -1289,7 +1289,7 @@ W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
 <div class="content-box-gray">
 <ul>
 <li>For any <span class="math inline">\(\color{Goldenrod}{\boldsymbol{\alpha}} \in (0, 1)\)</span></li>
-<li>Can we construct <span class="math inline">\(\color{Goldenrod}{\boldsymbol{100 \times (1-\alpha)\%}}\)</span> <span class="ucsd-gold"><strong><em>uniform</em> confidence sets</strong></span> <span class="math display">\[
+<li>Can we construct <span class="math inline">\(\color{Goldenrod}{\boldsymbol{100 \times (1-\alpha)\%}}\)</span> <span class="uva-orange"><strong><em>uniform</em> confidence sets</strong></span> <span class="math display">\[
 \mathcal{C}_{\alpha} = \prod_{i=1}^n \mathcal{C}_{\alpha, i} \subset \mathbb{R}^p
 \]</span> which provide <span class="purple"><strong>simultaneous coverage</strong>*</span> of the true configuration: <span class="math display">\[
 \boxed{\phantom{\Bigg()} \mathbb{P}\Big( \exists g \in \mathcal{G}: \; g(\color{green}{x_i}) \in \mathcal{C}_{\alpha, i} \;\;\; \color{Purple}{\forall i \in [n]} \Big) \approx \color{Goldenrod}{\boldsymbol{1 - \alpha}} \phantom{\Bigg()}}
@@ -1311,7 +1311,7 @@ W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
 </div>
 <div class="r-stack">
 <div class="footnotesize content-box-gray fragment fade-out" data-fragment-index="1">
-<p><span class="ucsd-gold"><strong>Tail bound.</strong></span> The constant <span class="math inline">\(\color{red}{C_1}\)</span> is unknown and is going to be <strong>too conservative for practical use</strong></p>
+<p><span class="uva-orange"><strong>Tail bound.</strong></span> The constant <span class="math inline">\(\color{red}{C_1}\)</span> is unknown and is going to be <strong>too conservative for practical use</strong></p>
 <p><span class="math display">\[
 \begin{aligned}
 &amp;\mathbb{P}\bigg( \|{\widehat{X}- \widehat{g}(X)}\|_{2\to\infty} \ge \color{red}{C_1} \;\cdot\; \underline{c}({\kappa, \varpi}) \sigma\;\cdot \sqrt{\tfrac{t + \log{n}}{n}} \bigg) \le e^{-t}\\
@@ -1321,7 +1321,7 @@ W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
 \]</span></p>
 </div>
 <div class="footnotesize content-box-gray fragment fade-in-then-semi-out" data-fragment-index="1">
-<p><span class="ucsd-gold"><strong>Tail bound.</strong></span> The constant <span class="math inline">\(\color{red}{C_1}\)</span> is unknown and is going to be <strong>too conservative for practical use</strong></p>
+<p><span class="uva-orange"><strong>Tail bound.</strong></span> The constant <span class="math inline">\(\color{red}{C_1}\)</span> is unknown and is going to be <strong>too conservative for practical use</strong></p>
 <p><span class="math display">\[
 \begin{aligned}
 &amp;\mathbb{P}\bigg( \|{\widehat{X}- \color{magenta}{\widehat{g}}(X)}\|_{2\to\infty} \ge \color{red}{C_1} \;\cdot\; \underline{c}({\kappa, \varpi}) \sigma\;\cdot \sqrt{\tfrac{t + \log{n}}{n}} \bigg) \le e^{-t}\\
@@ -1335,7 +1335,7 @@ W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
 </p>
 <div class="r-stack">
 <div class="footnotesize content-box-dodgerblue fragment fade-in-then-out" data-fragment-index="2">
-<p><span class="ucsd-gold"><strong>Distributional approximation.</strong></span> Let <span class="math inline">\(\widehat{{F}}\)</span> be an estimate for the distribution of <span class="math inline">\(\|{\widehat{X}- \color{magenta}{\widehat{g}}(X)}\|_{2\to\infty}\)</span>. The constant <span class="math inline">\(\color{red}{C_2}\)</span> <strong>does not</strong> impact its practical use</p>
+<p><span class="uva-orange"><strong>Distributional approximation.</strong></span> Let <span class="math inline">\(\widehat{{F}}\)</span> be an estimate for the distribution of <span class="math inline">\(\|{\widehat{X}- \color{magenta}{\widehat{g}}(X)}\|_{2\to\infty}\)</span>. The constant <span class="math inline">\(\color{red}{C_2}\)</span> <strong>does not</strong> impact its practical use</p>
 <p><span class="math display">\[
 \begin{aligned}
 &amp;\sup_{t \in \mathbb{R}}\bigg|\;\;{\mathbb{P}\big( \|{\widehat{X}- \color{magenta}{\widehat{g}}(X)}\|_{2\to\infty} \le t \big) - \mathbb{P}(\widehat{{F}} \le t)}\;\;\bigg| \le \color{red}{C_2} \mathfrak{R}_n\\
@@ -1346,7 +1346,7 @@ W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
 <p>where <span class="math inline">\(\mathfrak{R}_n \to 0\)</span></p>
 </div>
 <div class="footnotesize content-box-dodgerblue fragment fade-in" data-fragment-index="3">
-<p><span class="ucsd-gold"><strong>Distributional approximation.</strong></span> Let <span class="math inline">\(\widehat{{F}}\)</span> be an estimate for the distribution of <span class="math inline">\(\|{\widehat{X}- \color{magenta}{\widehat{g}}(X)}\|_{2\to\infty}\)</span>. The constant <span class="math inline">\(\color{red}{C_2}\)</span> <strong>does not</strong> impact its practical use</p>
+<p><span class="uva-orange"><strong>Distributional approximation.</strong></span> Let <span class="math inline">\(\widehat{{F}}\)</span> be an estimate for the distribution of <span class="math inline">\(\|{\widehat{X}- \color{magenta}{\widehat{g}}(X)}\|_{2\to\infty}\)</span>. The constant <span class="math inline">\(\color{red}{C_2}\)</span> <strong>does not</strong> impact its practical use</p>
 <p><span class="math display">\[
 \begin{aligned}
 &amp;\sup_{t \in \mathbb{R}}\bigg|\;\;{\mathbb{P}\big( \|{\widehat{X}- \color{magenta}{\widehat{g}}(X)}\|_{2\to\infty} \le t \big) - \mathbb{P}(\widehat{{F}} \le t)}\;\;\bigg| \le \color{red}{C_2} \mathfrak{R}_n\\
@@ -1559,7 +1559,7 @@ T_n := \sqrt{n}\; \cdot\; \max_{i \in [n]} \|\;\;\color{red}{\widehat{\Omega}_i^
 \end{aligned}
 \]</span></p>
 <div class="content-box-dblue center" style="width: 100% !important;">
-<p>Maximum of <span class="ucsd-gold"><strong>independent</strong></span> <span class="math inline">\(\chi_p\)</span> random variables converges to Gumbel at rate <span class="math inline">\(O\left(\frac{1}{\log{n}}\right)\)</span></p>
+<p>Maximum of <span class="uva-orange"><strong>independent</strong></span> <span class="math inline">\(\chi_p\)</span> random variables converges to Gumbel at rate <span class="math inline">\(O\left(\frac{1}{\log{n}}\right)\)</span></p>
 </div>
 </div>
 <div class="r-stack-item fragment fade-in" data-fragment-index="4">
@@ -1572,7 +1572,7 @@ T_n := \sqrt{n}\; \cdot\; \max_{i \in [n]} \|\;\;\color{red}{\widehat{\Omega}_i^
 \end{aligned}
 \]</span></p>
 <div class="content-box-dblue center" style="width: 100% !important;">
-<p>The random variables in <span class="math inline">\(T_n\)</span> are <span class="ucsd-gold"><strong>not independent</strong></span>! The main proof uses:<br> (i) Chen-Stein Poisson approximation   (ii) a <strong>local</strong> anti-concentration inequality for Gaussian quadratic forms</p>
+<p>The random variables in <span class="math inline">\(T_n\)</span> are <span class="uva-orange"><strong>not independent</strong></span>! The main proof uses:<br> (i) Chen-Stein Poisson approximation   (ii) a <strong>local</strong> anti-concentration inequality for Gaussian quadratic forms</p>
 </div>
 </div>
 </div>
@@ -1639,15 +1639,15 @@ T_n := \sqrt{n}\; \cdot\; \max_{i \in [n]} \|\;\;\color{red}{\widehat{\Omega}_i^
 <thead>
 <tr class="header">
 <th>Nominal level <span class="math inline">\(\rightarrow\)</span></th>
-<th><span class="ucsd-gold">0.999</span></th>
-<th><span class="ucsd-gold">0.99</span></th>
-<th><span class="ucsd-gold">0.975</span></th>
-<th><span class="ucsd-gold">0.95</span></th>
-<th><span class="ucsd-gold">0.925</span></th>
-<th><span class="ucsd-gold">0.9</span></th>
-<th><span class="ucsd-gold">0.85</span></th>
-<th><span class="ucsd-gold">0.8</span></th>
-<th><span class="ucsd-gold">0.75</span></th>
+<th><span class="uva-orange">0.999</span></th>
+<th><span class="uva-orange">0.99</span></th>
+<th><span class="uva-orange">0.975</span></th>
+<th><span class="uva-orange">0.95</span></th>
+<th><span class="uva-orange">0.925</span></th>
+<th><span class="uva-orange">0.9</span></th>
+<th><span class="uva-orange">0.85</span></th>
+<th><span class="uva-orange">0.8</span></th>
+<th><span class="uva-orange">0.75</span></th>
 </tr>
 </thead>
 <tbody>
@@ -1858,7 +1858,7 @@ if (outputEl) {{
 <section>
 <section id="section-3" class="title-slide slide level1 inverse center" data-visibility="uncounted" data-background-color="#1e407c">
 <h1><span class="center" style="align-items: center;"></span></h1>
-<p><span class="LARGE ucsd-gold bold text-shadow">Thank you.</span></p>
+<p><span class="LARGE uva-orange bold text-shadow">Thank you.</span></p>
 </section>
 <section id="references" class="slide level2 smaller scrollable" data-visibility="uncounted">
 <h2>References</h2>
@@ -1985,19 +1985,19 @@ Young, Gale, and Aiston S Householder. 1938. <span>“Discussion of a Set of Poi
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: center;"><span class="ucsd-gold">Metric</span></th>
-<th style="text-align: center;"><span class="ucsd-gold">CMDS Upper Bound</span></th>
-<th style="text-align: center;"><span class="ucsd-gold">Minimax Lower Bound</span><br><br></th>
+<th style="text-align: center;"><span class="uva-orange">Metric</span></th>
+<th style="text-align: center;"><span class="uva-orange">CMDS Upper Bound</span></th>
+<th style="text-align: center;"><span class="uva-orange">Minimax Lower Bound</span><br><br></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><span class="ucsd-gold"><span class="math display">\[\ell_{\text{RMSE}}\]</span></span></td>
+<td style="text-align: center;"><span class="uva-orange"><span class="math display">\[\ell_{\text{RMSE}}\]</span></span></td>
 <td style="text-align: center;"><span class="math inline">\(\displaystyle\frac{\sigma\kappa}{\sqrt{n}}\)</span></td>
 <td style="text-align: center;"><span class="math inline">\(\displaystyle\frac{\sigma\kappa}{\sqrt{n}}\)</span> <br><br></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><span class="ucsd-gold"><span class="math inline">\(\ell_{_{2\to\infty}}\)</span></span></td>
+<td style="text-align: center;"><span class="uva-orange"><span class="math inline">\(\ell_{_{2\to\infty}}\)</span></span></td>
 <td style="text-align: center;"><span class="math inline">\(\displaystyle\overline{c}({\kappa, \varpi})\cdot \sigma\sqrt{\frac{\log{n}}{n}}\)</span></td>
 <td style="text-align: center;"><span class="math inline">\(\displaystyle\underline{c}({\kappa, \varpi})\cdot \sigma\sqrt{\frac{\log{n}}{n}}\)</span></td>
 </tr>
@@ -2005,7 +2005,7 @@ Young, Gale, and Aiston S Householder. 1938. <span>“Discussion of a Set of Poi
 </table>
 <p><br><br></p>
 <ul>
-<li><span class="math inline">\(q &gt; 4\)</span> moments is <span class="ucsd-gold">necessary</span> for consistency</li>
+<li><span class="math inline">\(q &gt; 4\)</span> moments is <span class="uva-orange">necessary</span> for consistency</li>
 <li>where <span class="math inline">\(\overline{c}({\kappa, \varpi}) = \kappa^2(\kappa + \varpi)\)</span> and <span class="math inline">\(\underline{c}({\kappa, \varpi}) = \kappa(1+\kappa\varpi)^{-1}\)</span></li>
 </ul>
 </section>
@@ -2035,7 +2035,7 @@ Young, Gale, and Aiston S Householder. 1938. <span>“Discussion of a Set of Poi
 <section id="appendix-covariance" class="slide level2" data-visibility="uncounted">
 <h2>Local covariance information</h2>
 <ul>
-<li><span class="math inline">\(\|{\widehat{X}- \color{magenta}{\widehat{g}}(X)}\|_{2\to\infty}\)</span> leads to <span class="ucsd-gold"><strong>uniformly spherical</strong></span> sets</li>
+<li><span class="math inline">\(\|{\widehat{X}- \color{magenta}{\widehat{g}}(X)}\|_{2\to\infty}\)</span> leads to <span class="uva-orange"><strong>uniformly spherical</strong></span> sets</li>
 </ul>
 <div class="footnotesize center">
 <p><span class="math inline">\(\displaystyle\Big\{Y \in \mathbb{R}^{n \times p}: \|{\widehat{X}- Y}\|_{2\to\infty} \le r \Big\} = \prod_{i=1}^n B(\widehat{x}_i, r)\)</span></p>
@@ -2047,11 +2047,11 @@ Young, Gale, and Aiston S Householder. 1938. <span>“Discussion of a Set of Poi
 <div class="footnotesize center">
 <p><span class="math inline">\(\displaystyle\Omega_i := \frac{n}{4} (\color{green}{X}^{\mathsf{T}}\color{green}{X})^{-1}\color{green}{X}^{\mathsf{T}}\Sigma_i\color{green}{X}(\color{green}{X}^{\mathsf{T}}\color{green}{X})^{-1} \in \mathbb{R}^{p \times p}\)</span></p>
 </div>
-<p>captures the <span class="ucsd-gold"><strong>local covariance structure</strong></span> at each <span class="math inline">\(\widehat{x}_i \in \mathbb{R}^p\)</span></p>
+<p>captures the <span class="uva-orange"><strong>local covariance structure</strong></span> at each <span class="math inline">\(\widehat{x}_i \in \mathbb{R}^p\)</span></p>
 </div>
 <div class="fragment" data-fragment-index="2">
 <ul>
-<li>Let <span class="math inline">\(E = (e_{ij}) = D - \Delta(\widehat{X})\)</span> be the matrix of residuals. The <span class="ucsd-gold"><strong>plug-in estimator</strong>* for <span class="math inline">\(\Omega_i\)</span></span> is</li>
+<li>Let <span class="math inline">\(E = (e_{ij}) = D - \Delta(\widehat{X})\)</span> be the matrix of residuals. The <span class="uva-orange"><strong>plug-in estimator</strong>* for <span class="math inline">\(\Omega_i\)</span></span> is</li>
 </ul>
 <div class="footnotesize center">
 <p><span class="math inline">\(\displaystyle\widehat{\Omega}_i := \frac{n}{4} (\widehat{X}^{\mathsf{T}}\widehat{X})^{-1} \widehat{X}^{\mathsf{T}}\widehat{\Sigma}_i \widehat{X}(\widehat{X}^{\mathsf{T}}\widehat{X})^{-1} \in \mathbb{R}^{p \times p}\)</span></p>
@@ -2065,7 +2065,7 @@ Young, Gale, and Aiston S Householder. 1938. <span>“Discussion of a Set of Poi
 <section id="local-covariance-information" class="slide level2" data-visibility="uncounted">
 <h2>Local covariance information</h2>
 <ul>
-<li><span class="math inline">\(\|{\color{magenta}{\widehat{g}}(\widehat{X}) - X}\|_{2\to\infty}\)</span> leads to <span class="ucsd-gold"><strong>uniformly spherical</strong></span> sets.</li>
+<li><span class="math inline">\(\|{\color{magenta}{\widehat{g}}(\widehat{X}) - X}\|_{2\to\infty}\)</span> leads to <span class="uva-orange"><strong>uniformly spherical</strong></span> sets.</li>
 </ul>
 <div class="footnotesize center">
 <p><span class="math inline">\(\displaystyle\Big\{X \in \mathbb{R}^{n \times p}: \|{\widehat{X}- \color{magenta}{\widehat{g}}(X)}\|_{2\to\infty} \le r \Big\} = \prod_{i=1}^n B(\widehat{x}_i, r)\)</span></p>
@@ -2080,7 +2080,7 @@ Young, Gale, and Aiston S Householder. 1938. <span>“Discussion of a Set of Poi
 </div>
 <div class="fragment" data-fragment-index="2">
 <ul>
-<li><span class="math inline">\(\widehat T_n\)</span> leads to <span class="ucsd-gold"><strong>locally ellipsoidal</strong></span> sets</li>
+<li><span class="math inline">\(\widehat T_n\)</span> leads to <span class="uva-orange"><strong>locally ellipsoidal</strong></span> sets</li>
 </ul>
 <div class="footnotesize">
 <div class="center">
