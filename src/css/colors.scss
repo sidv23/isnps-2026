@@ -20,16 +20,22 @@
     --dodgerblue: #1e90ff;
     --dpurple: rgb(122, 45, 245);
     --orange: #FC8900;
+    --uvaorange: #E57200;
+    --uvablue: #232D4B;
+    --uvagray: #C8CBD2;
+    --uvalightorange: #F9DCBF;
 }
 
 $backgroundColor: white; // Background of the presentation
-$mainColor: $ucsd-navy;
-$body-color: $ucsd-navy;
+$mainColor: $uva-blue;
+$body-color: $uva-blue;
 // Heading
 $headingColor: $ucsd-navy;
-$headingTextShadow: $ucsd-gold;
+$headingTextShadow: $uva-orange;
+// $headingTextShadow: $ucsd-gold;
 // Links and actions
-$linkColor: $ucsd-gold;
+$linkColor: $uva-orange;
+// $linkColor: $ucsd-gold;
 $linkColorHover: darken($linkColor, 20%);
 // Text selection
 $selectionBackgroundColor: #00C6D72a;
@@ -78,6 +84,10 @@ $selectionColor: #000000;
 .content-box-solid-ucsd-blue,
 .content-box-solid-ucsd-yellow,
 .content-box-solid-ucsd-gold,
+.content-box-solid-uva-orange,
+.content-box-solid-uva-lightorange,
+.content-box-solid-uva-blue,
+.content-box-solid-uva-lightblue,
 .content-box-solid-lightgold,
 .content-box-solid-lightorange,
 .content-box-solid-red,
@@ -106,27 +116,127 @@ $selectionColor: #000000;
     width: 95%;
     align-self: center;
 }
-.content-box-ucsd-navy{background-color: rgba(24, 43, 73, 0.2);}
-.content-box-ucsd-navy{background-color: rgba(30, 64, 124, 0.2);}
-.content-box-ucsd-blue{background-color: rgba(0, 98, 155, 0.2);}
-.content-box-ucsd-yellow{background-color: rgba(255, 205, 0, 0.2);}
-.content-box-ucsd-gold{background-color: rgba(198, 146, 20, 0.2);}
-.content-box-gold{background-color: rgba(198, 146, 20, 0.2);}
-.content-box-red{background-color: rgba(255, 0, 0, 0.2);}
-.content-box-blue{background-color: rgba(0, 0, 255, 0.2);}
-.content-box-green{background-color: rgba(0, 128, 0, 0.2);}
-.content-box-yellow{background-color: rgba(255, 255, 0, 0.2);}
-.content-box-orange{background-color: rgba(255, 165, 0, 0.2);}
-.content-box-purple{background-color: rgba(128, 0, 128, 0.2);}
-.content-box-gray{background-color: rgba(128, 128, 128, 0.2);}
-.content-box-grey{background-color: rgba(128, 128, 128, 0.2);}
-.content-box-dblue{background-color: rgba(16, 88, 173, 0.2);}
-.content-box-orchid{background-color: rgba(219, 67, 213, 0.2);}
-.content-box-magenta{background-color: rgba(212, 98, 173, 0.2);}
-.content-box-dorange{background-color: rgba(255, 89, 0, 0.2);}
-.content-box-dodgerblue{background-color: rgba(30, 144, 255, 0.2);}
-.content-box-dpurple{background-color: rgba(122, 45, 245, 0.2);}
-.content-box-orange{background-color: rgba(252, 137, 0, 0.2);}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.content-box-solid-uva-orange {
+    background-color: rgba(229, 114, 0, 0.2);
+}
+
+.content-box-solid-uva-lightorange {
+    background-color: rgba(249, 220, 191, 0.2);
+}
+
+.content-box-solid-uva-blue {
+    background-color: rgba(35, 45, 75, 0.2);
+}
+
+.content-box-solid-uva-lightblue {
+    background-color: rgba(200, 203, 210, 0.2);
+}
+
+.content-box-ucsd-navy {
+    background-color: rgba(30, 64, 124, 0.2);
+}
+
+.content-box-ucsd-blue {
+    background-color: rgba(0, 98, 155, 0.2);
+}
+
+.content-box-ucsd-yellow {
+    background-color: rgba(255, 205, 0, 0.2);
+}
+
+.content-box-ucsd-gold {
+    background-color: rgba(198, 146, 20, 0.2);
+}
+
+.content-box-gold {
+    background-color: rgba(198, 146, 20, 0.2);
+}
+
+.content-box-red {
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.content-box-blue {
+    background-color: rgba(0, 0, 255, 0.2);
+}
+
+.content-box-green {
+    background-color: rgba(0, 128, 0, 0.2);
+}
+
+.content-box-yellow {
+    background-color: rgba(255, 255, 0, 0.2);
+}
+
+.content-box-orange {
+    background-color: rgba(255, 165, 0, 0.2);
+}
+
+.content-box-purple {
+    background-color: rgba(128, 0, 128, 0.2);
+}
+
+.content-box-gray {
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+.content-box-grey {
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+.content-box-dblue {
+    background-color: rgba(16, 88, 173, 0.2);
+}
+
+.content-box-orchid {
+    background-color: rgba(219, 67, 213, 0.2);
+}
+
+.content-box-magenta {
+    background-color: rgba(212, 98, 173, 0.2);
+}
+
+.content-box-dorange {
+    background-color: rgba(255, 89, 0, 0.2);
+}
+
+.content-box-dodgerblue {
+    background-color: rgba(30, 144, 255, 0.2);
+}
+
+.content-box-dpurple {
+    background-color: rgba(122, 45, 245, 0.2);
+}
+
+.content-box-orange {
+    background-color: rgba(252, 137, 0, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
 
 
 // create a content box identical to the ones above but with opacity 1.0

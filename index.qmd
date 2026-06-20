@@ -35,23 +35,19 @@ jupyter: job-talk
 
 ## {.center}
 
-<!-- [UC Irvine • Combinatorics and Probability Seminar • 2026]{.ucsd-gold}
-+br+br+br -->
-
-<!-- <p></p> -->
-
 +br+br+br
 
-### [Multidimensional Scaling From Noisy Data]{.Large}
-[Statistical Learning & Uncertainty Quantification]{.Large .bold-text-shadow}
+### [Multidimensional Scaling From Noisy Data]{.Large}+br [Statistical Learning & Uncertainty Quantification]{.smaller}
+[Siddharth Vishwanath]{.uva-orange .Large .text-shadow}+br
 +br+br
 
 :::: {.columns}
 
 ::: {.column .center}
-+br+br+br
-[Siddharth Vishwanath]{.ucsd-gold .Large}+br
++br
 ![](imgs/extra/ucsd.png){width=50%}
++br
+![](imgs/extra/uva-logo.png){width=50%}
 :::
 
 ::: {.column .cemter}
@@ -65,6 +61,13 @@ jupyter: job-talk
 
 ::: footer
 :::
+
+
+
+
+
+
+
 
 
 ## {.center}

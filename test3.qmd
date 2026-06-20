@@ -5,7 +5,7 @@ format:
     revealjs:
       pagetitle: "Statistical MDS"
       # logo: imgs/extra/ucsd-small.jpeg
-      footer: "[Job Talk • 2026]{.smaller}"
+      footer: "[ISNPS • 2026]{.smaller}"
       slide-number: true
       width: 1760
       height: 990
@@ -27,7 +27,7 @@ format:
         theme: whiteboard
         boardmarker-width	: 2
       # embed-resources: true
-      self-contained-math: true
+      self-contained-math: true 
 jupyter: job-talk
 ---
 
@@ -35,22 +35,35 @@ jupyter: job-talk
 
 ## {.center}
 
-Job Talk • 2026
-+br+br+br+br+br
++br+br+br
 
-<p></p>
+### [Multidimensional Scaling From Noisy Data]{.Large}+br [Statistical Learning & Uncertainty Quantification]{.smaller}
+[Siddharth Vishwanath]{.uva-orange .Large .text-shadow}+br
++br+br
 
-### [A Statistical Framework for+br Multidimensional Scaling From Noisy Data]{.Large}
+:::: {.columns}
 
-<o></p>
-[Siddharth Vishwanath]{.ucsd-gold .Large}
-<o></p>
-![](imgs/extra/ucsd.png){width=16%}
+::: {.column .center}
++br
+![](imgs/extra/ucsd.png){width=50%}
++br
+![](imgs/extra/uva-logo.png){width=50%}
+:::
+
+::: {.column .cemter}
+![](imgs/extra/isnps.png){width=50%}
+:::
+
+::::
+
 
 +br+br+br+br
 
 ::: footer
 :::
+
+
+
 
 # Motivation
 

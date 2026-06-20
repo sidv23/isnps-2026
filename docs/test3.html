@@ -6,8 +6,8 @@
 <script src="test3_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="test3_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="test3_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="test3_files/libs/quarto-html/quarto-syntax-highlighting-a67ac2868200dddf7a4f0e3ae403775c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.16">
+<link href="test3_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
 
   <title>Statistical MDS</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="test3_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="test3_files/libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -31,7 +34,6 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
-      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -48,7 +50,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="test3_files/libs/revealjs/dist/theme/quarto-af3a2d2c45661194a134c154b0330970.css">
+  <link rel="stylesheet" href="test3_files/libs/revealjs/dist/theme/quarto-b6cc4d6b6c825ffeb5a310f533a26950.css">
   <link rel="stylesheet" href="src/css/imgbox.css">
   <link href="test3_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="test3_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -230,20 +232,20 @@
 
 <section id="section" class="slide level2 center">
 <h2></h2>
-<p>Job Talk • 2026 <br><br><br><br><br></p>
-<p>
-</p>
-<h3 id="a-statistical-framework-forbr-multidimensional-scaling-from-noisy-data"><span class="Large">A Statistical Framework for<br> Multidimensional Scaling From Noisy Data</span></h3>
-<o>
-<p></p>
-<span class="ucsd-gold Large">Siddharth Vishwanath</span> <o>
-<p></p>
-<p><img data-src="imgs/extra/ucsd.png" style="width:16.0%"></p>
+<p><br><br><br></p>
+<h3 id="multidimensional-scaling-from-noisy-databr-statistical-learning-uncertainty-quantification"><span class="Large">Multidimensional Scaling From Noisy Data</span><br> <span class="smaller">Statistical Learning &amp; Uncertainty Quantification</span></h3>
+<p><span class="uva-orange Large text-shadow">Siddharth Vishwanath</span><br> <br><br></p>
+<div class="columns">
+<div class="column center">
+<p><br> <img data-src="imgs/extra/ucsd.png" style="width:50.0%"> <br> <img data-src="imgs/extra/uva-logo.png" style="width:50.0%"></p>
+</div><div class="column cemter">
+<p><img data-src="imgs/extra/isnps.png" style="width:50.0%"></p>
+</div></div>
 <p><br><br><br><br></p>
 <div class="footer">
 
 </div>
-</o></o></section>
+</section>
 <section>
 <section id="motivation" class="title-slide slide level1 inverse center" data-background-color="#1e407c">
 <h1>Motivation</h1>
@@ -255,17 +257,17 @@
 <p>%%%% Basic Operations % </p>
 <p>%%%% Complex Operations</p>
 <p>%% Adjustable Norms and Inner Products [2][2={},usedefault]{<em>{{}</em>{}},_{#2}} </p>
-%% Regular size norms and inner products
+<p>%% Regular size norms and inner products </p>
 <p>%%%% Statistics % </p>
 <p>% % % </p>
 <p>% % % </p>
 <p>%%%% Symbols </p>
 <p>% </p>
 <p>% </p>
-%%%% Linear Algebra
+<p>%%%% Linear Algebra </p>
 <p>%%%% Lower bound </p>
 <p>%%%% v1.2 </p>
-%
+<p>% </p>
 <p>%%%%% Some constants to fill in later </p>
 <p>$$</p>
 </div>
@@ -306,9 +308,9 @@
 </section>
 <section id="section-1" class="slide level2 smaller scrollable">
 <h2></h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-bandeira2016sharp" class="csl-entry" role="listitem">
-Bandeira, Afonso S, and Ramon van Handel. 2016. <span>“Sharp Nonasymptotic Bounds on the Norm of Random Matrices with Independent Entries.”</span> <em>Annals of Probability</em> 44 (4): 2479–2506.
+Bandeira, Afonso S, and Ramon van Handel. 2016. <span>“Sharp Nonasymptotic Bounds on the Norm of Random Matrices with Independent Entries.”</span> <em>Annals of Probability</em> 44 (4): 2479–506.
 </div>
 <div id="ref-vishwanath2025minimax" class="csl-entry" role="listitem">
 Vishwanath, Siddharth, and Ery Arias-Castro. 2025. <span>“Minimax Optimality of Classical Scaling Under General Noise Conditions.”</span> <em>arXiv Preprint arXiv:2502.00947</em>.
@@ -319,7 +321,7 @@ Vishwanath, Siddharth, and Ery Arias-Castro. 2025. <span>“Minimax Optimality o
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p><span class="smaller">Job Talk • 2026</span></p>
+<p><span class="smaller">ISNPS • 2026</span></p>
 </div>
 </div></div>
 

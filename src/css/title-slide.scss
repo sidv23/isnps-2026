@@ -3,22 +3,25 @@
 
     .author,
     .quarto-title-author-name {
-        color: $ucsd-navy;
+        color: $uva-blue;
         font-size: 1.1em;
         // font-family: $headingFont;
         font-family: $mainFont;
-        color: $ucsd-gold;
+        // color: $ucsd-gold;
+        color: $uva-orange;
     }
 
     p,
     a {
-        color: $ucsd-navy;
+        color: $uva-blue;
+        // color: $ucsd-navy;
         font-size: 1.0em;
     }
 
     h1 {
         font-family: $titleFont;
-        color: $ucsd-navy;
+        color: $uva-blue;
+        // color: $ucsd-navy;
         font-size: 2.5em;
     }
 

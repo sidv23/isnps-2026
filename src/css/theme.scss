@@ -16,7 +16,8 @@
 }
 
 .inverse h1 {
-    color: $ucsd-gold;
+    // color: $ucsd-gold;
+    color: $uva-orange;
 }
 
 hr,
@@ -25,10 +26,12 @@ hr,
     content: '';
     display: block;
     border: none;
-    background-color: $ucsd-gold;
-    color: $ucsd-gold;
+    background-color: $uva-orange;
+    color: $uva-orange;
     margin-top: 20px;
     height: 5px;
+    // background-color: $ucsd-gold;
+    // color: $ucsd-gold;
 }
 
 // .slide-logo {
