@@ -35,7 +35,7 @@ jupyter: job-talk
 
 ## {.center}
 
-+br+br+br
++br
 
 ### [Multidimensional Scaling From Noisy Data]{.Large}+br [Statistical Learning & Uncertainty Quantification]{.smaller}
 [Siddharth Vishwanath]{.uva-orange .Large .text-shadow}+br
@@ -297,19 +297,6 @@ Dates back to [@young1938discussion]. Later rediscovered by [@torgerson1952multi
 
 
 
-
-
-
-
-## MDS vs Dimension Reduction {#appendix-mds-pca visibility="uncounted"}
-
-| [Comparison]{.uva-orange} | MDS | Dimension Reduction+br+br |
-|:----|:--------------------:|:-------------------------:|
-| [Data type]{.uva-orange} | Pairwise dissimilarities $\Del \in \Rnn$ | Feature vectors $X \in \R^{n \times P}$+br+br+br |
-| [Goal]{.uva-orange} | Find configuration $\hX \in \Rnp$ such that $\|\hx_i - \hx_j\| \approx \del_{ij}$ | Find low-dimensional representation $\hX \in \R^{n \times p}$ such that $\hx_i\tr\hx_j \approx x_i\tr x_j$ +br+br|
-| [Spectral algorithm]{.uva-orange} | Classical MDS (CMDS) Algorithm $$\hX = 
-\argmin_{Y \in \Rnp} \| \Delc - YY\tr \|_F^2$$ | Principal Component Analysis (PCA) $$\hX = \argmin_{Y \in \R^{n \times p}} \| X X\tr - YY\tr \|_F^2 $$ |
-| [Nonlinear methods]{.uva-orange} | Isomap, t-SNE, Non-metric MDS, ... | Kernal PCA, LLE, Laplacian Eigenmaps, ... |
 
 
 
@@ -774,9 +761,9 @@ fig.show()
 :::
 
 
-# Signal Recovery
+# Statistical Learning
 
-## Desiderata - I (Signal Recovery)
+## Desiderata - I (Statistical Learning)
 
 
 
@@ -986,45 +973,42 @@ where ${\Xi = (\xi_{ij})}$ is a random matrix with iid entries
 
 
 
+## Statistical Learning {auto-animate="false" align="center"}
 
-## Signal recovery {auto-animate="false" align="center"}
 
-For $\XGreen \in \bbX(\params)$ and $D = \DelXGreen + \EpsRed$, let $\hX = \mds(D, p)$.
+::: {.footnotesize .small .center}
 
-::: {.content-box-dblue}
-**Definition (CMDS Upper Bound).** The reconstruction error $\ell(\hX,\XGreen)$ has:
-
-* [**convergence rate**]{.uva-orange} $R_n \to 0$ 
-* with [**failure probability**]{.uva-orange} $\alpha_n \to 0$, if:
-
-$$
-\sup_{D = \DelXGreen + \EpsRed}\pr\Big(\;\; \ell(\hX,\XGreen) \lesssim R_n \;\;\Big) \geq 1 - \alpha_n
-$$
+$\XGreen \in \bbX(\params) \hspace{2em} D = \DelXGreen + \EpsRed; \hspace{2em} \hX = \mds(D, p); \hspace{2em} \text{and} \quad \hXc(D) \in \Rnp$ be [**any estimator**]{.uva-orange} of $\XGreen$
 :::
 
 
+::::: {.columns .small}
 
-## Can we do better than CMDS? {data-auto-animate="true" align="center"}
 
-Let $\hXc(D) \in \Rnp$ be [**any estimator**]{.uva-orange} of $\XGreen$ &nbsp; based on $D = \DelXGreen + \EpsRed$ &nbsp; &nbsp; and for $\XGreen \in \bbX(\params)$
+
+
+:::: {.column width="51.5%" .fragment fragment-index=1 }
 
 
 :::: {.r-stack}
 
 ::: {.content-box-dblue .fragment fragment-index=1 .fade-in-then-out}
-**Definition (Lower Bound).** 
+**(Lower Bound).**  The reconstruction error $\ell(\hX,\XGreen)$ has:
 
-$r_n \to 0$ is a [**lower bound**]{} for the reconstruction error $\ell(\hXc,\,\XGreen)$ if:
+
+* [**lower bound**]{} $r_n \to 0$, if:+br+br
 
 $$
 \sup_{D = \DelXGreen + \EpsRed}\pr\Big(\;\; \ell(\hXc,\,\XGreen) \gtrsim r_n \;\;\Big) \ge \frac{1}{2}
 $$
 :::
 
-::: {.content-box-dblue .fragment fragment-index=2 .fade-in}
-**Definition ([**Minimax**]{.uva-orange} Lower Bound).** 
 
-$r_n \to 0$ is a [**minimax**]{.uva-orange} [**lower bound**]{} for the reconstruction error $\ell(\hXc,\,\XGreen)$ if:
+::: {.content-box-dblue .fragment fragment-index=2 .fade-in-then-semi-out}
+
+**([**Minimax**]{.uva-orange} Lower Bound).**  The reconstruction error $\ell(\hX,\XGreen)$ has:
+
+* [**minimax**]{.uva-orange} [**lower bound**]{} $r_n \to 0$, if:+br+br
 
 $$
 \inf_{\hXc} \sup_{D = \color{green}{\Del} + \EpsRed } \pr\Big(\;\; \ell(\hXc,\,\XGreen) \gtrsim r_n\;\; \Big) \ge \frac{1}{2}
@@ -1034,32 +1018,38 @@ $$
 
 ::::
 
+::::
 
-+br
 
-::: {.center .fragment fragment-index=2 .fade-down}
-Performance of the best conceivable estimator $\displaystyle\Big(\text{i.e., }\inf_{\hXc}\Big)$ on the most difficult instance $\displaystyle\Big(\text{i.e., }\sup_{D = \color{green}{\Del} + \EpsRed }\Big)$
+:::: {.column width="0.5%"}
+::::
+
+:::: {.column width="48%" .fragment fragment-index=3 .fade-in-then-semi-out}
+
+::: {.content-box-green}
+**(CMDS Upper Bound).** The reconstruction error $\ell(\hX,\XGreen)$ has:
+
+* [**convergence rate**]{.uva-orange} $R_n \to 0$ 
+* with [**failure probability**]{.uva-orange} $\alpha_n \to 0$, if:
+
+$$
+\sup_{D = \DelXGreen + \EpsRed}\pr\Big(\;\; \ell(\hX,\XGreen) \gtrsim R_n \;\;\Big) \leq \alpha_n
+$$
 :::
 
+::::
 
 
+:::::
 
-## Reconstruction error metrics
 
-:::{.content-box-grey}
-The [**reconstruction error**]{.uva-orange} between the CMDS embedding $\hX$ and the true configuration $\XGreen$ is:
-$$
-\ell(\hX,\XGreen) = \min_{g \in \euc} \| g(\hX) -\XGreen\|_{\dagger}
-$$
+::: {.footnotesize .fragment fragment-index=4}
+<p></p>
+
+| | **Reconstruction metrics** | |
+|:---:|:---:|:---:|
+| **RMSE**+br+br $\displaystyle\ell\rmse(\hX,\XGreen) = \frac{1}{\sqrt{n}}\norm{g(\hX) - X}_F$ |   | **$2$-to-$\infty$ uniform error**+br+br $\displaystyle\ell\ttinft(\hX,\XGreen) = \max_{i \in [n]} \norm{g(\hx_i) - x_i}$ |
 :::
-
-
-* **RMSE:**+br $\hspace{10em}$ $\displaystyle\frac{1}{\sqrt{n}}\norm{g(\hX) - X}_F = \sqrt{\frac{1}{n}\sum_{i=1}^n \norm{g(\hx_i) - x_i}_2^2}$
-
-<!-- * **$\ell_2$-operator norm:**+br $\hspace{10em}$ $\displaystyle\norm{g(\hX) - X}_2 = \max_{v \in \mathbb{S}^{p-1}} \norm{(g(\hX) -\XGreen)v}_2$ -->
-
-* **$\ell_{\ttinft}$-operator norm:**+br $\hspace{10em}$ $\displaystyle\norm{g(\hX) - X}_{\ttinft} = \max_{i \in [n]} \norm{g(\hx_i) - x_i}$
-
 
 
 
@@ -1068,15 +1058,11 @@ $$
 
 ## 
 
-<!-- ::: {.center .small style="margin-top: -1%;" .fragment fragment-index=1 .semi-fade-out}
-Let $\hX = \mds(D, p)$ &emsp; for &emsp;  $D = \DelXGreen + \EpsRed$ &emsp;and&emsp; $\XGreen \in \bbX(\params)$ 
-::: -->
-
 ::: {.content-box-gray .center .footnotesize style="margin-top: -1.2%" .fragment fragment-index=1 .semi-fade-out}
 
 | [Minimax Lower Bound]{.large .uva-orange} | &emsp;&emsp;&emsp;&emsp; | [CMDS Upper Bound]{.large .uva-orange} |
 |:-------------------------------:|:---:|:-------------------------------:|
-| $\displaystyle \inf_{\hXc} \sup_{D = \DelXGreen + \EpsRed } \pr\Big(\;\; \ell(\hXc,\,\XGreen) \gtrsim r_n\;\; \Big) \ge \frac{1}{2}$ | | $\displaystyle \sup_{D = \DelXGreen + \EpsRed }\pr\Big(\;\; \ell(\hX, \XGreen) \lesssim R_n \;\;\Big) \;\ge\; 1 - \alpha_n$ |
+| $\displaystyle \inf_{\hXc} \sup_{D = \DelXGreen + \EpsRed } \pr\Big(\;\; \ell(\hXc,\,\XGreen) \gtrsim r_n\;\; \Big) \ge \frac{1}{2}$ | | $\displaystyle \sup_{D = \DelXGreen + \EpsRed }\pr\Big(\;\; \ell(\hX, \XGreen) \gtrsim R_n \;\;\Big) \;\le\;  \alpha_n$ |
 :::
 
 <p></p>
@@ -1089,7 +1075,7 @@ Let $\hX = \mds(D, p)$ &emsp; for &emsp;  $D = \DelXGreen + \EpsRed$ &emsp;and&e
 
 | [Metric]{.uva-orange} | [Lower bound $r_n$]{.uva-orange} | &emsp;&emsp; | [Upper bound $R_n$]{.uva-orange}| &emsp;&emsp; | [ Failure Probability $\alpha_n$]{.uva-orange} |
 |:---------------------:|:-------------------------------:|:---:|:-------------------------------:|:---:|:-------------------------------:|
-| [$$\ell_{\text{RMSE}}$$]{} | $\displaystyle\frac{\sigma\kappa}{\sqrt{n}}$ | | $\displaystyle\frac{\sigma\kappa}{\sqrt{n}}$ +br | | $O(n^{-2} + n^{-r})$ |
+| [$$\ell\rmse$$]{} | $\displaystyle\frac{\sigma\kappa}{\sqrt{n}}$ | | $\displaystyle\frac{\sigma\kappa}{\sqrt{n}}$ +br | | $O(n^{-2} + n^{-r})$ |
 | [$\ell_{\ttinft}$]{} | $\displaystyle\underline{c}(\params)\cdot \sigma\sqrt{\frac{\log{n}}{n}}$| | $\displaystyle\bar{c}(\params)\cdot \sigma\sqrt{\frac{\log{n}}{n}}$| | $O(n^{-2} + n^{-r})$ +br+br |
 <p></p>
 <p></p>
@@ -1097,13 +1083,19 @@ Let $\hX = \mds(D, p)$ &emsp; for &emsp;  $D = \DelXGreen + \EpsRed$ &emsp;and&e
 
 ::: {.small .fragment fragment-index=2 .fade-down}
 * $q > 4$ moments is [necessary]{.uva-orange} for consistency
-* Parametric rates (in $n$) for $\ell_{\text{RMSE}}$ and minimax-optimal up to absolute constants
-* Extra [$\sqrt{\log{n}}$]{.small} factor for $\ell_{\ttinft}$ is unavoidable and suggests extreme-value phenomena
+* Parametric rates (in $n$) for $\ell\rmse$ and minimax-optimal up to absolute constants. Extra [$\sqrt{\log{n}}$]{.small} factor for $\ell_{\ttinft}$ is unavoidable
+* Proof relies on: [(1.) orthogonal Procrustes alignment]{.magenta} + [(2.) Fuk-Nagaev-type matrix concentration]{.uva-orange}
 :::
 
 ::: {.footnote .footnotesize .fragment fragment-index=1 .fade-in-then-semi-out}
 where &nbsp; $\bar{c}(\params) = \kappa^2(\kappa + \Rx)$ &emsp; and &emsp; $\underline{c}(\params) = \kappa(1+\kappa\Rx)\inv$.
 :::
+
+
+
+
+
+
 
 
 
@@ -1119,104 +1111,6 @@ where &nbsp; $\bar{c}(\params) = \kappa^2(\kappa + \Rx)$ &emsp; and &emsp; $\und
 More [experiments in the appendix](#appendix-fourth-moment-plots)
 :::
 
-
-
-
-
-
-
-
-
-
-## Under the hood: Procrustes alignment
-
-For each reconstruction error $\ell_{\text{RMSE}}, \ell_2$ and $\ell_{\ttinft}$, we have **a different choice** of the optimal $g \in \euc$
-
-::: {.footnotesize}
-
-| [$\ell(\hX,\XGreen)$]{.uva-orange} | [$\displaystyle\widehat{g} = \argmin_{g \in \euc} \| g(\hX) -\XGreen\|_{\dagger}$]{.uva-orange} |
-|:---------------------:|:-------------------------------:|
-| $\ell_{\text{RMSE}}$ | $\displaystyle\widehat{g} = \argmin_{g \in \euc}\|g(\hX) - \XGreen\|_F$ |
-| $\ell_{\ttinft}$ | $\displaystyle\widehat{g} = \argmin_{g \in \euc}\|g(\hX) - \XGreen\|_{\ttinft}$ |
-:::
-
-+br
-
-::: {.fragment .content-box-dblue .small}
-**Orthogonal Procrustes Problem.** For $\XGreen, Y \in \Rnp$ the solution to $\color{magenta}{\hgc = \argmin_{g \in \euc}\|g(Y) - \XGreen\|_F}$ is:
-$$
-\hgc(v) = Ov + \mu
-$$
-where $\mu = (\bar{x} - O\bar{y})$ and $O \in \mathcal{O}(p)$ is given by $O = W_1W_2\tr$ where
-$$
-W_1 S W_2\tr = \text{svd}(Y\tr\XGreen)
-$$
-:::
-
-
-
-
-
-## Under the hood: Procrustes alignment {visibility="uncounted"}
-
-All the upper bounds are proved using $\hgc$ obtained from the [orthogonal Procrustes solution]{.uva-orange}, e.g.,
-$$
-\begin{aligned}
-\ell_{\ttinft}(\hX,\XGreen) &= \min_{g \in \euc}\|g(\hX) - \XGreen\|_{\ttinft}  \\
-&\color{magenta}{\le} \bbox[yellow]{\| \hgc(\hX) -\XGreen\|_{\ttinft} \;\lesssim\; \bar{c}(\params)\cdot \sigma\sqrt{\frac{\log{n}}{n}}}
-\end{aligned}
-$$
-
-+br
-
-
-::: {.content-box-dblue .small}
-**Orthogonal Procrustes Problem.** For $\XGreen, Y \in \Rnp$ the solution to $\color{magenta}{\hgc = \argmin_{g \in \euc}\|g(Y) - \XGreen\|_F}$ is:
-$$
-\hgc(v) = Ov + \mu
-$$
-where $\mu = (\bar{x} - O\bar{y})$ and $O \in \mathcal{O}(p)$ is given by $O = W_1W_2\tr$ where
-$$
-W_1 S W_2\tr = \text{svd}(Y\tr\XGreen)
-$$
-:::
-
-
-
-
-
-
-
-## Under the hood: Fuk-Nagaev-Type concentration
-
-
-
-Let $\Eps = (\eps_{ij})$ be an $n \times n$ random matrix where each row $\eps_{i, *}$ consists of independent entries. Let $X \in \Rnp$ be fixed.
-
-:::: {.fragment fragment-index=1 .semi-fade-out}
-:::{.content-box-dblue .small}
-**Bernstein-Type Concentration.** &emsp; If [$\max_{i,j}|{\eps_{i,j}|} \le K$ a.s.]{.magenta}, then with probability greater than $1 - O({e^{-t}})$,
-$$
-\norm{\Eps X}\ttinft \lesssim \sigma_2 \sqrt{n (t + \log{p})} + K (t + \log{p})
-$$
-:::
-::::
-
-+br
-
-:::: {.fragment fragment-index=1 .fade-in}
-:::{.content-box-orange .small}
-**Fuk-Nagaev-Type Concentration [@vishwanath2025minimax]** &emsp; Suppose [$\max_{i,j}\|{\eps_{i,j}\|_{L^q}} \le \sigma$ for $q > 4$]{.magenta}+br Then, for all $0 < r < \frac{(q-4)}{2}$, with probability greater than $1 - O({e^{-t}} + {n^{-r}})$,
-$$
-\norm{\Eps X}\ttinft \lesssim \sigma_2 \sqrt{n (t + \log{p})} + \sigma n^{(r+2)/q} (t + \log{p})
-$$
-:::
-::::
-
-::: {.footnote .footnotesize}
-$\sigma_2 = \max_{i,j} \|{\eps_{ij}}\|_{L^2}$+br
-[Operator norm version in the appendix](##appendix-fuk-nagaev)
-:::
 
 
 
@@ -1862,28 +1756,6 @@ $\color{red}{\eps_{ij}} \sim N(0, |\|x_i\|^2 - \|x_j\|^2|)$
 
 
 
-## Beyond Gaussian Multiplier Bootstrap
-
-::: {.small}
-$\XGreen \in \R^{350 \times 2}$ is the location of the $350$ largest US cities and $\log d_{ij} = \color{green}{\log\del_{ij}} + \color{red}{\eps_{ij}}$ where $\color{red}{\eps_{ij}} \sim N(0, \sigma^2 )$
-
-1. **Gaussian multipliers** $r_{ij} \sim N(0, 1)$
-2. **Rademacher multipliers** $r_{ij} \sim \text{Rademacher}(\pm 1)$
-3. **Uniform multipliers** $r_{ij} \sim \text{Unif}([- \sqrt{3}, \sqrt{3}])$
-
-+br
-
-| Nominal level $\rightarrow$      | [0.999]{.uva-orange} | [0.99]{.uva-orange} | [0.975]{.uva-orange} | [0.95]{.uva-orange} | [0.925]{.uva-orange} | [0.9]{.uva-orange}    | [0.85]{.uva-orange}   | [0.8]{.uva-orange}    | [0.75]{.uva-orange}   |
-|-------------|-------|------|-------|------|-------|--------|--------|--------|--------|
-| Gaussian    | **0.998** | 0.992  | 0.983  | 0.954  | 0.932  | **0.902** | **0.851** | **0.789** | **0.707** |
-| Rademacher  | 0.997     | 0.988  | **0.980** | **0.951**  | **0.924** | 0.895     | 0.825     | 0.738     | 0.628     |
-| Uniform     | 0.997     | **0.991** | 0.983 | 0.953 | 0.930 | 0.897     | 0.837     | 0.750     | 0.659     |
-| Empirical   | 1.000     | 1.000  | 1.000  | 1.000  | 0.997  | 0.994     | 0.994     | 0.953     | 0.983     |
-| Gumbel      | 0.939     | 0.847  | 0.772  | 0.690  | 0.630  | 0.580     | 0.508     | 0.423     | 0.356     |
-
-:::
-
-
 
 
 
@@ -2275,11 +2147,32 @@ fig.show()
 
 ## Appendix {visibility="uncounted"}
 
+* [MDS vs Dimension Reduction](##appendix-mds-pca)
 * [Why CMDS exactly recovers the latent configuration](#appendix-why-cmds-works)
-* [Fuk-Nagaev Matrix Concentration](#appendix-fuk-nagaev)
-* [Experiment: 4 moments are necessary](#appendix-fourth-moment-plots)
+* Under the hood for CMDS upper bound:
+    i. [Procrustes Analysis](#appendix-procrustes)
+    ii. [Fuk-Nagaev Matrix Concentration](#appendix-fuk-nagaev)
+    iii. [Experiment: 4 moments are necessary](#appendix-fourth-moment-plots)
 * [Slightly stronger assumptions for distributional approximation](#appendix-stronger-assumptions)
 * [Local covariance matrices for confidence **ellipsoids**](#appendix-covariance)
+* [Beyond Gaussian multiplier bootstrap](#appendix-beyond-gaussian-multiplier-bootstrap)
+
+
+
+
+
+
+
+## MDS vs Dimension Reduction {#appendix-mds-pca visibility="uncounted"}
+
+| [Comparison]{.uva-orange} | MDS | Dimension Reduction+br+br |
+|:----|:--------------------:|:-------------------------:|
+| [Data type]{.uva-orange} | Pairwise dissimilarities $\Del \in \Rnn$ | Feature vectors $X \in \R^{n \times P}$+br+br+br |
+| [Goal]{.uva-orange} | Find configuration $\hX \in \Rnp$ such that $\|\hx_i - \hx_j\| \approx \del_{ij}$ | Find low-dimensional representation $\hX \in \R^{n \times p}$ such that $\hx_i\tr\hx_j \approx x_i\tr x_j$ +br+br|
+| [Spectral algorithm]{.uva-orange} | Classical MDS (CMDS) Algorithm $$\hX = 
+\argmin_{Y \in \Rnp} \| \Delc - YY\tr \|_F^2$$ | Principal Component Analysis (PCA) $$\hX = \argmin_{Y \in \R^{n \times p}} \| X X\tr - YY\tr \|_F^2 $$ |
+| [Nonlinear methods]{.uva-orange} | Isomap, t-SNE, Non-metric MDS, ... | Kernal PCA, LLE, Laplacian Eigenmaps, ... |
+
 
 
 
@@ -2330,7 +2223,114 @@ Without loss of generality, we can assume that the configuration $\X$ is centere
 
 
 
-## Under the hood: Fuk-Nagaev matrix concentration {#appendix-fuk-nagaev visibility="uncounted"}
+
+
+
+
+
+## Under the hood - I: Procrustes alignment
+
+For each reconstruction error $\ell_{\text{RMSE}}, \ell_2$ and $\ell_{\ttinft}$, we have **a different choice** of the optimal $g \in \euc$
+
+::: {.footnotesize}
+
+| [$\ell(\hX,\XGreen)$]{.uva-orange} | [$\displaystyle\widehat{g} = \argmin_{g \in \euc} \| g(\hX) -\XGreen\|_{\dagger}$]{.uva-orange} |
+|:---------------------:|:-------------------------------:|
+| $\ell_{\text{RMSE}}$ | $\displaystyle\widehat{g} = \argmin_{g \in \euc}\|g(\hX) - \XGreen\|_F$ |
+| $\ell_{\ttinft}$ | $\displaystyle\widehat{g} = \argmin_{g \in \euc}\|g(\hX) - \XGreen\|_{\ttinft}$ |
+:::
+
++br
+
+::: {.fragment .content-box-dblue .small}
+**Orthogonal Procrustes Problem.** For $\XGreen, Y \in \Rnp$ the solution to $\color{magenta}{\hgc = \argmin_{g \in \euc}\|g(Y) - \XGreen\|_F}^2$ is:
+$$
+\hgc(v) = Ov + \mu
+$$
+where $\mu = (\bar{x} - O\bar{y})$ and $O \in \mathcal{O}(p)$ is given by $O = W_1W_2\tr$ where
+$$
+W_1 S W_2\tr = \text{svd}(Y\tr\XGreen)
+$$
+:::
+
+
+
+
+
+## Under the hood - I: Procrustes alignment {visibility="uncounted" #appendix-procrustes visibility="uncounted"}
+
+All the upper bounds are proved using $\hgc$ obtained from the [orthogonal Procrustes solution]{.uva-orange}, e.g.,
+$$
+\begin{aligned}
+\ell_{\ttinft}(\hX,\XGreen) &= \min_{g \in \euc}\|g(\hX) - \XGreen\|_{\ttinft}  \\
+&\color{magenta}{\le} \bbox[yellow]{\| \hgc(\hX) -\XGreen\|_{\ttinft} \;\lesssim\; \bar{c}(\params)\cdot \sigma\sqrt{\frac{\log{n}}{n}}}
+\end{aligned}
+$$
+
++br
+
+
+::: {.content-box-dblue .small}
+**Orthogonal Procrustes Problem.** For $\XGreen, Y \in \Rnp$ the solution to $\color{magenta}{\hgc = \argmin_{g \in \euc}\|g(Y) - \XGreen\|_F}$ is:
+$$
+\hgc(v) = Ov + \mu
+$$
+where $\mu = (\bar{x} - O\bar{y})$ and $O \in \mathcal{O}(p)$ is given by $O = W_1W_2\tr$ where
+$$
+W_1 S W_2\tr = \text{svd}(Y\tr\XGreen)
+$$
+:::
+
+
+
+
+
+
+
+## Under the hood - II: Fuk-Nagaev-Type concentration {#appendix-fuk-nagaev visibility="uncounted"}
+
+
+
+Let $\Eps = (\eps_{ij})$ be an $n \times n$ random matrix where each row $\eps_{i, *}$ consists of independent entries. Let $X \in \Rnp$ be fixed.
+
+:::: {.fragment fragment-index=1 .semi-fade-out}
+:::{.content-box-dblue .small}
+**Bernstein-Type Concentration.** &emsp; If [$\max_{i,j}|{\eps_{i,j}|} \le K$ a.s.]{.magenta}, then with probability greater than $1 - O({e^{-t}})$,
+$$
+\norm{\Eps X}\ttinft \lesssim \sigma_2 \sqrt{n (t + \log{p})} + K (t + \log{p})
+$$
+:::
+::::
+
++br
+
+:::: {.fragment fragment-index=1 .fade-in}
+:::{.content-box-orange .small}
+**Fuk-Nagaev-Type Concentration [@vishwanath2025minimax]** &emsp; Suppose [$\max_{i,j}\|{\eps_{i,j}\|_{L^q}} \le \sigma$ for $q > 4$]{.magenta}+br Then, for all $0 < r < \frac{(q-4)}{2}$, with probability greater than $1 - O({e^{-t}} + {n^{-r}})$,
+$$
+\norm{\Eps X}\ttinft \lesssim \sigma_2 \sqrt{n (t + \log{p})} + \sigma n^{(r+2)/q} (t + \log{p})
+$$
+:::
+::::
+
+::: {.footnote .footnotesize}
+$\sigma_2 = \max_{i,j} \|{\eps_{ij}}\|_{L^2}$+br
+[Operator norm version in the appendix](##appendix-fuk-nagaev)
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Under the hood - II: Fuk-Nagaev matrix concentration
 
 :::{.content-box-dblue}
 **Classical Fuk-Nagaev Inequality.** 
@@ -2343,7 +2343,7 @@ $$
 $$
 :::
 
-## Under the hood: Fuk-Nagaev matrix concentration {visibility="uncounted"}
+## Under the hood - II: Fuk-Nagaev matrix concentration {visibility="uncounted"}
 
 :::{.content-box-dblue}
 **[@vishwanath2025minimax, Proposition 3]**
@@ -2366,7 +2366,7 @@ $$
 
 
 
-## Appendix: Comparison {#appendix-fourth-moment-plots visibility="uncounted"}
+## Under the hood - III: Four moments are necessary {#appendix-fourth-moment-plots visibility="uncounted"}
 +br
 
 | [Metric]{.uva-orange} | [CMDS Upper Bound]{.uva-orange} | [Minimax Lower Bound]{.uva-orange}+br+br |
@@ -2376,7 +2376,7 @@ $$
 
 +br+br
 
-* $q > 4$ moments is [necessary]{.uva-orange} for consistency
+* $q > 4$ moments is [necessary]{.uva-orange} for consistency [c.f.,  @tao2010random]
 * where $\bar{c}(\params) = \kappa^2(\kappa + \Rx)$ and $\underline{c}(\params) = \kappa(1+\kappa\Rx)\inv$
 
 
@@ -2487,4 +2487,28 @@ $\displaystyle\Big\{X \in \Rnp: \hat T_n \le r \Big\} = \prod_{i=1}^n \mathscr{E
 where $\mathscr{E}(z, \Om, r) := \{ x \in \R^p : (x - z)\tr \Om^{-1} (x - z) \le r^2 \}$
 :::
 :::
+
+
+
+## Beyond Gaussian Multiplier Bootstrap {#appendix-beyond-gaussian-multiplier-bootstrap visibility="uncounted"}
+
+::: {.small}
+$\XGreen \in \R^{350 \times 2}$ is the location of the $350$ largest US cities and $\log d_{ij} = \color{green}{\log\del_{ij}} + \color{red}{\eps_{ij}}$ where $\color{red}{\eps_{ij}} \sim N(0, \sigma^2 )$
+
+1. **Gaussian multipliers** $r_{ij} \sim N(0, 1)$
+2. **Rademacher multipliers** $r_{ij} \sim \text{Rademacher}(\pm 1)$
+3. **Uniform multipliers** $r_{ij} \sim \text{Unif}([- \sqrt{3}, \sqrt{3}])$
+
++br
+
+| Nominal level $\rightarrow$      | [0.999]{.uva-orange} | [0.99]{.uva-orange} | [0.975]{.uva-orange} | [0.95]{.uva-orange} | [0.925]{.uva-orange} | [0.9]{.uva-orange}    | [0.85]{.uva-orange}   | [0.8]{.uva-orange}    | [0.75]{.uva-orange}   |
+|-------------|-------|------|-------|------|-------|--------|--------|--------|--------|
+| Gaussian    | **0.998** | 0.992  | 0.983  | 0.954  | 0.932  | **0.902** | **0.851** | **0.789** | **0.707** |
+| Rademacher  | 0.997     | 0.988  | **0.980** | **0.951**  | **0.924** | 0.895     | 0.825     | 0.738     | 0.628     |
+| Uniform     | 0.997     | **0.991** | 0.983 | 0.953 | 0.930 | 0.897     | 0.837     | 0.750     | 0.659     |
+| Empirical   | 1.000     | 1.000  | 1.000  | 1.000  | 0.997  | 0.994     | 0.994     | 0.953     | 0.983     |
+| Gumbel      | 0.939     | 0.847  | 0.772  | 0.690  | 0.630  | 0.580     | 0.508     | 0.423     | 0.356     |
+
+:::
+
 

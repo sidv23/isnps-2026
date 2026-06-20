@@ -96,8 +96,8 @@ $$
 \newcommand{\loss}{\mathsf{L}}
 % \newcommand{\loss}{\text{\usefont{U}{boondoxo}{m}{n}\symbol{"60}}}
 \newcommand{\avg}{_\text{avg}}
-\newcommand{\rmse}{_\text{rmse}}
-\newcommand{\mse}{_\text{mse}}
+\newcommand{\rmse}{_\text{RMSE}}
+\newcommand{\mse}{_\text{MSE}}
 \newcommand{\ttinft}{_{2\to\infty}}
 \newcommand{\dttinf}{\rho_{2\to\infty}}
 

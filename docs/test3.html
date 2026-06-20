@@ -50,7 +50,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="test3_files/libs/revealjs/dist/theme/quarto-b6cc4d6b6c825ffeb5a310f533a26950.css">
+  <link rel="stylesheet" href="test3_files/libs/revealjs/dist/theme/quarto-17daf5c9b129b5ca08d332b515a58452.css">
   <link rel="stylesheet" href="src/css/imgbox.css">
   <link href="test3_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="test3_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -277,41 +277,161 @@
 \require{ams}
 \]</span></p>
 </section>
-<section id="appendix-fuk-nagaev" class="slide level2" data-visibility="uncounted">
-<h2>Under the hood: Fuk-Nagaev-Type concentration</h2>
-<p>Let <span class="math inline">\(\mathcal{E}= (\varepsilon_{ij})\)</span> be an <span class="math inline">\(n \times n\)</span> symmetric random matrix with symmetric entries.</p>
-<div class="fragment semi-fade-out" data-fragment-index="1">
-<div class="content-box-dblue small">
-<p><strong>Bounded Concentration <span class="citation" data-cites="bandeira2016sharp">(<a href="#/section-1" role="doc-biblioref" onclick="">Bandeira and Handel 2016</a>)</span>.</strong>   Suppose <span class="magenta"><span class="math inline">\(\max_{i,j}|{\varepsilon_{i,j}|} \le K\)</span> a.s.</span>. <br> Then, with probability greater than <span class="math inline">\(1 - O({e^{-t}})\)</span>, <span class="math display">\[
-\|\mathcal{E}\|_2 \lesssim {\max_{i}\sqrt{\sum_{j} \text{Var}(\varepsilon_{ij})} + K \sqrt{t + \log{n}}}
+<section id="statistical-learning" class="slide level2" data-auto-animate="false" data-align="center">
+<h2 data-id="quarto-animate-title">Statistical Learning</h2>
+<div class="footnotesize small center">
+<p><span class="math inline">\(\color{green}{X}\in \mathbb{X}({\kappa, \varpi}) \hspace{2em} D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}; \hspace{2em} \widehat{X}= \mathsf{CMDS}(D, p); \hspace{2em} \text{and} \quad \color{brown}{\overset{\mathbf{\smallsmile}}{X}}(D) \in \mathbb{R}^{n \times p}\)</span> be <span class="uva-orange"><strong>any estimator</strong></span> of <span class="math inline">\(\color{green}{X}\)</span></p>
+</div>
+<div class="columns small">
+<div class="column fragment" data-fragment-index="1" style="width:51.5%;">
+<div class="r-stack">
+<div class="content-box-dblue fragment fade-in-then-out" data-fragment-index="1">
+<p><strong>(Lower Bound).</strong> The reconstruction error <span class="math inline">\(\ell(\widehat{X},\color{green}{X})\)</span> has:</p>
+<ul>
+<li><span><strong>lower bound</strong></span> <span class="math inline">\(r_n \to 0\)</span>, if:<br><br></li>
+</ul>
+<p><span class="math display">\[
+\sup_{D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}}\mathbb{P}\Big(\;\; \ell(\color{brown}{\overset{\mathbf{\smallsmile}}{X}},\,\color{green}{X}) \gtrsim r_n \;\;\Big) \ge \frac{1}{2}
+\]</span></p>
+</div>
+<div class="content-box-dblue fragment fade-in-then-semi-out" data-fragment-index="2">
+<p><strong>(<span class="uva-orange"><strong>Minimax</strong></span> Lower Bound).</strong> The reconstruction error <span class="math inline">\(\ell(\widehat{X},\color{green}{X})\)</span> has:</p>
+<ul>
+<li><span class="uva-orange"><strong>minimax</strong></span> <span><strong>lower bound</strong></span> <span class="math inline">\(r_n \to 0\)</span>, if:<br><br></li>
+</ul>
+<p><span class="math display">\[
+\inf_{\color{brown}{\overset{\mathbf{\smallsmile}}{X}}} \sup_{D = \color{green}{\Delta} + \color{red}{\mathcal{E}}} \mathbb{P}\Big(\;\; \ell(\color{brown}{\overset{\mathbf{\smallsmile}}{X}},\,\color{green}{X}) \gtrsim r_n\;\; \Big) \ge \frac{1}{2}
 \]</span></p>
 </div>
 </div>
-<p><br></p>
-<div class="fragment fade-in" data-fragment-index="1">
-<div class="content-box-orange small">
-<p><strong>Fuk-Nagaev-Type Concentration <span class="citation" data-cites="vishwanath2025minimax">(<a href="#/section-1" role="doc-biblioref" onclick="">Vishwanath and Arias-Castro 2025</a>)</span></strong>   Suppose <span class="magenta"><span class="math inline">\(\max_{i,j}\|{\varepsilon_{i,j}\|_{L^q}} \le \sigma\)</span> for <span class="math inline">\(q &gt; 4\)</span></span><br> Then, for all <span class="math inline">\(0 &lt; r &lt; \frac{(q-4)}{2}\)</span>, with probability greater than <span class="math inline">\(1 - O({e^{-t}} + {n^{-r}})\)</span>, <span class="math display">\[
-\|\mathcal{E}\|_2 \lesssim {\max_{i}\sqrt{\sum_{j} \text{Var}(\varepsilon_{ij})} + \sigma n^{(r+2)/q} \sqrt{t + \log{n}}}
+</div><div class="column" style="width:0.5%;">
+
+</div><div class="column fragment fade-in-then-semi-out" data-fragment-index="3" style="width:48%;">
+<div class="content-box-green">
+<p><strong>(CMDS Upper Bound).</strong> The reconstruction error <span class="math inline">\(\ell(\widehat{X},\color{green}{X})\)</span> has:</p>
+<ul>
+<li><span class="uva-orange"><strong>convergence rate</strong></span> <span class="math inline">\(R_n \to 0\)</span></li>
+<li>with <span class="uva-orange"><strong>failure probability</strong></span> <span class="math inline">\(\alpha_n \to 0\)</span>, if:</li>
+</ul>
+<p><span class="math display">\[
+\sup_{D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}}\mathbb{P}\Big(\;\; \ell(\widehat{X},\color{green}{X}) \gtrsim R_n \;\;\Big) \leq \alpha_n
 \]</span></p>
 </div>
+</div></div>
+<div class="footnotesize fragment" data-fragment-index="4">
+<p>
+</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><strong>Reconstruction metrics</strong></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>RMSE</strong><br><br> <span class="math inline">\(\displaystyle\ell_\text{RMSE}(\widehat{X},\color{green}{X}) = \frac{1}{\sqrt{n}}\|g(\widehat{X}) - X\|_F\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong><span class="math inline">\(2\)</span>-to-<span class="math inline">\(\infty\)</span> uniform error</strong><br><br> <span class="math inline">\(\displaystyle\ell_{2\to\infty}(\widehat{X},\color{green}{X}) = \max_{i \in [n]} \|g(\widehat{x}_i) - x_i\|\)</span></td>
+</tr>
+</tbody>
+</table>
 </div>
 </section>
-<section id="illustration" class="slide level2">
-<h2>Illustration</h2>
-<div class="center r-stack">
-<p><img data-src="imgs/mds/plts/p2.png" class="fragment fade-out" style="width:55.0%" data-fragment-index="1"></p>
-<p><img data-src="imgs/mds/plts/p1.png" class="fragment fade-in" style="width:98.0%" data-fragment-index="1"></p>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div class="content-box-gray center footnotesize fragment semi-fade-out" style="margin-top: -1.2%" data-fragment-index="1">
+<table class="caption-top">
+<colgroup>
+<col style="width: 46%">
+<col style="width: 7%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="large uva-orange">Minimax Lower Bound</span></th>
+<th style="text-align: center;">    </th>
+<th style="text-align: center;"><span class="large uva-orange">CMDS Upper Bound</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\displaystyle \inf_{\color{brown}{\overset{\mathbf{\smallsmile}}{X}}} \sup_{D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}} \mathbb{P}\Big(\;\; \ell(\color{brown}{\overset{\mathbf{\smallsmile}}{X}},\,\color{green}{X}) \gtrsim r_n\;\; \Big) \ge \frac{1}{2}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\displaystyle \sup_{D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}}\mathbb{P}\Big(\;\; \ell(\widehat{X}, \color{green}{X}) \gtrsim R_n \;\;\Big) \;\le\;  \alpha_n\)</span></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="footnote scriptsize">
-<p>more <a href="#/appendix-fourth-moment-plots">experiments in the appendix</a></p>
+<p>
+</p>
+<div class="content-box-orange small fragment" data-fragment-index="1" style="margin-top: 0%;">
+<strong>Theorem <span class="citation" data-cites="vishwanath2025minimax">(<a href="#/section-2" role="doc-biblioref" onclick="">Vishwanath and Arias-Castro 2025</a>)</span>.</strong>   For all   <span class="math inline">\(0 &lt; r &lt; \frac{q-4}{2}\)</span>:<br>
+<p>
+</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 25%">
+<col style="width: 3%">
+<col style="width: 25%">
+<col style="width: 3%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="uva-orange">Metric</span></th>
+<th style="text-align: center;"><span class="uva-orange">Lower bound <span class="math inline">\(r_n\)</span></span></th>
+<th style="text-align: center;">  </th>
+<th style="text-align: center;"><span class="uva-orange">Upper bound <span class="math inline">\(R_n\)</span></span></th>
+<th style="text-align: center;">  </th>
+<th style="text-align: center;"><span class="uva-orange">Failure Probability <span class="math inline">\(\alpha_n\)</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span><span class="math display">\[\ell_\text{RMSE}\]</span></span></td>
+<td style="text-align: center;"><span class="math inline">\(\displaystyle\frac{\sigma\kappa}{\sqrt{n}}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\displaystyle\frac{\sigma\kappa}{\sqrt{n}}\)</span> <br></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(O(n^{-2} + n^{-r})\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span><span class="math inline">\(\ell_{_{2\to\infty}}\)</span></span></td>
+<td style="text-align: center;"><span class="math inline">\(\displaystyle\underline{c}({\kappa, \varpi})\cdot \sigma\sqrt{\frac{\log{n}}{n}}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\displaystyle\overline{c}({\kappa, \varpi})\cdot \sigma\sqrt{\frac{\log{n}}{n}}\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(O(n^{-2} + n^{-r})\)</span> <br><br></td>
+</tr>
+</tbody>
+</table>
+<p>
+</p>
+<p>
+</p>
+</div>
+<div class="small fragment fade-down" data-fragment-index="2">
+<ul>
+<li><span class="math inline">\(q &gt; 4\)</span> moments is <span class="uva-orange">necessary</span> for consistency</li>
+<li>Parametric rates (in <span class="math inline">\(n\)</span>) for <span class="math inline">\(\ell_\text{RMSE}\)</span> and minimax-optimal up to absolute constants. Extra <span class="small"><span class="math inline">\(\sqrt{\log{n}}\)</span></span> factor for <span class="math inline">\(\ell_{_{2\to\infty}}\)</span> is unavoidable</li>
+<li>Proof relies on: <span class="magenta">(1.) orthogonal Procrustes alignment</span> + <span class="uva-orange">(2.) Fuk-Nagaev-type matrix concentration</span></li>
+</ul>
+</div>
+<div class="footnote footnotesize fragment fade-in-then-semi-out" data-fragment-index="1">
+<p>where &nbsp; <span class="math inline">\(\overline{c}({\kappa, \varpi}) = \kappa^2(\kappa + \varpi)\)</span>   and   <span class="math inline">\(\underline{c}({\kappa, \varpi}) = \kappa(1+\kappa\varpi)^{-1}\)</span>.</p>
 </div>
 </section>
-<section id="section-1" class="slide level2 smaller scrollable">
+<section id="section-2" class="slide level2 smaller scrollable">
 <h2></h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-bandeira2016sharp" class="csl-entry" role="listitem">
-Bandeira, Afonso S, and Ramon van Handel. 2016. <span>“Sharp Nonasymptotic Bounds on the Norm of Random Matrices with Independent Entries.”</span> <em>Annals of Probability</em> 44 (4): 2479–506.
-</div>
 <div id="ref-vishwanath2025minimax" class="csl-entry" role="listitem">
 Vishwanath, Siddharth, and Ery Arias-Castro. 2025. <span>“Minimax Optimality of Classical Scaling Under General Noise Conditions.”</span> <em>arXiv Preprint arXiv:2502.00947</em>.
 </div>

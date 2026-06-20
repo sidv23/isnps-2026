@@ -116,7 +116,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-b6cc4d6b6c825ffeb5a310f533a26950.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-17daf5c9b129b5ca08d332b515a58452.css">
   <link rel="stylesheet" href="src/css/imgbox.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -309,7 +309,7 @@
 
 <section id="section" class="slide level2 center">
 <h2></h2>
-<p><br><br><br></p>
+<p><br></p>
 <h3 id="multidimensional-scaling-from-noisy-databr-statistical-learning-uncertainty-quantification"><span class="Large">Multidimensional Scaling From Noisy Data</span><br> <span class="smaller">Statistical Learning &amp; Uncertainty Quantification</span></h3>
 <p><span class="uva-orange Large text-shadow">Siddharth Vishwanath</span><br> <br><br></p>
 <div class="columns">
@@ -488,46 +488,6 @@
 <p>Dates back to <span class="citation" data-cites="young1938discussion">(<a href="#/references" role="doc-biblioref" onclick="">Young and Householder 1938</a>)</span>. Later rediscovered by <span class="citation" data-cites="torgerson1952multidimensional">(<a href="#/references" role="doc-biblioref" onclick="">Torgerson 1952</a>)</span> and <span class="citation" data-cites="gower1966some">(<a href="#/references" role="doc-biblioref" onclick="">Gower 1966</a>)</span>.</p>
 </div>
 </section>
-<section id="appendix-mds-pca" class="slide level2" data-visibility="uncounted">
-<h2>MDS vs Dimension Reduction</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 9%">
-<col style="width: 40%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><span class="uva-orange">Comparison</span></th>
-<th style="text-align: center;">MDS</th>
-<th style="text-align: center;">Dimension Reduction<br><br></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><span class="uva-orange">Data type</span></td>
-<td style="text-align: center;">Pairwise dissimilarities <span class="math inline">\(\Delta\in \mathbb{R}^{n \times n}\)</span></td>
-<td style="text-align: center;">Feature vectors <span class="math inline">\(X \in \mathbb{R}^{n \times P}\)</span><br><br><br></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span class="uva-orange">Goal</span></td>
-<td style="text-align: center;">Find configuration <span class="math inline">\(\widehat{X}\in \mathbb{R}^{n \times p}\)</span> such that <span class="math inline">\(\|\widehat{x}_i - \widehat{x}_j\| \approx \delta_{ij}\)</span></td>
-<td style="text-align: center;">Find low-dimensional representation <span class="math inline">\(\widehat{X}\in \mathbb{R}^{n \times p}\)</span> such that <span class="math inline">\(\widehat{x}_i^{\mathsf{T}}\widehat{x}_j \approx x_i^{\mathsf{T}}x_j\)</span> <br><br></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><span class="uva-orange">Spectral algorithm</span></td>
-<td style="text-align: center;">Classical MDS (CMDS) Algorithm <span class="math display">\[\widehat{X}=
-\mathop{\operatorname{arg\,min}}_{Y \in \mathbb{R}^{n \times p}} \| \Delta_c- YY^{\mathsf{T}}\|_F^2\]</span></td>
-<td style="text-align: center;">Principal Component Analysis (PCA) <span class="math display">\[\widehat{X}= \mathop{\operatorname{arg\,min}}_{Y \in \mathbb{R}^{n \times p}} \| X X^{\mathsf{T}}- YY^{\mathsf{T}}\|_F^2 \]</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span class="uva-orange">Nonlinear methods</span></td>
-<td style="text-align: center;">Isomap, t-SNE, Non-metric MDS, …</td>
-<td style="text-align: center;">Kernal PCA, LLE, Laplacian Eigenmaps, …</td>
-</tr>
-</tbody>
-</table>
-</section>
 <section id="identifiability-of-mds-embeddings" class="slide level2">
 <h2>Identifiability of MDS Embeddings</h2>
 <ul>
@@ -542,75 +502,75 @@
 <p><img data-src="imgs/mds/plts/distmat.png" style="width:70.0%"></p>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="347" data-source-offset="-18"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 346;"><span id="cb1-347"><a href=""></a>d3 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"d3@7"</span>)</span>
-<span id="cb1-348"><a href=""></a>Plot <span class="op">=</span> <span class="pp">require</span>(<span class="st">"@observablehq/plot@0.6"</span>)</span>
-<span id="cb1-349"><a href=""></a>Inputs <span class="op">=</span> <span class="pp">require</span>(<span class="st">"@observablehq/inputs"</span>)</span>
-<span id="cb1-350"><a href=""></a></span>
-<span id="cb1-351"><a href=""></a><span class="co">// Original coordinates</span></span>
-<span id="cb1-352"><a href=""></a>X <span class="op">=</span> [</span>
-<span id="cb1-353"><a href=""></a>  [ <span class="fl">1.14623781</span><span class="op">,</span>  <span class="fl">0.1538715</span> ]<span class="op">,</span></span>
-<span id="cb1-354"><a href=""></a>  [ <span class="fl">1.52213386</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.08244349</span>]<span class="op">,</span></span>
-<span id="cb1-355"><a href=""></a>  [ <span class="fl">1.14854378</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.50119446</span>]<span class="op">,</span></span>
-<span id="cb1-356"><a href=""></a>  [ <span class="fl">0.79205965</span><span class="op">,</span>  <span class="fl">0.49071824</span>]<span class="op">,</span></span>
-<span id="cb1-357"><a href=""></a>  [<span class="op">-</span><span class="fl">0.94213814</span><span class="op">,</span>  <span class="fl">0.37757528</span>]<span class="op">,</span></span>
-<span id="cb1-358"><a href=""></a>  [<span class="op">-</span><span class="fl">0.13194707</span><span class="op">,</span>  <span class="fl">1.06805394</span>]<span class="op">,</span></span>
-<span id="cb1-359"><a href=""></a>  [ <span class="fl">0.03096746</span><span class="op">,</span>  <span class="fl">0.154996</span>  ]<span class="op">,</span></span>
-<span id="cb1-360"><a href=""></a>  [ <span class="fl">0.50951258</span><span class="op">,</span>  <span class="fl">0.93249084</span>]<span class="op">,</span></span>
-<span id="cb1-361"><a href=""></a>  [ <span class="fl">1.92567077</span><span class="op">,</span>  <span class="fl">0.15466052</span>]<span class="op">,</span></span>
-<span id="cb1-362"><a href=""></a>  [ <span class="fl">1.42509235</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.4438636</span> ]<span class="op">,</span></span>
-<span id="cb1-363"><a href=""></a>  [ <span class="fl">0.59488429</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.20794035</span>]<span class="op">,</span></span>
-<span id="cb1-364"><a href=""></a>  [ <span class="fl">0.72922735</span><span class="op">,</span>  <span class="fl">0.68034407</span>]<span class="op">,</span></span>
-<span id="cb1-365"><a href=""></a>  [<span class="op">-</span><span class="fl">1.11931582</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.04090519</span>]<span class="op">,</span></span>
-<span id="cb1-366"><a href=""></a>  [ <span class="fl">1.95532585</span><span class="op">,</span>  <span class="fl">0.65242416</span>]<span class="op">,</span></span>
-<span id="cb1-367"><a href=""></a>  [ <span class="fl">0.20594816</span><span class="op">,</span>  <span class="fl">0.84546606</span>]<span class="op">,</span></span>
-<span id="cb1-368"><a href=""></a>  [ <span class="fl">0.01612213</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.24717725</span>]<span class="op">,</span></span>
-<span id="cb1-369"><a href=""></a>  [<span class="op">-</span><span class="fl">0.74877507</span><span class="op">,</span>  <span class="fl">0.67520749</span>]<span class="op">,</span></span>
-<span id="cb1-370"><a href=""></a>  [ <span class="fl">0.07458595</span><span class="op">,</span>  <span class="fl">0.31634168</span>]<span class="op">,</span></span>
-<span id="cb1-371"><a href=""></a>  [ <span class="fl">0.88279825</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.48225769</span>]<span class="op">,</span></span>
-<span id="cb1-372"><a href=""></a>  [<span class="op">-</span><span class="fl">0.45268068</span><span class="op">,</span>  <span class="fl">0.93194446</span>]</span>
-<span id="cb1-373"><a href=""></a>]</span>
-<span id="cb1-374"><a href=""></a></span>
-<span id="cb1-375"><a href=""></a><span class="co">// Sliders — no labels</span></span>
-<span id="cb1-376"><a href=""></a>viewof theta <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="cn">PI</span>]<span class="op">,</span> { <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span> })</span>
-<span id="cb1-377"><a href=""></a>viewof mu    <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span>         { <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span> })</span>
-<span id="cb1-378"><a href=""></a></span>
-<span id="cb1-379"><a href=""></a><span class="co">// Transform points</span></span>
-<span id="cb1-380"><a href=""></a>transformed <span class="op">=</span> {</span>
-<span id="cb1-381"><a href=""></a>  <span class="kw">const</span> cosT <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">cos</span>(theta)<span class="op">;</span></span>
-<span id="cb1-382"><a href=""></a>  <span class="kw">const</span> sinT <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sin</span>(theta)<span class="op">;</span></span>
-<span id="cb1-383"><a href=""></a>  <span class="cf">return</span> X<span class="op">.</span><span class="fu">map</span>(([x0<span class="op">,</span> y0]) <span class="kw">=&gt;</span> {</span>
-<span id="cb1-384"><a href=""></a>    <span class="kw">const</span> xRot <span class="op">=</span> cosT <span class="op">*</span> x0 <span class="op">-</span> sinT <span class="op">*</span> y0<span class="op">;</span></span>
-<span id="cb1-385"><a href=""></a>    <span class="kw">const</span> yRot <span class="op">=</span> sinT <span class="op">*</span> x0 <span class="op">+</span> cosT <span class="op">*</span> y0<span class="op">;</span></span>
-<span id="cb1-386"><a href=""></a>    <span class="cf">return</span> { <span class="dt">x</span><span class="op">:</span> xRot <span class="op">+</span> mu<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> yRot <span class="op">+</span> mu }<span class="op">;</span></span>
-<span id="cb1-387"><a href=""></a>  })<span class="op">;</span></span>
-<span id="cb1-388"><a href=""></a>}</span>
-<span id="cb1-389"><a href=""></a></span>
-<span id="cb1-390"><a href=""></a><span class="co">// Reference points as "x", transformed as circles</span></span>
-<span id="cb1-391"><a href=""></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb1-392"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">690</span><span class="op">,</span></span>
-<span id="cb1-393"><a href=""></a><span class="dt">height</span><span class="op">:</span> <span class="dv">450</span><span class="op">,</span></span>
-<span id="cb1-394"><a href=""></a><span class="dt">x</span><span class="op">:</span> { <span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="fl">1.5</span><span class="op">,</span> <span class="fl">2.5</span>] }<span class="op">,</span></span>
-<span id="cb1-395"><a href=""></a><span class="dt">y</span><span class="op">:</span> { <span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="fl">1.5</span>] }<span class="op">,</span></span>
-<span id="cb1-396"><a href=""></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb1-397"><a href=""></a>    Plot<span class="op">.</span><span class="fu">frame</span>()<span class="op">,</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="334" data-source-offset="-18"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 333;"><span id="cb1-334"><a href=""></a>d3 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"d3@7"</span>)</span>
+<span id="cb1-335"><a href=""></a>Plot <span class="op">=</span> <span class="pp">require</span>(<span class="st">"@observablehq/plot@0.6"</span>)</span>
+<span id="cb1-336"><a href=""></a>Inputs <span class="op">=</span> <span class="pp">require</span>(<span class="st">"@observablehq/inputs"</span>)</span>
+<span id="cb1-337"><a href=""></a></span>
+<span id="cb1-338"><a href=""></a><span class="co">// Original coordinates</span></span>
+<span id="cb1-339"><a href=""></a>X <span class="op">=</span> [</span>
+<span id="cb1-340"><a href=""></a>  [ <span class="fl">1.14623781</span><span class="op">,</span>  <span class="fl">0.1538715</span> ]<span class="op">,</span></span>
+<span id="cb1-341"><a href=""></a>  [ <span class="fl">1.52213386</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.08244349</span>]<span class="op">,</span></span>
+<span id="cb1-342"><a href=""></a>  [ <span class="fl">1.14854378</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.50119446</span>]<span class="op">,</span></span>
+<span id="cb1-343"><a href=""></a>  [ <span class="fl">0.79205965</span><span class="op">,</span>  <span class="fl">0.49071824</span>]<span class="op">,</span></span>
+<span id="cb1-344"><a href=""></a>  [<span class="op">-</span><span class="fl">0.94213814</span><span class="op">,</span>  <span class="fl">0.37757528</span>]<span class="op">,</span></span>
+<span id="cb1-345"><a href=""></a>  [<span class="op">-</span><span class="fl">0.13194707</span><span class="op">,</span>  <span class="fl">1.06805394</span>]<span class="op">,</span></span>
+<span id="cb1-346"><a href=""></a>  [ <span class="fl">0.03096746</span><span class="op">,</span>  <span class="fl">0.154996</span>  ]<span class="op">,</span></span>
+<span id="cb1-347"><a href=""></a>  [ <span class="fl">0.50951258</span><span class="op">,</span>  <span class="fl">0.93249084</span>]<span class="op">,</span></span>
+<span id="cb1-348"><a href=""></a>  [ <span class="fl">1.92567077</span><span class="op">,</span>  <span class="fl">0.15466052</span>]<span class="op">,</span></span>
+<span id="cb1-349"><a href=""></a>  [ <span class="fl">1.42509235</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.4438636</span> ]<span class="op">,</span></span>
+<span id="cb1-350"><a href=""></a>  [ <span class="fl">0.59488429</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.20794035</span>]<span class="op">,</span></span>
+<span id="cb1-351"><a href=""></a>  [ <span class="fl">0.72922735</span><span class="op">,</span>  <span class="fl">0.68034407</span>]<span class="op">,</span></span>
+<span id="cb1-352"><a href=""></a>  [<span class="op">-</span><span class="fl">1.11931582</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.04090519</span>]<span class="op">,</span></span>
+<span id="cb1-353"><a href=""></a>  [ <span class="fl">1.95532585</span><span class="op">,</span>  <span class="fl">0.65242416</span>]<span class="op">,</span></span>
+<span id="cb1-354"><a href=""></a>  [ <span class="fl">0.20594816</span><span class="op">,</span>  <span class="fl">0.84546606</span>]<span class="op">,</span></span>
+<span id="cb1-355"><a href=""></a>  [ <span class="fl">0.01612213</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.24717725</span>]<span class="op">,</span></span>
+<span id="cb1-356"><a href=""></a>  [<span class="op">-</span><span class="fl">0.74877507</span><span class="op">,</span>  <span class="fl">0.67520749</span>]<span class="op">,</span></span>
+<span id="cb1-357"><a href=""></a>  [ <span class="fl">0.07458595</span><span class="op">,</span>  <span class="fl">0.31634168</span>]<span class="op">,</span></span>
+<span id="cb1-358"><a href=""></a>  [ <span class="fl">0.88279825</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.48225769</span>]<span class="op">,</span></span>
+<span id="cb1-359"><a href=""></a>  [<span class="op">-</span><span class="fl">0.45268068</span><span class="op">,</span>  <span class="fl">0.93194446</span>]</span>
+<span id="cb1-360"><a href=""></a>]</span>
+<span id="cb1-361"><a href=""></a></span>
+<span id="cb1-362"><a href=""></a><span class="co">// Sliders — no labels</span></span>
+<span id="cb1-363"><a href=""></a>viewof theta <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="cn">PI</span>]<span class="op">,</span> { <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span> })</span>
+<span id="cb1-364"><a href=""></a>viewof mu    <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span>         { <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span> })</span>
+<span id="cb1-365"><a href=""></a></span>
+<span id="cb1-366"><a href=""></a><span class="co">// Transform points</span></span>
+<span id="cb1-367"><a href=""></a>transformed <span class="op">=</span> {</span>
+<span id="cb1-368"><a href=""></a>  <span class="kw">const</span> cosT <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">cos</span>(theta)<span class="op">;</span></span>
+<span id="cb1-369"><a href=""></a>  <span class="kw">const</span> sinT <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sin</span>(theta)<span class="op">;</span></span>
+<span id="cb1-370"><a href=""></a>  <span class="cf">return</span> X<span class="op">.</span><span class="fu">map</span>(([x0<span class="op">,</span> y0]) <span class="kw">=&gt;</span> {</span>
+<span id="cb1-371"><a href=""></a>    <span class="kw">const</span> xRot <span class="op">=</span> cosT <span class="op">*</span> x0 <span class="op">-</span> sinT <span class="op">*</span> y0<span class="op">;</span></span>
+<span id="cb1-372"><a href=""></a>    <span class="kw">const</span> yRot <span class="op">=</span> sinT <span class="op">*</span> x0 <span class="op">+</span> cosT <span class="op">*</span> y0<span class="op">;</span></span>
+<span id="cb1-373"><a href=""></a>    <span class="cf">return</span> { <span class="dt">x</span><span class="op">:</span> xRot <span class="op">+</span> mu<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> yRot <span class="op">+</span> mu }<span class="op">;</span></span>
+<span id="cb1-374"><a href=""></a>  })<span class="op">;</span></span>
+<span id="cb1-375"><a href=""></a>}</span>
+<span id="cb1-376"><a href=""></a></span>
+<span id="cb1-377"><a href=""></a><span class="co">// Reference points as "x", transformed as circles</span></span>
+<span id="cb1-378"><a href=""></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb1-379"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">690</span><span class="op">,</span></span>
+<span id="cb1-380"><a href=""></a><span class="dt">height</span><span class="op">:</span> <span class="dv">450</span><span class="op">,</span></span>
+<span id="cb1-381"><a href=""></a><span class="dt">x</span><span class="op">:</span> { <span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="fl">1.5</span><span class="op">,</span> <span class="fl">2.5</span>] }<span class="op">,</span></span>
+<span id="cb1-382"><a href=""></a><span class="dt">y</span><span class="op">:</span> { <span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="fl">1.5</span>] }<span class="op">,</span></span>
+<span id="cb1-383"><a href=""></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb1-384"><a href=""></a>    Plot<span class="op">.</span><span class="fu">frame</span>()<span class="op">,</span></span>
+<span id="cb1-385"><a href=""></a></span>
+<span id="cb1-386"><a href=""></a>    <span class="co">// Larger red "x"</span></span>
+<span id="cb1-387"><a href=""></a>    Plot<span class="op">.</span><span class="fu">text</span>(</span>
+<span id="cb1-388"><a href=""></a>      X<span class="op">.</span><span class="fu">map</span>(([x<span class="op">,</span> y]) <span class="kw">=&gt;</span> ({ x<span class="op">,</span> y<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span> }))<span class="op">,</span></span>
+<span id="cb1-389"><a href=""></a>      { </span>
+<span id="cb1-390"><a href=""></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span></span>
+<span id="cb1-391"><a href=""></a>        <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span></span>
+<span id="cb1-392"><a href=""></a>        <span class="dt">text</span><span class="op">:</span> <span class="st">"label"</span><span class="op">,</span></span>
+<span id="cb1-393"><a href=""></a>        <span class="dt">fill</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span></span>
+<span id="cb1-394"><a href=""></a>        <span class="dt">fontSize</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span>     <span class="co">// increase size</span></span>
+<span id="cb1-395"><a href=""></a>        <span class="dt">fontWeight</span><span class="op">:</span> <span class="st">"bold"</span></span>
+<span id="cb1-396"><a href=""></a>      }</span>
+<span id="cb1-397"><a href=""></a>    )<span class="op">,</span></span>
 <span id="cb1-398"><a href=""></a></span>
-<span id="cb1-399"><a href=""></a>    <span class="co">// Larger red "x"</span></span>
-<span id="cb1-400"><a href=""></a>    Plot<span class="op">.</span><span class="fu">text</span>(</span>
-<span id="cb1-401"><a href=""></a>      X<span class="op">.</span><span class="fu">map</span>(([x<span class="op">,</span> y]) <span class="kw">=&gt;</span> ({ x<span class="op">,</span> y<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span> }))<span class="op">,</span></span>
-<span id="cb1-402"><a href=""></a>      { </span>
-<span id="cb1-403"><a href=""></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span></span>
-<span id="cb1-404"><a href=""></a>        <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span></span>
-<span id="cb1-405"><a href=""></a>        <span class="dt">text</span><span class="op">:</span> <span class="st">"label"</span><span class="op">,</span></span>
-<span id="cb1-406"><a href=""></a>        <span class="dt">fill</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span></span>
-<span id="cb1-407"><a href=""></a>        <span class="dt">fontSize</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span>     <span class="co">// increase size</span></span>
-<span id="cb1-408"><a href=""></a>        <span class="dt">fontWeight</span><span class="op">:</span> <span class="st">"bold"</span></span>
-<span id="cb1-409"><a href=""></a>      }</span>
-<span id="cb1-410"><a href=""></a>    )<span class="op">,</span></span>
-<span id="cb1-411"><a href=""></a></span>
-<span id="cb1-412"><a href=""></a>    <span class="co">// Moving configuration</span></span>
-<span id="cb1-413"><a href=""></a>    Plot<span class="op">.</span><span class="fu">dot</span>(transformed<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"blue"</span> })</span>
-<span id="cb1-414"><a href=""></a>  ]</span>
-<span id="cb1-415"><a href=""></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-399"><a href=""></a>    <span class="co">// Moving configuration</span></span>
+<span id="cb1-400"><a href=""></a>    Plot<span class="op">.</span><span class="fu">dot</span>(transformed<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"blue"</span> })</span>
+<span id="cb1-401"><a href=""></a>  ]</span>
+<span id="cb1-402"><a href=""></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -838,12 +798,12 @@ if (outputEl) {{
 </div>
 </section></section>
 <section>
-<section id="signal-recovery" class="title-slide slide level1 inverse center" data-background-color="#1e407c">
-<h1>Signal Recovery</h1>
+<section id="statistical-learning" class="title-slide slide level1 inverse center" data-background-color="#1e407c">
+<h1>Statistical Learning</h1>
 
 </section>
-<section id="desiderata---i-signal-recovery" class="slide level2">
-<h2>Desiderata - I (Signal Recovery)</h2>
+<section id="desiderata---i-statistical-learning" class="slide level2">
+<h2>Desiderata - I (Statistical Learning)</h2>
 <div class="columns">
 <div class="column" style="width:65%;">
 <ul>
@@ -874,72 +834,72 @@ if (outputEl) {{
 </div><div class="column center fragment" data-fragment-index="1" style="width:35%;">
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="819" data-source-offset="-21"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 818;"><span id="cb2-819"><a href=""></a>Y <span class="op">=</span> [</span>
-<span id="cb2-820"><a href=""></a>[ <span class="fl">0.29082279</span><span class="op">,</span>  <span class="fl">1.2197497</span>  ]<span class="op">,</span></span>
-<span id="cb2-821"><a href=""></a>[ <span class="fl">0.54921743</span><span class="op">,</span>  <span class="fl">1.48447509</span> ]<span class="op">,</span></span>
-<span id="cb2-822"><a href=""></a>[ <span class="fl">0.79487358</span><span class="op">,</span>  <span class="fl">0.91690786</span> ]<span class="op">,</span></span>
-<span id="cb2-823"><a href=""></a>[<span class="op">-</span><span class="fl">0.05507621</span><span class="op">,</span>  <span class="fl">0.8399228</span>  ]<span class="op">,</span></span>
-<span id="cb2-824"><a href=""></a>[<span class="op">-</span><span class="fl">0.81007186</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.729762</span>   ]<span class="op">,</span></span>
-<span id="cb2-825"><a href=""></a>[<span class="op">-</span><span class="fl">0.96725007</span><span class="op">,</span>  <span class="fl">0.1586658</span>  ]<span class="op">,</span></span>
-<span id="cb2-826"><a href=""></a>[ <span class="fl">0.0870127</span> <span class="op">,</span>  <span class="fl">0.02126686</span> ]<span class="op">,</span></span>
-<span id="cb2-827"><a href=""></a>[<span class="op">-</span><span class="fl">0.75285017</span><span class="op">,</span>  <span class="fl">0.83506472</span> ]<span class="op">,</span></span>
-<span id="cb2-828"><a href=""></a>[ <span class="fl">0.3896396</span> <span class="op">,</span>  <span class="fl">1.83058711</span> ]<span class="op">,</span></span>
-<span id="cb2-829"><a href=""></a>[ <span class="fl">0.80195523</span><span class="op">,</span>  <span class="fl">1.0558289</span>  ]<span class="op">,</span></span>
-<span id="cb2-830"><a href=""></a>[ <span class="fl">0.36033686</span><span class="op">,</span>  <span class="fl">0.47377509</span> ]<span class="op">,</span></span>
-<span id="cb2-831"><a href=""></a>[<span class="op">-</span><span class="fl">0.46475696</span><span class="op">,</span>  <span class="fl">0.76321042</span> ]<span class="op">,</span></span>
-<span id="cb2-832"><a href=""></a>[<span class="op">-</span><span class="fl">0.27488389</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.99563331</span> ]<span class="op">,</span></span>
-<span id="cb2-833"><a href=""></a>[<span class="op">-</span><span class="fl">0.26321777</span><span class="op">,</span>  <span class="fl">2.15651646</span> ]<span class="op">,</span></span>
-<span id="cb2-834"><a href=""></a>[<span class="op">-</span><span class="fl">0.58762755</span><span class="op">,</span>  <span class="fl">0.50281184</span> ]<span class="op">,</span></span>
-<span id="cb2-835"><a href=""></a>[ <span class="fl">0.10823995</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.29860396</span> ]<span class="op">,</span></span>
-<span id="cb2-836"><a href=""></a>[<span class="op">-</span><span class="fl">0.93214625</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.62583634</span> ]<span class="op">,</span></span>
-<span id="cb2-837"><a href=""></a>[<span class="op">-</span><span class="fl">0.30831587</span><span class="op">,</span>  <span class="fl">0.43091851</span> ]<span class="op">,</span></span>
-<span id="cb2-838"><a href=""></a>[ <span class="fl">0.77425273</span><span class="op">,</span>  <span class="fl">0.72337579</span> ]<span class="op">,</span></span>
-<span id="cb2-839"><a href=""></a>[<span class="op">-</span><span class="fl">0.94726912</span><span class="op">,</span>  <span class="fl">0.01034496</span> ]</span>
-<span id="cb2-840"><a href=""></a>]</span>
-<span id="cb2-841"><a href=""></a></span>
-<span id="cb2-842"><a href=""></a><span class="co">// Single slider: rotation angle</span></span>
-<span id="cb2-843"><a href=""></a>viewof theta2 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="cn">PI</span>]<span class="op">,</span> { <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span> })</span>
-<span id="cb2-844"><a href=""></a>viewof mu1    <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> { <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span> })</span>
-<span id="cb2-845"><a href=""></a>viewof mu2    <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> { <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span> })</span>
-<span id="cb2-846"><a href=""></a></span>
-<span id="cb2-847"><a href=""></a></span>
-<span id="cb2-848"><a href=""></a><span class="co">// Rotate Y (no translation)</span></span>
-<span id="cb2-849"><a href=""></a>rotatedY <span class="op">=</span> {</span>
-<span id="cb2-850"><a href=""></a><span class="kw">const</span> cosT <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">cos</span>(theta2)<span class="op">;</span></span>
-<span id="cb2-851"><a href=""></a><span class="kw">const</span> sinT <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sin</span>(theta2)<span class="op">;</span></span>
-<span id="cb2-852"><a href=""></a><span class="cf">return</span> Y<span class="op">.</span><span class="fu">map</span>(([x0<span class="op">,</span> y0]) <span class="kw">=&gt;</span> ({</span>
-<span id="cb2-853"><a href=""></a><span class="dt">x</span><span class="op">:</span> cosT <span class="op">*</span> x0 <span class="op">-</span> sinT <span class="op">*</span> y0 <span class="op">+</span> mu1<span class="op">,</span></span>
-<span id="cb2-854"><a href=""></a><span class="dt">y</span><span class="op">:</span> sinT <span class="op">*</span> x0 <span class="op">+</span> cosT <span class="op">*</span> y0 <span class="op">+</span> mu2</span>
-<span id="cb2-855"><a href=""></a>}))<span class="op">;</span></span>
-<span id="cb2-856"><a href=""></a>}</span>
-<span id="cb2-857"><a href=""></a></span>
-<span id="cb2-858"><a href=""></a><span class="co">// Plot: X as fixed red "x", rotated Y as dots</span></span>
-<span id="cb2-859"><a href=""></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb2-860"><a href=""></a><span class="dt">width</span><span class="op">:</span> <span class="dv">530</span><span class="op">,</span></span>
-<span id="cb2-861"><a href=""></a><span class="dt">height</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
-<span id="cb2-862"><a href=""></a><span class="dt">x</span><span class="op">:</span> { <span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="fl">1.5</span><span class="op">,</span> <span class="fl">2.5</span>] }<span class="op">,</span></span>
-<span id="cb2-863"><a href=""></a><span class="dt">y</span><span class="op">:</span> { <span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="fl">1.5</span>] }<span class="op">,</span></span>
-<span id="cb2-864"><a href=""></a><span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb2-865"><a href=""></a>Plot<span class="op">.</span><span class="fu">frame</span>()<span class="op">,</span></span>
-<span id="cb2-866"><a href=""></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="806" data-source-offset="-21"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 805;"><span id="cb2-806"><a href=""></a>Y <span class="op">=</span> [</span>
+<span id="cb2-807"><a href=""></a>[ <span class="fl">0.29082279</span><span class="op">,</span>  <span class="fl">1.2197497</span>  ]<span class="op">,</span></span>
+<span id="cb2-808"><a href=""></a>[ <span class="fl">0.54921743</span><span class="op">,</span>  <span class="fl">1.48447509</span> ]<span class="op">,</span></span>
+<span id="cb2-809"><a href=""></a>[ <span class="fl">0.79487358</span><span class="op">,</span>  <span class="fl">0.91690786</span> ]<span class="op">,</span></span>
+<span id="cb2-810"><a href=""></a>[<span class="op">-</span><span class="fl">0.05507621</span><span class="op">,</span>  <span class="fl">0.8399228</span>  ]<span class="op">,</span></span>
+<span id="cb2-811"><a href=""></a>[<span class="op">-</span><span class="fl">0.81007186</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.729762</span>   ]<span class="op">,</span></span>
+<span id="cb2-812"><a href=""></a>[<span class="op">-</span><span class="fl">0.96725007</span><span class="op">,</span>  <span class="fl">0.1586658</span>  ]<span class="op">,</span></span>
+<span id="cb2-813"><a href=""></a>[ <span class="fl">0.0870127</span> <span class="op">,</span>  <span class="fl">0.02126686</span> ]<span class="op">,</span></span>
+<span id="cb2-814"><a href=""></a>[<span class="op">-</span><span class="fl">0.75285017</span><span class="op">,</span>  <span class="fl">0.83506472</span> ]<span class="op">,</span></span>
+<span id="cb2-815"><a href=""></a>[ <span class="fl">0.3896396</span> <span class="op">,</span>  <span class="fl">1.83058711</span> ]<span class="op">,</span></span>
+<span id="cb2-816"><a href=""></a>[ <span class="fl">0.80195523</span><span class="op">,</span>  <span class="fl">1.0558289</span>  ]<span class="op">,</span></span>
+<span id="cb2-817"><a href=""></a>[ <span class="fl">0.36033686</span><span class="op">,</span>  <span class="fl">0.47377509</span> ]<span class="op">,</span></span>
+<span id="cb2-818"><a href=""></a>[<span class="op">-</span><span class="fl">0.46475696</span><span class="op">,</span>  <span class="fl">0.76321042</span> ]<span class="op">,</span></span>
+<span id="cb2-819"><a href=""></a>[<span class="op">-</span><span class="fl">0.27488389</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.99563331</span> ]<span class="op">,</span></span>
+<span id="cb2-820"><a href=""></a>[<span class="op">-</span><span class="fl">0.26321777</span><span class="op">,</span>  <span class="fl">2.15651646</span> ]<span class="op">,</span></span>
+<span id="cb2-821"><a href=""></a>[<span class="op">-</span><span class="fl">0.58762755</span><span class="op">,</span>  <span class="fl">0.50281184</span> ]<span class="op">,</span></span>
+<span id="cb2-822"><a href=""></a>[ <span class="fl">0.10823995</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.29860396</span> ]<span class="op">,</span></span>
+<span id="cb2-823"><a href=""></a>[<span class="op">-</span><span class="fl">0.93214625</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.62583634</span> ]<span class="op">,</span></span>
+<span id="cb2-824"><a href=""></a>[<span class="op">-</span><span class="fl">0.30831587</span><span class="op">,</span>  <span class="fl">0.43091851</span> ]<span class="op">,</span></span>
+<span id="cb2-825"><a href=""></a>[ <span class="fl">0.77425273</span><span class="op">,</span>  <span class="fl">0.72337579</span> ]<span class="op">,</span></span>
+<span id="cb2-826"><a href=""></a>[<span class="op">-</span><span class="fl">0.94726912</span><span class="op">,</span>  <span class="fl">0.01034496</span> ]</span>
+<span id="cb2-827"><a href=""></a>]</span>
+<span id="cb2-828"><a href=""></a></span>
+<span id="cb2-829"><a href=""></a><span class="co">// Single slider: rotation angle</span></span>
+<span id="cb2-830"><a href=""></a>viewof theta2 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="cn">PI</span>]<span class="op">,</span> { <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span> })</span>
+<span id="cb2-831"><a href=""></a>viewof mu1    <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> { <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span> })</span>
+<span id="cb2-832"><a href=""></a>viewof mu2    <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> { <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span> })</span>
+<span id="cb2-833"><a href=""></a></span>
+<span id="cb2-834"><a href=""></a></span>
+<span id="cb2-835"><a href=""></a><span class="co">// Rotate Y (no translation)</span></span>
+<span id="cb2-836"><a href=""></a>rotatedY <span class="op">=</span> {</span>
+<span id="cb2-837"><a href=""></a><span class="kw">const</span> cosT <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">cos</span>(theta2)<span class="op">;</span></span>
+<span id="cb2-838"><a href=""></a><span class="kw">const</span> sinT <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sin</span>(theta2)<span class="op">;</span></span>
+<span id="cb2-839"><a href=""></a><span class="cf">return</span> Y<span class="op">.</span><span class="fu">map</span>(([x0<span class="op">,</span> y0]) <span class="kw">=&gt;</span> ({</span>
+<span id="cb2-840"><a href=""></a><span class="dt">x</span><span class="op">:</span> cosT <span class="op">*</span> x0 <span class="op">-</span> sinT <span class="op">*</span> y0 <span class="op">+</span> mu1<span class="op">,</span></span>
+<span id="cb2-841"><a href=""></a><span class="dt">y</span><span class="op">:</span> sinT <span class="op">*</span> x0 <span class="op">+</span> cosT <span class="op">*</span> y0 <span class="op">+</span> mu2</span>
+<span id="cb2-842"><a href=""></a>}))<span class="op">;</span></span>
+<span id="cb2-843"><a href=""></a>}</span>
+<span id="cb2-844"><a href=""></a></span>
+<span id="cb2-845"><a href=""></a><span class="co">// Plot: X as fixed red "x", rotated Y as dots</span></span>
+<span id="cb2-846"><a href=""></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb2-847"><a href=""></a><span class="dt">width</span><span class="op">:</span> <span class="dv">530</span><span class="op">,</span></span>
+<span id="cb2-848"><a href=""></a><span class="dt">height</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
+<span id="cb2-849"><a href=""></a><span class="dt">x</span><span class="op">:</span> { <span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="fl">1.5</span><span class="op">,</span> <span class="fl">2.5</span>] }<span class="op">,</span></span>
+<span id="cb2-850"><a href=""></a><span class="dt">y</span><span class="op">:</span> { <span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="fl">1.5</span>] }<span class="op">,</span></span>
+<span id="cb2-851"><a href=""></a><span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb2-852"><a href=""></a>Plot<span class="op">.</span><span class="fu">frame</span>()<span class="op">,</span></span>
+<span id="cb2-853"><a href=""></a></span>
+<span id="cb2-854"><a href=""></a></span>
+<span id="cb2-855"><a href=""></a><span class="co">// Fixed reference configuration X</span></span>
+<span id="cb2-856"><a href=""></a>Plot<span class="op">.</span><span class="fu">text</span>(</span>
+<span id="cb2-857"><a href=""></a>  X<span class="op">.</span><span class="fu">map</span>(([x<span class="op">,</span> y]) <span class="kw">=&gt;</span> ({ x<span class="op">,</span> y<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span> }))<span class="op">,</span></span>
+<span id="cb2-858"><a href=""></a>  {</span>
+<span id="cb2-859"><a href=""></a>    <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span></span>
+<span id="cb2-860"><a href=""></a>    <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span></span>
+<span id="cb2-861"><a href=""></a>    <span class="dt">text</span><span class="op">:</span> <span class="st">"label"</span><span class="op">,</span></span>
+<span id="cb2-862"><a href=""></a>    <span class="dt">fill</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span></span>
+<span id="cb2-863"><a href=""></a>    <span class="dt">fontSize</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span></span>
+<span id="cb2-864"><a href=""></a>    <span class="dt">fontWeight</span><span class="op">:</span> <span class="st">"bold"</span></span>
+<span id="cb2-865"><a href=""></a>  }</span>
+<span id="cb2-866"><a href=""></a>)<span class="op">,</span></span>
 <span id="cb2-867"><a href=""></a></span>
-<span id="cb2-868"><a href=""></a><span class="co">// Fixed reference configuration X</span></span>
-<span id="cb2-869"><a href=""></a>Plot<span class="op">.</span><span class="fu">text</span>(</span>
-<span id="cb2-870"><a href=""></a>  X<span class="op">.</span><span class="fu">map</span>(([x<span class="op">,</span> y]) <span class="kw">=&gt;</span> ({ x<span class="op">,</span> y<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span> }))<span class="op">,</span></span>
-<span id="cb2-871"><a href=""></a>  {</span>
-<span id="cb2-872"><a href=""></a>    <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span></span>
-<span id="cb2-873"><a href=""></a>    <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span></span>
-<span id="cb2-874"><a href=""></a>    <span class="dt">text</span><span class="op">:</span> <span class="st">"label"</span><span class="op">,</span></span>
-<span id="cb2-875"><a href=""></a>    <span class="dt">fill</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span></span>
-<span id="cb2-876"><a href=""></a>    <span class="dt">fontSize</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span></span>
-<span id="cb2-877"><a href=""></a>    <span class="dt">fontWeight</span><span class="op">:</span> <span class="st">"bold"</span></span>
-<span id="cb2-878"><a href=""></a>  }</span>
-<span id="cb2-879"><a href=""></a>)<span class="op">,</span></span>
-<span id="cb2-880"><a href=""></a></span>
-<span id="cb2-881"><a href=""></a><span class="co">// Rotated Y configuration</span></span>
-<span id="cb2-882"><a href=""></a>Plot<span class="op">.</span><span class="fu">dot</span>(rotatedY<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"blue"</span> })</span>
-<span id="cb2-883"><a href=""></a>]</span>
-<span id="cb2-884"><a href=""></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-868"><a href=""></a><span class="co">// Rotated Y configuration</span></span>
+<span id="cb2-869"><a href=""></a>Plot<span class="op">.</span><span class="fu">dot</span>(rotatedY<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"blue"</span> })</span>
+<span id="cb2-870"><a href=""></a>]</span>
+<span id="cb2-871"><a href=""></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-2-1" data-nodetype="declaration">
@@ -1045,64 +1005,75 @@ d_{ij} &amp;= \color{green}{\delta_{ij}} + \color{red}{2\delta_{ij}\xi_{ij} + \x
 \end{aligned}
 \]</span> where <span class="math inline">\({\Xi = (\xi_{ij})}\)</span> is a random matrix with iid entries</p>
 </section>
-<section id="signal-recovery-1" class="slide level2" data-auto-animate="false" data-align="center">
-<h2 data-id="quarto-animate-title">Signal recovery</h2>
-<p>For <span class="math inline">\(\color{green}{X}\in \mathbb{X}({\kappa, \varpi})\)</span> and <span class="math inline">\(D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}\)</span>, let <span class="math inline">\(\widehat{X}= \mathsf{CMDS}(D, p)\)</span>.</p>
-<div class="content-box-dblue">
-<p><strong>Definition (CMDS Upper Bound).</strong> The reconstruction error <span class="math inline">\(\ell(\widehat{X},\color{green}{X})\)</span> has:</p>
-<ul>
-<li><span class="uva-orange"><strong>convergence rate</strong></span> <span class="math inline">\(R_n \to 0\)</span></li>
-<li>with <span class="uva-orange"><strong>failure probability</strong></span> <span class="math inline">\(\alpha_n \to 0\)</span>, if:</li>
-</ul>
-<p><span class="math display">\[
-\sup_{D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}}\mathbb{P}\Big(\;\; \ell(\widehat{X},\color{green}{X}) \lesssim R_n \;\;\Big) \geq 1 - \alpha_n
-\]</span></p>
+<section id="statistical-learning-1" class="slide level2" data-auto-animate="false" data-align="center">
+<h2 data-id="quarto-animate-title">Statistical Learning</h2>
+<div class="footnotesize small center">
+<p><span class="math inline">\(\color{green}{X}\in \mathbb{X}({\kappa, \varpi}) \hspace{2em} D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}; \hspace{2em} \widehat{X}= \mathsf{CMDS}(D, p); \hspace{2em} \text{and} \quad \color{brown}{\overset{\mathbf{\smallsmile}}{X}}(D) \in \mathbb{R}^{n \times p}\)</span> be <span class="uva-orange"><strong>any estimator</strong></span> of <span class="math inline">\(\color{green}{X}\)</span></p>
 </div>
-</section>
-<section id="can-we-do-better-than-cmds" class="slide level2" data-auto-animate="true" data-align="center">
-<h2 data-id="quarto-animate-title">Can we do better than CMDS?</h2>
-<p>Let <span class="math inline">\(\color{brown}{\overset{\mathbf{\smallsmile}}{X}}(D) \in \mathbb{R}^{n \times p}\)</span> be <span class="uva-orange"><strong>any estimator</strong></span> of <span class="math inline">\(\color{green}{X}\)</span> &nbsp; based on <span class="math inline">\(D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}\)</span> &nbsp; &nbsp; and for <span class="math inline">\(\color{green}{X}\in \mathbb{X}({\kappa, \varpi})\)</span></p>
+<div class="columns small">
+<div class="column fragment" data-fragment-index="1" style="width:51.5%;">
 <div class="r-stack">
 <div class="content-box-dblue fragment fade-in-then-out" data-fragment-index="1">
-<p><strong>Definition (Lower Bound).</strong></p>
-<p><span class="math inline">\(r_n \to 0\)</span> is a <span><strong>lower bound</strong></span> for the reconstruction error <span class="math inline">\(\ell(\color{brown}{\overset{\mathbf{\smallsmile}}{X}},\,\color{green}{X})\)</span> if:</p>
+<p><strong>(Lower Bound).</strong> The reconstruction error <span class="math inline">\(\ell(\widehat{X},\color{green}{X})\)</span> has:</p>
+<ul>
+<li><span><strong>lower bound</strong></span> <span class="math inline">\(r_n \to 0\)</span>, if:<br><br></li>
+</ul>
 <p><span class="math display">\[
 \sup_{D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}}\mathbb{P}\Big(\;\; \ell(\color{brown}{\overset{\mathbf{\smallsmile}}{X}},\,\color{green}{X}) \gtrsim r_n \;\;\Big) \ge \frac{1}{2}
 \]</span></p>
 </div>
-<div class="content-box-dblue fragment fade-in" data-fragment-index="2">
-<p><strong>Definition (<span class="uva-orange"><strong>Minimax</strong></span> Lower Bound).</strong></p>
-<p><span class="math inline">\(r_n \to 0\)</span> is a <span class="uva-orange"><strong>minimax</strong></span> <span><strong>lower bound</strong></span> for the reconstruction error <span class="math inline">\(\ell(\color{brown}{\overset{\mathbf{\smallsmile}}{X}},\,\color{green}{X})\)</span> if:</p>
+<div class="content-box-dblue fragment fade-in-then-semi-out" data-fragment-index="2">
+<p><strong>(<span class="uva-orange"><strong>Minimax</strong></span> Lower Bound).</strong> The reconstruction error <span class="math inline">\(\ell(\widehat{X},\color{green}{X})\)</span> has:</p>
+<ul>
+<li><span class="uva-orange"><strong>minimax</strong></span> <span><strong>lower bound</strong></span> <span class="math inline">\(r_n \to 0\)</span>, if:<br><br></li>
+</ul>
 <p><span class="math display">\[
 \inf_{\color{brown}{\overset{\mathbf{\smallsmile}}{X}}} \sup_{D = \color{green}{\Delta} + \color{red}{\mathcal{E}}} \mathbb{P}\Big(\;\; \ell(\color{brown}{\overset{\mathbf{\smallsmile}}{X}},\,\color{green}{X}) \gtrsim r_n\;\; \Big) \ge \frac{1}{2}
 \]</span></p>
 </div>
 </div>
-<p><br></p>
-<div class="center fragment fade-down" data-fragment-index="2">
-<p>Performance of the best conceivable estimator <span class="math inline">\(\displaystyle\Big(\text{i.e., }\inf_{\color{brown}{\overset{\mathbf{\smallsmile}}{X}}}\Big)\)</span> on the most difficult instance <span class="math inline">\(\displaystyle\Big(\text{i.e., }\sup_{D = \color{green}{\Delta} + \color{red}{\mathcal{E}}}\Big)\)</span></p>
-</div>
-</section>
-<section id="reconstruction-error-metrics" class="slide level2">
-<h2>Reconstruction error metrics</h2>
-<div class="content-box-grey">
-<p>The <span class="uva-orange"><strong>reconstruction error</strong></span> between the CMDS embedding <span class="math inline">\(\widehat{X}\)</span> and the true configuration <span class="math inline">\(\color{green}{X}\)</span> is: <span class="math display">\[
-\ell(\widehat{X},\color{green}{X}) = \min_{g \in \mathcal{G}} \| g(\widehat{X}) -\color{green}{X}\|_{\dagger}
+</div><div class="column" style="width:0.5%;">
+
+</div><div class="column fragment fade-in-then-semi-out" data-fragment-index="3" style="width:48%;">
+<div class="content-box-green">
+<p><strong>(CMDS Upper Bound).</strong> The reconstruction error <span class="math inline">\(\ell(\widehat{X},\color{green}{X})\)</span> has:</p>
+<ul>
+<li><span class="uva-orange"><strong>convergence rate</strong></span> <span class="math inline">\(R_n \to 0\)</span></li>
+<li>with <span class="uva-orange"><strong>failure probability</strong></span> <span class="math inline">\(\alpha_n \to 0\)</span>, if:</li>
+</ul>
+<p><span class="math display">\[
+\sup_{D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}}\mathbb{P}\Big(\;\; \ell(\widehat{X},\color{green}{X}) \gtrsim R_n \;\;\Big) \leq \alpha_n
 \]</span></p>
 </div>
-<ul>
-<li><strong>RMSE:</strong><br> <span class="math inline">\(\hspace{10em}\)</span> <span class="math inline">\(\displaystyle\frac{1}{\sqrt{n}}\|g(\widehat{X}) - X\|_F = \sqrt{\frac{1}{n}\sum_{i=1}^n \|g(\widehat{x}_i) - x_i\|_2^2}\)</span></li>
-</ul>
-<!-- * **$\ell_2$-operator norm:**+br $\hspace{10em}$ $\displaystyle\norm{g(\hX) - X}_2 = \max_{v \in \mathbb{S}^{p-1}} \norm{(g(\hX) -\XGreen)v}_2$ -->
-<ul>
-<li><strong><span class="math inline">\(\ell_{_{2\to\infty}}\)</span>-operator norm:</strong><br> <span class="math inline">\(\hspace{10em}\)</span> <span class="math inline">\(\displaystyle\|g(\widehat{X}) - X\|_{_{2\to\infty}} = \max_{i \in [n]} \|g(\widehat{x}_i) - x_i\|\)</span></li>
-</ul>
+</div></div>
+<div class="footnotesize fragment" data-fragment-index="4">
+<p>
+</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><strong>Reconstruction metrics</strong></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>RMSE</strong><br><br> <span class="math inline">\(\displaystyle\ell_\text{RMSE}(\widehat{X},\color{green}{X}) = \frac{1}{\sqrt{n}}\|g(\widehat{X}) - X\|_F\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong><span class="math inline">\(2\)</span>-to-<span class="math inline">\(\infty\)</span> uniform error</strong><br><br> <span class="math inline">\(\displaystyle\ell_{2\to\infty}(\widehat{X},\color{green}{X}) = \max_{i \in [n]} \|g(\widehat{x}_i) - x_i\|\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="section-2" class="slide level2">
 <h2></h2>
-<!-- ::: {.center .small style="margin-top: -1%;" .fragment fragment-index=1 .semi-fade-out}
-Let $\hX = \mds(D, p)$ &emsp; for &emsp;  $D = \DelXGreen + \EpsRed$ &emsp;and&emsp; $\XGreen \in \bbX(\params)$ 
-::: -->
 <div class="content-box-gray center footnotesize fragment semi-fade-out" style="margin-top: -1.2%" data-fragment-index="1">
 <table class="caption-top">
 <colgroup>
@@ -1121,7 +1092,7 @@ Let $\hX = \mds(D, p)$ &emsp; for &emsp;  $D = \DelXGreen + \EpsRed$ &emsp;and&e
 <tr class="odd">
 <td style="text-align: center;"><span class="math inline">\(\displaystyle \inf_{\color{brown}{\overset{\mathbf{\smallsmile}}{X}}} \sup_{D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}} \mathbb{P}\Big(\;\; \ell(\color{brown}{\overset{\mathbf{\smallsmile}}{X}},\,\color{green}{X}) \gtrsim r_n\;\; \Big) \ge \frac{1}{2}\)</span></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"><span class="math inline">\(\displaystyle \sup_{D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}}\mathbb{P}\Big(\;\; \ell(\widehat{X}, \color{green}{X}) \lesssim R_n \;\;\Big) \;\ge\; 1 - \alpha_n\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\displaystyle \sup_{D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}}\mathbb{P}\Big(\;\; \ell(\widehat{X}, \color{green}{X}) \gtrsim R_n \;\;\Big) \;\le\;  \alpha_n\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -1153,7 +1124,7 @@ Let $\hX = \mds(D, p)$ &emsp; for &emsp;  $D = \DelXGreen + \EpsRed$ &emsp;and&e
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><span><span class="math display">\[\ell_{\text{RMSE}}\]</span></span></td>
+<td style="text-align: center;"><span><span class="math display">\[\ell_\text{RMSE}\]</span></span></td>
 <td style="text-align: center;"><span class="math inline">\(\displaystyle\frac{\sigma\kappa}{\sqrt{n}}\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><span class="math inline">\(\displaystyle\frac{\sigma\kappa}{\sqrt{n}}\)</span> <br></td>
@@ -1178,8 +1149,8 @@ Let $\hX = \mds(D, p)$ &emsp; for &emsp;  $D = \DelXGreen + \EpsRed$ &emsp;and&e
 <div class="small fragment fade-down" data-fragment-index="2">
 <ul>
 <li><span class="math inline">\(q &gt; 4\)</span> moments is <span class="uva-orange">necessary</span> for consistency</li>
-<li>Parametric rates (in <span class="math inline">\(n\)</span>) for <span class="math inline">\(\ell_{\text{RMSE}}\)</span> and minimax-optimal up to absolute constants</li>
-<li>Extra <span class="small"><span class="math inline">\(\sqrt{\log{n}}\)</span></span> factor for <span class="math inline">\(\ell_{_{2\to\infty}}\)</span> is unavoidable and suggests extreme-value phenomena</li>
+<li>Parametric rates (in <span class="math inline">\(n\)</span>) for <span class="math inline">\(\ell_\text{RMSE}\)</span> and minimax-optimal up to absolute constants. Extra <span class="small"><span class="math inline">\(\sqrt{\log{n}}\)</span></span> factor for <span class="math inline">\(\ell_{_{2\to\infty}}\)</span> is unavoidable</li>
+<li>Proof relies on: <span class="magenta">(1.) orthogonal Procrustes alignment</span> + <span class="uva-orange">(2.) Fuk-Nagaev-type matrix concentration</span></li>
 </ul>
 </div>
 <div class="footnote footnotesize fragment fade-in-then-semi-out" data-fragment-index="1">
@@ -1194,81 +1165,6 @@ Let $\hX = \mds(D, p)$ &emsp; for &emsp;  $D = \DelXGreen + \EpsRed$ &emsp;and&e
 </div>
 <div class="footnote scriptsize">
 <p>More <a href="#/appendix-fourth-moment-plots">experiments in the appendix</a></p>
-</div>
-</section>
-<section id="under-the-hood-procrustes-alignment" class="slide level2">
-<h2>Under the hood: Procrustes alignment</h2>
-<p>For each reconstruction error <span class="math inline">\(\ell_{\text{RMSE}}, \ell_2\)</span> and <span class="math inline">\(\ell_{_{2\to\infty}}\)</span>, we have <strong>a different choice</strong> of the optimal <span class="math inline">\(g \in \mathcal{G}\)</span></p>
-<div class="footnotesize">
-<table class="caption-top">
-<colgroup>
-<col style="width: 41%">
-<col style="width: 58%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="uva-orange"><span class="math inline">\(\ell(\widehat{X},\color{green}{X})\)</span></span></th>
-<th style="text-align: center;"><span class="uva-orange"><span class="math inline">\(\displaystyle\widehat{g} = \mathop{\operatorname{arg\,min}}_{g \in \mathcal{G}} \| g(\widehat{X}) -\color{green}{X}\|_{\dagger}\)</span></span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\ell_{\text{RMSE}}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\displaystyle\widehat{g} = \mathop{\operatorname{arg\,min}}_{g \in \mathcal{G}}\|g(\widehat{X}) - \color{green}{X}\|_F\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\ell_{_{2\to\infty}}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\displaystyle\widehat{g} = \mathop{\operatorname{arg\,min}}_{g \in \mathcal{G}}\|g(\widehat{X}) - \color{green}{X}\|_{_{2\to\infty}}\)</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><br></p>
-<div class="fragment content-box-dblue small">
-<p><strong>Orthogonal Procrustes Problem.</strong> For <span class="math inline">\(\color{green}{X}, Y \in \mathbb{R}^{n \times p}\)</span> the solution to <span class="math inline">\(\color{magenta}{\color{magenta}{\widehat{g}}= \mathop{\operatorname{arg\,min}}_{g \in \mathcal{G}}\|g(Y) - \color{green}{X}\|_F}\)</span> is: <span class="math display">\[
-\color{magenta}{\widehat{g}}(v) = Ov + \mu
-\]</span> where <span class="math inline">\(\mu = (\overline{x} - O\overline{y})\)</span> and <span class="math inline">\(O \in \mathcal{O}(p)\)</span> is given by <span class="math inline">\(O = W_1W_2^{\mathsf{T}}\)</span> where <span class="math display">\[
-W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
-\]</span></p>
-</div>
-</section>
-<section id="under-the-hood-procrustes-alignment-1" class="slide level2" data-visibility="uncounted">
-<h2>Under the hood: Procrustes alignment</h2>
-<p>All the upper bounds are proved using <span class="math inline">\(\color{magenta}{\widehat{g}}\)</span> obtained from the <span class="uva-orange">orthogonal Procrustes solution</span>, e.g., <span class="math display">\[
-\begin{aligned}
-\ell_{_{2\to\infty}}(\widehat{X},\color{green}{X}) &amp;= \min_{g \in \mathcal{G}}\|g(\widehat{X}) - \color{green}{X}\|_{_{2\to\infty}}  \\
-&amp;\color{magenta}{\le} \bbox[yellow]{\| \color{magenta}{\widehat{g}}(\widehat{X}) -\color{green}{X}\|_{_{2\to\infty}} \;\lesssim\; \overline{c}({\kappa, \varpi})\cdot \sigma\sqrt{\frac{\log{n}}{n}}}
-\end{aligned}
-\]</span></p>
-<p><br></p>
-<div class="content-box-dblue small">
-<p><strong>Orthogonal Procrustes Problem.</strong> For <span class="math inline">\(\color{green}{X}, Y \in \mathbb{R}^{n \times p}\)</span> the solution to <span class="math inline">\(\color{magenta}{\color{magenta}{\widehat{g}}= \mathop{\operatorname{arg\,min}}_{g \in \mathcal{G}}\|g(Y) - \color{green}{X}\|_F}\)</span> is: <span class="math display">\[
-\color{magenta}{\widehat{g}}(v) = Ov + \mu
-\]</span> where <span class="math inline">\(\mu = (\overline{x} - O\overline{y})\)</span> and <span class="math inline">\(O \in \mathcal{O}(p)\)</span> is given by <span class="math inline">\(O = W_1W_2^{\mathsf{T}}\)</span> where <span class="math display">\[
-W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
-\]</span></p>
-</div>
-</section>
-<section id="under-the-hood-fuk-nagaev-type-concentration" class="slide level2">
-<h2>Under the hood: Fuk-Nagaev-Type concentration</h2>
-<p>Let <span class="math inline">\(\mathcal{E}= (\varepsilon_{ij})\)</span> be an <span class="math inline">\(n \times n\)</span> random matrix where each row <span class="math inline">\(\varepsilon_{i, *}\)</span> consists of independent entries. Let <span class="math inline">\(X \in \mathbb{R}^{n \times p}\)</span> be fixed.</p>
-<div class="fragment semi-fade-out" data-fragment-index="1">
-<div class="content-box-dblue small">
-<p><strong>Bernstein-Type Concentration.</strong>   If <span class="magenta"><span class="math inline">\(\max_{i,j}|{\varepsilon_{i,j}|} \le K\)</span> a.s.</span>, then with probability greater than <span class="math inline">\(1 - O({e^{-t}})\)</span>, <span class="math display">\[
-\|\mathcal{E}X\|_{2\to\infty}\lesssim \sigma_2 \sqrt{n (t + \log{p})} + K (t + \log{p})
-\]</span></p>
-</div>
-</div>
-<p><br></p>
-<div class="fragment fade-in" data-fragment-index="1">
-<div class="content-box-orange small">
-<p><strong>Fuk-Nagaev-Type Concentration <span class="citation" data-cites="vishwanath2025minimax">(<a href="#/references" role="doc-biblioref" onclick="">Vishwanath and Arias-Castro 2025b</a>)</span></strong>   Suppose <span class="magenta"><span class="math inline">\(\max_{i,j}\|{\varepsilon_{i,j}\|_{L^q}} \le \sigma\)</span> for <span class="math inline">\(q &gt; 4\)</span></span><br> Then, for all <span class="math inline">\(0 &lt; r &lt; \frac{(q-4)}{2}\)</span>, with probability greater than <span class="math inline">\(1 - O({e^{-t}} + {n^{-r}})\)</span>, <span class="math display">\[
-\|\mathcal{E}X\|_{2\to\infty}\lesssim \sigma_2 \sqrt{n (t + \log{p})} + \sigma n^{(r+2)/q} (t + \log{p})
-\]</span></p>
-</div>
-</div>
-<div class="footnote footnotesize">
-<p><span class="math inline">\(\sigma_2 = \max_{i,j} \|{\varepsilon_{ij}}\|_{L^2}\)</span><br> <a href="#/#appendix-fuk-nagaev">Operator norm version in the appendix</a></p>
 </div>
 </section></section>
 <section>
@@ -1613,108 +1509,6 @@ T_n := \sqrt{n}\; \cdot\; \max_{i \in [n]} \|\;\;\color{red}{\widehat{\Omega}_i^
 <p><img data-src="imgs/mds/plts/bootstrap/radial-1.png" style="width:77.0%"></p>
 </div></div>
 </section>
-<section id="beyond-gaussian-multiplier-bootstrap" class="slide level2 scrollable">
-<h2>Beyond Gaussian Multiplier Bootstrap</h2>
-<div class="small">
-<p><span class="math inline">\(\color{green}{X}\in \mathbb{R}^{350 \times 2}\)</span> is the location of the <span class="math inline">\(350\)</span> largest US cities and <span class="math inline">\(\log d_{ij} = \color{green}{\log\delta_{ij}} + \color{red}{\varepsilon_{ij}}\)</span> where <span class="math inline">\(\color{red}{\varepsilon_{ij}} \sim N(0, \sigma^2 )\)</span></p>
-<ol type="1">
-<li><strong>Gaussian multipliers</strong> <span class="math inline">\(r_{ij} \sim N(0, 1)\)</span></li>
-<li><strong>Rademacher multipliers</strong> <span class="math inline">\(r_{ij} \sim \text{Rademacher}(\pm 1)\)</span></li>
-<li><strong>Uniform multipliers</strong> <span class="math inline">\(r_{ij} \sim \text{Unif}([- \sqrt{3}, \sqrt{3}])\)</span></li>
-</ol>
-<p><br></p>
-<table class="caption-top" style="width:100%;">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 8%">
-<col style="width: 7%">
-<col style="width: 8%">
-<col style="width: 7%">
-<col style="width: 8%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Nominal level <span class="math inline">\(\rightarrow\)</span></th>
-<th><span class="uva-orange">0.999</span></th>
-<th><span class="uva-orange">0.99</span></th>
-<th><span class="uva-orange">0.975</span></th>
-<th><span class="uva-orange">0.95</span></th>
-<th><span class="uva-orange">0.925</span></th>
-<th><span class="uva-orange">0.9</span></th>
-<th><span class="uva-orange">0.85</span></th>
-<th><span class="uva-orange">0.8</span></th>
-<th><span class="uva-orange">0.75</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Gaussian</td>
-<td><strong>0.998</strong></td>
-<td>0.992</td>
-<td>0.983</td>
-<td>0.954</td>
-<td>0.932</td>
-<td><strong>0.902</strong></td>
-<td><strong>0.851</strong></td>
-<td><strong>0.789</strong></td>
-<td><strong>0.707</strong></td>
-</tr>
-<tr class="even">
-<td>Rademacher</td>
-<td>0.997</td>
-<td>0.988</td>
-<td><strong>0.980</strong></td>
-<td><strong>0.951</strong></td>
-<td><strong>0.924</strong></td>
-<td>0.895</td>
-<td>0.825</td>
-<td>0.738</td>
-<td>0.628</td>
-</tr>
-<tr class="odd">
-<td>Uniform</td>
-<td>0.997</td>
-<td><strong>0.991</strong></td>
-<td>0.983</td>
-<td>0.953</td>
-<td>0.930</td>
-<td>0.897</td>
-<td>0.837</td>
-<td>0.750</td>
-<td>0.659</td>
-</tr>
-<tr class="even">
-<td>Empirical</td>
-<td>1.000</td>
-<td>1.000</td>
-<td>1.000</td>
-<td>1.000</td>
-<td>0.997</td>
-<td>0.994</td>
-<td>0.994</td>
-<td>0.953</td>
-<td>0.983</td>
-</tr>
-<tr class="odd">
-<td>Gumbel</td>
-<td>0.939</td>
-<td>0.847</td>
-<td>0.772</td>
-<td>0.690</td>
-<td>0.630</td>
-<td>0.580</td>
-<td>0.508</td>
-<td>0.423</td>
-<td>0.356</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
 <section id="sensor-localization---example-1" class="slide level2">
 <h2>Sensor Localization - Example 1</h2>
 <div id="8a07ac9f" class="cell" data-execution_count="4">
@@ -1879,6 +1673,9 @@ Li, Gongkai, Minh Tang, Nicolas Charon, and Carey Priebe. 2020. <span>“Central
 <div id="ref-schoenberg1935remarks" class="csl-entry" role="listitem">
 Schoenberg, Isaac J. 1935. <span>“Remarks to <span>M</span>aurice <span>F</span>réchet’s Article <span>‘<span>S</span>ur La Definition Axiomatique d’une Classe d’espace Distances Vectoriellement Applicable Sur l’espace de <span>H</span>ilbert’</span>.”</span> <em>Annals of Mathematics</em> 36 (3): 724–32.
 </div>
+<div id="ref-tao2010random" class="csl-entry" role="listitem">
+Tao, Terence, and Van Vu. 2010. <span>“Random Matrices: <span>L</span>ocalization of the Eigenvalues and the Necessity of Four Moments.”</span> <em>arXiv Preprint arXiv:1005.2901</em>.
+</div>
 <div id="ref-tenenbaum2000global" class="csl-entry" role="listitem">
 Tenenbaum, Joshua B, Vin de Silva, and John C Langford. 2000. <span>“A Global Geometric Framework for Nonlinear Dimensionality Reduction.”</span> <em>Science</em> 290 (5500): 2319–23.
 </div>
@@ -1908,15 +1705,61 @@ Young, Gale, and Aiston S Householder. 1938. <span>“Discussion of a Set of Poi
 <h1>Bonus Slides</h1>
 
 </section>
-<section id="appendix" class="slide level2" data-visibility="uncounted">
+<section id="appendix" class="slide level2 scrollable" data-visibility="uncounted">
 <h2>Appendix</h2>
 <ul>
+<li><a href="#/#appendix-mds-pca">MDS vs Dimension Reduction</a></li>
 <li><a href="#/appendix-why-cmds-works">Why CMDS exactly recovers the latent configuration</a></li>
+<li>Under the hood for CMDS upper bound:
+<ol type="i">
+<li><a href="#/appendix-procrustes">Procrustes Analysis</a></li>
 <li><a href="#/appendix-fuk-nagaev">Fuk-Nagaev Matrix Concentration</a></li>
 <li><a href="#/appendix-fourth-moment-plots">Experiment: 4 moments are necessary</a></li>
+</ol></li>
 <li><a href="#/appendix-stronger-assumptions">Slightly stronger assumptions for distributional approximation</a></li>
 <li><a href="#/appendix-covariance">Local covariance matrices for confidence <strong>ellipsoids</strong></a></li>
+<li><a href="#/appendix-beyond-gaussian-multiplier-bootstrap">Beyond Gaussian multiplier bootstrap</a></li>
 </ul>
+</section>
+<section id="appendix-mds-pca" class="slide level2" data-visibility="uncounted">
+<h2>MDS vs Dimension Reduction</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 40%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="uva-orange">Comparison</span></th>
+<th style="text-align: center;">MDS</th>
+<th style="text-align: center;">Dimension Reduction<br><br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="uva-orange">Data type</span></td>
+<td style="text-align: center;">Pairwise dissimilarities <span class="math inline">\(\Delta\in \mathbb{R}^{n \times n}\)</span></td>
+<td style="text-align: center;">Feature vectors <span class="math inline">\(X \in \mathbb{R}^{n \times P}\)</span><br><br><br></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="uva-orange">Goal</span></td>
+<td style="text-align: center;">Find configuration <span class="math inline">\(\widehat{X}\in \mathbb{R}^{n \times p}\)</span> such that <span class="math inline">\(\|\widehat{x}_i - \widehat{x}_j\| \approx \delta_{ij}\)</span></td>
+<td style="text-align: center;">Find low-dimensional representation <span class="math inline">\(\widehat{X}\in \mathbb{R}^{n \times p}\)</span> such that <span class="math inline">\(\widehat{x}_i^{\mathsf{T}}\widehat{x}_j \approx x_i^{\mathsf{T}}x_j\)</span> <br><br></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="uva-orange">Spectral algorithm</span></td>
+<td style="text-align: center;">Classical MDS (CMDS) Algorithm <span class="math display">\[\widehat{X}=
+\mathop{\operatorname{arg\,min}}_{Y \in \mathbb{R}^{n \times p}} \| \Delta_c- YY^{\mathsf{T}}\|_F^2\]</span></td>
+<td style="text-align: center;">Principal Component Analysis (PCA) <span class="math display">\[\widehat{X}= \mathop{\operatorname{arg\,min}}_{Y \in \mathbb{R}^{n \times p}} \| X X^{\mathsf{T}}- YY^{\mathsf{T}}\|_F^2 \]</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="uva-orange">Nonlinear methods</span></td>
+<td style="text-align: center;">Isomap, t-SNE, Non-metric MDS, …</td>
+<td style="text-align: center;">Kernal PCA, LLE, Laplacian Eigenmaps, …</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="appendix-why-cmds-works" class="slide level2" data-visibility="uncounted">
 <h2>Why CMDS works</h2>
@@ -1952,8 +1795,83 @@ Young, Gale, and Aiston S Householder. 1938. <span>“Discussion of a Set of Poi
 </div>
 </div>
 </section>
+<section id="under-the-hood---i-procrustes-alignment" class="slide level2">
+<h2>Under the hood - I: Procrustes alignment</h2>
+<p>For each reconstruction error <span class="math inline">\(\ell_{\text{RMSE}}, \ell_2\)</span> and <span class="math inline">\(\ell_{_{2\to\infty}}\)</span>, we have <strong>a different choice</strong> of the optimal <span class="math inline">\(g \in \mathcal{G}\)</span></p>
+<div class="footnotesize">
+<table class="caption-top">
+<colgroup>
+<col style="width: 41%">
+<col style="width: 58%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="uva-orange"><span class="math inline">\(\ell(\widehat{X},\color{green}{X})\)</span></span></th>
+<th style="text-align: center;"><span class="uva-orange"><span class="math inline">\(\displaystyle\widehat{g} = \mathop{\operatorname{arg\,min}}_{g \in \mathcal{G}} \| g(\widehat{X}) -\color{green}{X}\|_{\dagger}\)</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\ell_{\text{RMSE}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\displaystyle\widehat{g} = \mathop{\operatorname{arg\,min}}_{g \in \mathcal{G}}\|g(\widehat{X}) - \color{green}{X}\|_F\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\ell_{_{2\to\infty}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\displaystyle\widehat{g} = \mathop{\operatorname{arg\,min}}_{g \in \mathcal{G}}\|g(\widehat{X}) - \color{green}{X}\|_{_{2\to\infty}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<div class="fragment content-box-dblue small">
+<p><strong>Orthogonal Procrustes Problem.</strong> For <span class="math inline">\(\color{green}{X}, Y \in \mathbb{R}^{n \times p}\)</span> the solution to <span class="math inline">\(\color{magenta}{\color{magenta}{\widehat{g}}= \mathop{\operatorname{arg\,min}}_{g \in \mathcal{G}}\|g(Y) - \color{green}{X}\|_F}^2\)</span> is: <span class="math display">\[
+\color{magenta}{\widehat{g}}(v) = Ov + \mu
+\]</span> where <span class="math inline">\(\mu = (\overline{x} - O\overline{y})\)</span> and <span class="math inline">\(O \in \mathcal{O}(p)\)</span> is given by <span class="math inline">\(O = W_1W_2^{\mathsf{T}}\)</span> where <span class="math display">\[
+W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
+\]</span></p>
+</div>
+</section>
+<section id="appendix-procrustes" class="slide level2" data-visibility="uncounted">
+<h2>Under the hood - I: Procrustes alignment</h2>
+<p>All the upper bounds are proved using <span class="math inline">\(\color{magenta}{\widehat{g}}\)</span> obtained from the <span class="uva-orange">orthogonal Procrustes solution</span>, e.g., <span class="math display">\[
+\begin{aligned}
+\ell_{_{2\to\infty}}(\widehat{X},\color{green}{X}) &amp;= \min_{g \in \mathcal{G}}\|g(\widehat{X}) - \color{green}{X}\|_{_{2\to\infty}}  \\
+&amp;\color{magenta}{\le} \bbox[yellow]{\| \color{magenta}{\widehat{g}}(\widehat{X}) -\color{green}{X}\|_{_{2\to\infty}} \;\lesssim\; \overline{c}({\kappa, \varpi})\cdot \sigma\sqrt{\frac{\log{n}}{n}}}
+\end{aligned}
+\]</span></p>
+<p><br></p>
+<div class="content-box-dblue small">
+<p><strong>Orthogonal Procrustes Problem.</strong> For <span class="math inline">\(\color{green}{X}, Y \in \mathbb{R}^{n \times p}\)</span> the solution to <span class="math inline">\(\color{magenta}{\color{magenta}{\widehat{g}}= \mathop{\operatorname{arg\,min}}_{g \in \mathcal{G}}\|g(Y) - \color{green}{X}\|_F}\)</span> is: <span class="math display">\[
+\color{magenta}{\widehat{g}}(v) = Ov + \mu
+\]</span> where <span class="math inline">\(\mu = (\overline{x} - O\overline{y})\)</span> and <span class="math inline">\(O \in \mathcal{O}(p)\)</span> is given by <span class="math inline">\(O = W_1W_2^{\mathsf{T}}\)</span> where <span class="math display">\[
+W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
+\]</span></p>
+</div>
+</section>
 <section id="appendix-fuk-nagaev" class="slide level2" data-visibility="uncounted">
-<h2>Under the hood: Fuk-Nagaev matrix concentration</h2>
+<h2>Under the hood - II: Fuk-Nagaev-Type concentration</h2>
+<p>Let <span class="math inline">\(\mathcal{E}= (\varepsilon_{ij})\)</span> be an <span class="math inline">\(n \times n\)</span> random matrix where each row <span class="math inline">\(\varepsilon_{i, *}\)</span> consists of independent entries. Let <span class="math inline">\(X \in \mathbb{R}^{n \times p}\)</span> be fixed.</p>
+<div class="fragment semi-fade-out" data-fragment-index="1">
+<div class="content-box-dblue small">
+<p><strong>Bernstein-Type Concentration.</strong>   If <span class="magenta"><span class="math inline">\(\max_{i,j}|{\varepsilon_{i,j}|} \le K\)</span> a.s.</span>, then with probability greater than <span class="math inline">\(1 - O({e^{-t}})\)</span>, <span class="math display">\[
+\|\mathcal{E}X\|_{2\to\infty}\lesssim \sigma_2 \sqrt{n (t + \log{p})} + K (t + \log{p})
+\]</span></p>
+</div>
+</div>
+<p><br></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<div class="content-box-orange small">
+<p><strong>Fuk-Nagaev-Type Concentration <span class="citation" data-cites="vishwanath2025minimax">(<a href="#/references" role="doc-biblioref" onclick="">Vishwanath and Arias-Castro 2025b</a>)</span></strong>   Suppose <span class="magenta"><span class="math inline">\(\max_{i,j}\|{\varepsilon_{i,j}\|_{L^q}} \le \sigma\)</span> for <span class="math inline">\(q &gt; 4\)</span></span><br> Then, for all <span class="math inline">\(0 &lt; r &lt; \frac{(q-4)}{2}\)</span>, with probability greater than <span class="math inline">\(1 - O({e^{-t}} + {n^{-r}})\)</span>, <span class="math display">\[
+\|\mathcal{E}X\|_{2\to\infty}\lesssim \sigma_2 \sqrt{n (t + \log{p})} + \sigma n^{(r+2)/q} (t + \log{p})
+\]</span></p>
+</div>
+</div>
+<div class="footnote footnotesize">
+<p><span class="math inline">\(\sigma_2 = \max_{i,j} \|{\varepsilon_{ij}}\|_{L^2}\)</span><br> <a href="#/#appendix-fuk-nagaev">Operator norm version in the appendix</a></p>
+</div>
+</section>
+<section id="under-the-hood---ii-fuk-nagaev-matrix-concentration" class="slide level2">
+<h2>Under the hood - II: Fuk-Nagaev matrix concentration</h2>
 <div class="content-box-dblue">
 <p><strong>Classical Fuk-Nagaev Inequality.</strong></p>
 <p>Suppose <span class="math inline">\(Z_1, \dots, Z_n\)</span> are independent with <span class="math inline">\(\mathbb{E}(Z_i) = 0\)</span> and <span class="math inline">\(\|Z_i\|_{L^q} \le \sigma\)</span> for some <span class="math inline">\(q \ge 2\)</span><br></p>
@@ -1962,8 +1880,8 @@ Young, Gale, and Aiston S Householder. 1938. <span>“Discussion of a Set of Poi
 \]</span></p>
 </div>
 </section>
-<section id="under-the-hood-fuk-nagaev-matrix-concentration" class="slide level2" data-visibility="uncounted">
-<h2>Under the hood: Fuk-Nagaev matrix concentration</h2>
+<section id="under-the-hood---ii-fuk-nagaev-matrix-concentration-1" class="slide level2" data-visibility="uncounted">
+<h2>Under the hood - II: Fuk-Nagaev matrix concentration</h2>
 <div class="content-box-dblue">
 <p><strong><span class="citation" data-cites="vishwanath2025minimax">(<a href="#/references" role="doc-biblioref" onclick="">Vishwanath and Arias-Castro 2025b</a>, Proposition 3)</span></strong></p>
 <p>Suppose <span class="math inline">\(\mathcal{E}= (\varepsilon_{ij})\)</span> is a symmetric random matrix with independent entries and <span class="math inline">\(\|\varepsilon_{ij}\|_{L^4} \le \sigma\)</span> for <span class="math inline">\(q &gt; 4\)</span><br></p>
@@ -1975,7 +1893,7 @@ Young, Gale, and Aiston S Householder. 1938. <span>“Discussion of a Set of Poi
 </div>
 </section>
 <section id="appendix-fourth-moment-plots" class="slide level2" data-visibility="uncounted">
-<h2>Appendix: Comparison</h2>
+<h2>Under the hood - III: Four moments are necessary</h2>
 <p><br></p>
 <table class="caption-top">
 <colgroup>
@@ -2005,7 +1923,7 @@ Young, Gale, and Aiston S Householder. 1938. <span>“Discussion of a Set of Poi
 </table>
 <p><br><br></p>
 <ul>
-<li><span class="math inline">\(q &gt; 4\)</span> moments is <span class="uva-orange">necessary</span> for consistency</li>
+<li><span class="math inline">\(q &gt; 4\)</span> moments is <span class="uva-orange">necessary</span> for consistency <span class="citation" data-cites="tao2010random">(c.f., <a href="#/references" role="doc-biblioref" onclick="">Tao and Vu 2010</a>)</span></li>
 <li>where <span class="math inline">\(\overline{c}({\kappa, \varpi}) = \kappa^2(\kappa + \varpi)\)</span> and <span class="math inline">\(\underline{c}({\kappa, \varpi}) = \kappa(1+\kappa\varpi)^{-1}\)</span></li>
 </ul>
 </section>
@@ -2088,6 +2006,108 @@ Young, Gale, and Aiston S Householder. 1938. <span>“Discussion of a Set of Poi
 </div>
 <p>where <span class="math inline">\(\mathscr{E}(z, \Omega, r) := \{ x \in \mathbb{R}^p : (x - z)^{\mathsf{T}}\Omega^{-1} (x - z) \le r^2 \}\)</span></p>
 </div>
+</div>
+</section>
+<section id="appendix-beyond-gaussian-multiplier-bootstrap" class="slide level2 scrollable" data-visibility="uncounted">
+<h2>Beyond Gaussian Multiplier Bootstrap</h2>
+<div class="small">
+<p><span class="math inline">\(\color{green}{X}\in \mathbb{R}^{350 \times 2}\)</span> is the location of the <span class="math inline">\(350\)</span> largest US cities and <span class="math inline">\(\log d_{ij} = \color{green}{\log\delta_{ij}} + \color{red}{\varepsilon_{ij}}\)</span> where <span class="math inline">\(\color{red}{\varepsilon_{ij}} \sim N(0, \sigma^2 )\)</span></p>
+<ol type="1">
+<li><strong>Gaussian multipliers</strong> <span class="math inline">\(r_{ij} \sim N(0, 1)\)</span></li>
+<li><strong>Rademacher multipliers</strong> <span class="math inline">\(r_{ij} \sim \text{Rademacher}(\pm 1)\)</span></li>
+<li><strong>Uniform multipliers</strong> <span class="math inline">\(r_{ij} \sim \text{Unif}([- \sqrt{3}, \sqrt{3}])\)</span></li>
+</ol>
+<p><br></p>
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 8%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Nominal level <span class="math inline">\(\rightarrow\)</span></th>
+<th><span class="uva-orange">0.999</span></th>
+<th><span class="uva-orange">0.99</span></th>
+<th><span class="uva-orange">0.975</span></th>
+<th><span class="uva-orange">0.95</span></th>
+<th><span class="uva-orange">0.925</span></th>
+<th><span class="uva-orange">0.9</span></th>
+<th><span class="uva-orange">0.85</span></th>
+<th><span class="uva-orange">0.8</span></th>
+<th><span class="uva-orange">0.75</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gaussian</td>
+<td><strong>0.998</strong></td>
+<td>0.992</td>
+<td>0.983</td>
+<td>0.954</td>
+<td>0.932</td>
+<td><strong>0.902</strong></td>
+<td><strong>0.851</strong></td>
+<td><strong>0.789</strong></td>
+<td><strong>0.707</strong></td>
+</tr>
+<tr class="even">
+<td>Rademacher</td>
+<td>0.997</td>
+<td>0.988</td>
+<td><strong>0.980</strong></td>
+<td><strong>0.951</strong></td>
+<td><strong>0.924</strong></td>
+<td>0.895</td>
+<td>0.825</td>
+<td>0.738</td>
+<td>0.628</td>
+</tr>
+<tr class="odd">
+<td>Uniform</td>
+<td>0.997</td>
+<td><strong>0.991</strong></td>
+<td>0.983</td>
+<td>0.953</td>
+<td>0.930</td>
+<td>0.897</td>
+<td>0.837</td>
+<td>0.750</td>
+<td>0.659</td>
+</tr>
+<tr class="even">
+<td>Empirical</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>0.997</td>
+<td>0.994</td>
+<td>0.994</td>
+<td>0.953</td>
+<td>0.983</td>
+</tr>
+<tr class="odd">
+<td>Gumbel</td>
+<td>0.939</td>
+<td>0.847</td>
+<td>0.772</td>
+<td>0.690</td>
+<td>0.630</td>
+<td>0.580</td>
+<td>0.508</td>
+<td>0.423</td>
+<td>0.356</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 </section></section>

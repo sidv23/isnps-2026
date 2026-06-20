@@ -132,19 +132,19 @@ $selectionColor: #000000;
 
 
 
-.content-box-solid-uva-orange {
+.content-box-uva-orange {
     background-color: rgba(229, 114, 0, 0.2);
 }
 
-.content-box-solid-uva-lightorange {
+.content-box-uva-lightorange {
     background-color: rgba(249, 220, 191, 0.2);
 }
 
-.content-box-solid-uva-blue {
+.content-box-uva-blue {
     background-color: rgba(35, 45, 75, 0.2);
 }
 
-.content-box-solid-uva-lightblue {
+.content-box-uva-lightblue {
     background-color: rgba(200, 203, 210, 0.2);
 }
 
@@ -239,29 +239,121 @@ $selectionColor: #000000;
 
 
 
-// create a content box identical to the ones above but with opacity 1.0
 
-.content-box-solid-white{background-color: rgba(255, 255, 255, 1.0);}
-.content-box-solid-ucsd-navy{background-color: rgba(24, 43, 73, 1.0);}
-.content-box-solid-ucsd-navy{background-color: rgba(30, 64, 124, 1.0);}
-.content-box-solid-ucsd-blue{background-color: rgba(0, 98, 155, 1.0);}
-.content-box-solid-ucsd-yellow{background-color: rgba(255, 205, 0, 1.0);}
-.content-box-solid-ucsd-gold{background-color: rgba(198, 146, 20, 1.0);}
-.content-box-solid-gold{background-color: rgba(198, 146, 20, 1.0);}
-.content-box-solid-lightgold{background-color: rgb(205, 167, 77);}
-.content-box-solid-red{background-color: rgba(255, 0, 0, 1.0);}
-.content-box-solid-blue{background-color: rgba(0, 0, 255, 1.0);}
-.content-box-solid-green{background-color: rgba(0, 128, 0, 1.0);}
-.content-box-solid-yellow{background-color: rgba(255, 255, 0, 1.0);}
-.content-box-solid-orange{background-color: rgba(255, 165, 0, 1.0);}
-.content-box-solid-lightorange{background-color: rgb(255, 239, 211);}
-.content-box-solid-purple{background-color: rgba(128, 0, 128, 1.0);}
-.content-box-solid-gray{background-color: rgba(128, 128, 128, 1.0);}
-.content-box-solid-grey{background-color: rgba(128, 128, 128, 1.0);}
-.content-box-solid-dblue{background-color: rgba(16, 88, 173, 1.0);}
-.content-box-solid-orchid{background-color: rgba(219, 67, 213, 1.0);}
-.content-box-solid-magenta{background-color: rgba(212, 98, 173, 1.0);}
-.content-box-solid-dorange{background-color: rgba(255, 89, 0, 1.0);}
-.content-box-solid-dodgerblue{background-color: rgba(30, 144, 255, 1.0);}
-.content-box-solid-dpurple{background-color: rgba(122, 45, 245, 1.0);}
-.content-box-solid-orange{background-color: rgba(252, 137, 0, 1.0);}
+
+// 
+// create a content box identical to the ones above but with opacity 1.0
+// 
+
+
+.content-box-solid-uva-orange {
+    background-color: rgba(229, 114, 0, 1.0);
+}
+
+.content-box-solid-uva-lightorange {
+    background-color: rgba(249, 220, 191, 1.0);
+}
+
+.content-box-solid-uva-blue {
+    background-color: rgba(35, 45, 75, 1.0);
+}
+
+.content-box-solid-uva-lightblue {
+    background-color: rgba(200, 203, 210, 1.0);
+}
+
+.content-box-solid-white {
+    background-color: rgba(255, 255, 255, 1.0);
+}
+
+.content-box-solid-ucsd-navy {
+    background-color: rgba(24, 43, 73, 1.0);
+}
+
+.content-box-solid-ucsd-navy {
+    background-color: rgba(30, 64, 124, 1.0);
+}
+
+.content-box-solid-ucsd-blue {
+    background-color: rgba(0, 98, 155, 1.0);
+}
+
+.content-box-solid-ucsd-yellow {
+    background-color: rgba(255, 205, 0, 1.0);
+}
+
+.content-box-solid-ucsd-gold {
+    background-color: rgba(198, 146, 20, 1.0);
+}
+
+.content-box-solid-gold {
+    background-color: rgba(198, 146, 20, 1.0);
+}
+
+.content-box-solid-lightgold {
+    background-color: rgb(205, 167, 77);
+}
+
+.content-box-solid-red {
+    background-color: rgba(255, 0, 0, 1.0);
+}
+
+.content-box-solid-blue {
+    background-color: rgba(0, 0, 255, 1.0);
+}
+
+.content-box-solid-green {
+    background-color: rgba(0, 128, 0, 1.0);
+}
+
+.content-box-solid-yellow {
+    background-color: rgba(255, 255, 0, 1.0);
+}
+
+.content-box-solid-orange {
+    background-color: rgba(255, 165, 0, 1.0);
+}
+
+.content-box-solid-lightorange {
+    background-color: rgb(255, 239, 211);
+}
+
+.content-box-solid-purple {
+    background-color: rgba(128, 0, 128, 1.0);
+}
+
+.content-box-solid-gray {
+    background-color: rgba(128, 128, 128, 1.0);
+}
+
+.content-box-solid-grey {
+    background-color: rgba(128, 128, 128, 1.0);
+}
+
+.content-box-solid-dblue {
+    background-color: rgba(16, 88, 173, 1.0);
+}
+
+.content-box-solid-orchid {
+    background-color: rgba(219, 67, 213, 1.0);
+}
+
+.content-box-solid-magenta {
+    background-color: rgba(212, 98, 173, 1.0);
+}
+
+.content-box-solid-dorange {
+    background-color: rgba(255, 89, 0, 1.0);
+}
+
+.content-box-solid-dodgerblue {
+    background-color: rgba(30, 144, 255, 1.0);
+}
+
+.content-box-solid-dpurple {
+    background-color: rgba(122, 45, 245, 1.0);
+}
+
+.content-box-solid-orange {
+    background-color: rgba(252, 137, 0, 1.0);
+}
