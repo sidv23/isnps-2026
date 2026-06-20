@@ -5,7 +5,7 @@ format:
     revealjs:
       pagetitle: "Statistical MDS"
       # logo: imgs/extra/ucsd-small.jpeg
-      footer: "[UC Irvine • 2026]{.smaller}"
+      footer: "[ISNPS • 2026]{.smaller}"
       slide-number: true
       width: 1760
       height: 990
@@ -35,18 +35,31 @@ jupyter: job-talk
 
 ## {.center}
 
-[UC Irvine • Combinatorics and Probability Seminar • 2026]{.ucsd-gold}
+<!-- [UC Irvine • Combinatorics and Probability Seminar • 2026]{.ucsd-gold}
++br+br+br -->
+
+<!-- <p></p> -->
+
 +br+br+br
 
-<p></p>
+### [Multidimensional Scaling From Noisy Data]{.Large}
+[Statistical Learning & Uncertainty Quantification]{.Large .bold-text-shadow}
++br+br
 
-### [A Statistical Framework for+br Multidimensional Scaling From Noisy Data]{.Large}
+:::: {.columns}
 
-+br+br+br+br+br+br
-<o></p>
-[Siddharth Vishwanath]{.ucsd-gold .large}
-<o></p>
-![](imgs/extra/ucsd.png){width=16%}
+::: {.column .center}
++br+br+br
+[Siddharth Vishwanath]{.ucsd-gold .Large}+br
+![](imgs/extra/ucsd.png){width=50%}
+:::
+
+::: {.column .cemter}
+![](imgs/extra/isnps.png){width=50%}
+:::
+
+::::
+
 
 +br+br+br+br
 
