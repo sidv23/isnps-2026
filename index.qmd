@@ -905,7 +905,7 @@ Plot.dot(rotatedY, { x: "x", y: "y", r: 4, fill: "blue" })
 ::: {.fragment fragment-index=1 .fade-in-then-semi-out}
 |  | [Assumptions on $\EpsRed$]{.large} | |
 |:---|:---:|:---:|
-| [Independent]{.uva-orange .bold} | | [$\hspace{1.3em}$ $(\color{red}{\eps_{ij}})$ are independent for $i < j$ $\hspace{1.3em}$]{.smaller} |
+| [Independent]{.uva-orange .bold} | | [$\hspace{1.4em}$ $(\color{red}{\eps_{ij}})$ are independent for $i < j$ $\hspace{1.4em}$]{.smaller} |
 | ["Heteroscedastic"]{.uva-orange .bold} | | [$\E(\color{red}{\eps_{ij}}) = 0$ and $\Var(\color{red}{\eps_{ij}}) = \sigma_{ij}^2$]{.smaller} |
 | [Finite $q^{\text{th}}$ moment]{.uva-orange .bold} | | [$\displaystyle\max_{i < j}\norm{\color{red}{\eps_{ij}}}_{L^q} \le \sigma$]{.smaller} |
 | | |
