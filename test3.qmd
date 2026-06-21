@@ -33,9 +33,9 @@ jupyter: job-talk
 
 
 
-## {.center}
+## {.center visibility="uncounted"}
 
-+br+br+br
++br
 
 ### [Multidimensional Scaling From Noisy Data]{.Large}+br [Statistical Learning & Uncertainty Quantification]{.smaller}
 [Siddharth Vishwanath]{.uva-orange .Large .text-shadow}+br
@@ -96,129 +96,6 @@ $$
 
 
 
-
-
-
-
-
-
-## Statistical Learning {auto-animate="false" align="center"}
-
-
-::: {.footnotesize .small .center}
-
-$\XGreen \in \bbX(\params) \hspace{2em} D = \DelXGreen + \EpsRed; \hspace{2em} \hX = \mds(D, p); \hspace{2em} \text{and} \quad \hXc(D) \in \Rnp$ be [**any estimator**]{.uva-orange} of $\XGreen$
-:::
-
-
-::::: {.columns .small}
-
-
-
-
-:::: {.column width="51.5%" .fragment fragment-index=1 }
-
-
-:::: {.r-stack}
-
-::: {.content-box-dblue .fragment fragment-index=1 .fade-in-then-out}
-**(Lower Bound).**  The reconstruction error $\ell(\hX,\XGreen)$ has:
-
-
-* [**lower bound**]{} $r_n \to 0$, if:+br+br
-
-$$
-\sup_{D = \DelXGreen + \EpsRed}\pr\Big(\;\; \ell(\hXc,\,\XGreen) \gtrsim r_n \;\;\Big) \ge \frac{1}{2}
-$$
-:::
-
-
-::: {.content-box-dblue .fragment fragment-index=2 .fade-in-then-semi-out}
-
-**([**Minimax**]{.uva-orange} Lower Bound).**  The reconstruction error $\ell(\hX,\XGreen)$ has:
-
-* [**minimax**]{.uva-orange} [**lower bound**]{} $r_n \to 0$, if:+br+br
-
-$$
-\inf_{\hXc} \sup_{D = \color{green}{\Del} + \EpsRed } \pr\Big(\;\; \ell(\hXc,\,\XGreen) \gtrsim r_n\;\; \Big) \ge \frac{1}{2}
-$$
-:::
-
-
-::::
-
-::::
-
-
-:::: {.column width="0.5%"}
-::::
-
-:::: {.column width="48%" .fragment fragment-index=3 .fade-in-then-semi-out}
-
-::: {.content-box-green}
-**(CMDS Upper Bound).** The reconstruction error $\ell(\hX,\XGreen)$ has:
-
-* [**convergence rate**]{.uva-orange} $R_n \to 0$ 
-* with [**failure probability**]{.uva-orange} $\alpha_n \to 0$, if:
-
-$$
-\sup_{D = \DelXGreen + \EpsRed}\pr\Big(\;\; \ell(\hX,\XGreen) \gtrsim R_n \;\;\Big) \leq \alpha_n
-$$
-:::
-
-::::
-
-
-:::::
-
-
-::: {.footnotesize .fragment fragment-index=4}
-<p></p>
-
-| | **Reconstruction metrics** | |
-|:---:|:---:|:---:|
-| **RMSE**+br+br $\displaystyle\ell\rmse(\hX,\XGreen) = \frac{1}{\sqrt{n}}\norm{g(\hX) - X}_F$ |   | **$2$-to-$\infty$ uniform error**+br+br $\displaystyle\ell\ttinft(\hX,\XGreen) = \max_{i \in [n]} \norm{g(\hx_i) - x_i}$ |
-:::
-
-
-
-
-
-
-## 
-
-::: {.content-box-gray .center .footnotesize style="margin-top: -1.2%" .fragment fragment-index=1 .semi-fade-out}
-
-| [Minimax Lower Bound]{.large .uva-orange} | &emsp;&emsp;&emsp;&emsp; | [CMDS Upper Bound]{.large .uva-orange} |
-|:-------------------------------:|:---:|:-------------------------------:|
-| $\displaystyle \inf_{\hXc} \sup_{D = \DelXGreen + \EpsRed } \pr\Big(\;\; \ell(\hXc,\,\XGreen) \gtrsim r_n\;\; \Big) \ge \frac{1}{2}$ | | $\displaystyle \sup_{D = \DelXGreen + \EpsRed }\pr\Big(\;\; \ell(\hX, \XGreen) \gtrsim R_n \;\;\Big) \;\le\;  \alpha_n$ |
-:::
-
-<p></p>
-
-
-::: {.content-box-orange .small .fragment fragment-index=1 style="margin-top: 0%;"}
-
-**Theorem [@vishwanath2025minimax].** &emsp; For all &emsp; $0 < r < \frac{q-4}{2}$:+br
-<p></p>
-
-| [Metric]{.uva-orange} | [Lower bound $r_n$]{.uva-orange} | &emsp;&emsp; | [Upper bound $R_n$]{.uva-orange}| &emsp;&emsp; | [ Failure Probability $\alpha_n$]{.uva-orange} |
-|:---------------------:|:-------------------------------:|:---:|:-------------------------------:|:---:|:-------------------------------:|
-| [$$\ell\rmse$$]{} | $\displaystyle\frac{\sigma\kappa}{\sqrt{n}}$ | | $\displaystyle\frac{\sigma\kappa}{\sqrt{n}}$ +br | | $O(n^{-2} + n^{-r})$ |
-| [$\ell_{\ttinft}$]{} | $\displaystyle\underline{c}(\params)\cdot \sigma\sqrt{\frac{\log{n}}{n}}$| | $\displaystyle\bar{c}(\params)\cdot \sigma\sqrt{\frac{\log{n}}{n}}$| | $O(n^{-2} + n^{-r})$ +br+br |
-<p></p>
-<p></p>
-:::
-
-::: {.small .fragment fragment-index=2 .fade-down}
-* $q > 4$ moments is [necessary]{.uva-orange} for consistency
-* Parametric rates (in $n$) for $\ell\rmse$ and minimax-optimal up to absolute constants. Extra [$\sqrt{\log{n}}$]{.small} factor for $\ell_{\ttinft}$ is unavoidable
-* Proof relies on: [(1.) orthogonal Procrustes alignment]{.magenta} + [(2.) Fuk-Nagaev-type matrix concentration]{.uva-orange}
-:::
-
-::: {.footnote .footnotesize .fragment fragment-index=1 .fade-in-then-semi-out}
-where &nbsp; $\bar{c}(\params) = \kappa^2(\kappa + \Rx)$ &emsp; and &emsp; $\underline{c}(\params) = \kappa(1+\kappa\Rx)\inv$.
-:::
 
 
 

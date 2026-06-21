@@ -307,7 +307,7 @@
     <div class="slides">
 
 
-<section id="section" class="slide level2 center">
+<section id="section" class="slide level2 center" data-visibility="uncounted">
 <h2></h2>
 <p><br></p>
 <h3 id="multidimensional-scaling-from-noisy-databr-statistical-learning-uncertainty-quantification"><span class="Large">Multidimensional Scaling From Noisy Data</span><br> <span class="smaller">Statistical Learning &amp; Uncertainty Quantification</span></h3>
@@ -323,7 +323,7 @@
 
 </div>
 </section>
-<section id="section-1" class="slide level2 center">
+<section id="section-1" class="slide level2 center" data-visibility="uncounted">
 <h2></h2>
 <div class="center">
 <p><strong>Based on joint work with</strong> <br><br></p>
@@ -332,7 +332,7 @@
 </div>
 </section>
 <section>
-<section id="motivation" class="title-slide slide level1 inverse center" data-background-color="#1e407c">
+<section id="motivation" class="title-slide slide level1 inverse center" data-visibility="uncounted" data-background-color="#1e407c">
 <h1>Motivation</h1>
 <div class="large center">
 
@@ -362,7 +362,7 @@
 \require{ams}
 \]</span></p>
 </section>
-<section id="pairwise-dissimilarity-data" class="slide level2" data-visibility="uncounted" data-align="center">
+<section id="pairwise-dissimilarity-data" class="slide level2" data-align="center">
 <h2>Pairwise Dissimilarity Data</h2>
 <div class="center">
 <p>Many problems in psychology, sociology, ecology, wireless communication, neuroscience, bioinformatics, etc. <br> involve <span class="uva-orange"><strong>relational</strong></span> data in the form of <span class="uva-orange"><strong>pairwise dissimilarities</strong></span> between items</p>
@@ -798,7 +798,7 @@ if (outputEl) {{
 </div>
 </section></section>
 <section>
-<section id="statistical-learning" class="title-slide slide level1 inverse center" data-background-color="#1e407c">
+<section id="statistical-learning" class="title-slide slide level1 inverse center" data-visibility="uncounted" data-background-color="#1e407c">
 <h1>Statistical Learning</h1>
 
 </section>
@@ -947,54 +947,84 @@ if (outputEl) {{
 <div class="footnote footnotesize fragment" data-fragment-index="1">
 <p>*modulo rigid transformations</p>
 </div>
+<!-- ## Assumptions on [$\XGreen$]{.smaller}  and [$\EpsRed$]{.smaller} {auto-animate="true" data-transition="linear"} -->
 </section>
-<section id="statistical-estimation-and-difficulties" class="slide level2" data-auto-animate="false">
-<h2 data-id="quarto-animate-title">Statistical Estimation and difficulties</h2>
-<ul>
-<li><p><span class="uva-orange"><strong>Model:</strong></span><br><br> <span class="math inline">\(D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}\)</span> where <span class="math inline">\(\color{red}{\mathcal{E}}= (\color{red}{\varepsilon_{ij}}) \in \mathbb{R}^{n \times n}\)</span> is a <strong>symmetric</strong> and <strong>hollow</strong> <span class="math inline">\(n \times n\)</span> random matrix</p></li>
-<li><p><span class="uva-orange"><strong>Parameters:</strong></span><br><br> <span class="math inline">\(\color{green}{X}\in \mathbb{R}^{n \times p}\)</span> (configuration matrix underlying <span class="math inline">\(\color{green}{\Delta}\)</span>) <span><strong>which consists of <span class="math inline">\(np\)</span> unknown parameters!</strong></span></p></li>
-</ul>
-<div class="center fragment" data-fragment-index="1">
-<p>As <span class="math inline">\(n \uparrow\)</span>   then   <span class="math inline">\(\#\)</span>parameters = <span class="math inline">\(np\!\uparrow\)</span> too!</p>
+<section id="section-2" class="slide level2" data-auto-animate="true" data-transition="linear" data-align="center">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="fragment semi-fade-out" data-fragment-index="1">
+<table class="caption-top">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 35%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;"><span class="large">Assumptions on <span class="math inline">\(\color{green}{X}\)</span></span></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="uva-orange bold">Conpactly supported</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="smaller"><span class="math inline">\(\|{\color{green}{X}}\|_{2\to\infty} \le \varpi\)</span></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="uva-orange bold">Bounded condition number</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="smaller"><span class="math inline">\(\hspace{0em}\)</span> <span class="math inline">\(\kappa^{-1}\le s_p\left(\tfrac{\color{green}{X}}{\sqrt{n}}\right) \le s_1\left(\tfrac{\color{green}{X}}{\sqrt{n}}\right) \le \kappa\)</span></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="fragment" data-fragment-index="2">
-<ul>
-<li><span class="uva-orange"><strong>Observations</strong>:</span><br><br> We have a total of <span class="math inline">\(N = \binom{n}{2}\)</span> observations <span class="math inline">\(\big\{\delta_{ij}: i &lt; j\big\}\)</span></li>
-</ul>
+<div class="fragment fade-in-then-semi-out" data-fragment-index="1">
+<table class="caption-top">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 35%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;"><span class="large">Assumptions on <span class="math inline">\(\color{red}{\mathcal{E}}\)</span></span></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="uva-orange bold">Independent</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="smaller"><span class="math inline">\(\hspace{1.5em}\)</span> <span class="math inline">\((\color{red}{\varepsilon_{ij}})\)</span> are independent for <span class="math inline">\(i &lt; j\)</span> <span class="math inline">\(\hspace{1.5em}\)</span></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="uva-orange bold">“Heteroscedastic”</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="smaller"><span class="math inline">\(\mathbb{E}(\color{red}{\varepsilon_{ij}}) = 0\)</span> and <span class="math inline">\(\text{Var}(\color{red}{\varepsilon_{ij}}) = \sigma_{ij}^2\)</span></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="uva-orange bold">Finite <span class="math inline">\(q^{\text{th}}\)</span> moment</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="smaller"><span class="math inline">\(\displaystyle\max_{i &lt; j}\|\color{red}{\varepsilon_{ij}}\|_{L^q} \le \sigma\)</span></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
 </div>
-</section>
-<section id="assumptions-on-colorgreenx-and-colorredmathcale" class="slide level2 scrollable" data-auto-animate="true" data-transition="linear">
-<h2 data-id="quarto-animate-title">Assumptions on <span class="smaller"><span class="math inline">\(\color{green}{X}\)</span></span> and <span class="smaller"><span class="math inline">\(\color{red}{\mathcal{E}}\)</span></span></h2>
-<div class="content-box-grey">
-<p><span class="math inline">\(\color{green}{X}\in \mathbb{X}({\kappa, \varpi})\)</span> where <span class="math inline">\(\mathbb{X}({\kappa, \varpi}) \subset \mathbb{R}^{n \times p}\)</span> is the set of configurations satisfying:</p>
-<ol type="1">
-<li><p><strong>Bounded condition number:</strong> <span class="math inline">\(\hspace{1em}\)</span> <span class="math inline">\(\kappa^{-1}\le s_p\left(\tfrac{\color{green}{X}}{\sqrt{n}}\right) \le s_1\left(\tfrac{\color{green}{X}}{\sqrt{n}}\right) \le \kappa\)</span></p></li>
-<li><p><strong>Compactly supported:</strong> <span class="math inline">\(\hspace{4.5em}\)</span> <span class="math inline">\(\|{\color{green}{X}}\|_{2\to\infty} \le \varpi\)</span></p></li>
-</ol>
-</div>
-<p><br></p>
-<div class="fragment">
-<div class="content-box-grey" data-id="cbox1" style="width: 100%;">
-<div data-id="eps-content">
-<p><span class="math inline">\(\color{red}{\mathcal{E}}= (\color{red}{\varepsilon_{ij}})\)</span> is a random symmetric hollow matrix with:</p>
-<ol type="1">
-<li><strong>Independence:</strong> <span class="math inline">\(\hspace{1em}\)</span> <span class="math inline">\((\color{red}{\varepsilon_{ij}})\)</span> are independent for <span class="math inline">\(i &lt; j\)</span> with <span class="math inline">\(\mathbb{E}(\color{red}{\varepsilon_{ij}}) = 0\)</span> and <span class="math inline">\(\text{Var}(\color{red}{\varepsilon_{ij}}) = \sigma_{ij}^2\)</span></li>
-<li><strong>Finite <span class="math inline">\(q\)</span>th moment:</strong> <span class="math inline">\(\hspace{1em}\)</span> For <span class="math inline">\(q &gt; 4\)</span>, <span class="math inline">\(\hspace{1em}\)</span> <span class="math inline">\(\displaystyle\max_{i &lt; j}\|\color{red}{\varepsilon_{ij}}\|_{L^q} \le \sigma\)</span></li>
-</ol>
-</div>
-</div>
-</div>
-</section>
-<section id="assumptions-on-colorgreenx-and-colorredmathcale-1" class="slide level2 scrollable" data-visibility="uncounted" data-auto-animate="true" data-transition="linear">
-<h2 data-id="quarto-animate-title">Assumptions on <span class="smaller"><span class="math inline">\(\color{green}{X}\)</span></span> and <span class="smaller"><span class="math inline">\(\color{red}{\mathcal{E}}\)</span></span></h2>
-<div class="content-box-grey" data-id="cbox1" style="width: 100%;">
-<div data-id="eps-content">
-<p><span class="math inline">\(\color{red}{\mathcal{E}}= (\color{red}{\varepsilon_{ij}})\)</span> is a random symmetric hollow matrix with:</p>
-<ol type="1">
-<li><strong>Independence:</strong> <span class="math inline">\(\hspace{1em}\)</span> <span class="math inline">\((\color{red}{\varepsilon_{ij}})\)</span> are independent for <span class="math inline">\(i &lt; j\)</span> with <span class="math inline">\(\mathbb{E}(\color{red}{\varepsilon_{ij}}) = 0\)</span> and <span class="math inline">\(\text{Var}(\color{red}{\varepsilon_{ij}}) = \sigma_{ij}^2\)</span></li>
-<li><strong>Finite <span class="math inline">\(q\)</span>th moment:</strong> <span class="math inline">\(\hspace{1em}\)</span> For <span class="math inline">\(q &gt; 4\)</span>, <span class="math inline">\(\hspace{1em}\)</span> <span class="math inline">\(\displaystyle\max_{i &lt; j}\|\color{red}{\varepsilon_{ij}}\|_{L^q} \le \sigma\)</span></li>
-</ol>
-</div>
+<div class="fragment fade-in-then-semi-out smaller" data-fragment-index="2">
+<div class="center">
+<p><span class="bold Large">Examples <span class="math inline">\(\hspace{3em}\)</span></span></p>
 </div>
 <p><span class="math display">\[
 \begin{aligned}
@@ -1004,6 +1034,7 @@ d_{ij} &amp;= \color{green}{\delta_{ij}} + \color{red}{\delta_{ij}\xi_{ij}} &amp
 d_{ij} &amp;= \color{green}{\delta_{ij}} + \color{red}{2\delta_{ij}\xi_{ij} + \xi_{ij}^2} &amp;&amp;\hspace{3em} (\text{absolute additive})\\
 \end{aligned}
 \]</span> where <span class="math inline">\({\Xi = (\xi_{ij})}\)</span> is a random matrix with iid entries</p>
+</div>
 </section>
 <section id="statistical-learning-1" class="slide level2" data-auto-animate="false" data-align="center">
 <h2 data-id="quarto-animate-title">Statistical Learning</h2>
@@ -1072,7 +1103,7 @@ d_{ij} &amp;= \color{green}{\delta_{ij}} + \color{red}{2\delta_{ij}\xi_{ij} + \x
 </table>
 </div>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section-3" class="slide level2">
 <h2></h2>
 <div class="content-box-gray center footnotesize fragment semi-fade-out" style="margin-top: -1.2%" data-fragment-index="1">
 <table class="caption-top">
@@ -1160,15 +1191,14 @@ d_{ij} &amp;= \color{green}{\delta_{ij}} + \color{red}{2\delta_{ij}\xi_{ij} + \x
 <section id="illustration" class="slide level2">
 <h2>Illustration</h2>
 <div class="center r-stack">
-<p><img data-src="imgs/mds/plts/p2.png" class="fragment fade-out" style="width:55.0%" data-fragment-index="1"></p>
-<p><img data-src="imgs/mds/plts/p1.png" class="fragment fade-in" style="width:98.0%" data-fragment-index="1"></p>
+<p><img data-src="imgs/mds/plts/p1.png" style="width:98.0%"></p>
 </div>
 <div class="footnote scriptsize">
 <p>More <a href="#/appendix-fourth-moment-plots">experiments in the appendix</a></p>
 </div>
 </section></section>
 <section>
-<section id="uncertainty-quantification" class="title-slide slide level1 inverse center" data-background-color="#1e407c">
+<section id="uncertainty-quantification" class="title-slide slide level1 inverse center" data-visibility="uncounted" data-background-color="#1e407c">
 <h1>Uncertainty Quantification</h1>
 
 </section>
@@ -1176,25 +1206,24 @@ d_{ij} &amp;= \color{green}{\delta_{ij}} + \color{red}{2\delta_{ij}\xi_{ij} + \x
 <h2>Desiderata - II (Uncertainty Quantification)</h2>
 <div class="columns">
 <div class="column center" style="width:63%;">
+<!-- :::{}
+* Let $\XGreen \in \Rnp$ and $D = \DelGreen + \EpsRed$ and 
+$\hX = \mds(D, p)$
+::: -->
 <div>
-<ul>
-<li>Let <span class="math inline">\(\color{green}{X}\in \mathbb{R}^{n \times p}\)</span> and <span class="math inline">\(D = \color{green}{\Delta}+ \color{red}{\mathcal{E}}\)</span> and <span class="math inline">\(\widehat{X}= \mathsf{CMDS}(D, p)\)</span></li>
-</ul>
-</div>
-<div class="fragment" data-fragment-index="1">
 <div class="content-box-gray">
 <ul>
-<li>For any <span class="math inline">\(\color{Goldenrod}{\boldsymbol{\alpha}} \in (0, 1)\)</span></li>
-<li>Can we construct <span class="math inline">\(\color{Goldenrod}{\boldsymbol{100 \times (1-\alpha)\%}}\)</span> <span class="uva-orange"><strong><em>uniform</em> confidence sets</strong></span> <span class="math display">\[
+<li>For any <span class="math inline">\(\color{DarkOrange}{\boldsymbol{\alpha}} \in (0, 1)\)</span></li>
+<li>Can we construct <span class="math inline">\(\color{DarkOrange}{\boldsymbol{100 \times (1-\alpha)\%}}\)</span> <span class="uva-orange"><strong><em>uniform</em> confidence sets</strong></span> <span class="math display">\[
 \mathcal{C}_{\alpha} = \prod_{i=1}^n \mathcal{C}_{\alpha, i} \subset \mathbb{R}^p
 \]</span> which provide <span class="purple"><strong>simultaneous coverage</strong>*</span> of the true configuration: <span class="math display">\[
-\boxed{\phantom{\Bigg()} \mathbb{P}\Big( \exists g \in \mathcal{G}: \; g(\color{green}{x_i}) \in \mathcal{C}_{\alpha, i} \;\;\; \color{Purple}{\forall i \in [n]} \Big) \approx \color{Goldenrod}{\boldsymbol{1 - \alpha}} \phantom{\Bigg()}}
+\boxed{\phantom{\Bigg()} \mathbb{P}\Big( \exists g \in \mathcal{G}: \; g(\color{green}{x_i}) \in \mathcal{C}_{\alpha, i} \;\;\; \color{Purple}{\forall i \in [n]} \Big) \approx \color{DarkOrange}{\boldsymbol{1 - \alpha}} \phantom{\Bigg()}}
 \]</span></li>
 </ul>
 </div>
 </div>
 </div><div class="column center fragment" data-fragment-index="1" style="width:37%;">
-<p><br> <img data-src="imgs/mds/plts/conf.gif" style="width:100.0%"></p>
+<p><img data-src="imgs/mds/plts/conf.gif" style="width:100.0%"></p>
 </div></div>
 <div class="footnote footnotesize fragment" data-fragment-index="1">
 <p>*modulo rigid transformations</p>
@@ -1410,105 +1439,6 @@ T_n := \sqrt{n}\; \cdot\; \max_{i \in [n]} \|\;\;\widehat{\Omega}_i^{-1/2}\left(
 <p><img data-src="imgs/mds/plts/bootstrap/b1.png" style="width:75.0%"></p>
 </div></div>
 </section>
-<section id="intuition-behind-extreme-value-approximation" class="slide level2">
-<h2>Intuition behind extreme value approximation</h2>
-<div class="small">
-<p><span class="math display">\[
-\boxed{
-T_n := \sqrt{n}\; \cdot\; \max_{i \in [n]} \|\;\;\color{red}{\widehat{\Omega}_i^{-1/2}\left(x_i -  \widehat{g}(\widehat{x}_i)\right)}\;\;\|
-}
-\]</span></p>
-<div class="r-stack">
-<div class="r-stack-item fragment fade-out" data-fragment-index="1">
-<p>For each fixed <span class="math inline">\(i \in [n]\)</span>: <span class="math display">\[
-\begin{aligned}
-\sqrt{n} \cdot \color{red}{\widehat{\Omega}_i^{-1/2}\left(x_i -  \widehat{g}(\widehat{x}_i)\right)} &amp;= \frac{1}{\sqrt{n}} \sum_{j=1}^n \varepsilon_{ij}x_j \;\; + \underbrace{h_n}_{\text{higher order terms}}\\
-\phantom{\sqrt{n} \cdot \color{red}{\widehat{\Omega}_i^{-1/2}\left(x_i -  \widehat{g}(\widehat{x}_i)\right)}} &amp;\phantom{\;\approx\; \frac{1}{\sqrt{n}} (\varepsilon_{i1}x_1 + \varepsilon_{i2} x_2 + \dots + \varepsilon_{in}x_n) \;\longrightarrow\; N(0, I_p)}
-\end{aligned}
-\]</span></p>
-</div>
-<div class="r-stack-item fragment fade-in-then-out" data-fragment-index="1">
-<p>For each fixed <span class="math inline">\(i \in [n]\)</span> <span class="citation" data-cites="li2020central">(<a href="#/references" role="doc-biblioref" onclick="">Li et al. 2020</a>)</span> <span class="math display">\[
-\begin{aligned}
-\sqrt{n} \cdot \color{red}{\widehat{\Omega}_i^{-1/2}\left(x_i -  \widehat{g}(\widehat{x}_i)\right)} &amp;\;\approx\; \frac{1}{\sqrt{n}} (\varepsilon_{i1}x_1 + \varepsilon_{i2} x_2 + \dots + \varepsilon_{in}x_n) \;\longrightarrow\; N(0, I_p)\\
-\phantom{\sqrt{n}\cdot \|\color{red}{\widehat{\Omega}_i^{-1/2}\left(x_i -  \widehat{g}(\widehat{x}_i)\right)}\| }
-&amp;\phantom{\;\approx\; \frac{1}{\sqrt{n}} \|\varepsilon_{i1}x_1 + \varepsilon_{i2} x_2 + \dots + \varepsilon_{in}x_n\|  \;\longrightarrow\; \chi_p}
-\end{aligned}
-\]</span></p>
-</div>
-<div class="r-stack-item fragment fade-in-then-out" data-fragment-index="2">
-<p>For each fixed <span class="math inline">\(i \in [n]\)</span> <span class="math display">\[
-\begin{aligned}
-\sqrt{n} \cdot \color{red}{\widehat{\Omega}_i^{-1/2}\left(x_i -  \widehat{g}(\widehat{x}_i)\right)} &amp;\;\approx\; \frac{1}{\sqrt{n}} (\varepsilon_{i1}x_1 + \varepsilon_{i2} x_2 + \dots + \varepsilon_{in}x_n) \;\longrightarrow\; N(0, I_p)\\
-\sqrt{n}\cdot \|\;\color{red}{\widehat{\Omega}_i^{-1/2}\left(x_i -  \widehat{g}(\widehat{x}_i)\right)}\;\|
-&amp;\;\approx\; \frac{1}{\sqrt{n}} \|\varepsilon_{i1}x_1 + \varepsilon_{i2} x_2 + \dots + \varepsilon_{in}x_n\|  \;\longrightarrow\; \chi_p
-\end{aligned}
-\]</span></p>
-</div>
-<div class="r-stack-item fragment fade-in-then-out" data-fragment-index="3">
-<p><span class="math display">\[
-\begin{aligned}
-\sqrt{n}\cdot \|\;\color{red}{\widehat{\Omega}_1^{-1/2}\left(x_1 -  \widehat{g}(\widehat{x}_1)\right)}\;\| &amp;\;\approx\; \frac{1}{\sqrt{n}} \|\varepsilon_{11}x_1 + \varepsilon_{12} x_2 + \dots + \varepsilon_{1n}x_n\| \;\longrightarrow\; \chi_p\\
-\sqrt{n}\cdot \|\;\color{red}{\widehat{\Omega}_2^{-1/2}\left(x_2 -  \widehat{g}(\widehat{x}_2)\right)}\;\| &amp;\;\approx\; \frac{1}{\sqrt{n}} \|\varepsilon_{21}x_1 + \varepsilon_{22} x_2 + \dots + \varepsilon_{2n}x_n\| \;\longrightarrow\; \chi_p\\[0.5em]
-\vdots\quad\quad &amp;\;\approx\; \quad\quad\vdots\\[0.5em]
-\sqrt{n}\cdot \|\;\color{red}{\widehat{\Omega}_n^{-1/2}\left(x_n -  \widehat{g}(\widehat{x}_n)\right)}\;\| &amp;\;\approx\; \frac{1}{\sqrt{n}} \|\varepsilon_{n1}x_1 + \varepsilon_{n2} x_2 + \dots + \varepsilon_{nn}x_n\| \;\longrightarrow\; \chi_p
-\end{aligned}
-\]</span></p>
-<div class="content-box-dblue center" style="width: 100% !important;">
-<p>Maximum of <span class="uva-orange"><strong>independent</strong></span> <span class="math inline">\(\chi_p\)</span> random variables converges to Gumbel at rate <span class="math inline">\(O\left(\frac{1}{\log{n}}\right)\)</span></p>
-</div>
-</div>
-<div class="r-stack-item fragment fade-in" data-fragment-index="4">
-<p><span class="math display">\[
-\begin{aligned}
-\sqrt{n}\cdot \|\;{\widehat{\Omega}_1^{-1/2}\left(x_1 -  \widehat{g}(\widehat{x}_1)\right)}\;\| &amp;\;\approx\; \frac{1}{\sqrt{n}} \|0x_1 + \color{lime}{\varepsilon_{12}} x_2 + \dots + \color{brown}{\varepsilon_{1n}}x_n\| \;\longrightarrow\; \chi_p\\
-\sqrt{n}\cdot \|\;{\widehat{\Omega}_2^{-1/2}\left(x_2 -  \widehat{g}(\widehat{x}_2)\right)}\;\| &amp;\;\approx\; \frac{1}{\sqrt{n}} \|\color{lime}{\varepsilon_{21}}x_1 + 0 x_2 + \dots + \color{magenta}{\varepsilon_{2n}}x_n\| \;\longrightarrow\; \chi_p\\[0.5em]
-\vdots\quad\quad &amp;\;\approx\; \quad\quad\vdots\\[0.5em]
-\sqrt{n}\cdot \|\;{\widehat{\Omega}_n^{-1/2}\left(x_n -  \widehat{g}(\widehat{x}_n)\right)}\;\| &amp;\;\approx\; \frac{1}{\sqrt{n}} \|\color{brown}{\varepsilon_{n1}}x_1 + \color{magenta}{\varepsilon_{n2}} x_2 + \dots + 0x_n\| \;\longrightarrow\; \chi_p
-\end{aligned}
-\]</span></p>
-<div class="content-box-dblue center" style="width: 100% !important;">
-<p>The random variables in <span class="math inline">\(T_n\)</span> are <span class="uva-orange"><strong>not independent</strong></span>! The main proof uses:<br> (i) Chen-Stein Poisson approximation   (ii) a <strong>local</strong> anti-concentration inequality for Gaussian quadratic forms</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="why-the-bootstrap-approximation-is-better" class="slide level2">
-<h2>Why the bootstrap approximation is better</h2>
-<div class="columns small">
-<div class="column" style="width:50%;">
-<p><strong>Population world</strong></p>
-<div class="footnotesize">
-<p>We observe <span class="math inline">\(D = \color{green}{\color{green}{\Delta(X)}} + \color{red}{\mathcal{E}}\phantom{{}^{\flat}}\)</span> and <span class="math inline">\(\widehat{X}= \mathsf{CMDS}(D, p)\phantom{\widehat T_n^{\flat}}\)</span></p>
-</div>
-</div><div class="column" style="width:50%;">
-<p><strong>Bootstrap world</strong></p>
-<div class="footnotesize">
-<p>We observe <span class="math inline">\(D^{\flat}= \color{green}{\Delta(\widehat{X})} + \color{red}{\mathcal{E}}^{\flat}\)</span> and <span class="math inline">\(\widehat{X}^{\flat}= \mathsf{CMDS}(D^{\flat}, p)\)</span></p>
-</div>
-</div><p><br><br></p><div class="r-stack">
-<p><img data-src="imgs/mds/approx1.svg" class="fragment fade-out" style="transform: scale(1.6); transform-origin: center;;width:100.0%" data-fragment-index="1"></p>
-<p><img data-src="imgs/mds/approx2.svg" class="fragment fade-in-then-out" style="transform: scale(1.6); transform-origin: center;;width:100.0%" data-fragment-index="1"></p>
-<p><img data-src="imgs/mds/approx3.svg" class="fragment fade-in-then-out" style="transform: scale(1.6); transform-origin: center;;width:100.0%" data-fragment-index="2"></p>
-<p><img data-src="imgs/mds/approx4.svg" class="fragment" style="transform: scale(1.6); transform-origin: center;;width:100.0%" data-fragment-index="3"></p>
-</div>
-</div>
-</section>
-<section id="adaptivity-of-multiplier-bootstrap-to-heteroscedasticity" class="slide level2">
-<h2>Adaptivity of Multiplier Bootstrap to Heteroscedasticity</h2>
-<div class="small">
-<p><span class="math inline">\(X\in \mathbb{X}\)</span> is uniformly spaced on a grid and <span class="math inline">\(d_{ij} = \color{green}{\delta_{ij}} + \color{red}{\varepsilon_{ij}}\)</span> with radial sum/difference noise:</p>
-</div>
-<div class="columns center">
-<div class="column center" style="width:50%;">
-<p><span class="math inline">\(\color{red}{\varepsilon_{ij}} \sim N(0, \|x_i\|^2 + \|x_j\|^2)\)</span></p>
-<p><img data-src="imgs/mds/plts/bootstrap/radial-2.png" style="width:77.0%"></p>
-</div><div class="column center" style="width:50%;">
-<p><span class="math inline">\(\color{red}{\varepsilon_{ij}} \sim N(0, |\|x_i\|^2 - \|x_j\|^2|)\)</span></p>
-<p><img data-src="imgs/mds/plts/bootstrap/radial-1.png" style="width:77.0%"></p>
-</div></div>
-</section>
 <section id="sensor-localization---example-1" class="slide level2">
 <h2>Sensor Localization - Example 1</h2>
 <div id="8a07ac9f" class="cell" data-execution_count="4">
@@ -1616,6 +1546,105 @@ if (outputEl) {{
 </div>
 </div>
 </section>
+<section id="intuition-behind-extreme-value-approximation" class="slide level2">
+<h2>Intuition behind extreme value approximation</h2>
+<div class="small">
+<p><span class="math display">\[
+\boxed{
+T_n := \sqrt{n}\; \cdot\; \max_{i \in [n]} \|\;\;\color{red}{\widehat{\Omega}_i^{-1/2}\left(x_i -  \widehat{g}(\widehat{x}_i)\right)}\;\;\|
+}
+\]</span></p>
+<div class="r-stack">
+<div class="r-stack-item fragment fade-out" data-fragment-index="1">
+<p>For each fixed <span class="math inline">\(i \in [n]\)</span>: <span class="math display">\[
+\begin{aligned}
+\sqrt{n} \cdot \color{red}{\widehat{\Omega}_i^{-1/2}\left(x_i -  \widehat{g}(\widehat{x}_i)\right)} &amp;= \frac{1}{\sqrt{n}} \sum_{j=1}^n \varepsilon_{ij}x_j \;\; + \underbrace{h_n}_{\text{higher order terms}}\\
+\phantom{\sqrt{n} \cdot \color{red}{\widehat{\Omega}_i^{-1/2}\left(x_i -  \widehat{g}(\widehat{x}_i)\right)}} &amp;\phantom{\;\approx\; \frac{1}{\sqrt{n}} (\varepsilon_{i1}x_1 + \varepsilon_{i2} x_2 + \dots + \varepsilon_{in}x_n) \;\longrightarrow\; N(0, I_p)}
+\end{aligned}
+\]</span></p>
+</div>
+<div class="r-stack-item fragment fade-in-then-out" data-fragment-index="1">
+<p>For each fixed <span class="math inline">\(i \in [n]\)</span> <span class="citation" data-cites="li2020central">(<a href="#/references" role="doc-biblioref" onclick="">Li et al. 2020</a>)</span> <span class="math display">\[
+\begin{aligned}
+\sqrt{n} \cdot \color{red}{\widehat{\Omega}_i^{-1/2}\left(x_i -  \widehat{g}(\widehat{x}_i)\right)} &amp;\;\approx\; \frac{1}{\sqrt{n}} (\varepsilon_{i1}x_1 + \varepsilon_{i2} x_2 + \dots + \varepsilon_{in}x_n) \;\longrightarrow\; N(0, I_p)\\
+\phantom{\sqrt{n}\cdot \|\color{red}{\widehat{\Omega}_i^{-1/2}\left(x_i -  \widehat{g}(\widehat{x}_i)\right)}\| }
+&amp;\phantom{\;\approx\; \frac{1}{\sqrt{n}} \|\varepsilon_{i1}x_1 + \varepsilon_{i2} x_2 + \dots + \varepsilon_{in}x_n\|  \;\longrightarrow\; \chi_p}
+\end{aligned}
+\]</span></p>
+</div>
+<div class="r-stack-item fragment fade-in-then-out" data-fragment-index="2">
+<p>For each fixed <span class="math inline">\(i \in [n]\)</span> <span class="math display">\[
+\begin{aligned}
+\sqrt{n} \cdot \color{red}{\widehat{\Omega}_i^{-1/2}\left(x_i -  \widehat{g}(\widehat{x}_i)\right)} &amp;\;\approx\; \frac{1}{\sqrt{n}} (\varepsilon_{i1}x_1 + \varepsilon_{i2} x_2 + \dots + \varepsilon_{in}x_n) \;\longrightarrow\; N(0, I_p)\\
+\sqrt{n}\cdot \|\;\color{red}{\widehat{\Omega}_i^{-1/2}\left(x_i -  \widehat{g}(\widehat{x}_i)\right)}\;\|
+&amp;\;\approx\; \frac{1}{\sqrt{n}} \|\varepsilon_{i1}x_1 + \varepsilon_{i2} x_2 + \dots + \varepsilon_{in}x_n\|  \;\longrightarrow\; \chi_p
+\end{aligned}
+\]</span></p>
+</div>
+<div class="r-stack-item fragment fade-in-then-out" data-fragment-index="3">
+<p><span class="math display">\[
+\begin{aligned}
+\sqrt{n}\cdot \|\;\color{red}{\widehat{\Omega}_1^{-1/2}\left(x_1 -  \widehat{g}(\widehat{x}_1)\right)}\;\| &amp;\;\approx\; \frac{1}{\sqrt{n}} \|\varepsilon_{11}x_1 + \varepsilon_{12} x_2 + \dots + \varepsilon_{1n}x_n\| \;\longrightarrow\; \chi_p\\
+\sqrt{n}\cdot \|\;\color{red}{\widehat{\Omega}_2^{-1/2}\left(x_2 -  \widehat{g}(\widehat{x}_2)\right)}\;\| &amp;\;\approx\; \frac{1}{\sqrt{n}} \|\varepsilon_{21}x_1 + \varepsilon_{22} x_2 + \dots + \varepsilon_{2n}x_n\| \;\longrightarrow\; \chi_p\\[0.5em]
+\vdots\quad\quad &amp;\;\approx\; \quad\quad\vdots\\[0.5em]
+\sqrt{n}\cdot \|\;\color{red}{\widehat{\Omega}_n^{-1/2}\left(x_n -  \widehat{g}(\widehat{x}_n)\right)}\;\| &amp;\;\approx\; \frac{1}{\sqrt{n}} \|\varepsilon_{n1}x_1 + \varepsilon_{n2} x_2 + \dots + \varepsilon_{nn}x_n\| \;\longrightarrow\; \chi_p
+\end{aligned}
+\]</span></p>
+<div class="content-box-dblue center" style="width: 100% !important;">
+<p>Maximum of <span class="uva-orange"><strong>independent</strong></span> <span class="math inline">\(\chi_p\)</span> random variables converges to Gumbel at rate <span class="math inline">\(O\left(\frac{1}{\log{n}}\right)\)</span></p>
+</div>
+</div>
+<div class="r-stack-item fragment fade-in" data-fragment-index="4">
+<p><span class="math display">\[
+\begin{aligned}
+\sqrt{n}\cdot \|\;{\widehat{\Omega}_1^{-1/2}\left(x_1 -  \widehat{g}(\widehat{x}_1)\right)}\;\| &amp;\;\approx\; \frac{1}{\sqrt{n}} \|0x_1 + \color{lime}{\varepsilon_{12}} x_2 + \dots + \color{brown}{\varepsilon_{1n}}x_n\| \;\longrightarrow\; \chi_p\\
+\sqrt{n}\cdot \|\;{\widehat{\Omega}_2^{-1/2}\left(x_2 -  \widehat{g}(\widehat{x}_2)\right)}\;\| &amp;\;\approx\; \frac{1}{\sqrt{n}} \|\color{lime}{\varepsilon_{21}}x_1 + 0 x_2 + \dots + \color{magenta}{\varepsilon_{2n}}x_n\| \;\longrightarrow\; \chi_p\\[0.5em]
+\vdots\quad\quad &amp;\;\approx\; \quad\quad\vdots\\[0.5em]
+\sqrt{n}\cdot \|\;{\widehat{\Omega}_n^{-1/2}\left(x_n -  \widehat{g}(\widehat{x}_n)\right)}\;\| &amp;\;\approx\; \frac{1}{\sqrt{n}} \|\color{brown}{\varepsilon_{n1}}x_1 + \color{magenta}{\varepsilon_{n2}} x_2 + \dots + 0x_n\| \;\longrightarrow\; \chi_p
+\end{aligned}
+\]</span></p>
+<div class="content-box-dblue center" style="width: 100% !important;">
+<p>The random variables in <span class="math inline">\(T_n\)</span> are <span class="uva-orange"><strong>not independent</strong></span>! The main proof uses:<br> (i) Chen-Stein Poisson approximation   (ii) a <strong>local</strong> anti-concentration inequality for Gaussian quadratic forms</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="why-the-bootstrap-approximation-is-better" class="slide level2">
+<h2>Why the bootstrap approximation is better</h2>
+<div class="columns small">
+<div class="column" style="width:50%;">
+<p><strong>Population world</strong></p>
+<div class="footnotesize">
+<p>We observe <span class="math inline">\(D = \color{green}{\color{green}{\Delta(X)}} + \color{red}{\mathcal{E}}\phantom{{}^{\flat}}\)</span> and <span class="math inline">\(\widehat{X}= \mathsf{CMDS}(D, p)\phantom{\widehat T_n^{\flat}}\)</span></p>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Bootstrap world</strong></p>
+<div class="footnotesize">
+<p>We observe <span class="math inline">\(D^{\flat}= \color{green}{\Delta(\widehat{X})} + \color{red}{\mathcal{E}}^{\flat}\)</span> and <span class="math inline">\(\widehat{X}^{\flat}= \mathsf{CMDS}(D^{\flat}, p)\)</span></p>
+</div>
+</div><p><br><br></p><div class="r-stack">
+<p><img data-src="imgs/mds/approx1.svg" class="fragment fade-out" style="transform: scale(1.6); transform-origin: center;;width:100.0%" data-fragment-index="1"></p>
+<p><img data-src="imgs/mds/approx2.svg" class="fragment fade-in-then-out" style="transform: scale(1.6); transform-origin: center;;width:100.0%" data-fragment-index="1"></p>
+<p><img data-src="imgs/mds/approx3.svg" class="fragment fade-in-then-out" style="transform: scale(1.6); transform-origin: center;;width:100.0%" data-fragment-index="2"></p>
+<p><img data-src="imgs/mds/approx4.svg" class="fragment" style="transform: scale(1.6); transform-origin: center;;width:100.0%" data-fragment-index="3"></p>
+</div>
+</div>
+</section>
+<section id="adaptivity-of-multiplier-bootstrap-to-heteroscedasticity" class="slide level2">
+<h2>Adaptivity of Multiplier Bootstrap to Heteroscedasticity</h2>
+<div class="small">
+<p><span class="math inline">\(X\in \mathbb{X}\)</span> is uniformly spaced on a grid and <span class="math inline">\(d_{ij} = \color{green}{\delta_{ij}} + \color{red}{\varepsilon_{ij}}\)</span> with radial sum/difference noise:</p>
+</div>
+<div class="columns center">
+<div class="column center" style="width:50%;">
+<p><span class="math inline">\(\color{red}{\varepsilon_{ij}} \sim N(0, \|x_i\|^2 + \|x_j\|^2)\)</span></p>
+<p><img data-src="imgs/mds/plts/bootstrap/radial-2.png" style="width:77.0%"></p>
+</div><div class="column center" style="width:50%;">
+<p><span class="math inline">\(\color{red}{\varepsilon_{ij}} \sim N(0, |\|x_i\|^2 - \|x_j\|^2|)\)</span></p>
+<p><img data-src="imgs/mds/plts/bootstrap/radial-1.png" style="width:77.0%"></p>
+</div></div>
+</section>
 <section id="next-steps" class="slide level2">
 <h2>Next Steps</h2>
 <div>
@@ -1650,7 +1679,7 @@ if (outputEl) {{
 </div>
 </section></section>
 <section>
-<section id="section-3" class="title-slide slide level1 inverse center" data-visibility="uncounted" data-background-color="#1e407c">
+<section id="section-4" class="title-slide slide level1 inverse center" data-visibility="uncounted" data-background-color="#1e407c">
 <h1><span class="center" style="align-items: center;"></span></h1>
 <p><span class="LARGE uva-orange bold text-shadow">Thank you.</span></p>
 </section>
@@ -1710,6 +1739,7 @@ Young, Gale, and Aiston S Householder. 1938. <span>“Discussion of a Set of Poi
 <ul>
 <li><a href="#/#appendix-mds-pca">MDS vs Dimension Reduction</a></li>
 <li><a href="#/appendix-why-cmds-works">Why CMDS exactly recovers the latent configuration</a></li>
+<li><a href="#/appendix-statistical-estimation">Statistical estimation and difficulties</a></li>
 <li>Under the hood for CMDS upper bound:
 <ol type="i">
 <li><a href="#/appendix-procrustes">Procrustes Analysis</a></li>
@@ -1720,6 +1750,9 @@ Young, Gale, and Aiston S Householder. 1938. <span>“Discussion of a Set of Poi
 <li><a href="#/appendix-covariance">Local covariance matrices for confidence <strong>ellipsoids</strong></a></li>
 <li><a href="#/appendix-beyond-gaussian-multiplier-bootstrap">Beyond Gaussian multiplier bootstrap</a></li>
 </ul>
+<div class="footer">
+
+</div>
 </section>
 <section id="appendix-mds-pca" class="slide level2" data-visibility="uncounted">
 <h2>MDS vs Dimension Reduction</h2>
@@ -1760,6 +1793,9 @@ Young, Gale, and Aiston S Householder. 1938. <span>“Discussion of a Set of Poi
 </tr>
 </tbody>
 </table>
+<div class="footer">
+<p><a href="#/appendix">Appendix</a></p>
+</div>
 </section>
 <section id="appendix-why-cmds-works" class="slide level2" data-visibility="uncounted">
 <h2>Why CMDS works</h2>
@@ -1794,8 +1830,29 @@ Young, Gale, and Aiston S Householder. 1938. <span>“Discussion of a Set of Poi
 <p>Without loss of generality, we can assume that the configuration <span class="math inline">\(X\)</span> is centered, i.e., <span class="math inline">\(HX= X\)</span>.</p>
 </div>
 </div>
+<div class="footer">
+<p><a href="#/appendix">Appendix</a></p>
+</div>
 </section>
-<section id="under-the-hood---i-procrustes-alignment" class="slide level2">
+<section id="appendix-statistical-estimation" class="slide level2" data-auto-animate="false" data-visibility="uncounted">
+<h2 data-id="quarto-animate-title">Statistical Estimation and difficulties</h2>
+<ul>
+<li><p><span class="uva-orange"><strong>Model:</strong></span><br><br> <span class="math inline">\(D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}\)</span> where <span class="math inline">\(\color{red}{\mathcal{E}}= (\color{red}{\varepsilon_{ij}}) \in \mathbb{R}^{n \times n}\)</span> is a <strong>symmetric</strong> and <strong>hollow</strong> <span class="math inline">\(n \times n\)</span> random matrix</p></li>
+<li><p><span class="uva-orange"><strong>Parameters:</strong></span><br><br> <span class="math inline">\(\color{green}{X}\in \mathbb{R}^{n \times p}\)</span> (configuration matrix underlying <span class="math inline">\(\color{green}{\Delta}\)</span>) <span><strong>which consists of <span class="math inline">\(np\)</span> unknown parameters!</strong></span></p></li>
+</ul>
+<div class="center fragment" data-fragment-index="1">
+<p>As <span class="math inline">\(n \uparrow\)</span>   then   <span class="math inline">\(\#\)</span>parameters = <span class="math inline">\(np\!\uparrow\)</span> too!</p>
+</div>
+<div class="fragment" data-fragment-index="2">
+<ul>
+<li><span class="uva-orange"><strong>Observations</strong>:</span><br><br> We have a total of <span class="math inline">\(N = \binom{n}{2}\)</span> observations <span class="math inline">\(\big\{\delta_{ij}: i &lt; j\big\}\)</span></li>
+</ul>
+</div>
+<div class="footer">
+<p><a href="#/appendix">Appendix</a></p>
+</div>
+</section>
+<section id="appendix-procrustes" class="slide level2" data-visibility="uncounted">
 <h2>Under the hood - I: Procrustes alignment</h2>
 <p>For each reconstruction error <span class="math inline">\(\ell_{\text{RMSE}}, \ell_2\)</span> and <span class="math inline">\(\ell_{_{2\to\infty}}\)</span>, we have <strong>a different choice</strong> of the optimal <span class="math inline">\(g \in \mathcal{G}\)</span></p>
 <div class="footnotesize">
@@ -1830,8 +1887,11 @@ Young, Gale, and Aiston S Householder. 1938. <span>“Discussion of a Set of Poi
 W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
 \]</span></p>
 </div>
+<div class="footer">
+<p><a href="#/appendix">Appendix</a></p>
+</div>
 </section>
-<section id="appendix-procrustes" class="slide level2" data-visibility="uncounted">
+<section id="under-the-hood---i-procrustes-alignment" class="slide level2" data-visibility="uncounted">
 <h2>Under the hood - I: Procrustes alignment</h2>
 <p>All the upper bounds are proved using <span class="math inline">\(\color{magenta}{\widehat{g}}\)</span> obtained from the <span class="uva-orange">orthogonal Procrustes solution</span>, e.g., <span class="math display">\[
 \begin{aligned}
@@ -1846,6 +1906,9 @@ W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
 \]</span> where <span class="math inline">\(\mu = (\overline{x} - O\overline{y})\)</span> and <span class="math inline">\(O \in \mathcal{O}(p)\)</span> is given by <span class="math inline">\(O = W_1W_2^{\mathsf{T}}\)</span> where <span class="math display">\[
 W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
 \]</span></p>
+</div>
+<div class="footer">
+<p><a href="#/appendix">Appendix</a></p>
 </div>
 </section>
 <section id="appendix-fuk-nagaev" class="slide level2" data-visibility="uncounted">
@@ -1869,8 +1932,11 @@ W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
 <div class="footnote footnotesize">
 <p><span class="math inline">\(\sigma_2 = \max_{i,j} \|{\varepsilon_{ij}}\|_{L^2}\)</span><br> <a href="#/#appendix-fuk-nagaev">Operator norm version in the appendix</a></p>
 </div>
+<div class="footer">
+<p><a href="#/appendix">Appendix</a></p>
+</div>
 </section>
-<section id="under-the-hood---ii-fuk-nagaev-matrix-concentration" class="slide level2">
+<section id="under-the-hood---ii-fuk-nagaev-matrix-concentration" class="slide level2" data-visibility="uncounted">
 <h2>Under the hood - II: Fuk-Nagaev matrix concentration</h2>
 <div class="content-box-dblue">
 <p><strong>Classical Fuk-Nagaev Inequality.</strong></p>
@@ -1878,6 +1944,9 @@ W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
 <p>Let <span class="math inline">\(S_n = \sum_i Z_i\)</span>. For all <span class="math inline">\(0 &lt; r &lt; \frac{(q-2)}{2}\)</span>, with probability greater than <span class="math inline">\(1 - O({e^{-t}} + {n^{-r}})\)</span>, <span class="math display">\[
 |S_n| \lesssim {\sqrt{t \sum_i \text{Var}(Z_i)}} + {\sigma n^{(r+1)/q}}
 \]</span></p>
+</div>
+<div class="footer">
+<p><a href="#/appendix">Appendix</a></p>
 </div>
 </section>
 <section id="under-the-hood---ii-fuk-nagaev-matrix-concentration-1" class="slide level2" data-visibility="uncounted">
@@ -1890,6 +1959,9 @@ W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
 \|\mathcal{E}\|_2 \lesssim \underbrace{\max_{i}\sqrt{\sum_{j} \text{Var}(\varepsilon_{ij})} + \sigma n^{(r+2)/q}\sqrt{t + \log{n}}}_{\text{sub-Gaussian + polynomial tail}}
 \end{aligned}
 \]</span></p>
+</div>
+<div class="footer">
+<p><a href="#/appendix">Appendix</a></p>
 </div>
 </section>
 <section id="appendix-fourth-moment-plots" class="slide level2" data-visibility="uncounted">
@@ -1926,6 +1998,9 @@ W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
 <li><span class="math inline">\(q &gt; 4\)</span> moments is <span class="uva-orange">necessary</span> for consistency <span class="citation" data-cites="tao2010random">(c.f., <a href="#/references" role="doc-biblioref" onclick="">Tao and Vu 2010</a>)</span></li>
 <li>where <span class="math inline">\(\overline{c}({\kappa, \varpi}) = \kappa^2(\kappa + \varpi)\)</span> and <span class="math inline">\(\underline{c}({\kappa, \varpi}) = \kappa(1+\kappa\varpi)^{-1}\)</span></li>
 </ul>
+<div class="footer">
+<p><a href="#/appendix">Appendix</a></p>
+</div>
 </section>
 <section id="appendix-comparison" class="slide level2" data-visibility="uncounted">
 <h2>Appendix: Comparison</h2>
@@ -1934,10 +2009,16 @@ W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
 <li><span class="math inline">\(D = \color{green}{\Delta(X)}+ \color{red}{\mathcal{E}}\)</span> under different noise models with <span class="math inline">\(\color{red}{\varepsilon_{ij}} \sim t_q\)</span> entries</li>
 </ul>
 
-<img data-src="imgs/mds/plts/p22.png" style="width:100.0%" class="r-stretch"></section>
+<img data-src="imgs/mds/plts/p22.png" style="width:100.0%" class="r-stretch"><div class="footer">
+<p><a href="#/appendix">Appendix</a></p>
+</div>
+</section>
 <section id="appendix-comparison-1" class="slide level2" data-visibility="uncounted">
 <h2>Appendix: Comparison</h2>
 <p><img data-src="imgs/mds/plts/p11.png" style="width:100.0%"> <img data-src="imgs/mds/plts/p12.png" style="width:100.0%"></p>
+<div class="footer">
+<p><a href="#/appendix">Appendix</a></p>
+</div>
 </section>
 <section id="appendix-stronger-assumptions" class="slide level2 scrollable" data-visibility="uncounted">
 <h2>Slightly stronger assumptions</h2>
@@ -1948,6 +2029,9 @@ W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
 <li><strong>sub-Exponential tails:</strong> <span class="math inline">\(\hspace{1em}\)</span> <span class="math inline">\(\displaystyle\max_{i &lt; j}\|\color{red}{\varepsilon_{ij}}\|_{{\psi_1}} \le \overline{\sigma}\)</span></li>
 <li><strong>Non-degenerate</strong>* <span class="math inline">\(\hspace{1.5em}\)</span> For <span class="math inline">\(\underline{\sigma}&gt; 0\)</span>, <span class="math inline">\(\hspace{1em}\)</span> <span class="math inline">\(\displaystyle\min_{i &lt; j}\sigma_{ij} \ge \underline{\sigma}\)</span></li>
 </ol>
+</div>
+<div class="footer">
+<p><a href="#/appendix">Appendix</a></p>
 </div>
 </section>
 <section id="appendix-covariance" class="slide level2" data-visibility="uncounted">
@@ -1979,6 +2063,9 @@ W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
 <div class="footnote footnotesize fragment" data-fragment-index="2">
 <p>This is the analogue of White’s correction for heteroscedasticity <span class="citation" data-cites="white1980heteroskedasticity">(<a href="#/references" role="doc-biblioref" onclick="">White 1980</a>)</span></p>
 </div>
+<div class="footer">
+<p><a href="#/appendix">Appendix</a></p>
+</div>
 </section>
 <section id="local-covariance-information" class="slide level2" data-visibility="uncounted">
 <h2>Local covariance information</h2>
@@ -2006,6 +2093,9 @@ W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
 </div>
 <p>where <span class="math inline">\(\mathscr{E}(z, \Omega, r) := \{ x \in \mathbb{R}^p : (x - z)^{\mathsf{T}}\Omega^{-1} (x - z) \le r^2 \}\)</span></p>
 </div>
+</div>
+<div class="footer">
+<p><a href="#/appendix">Appendix</a></p>
 </div>
 </section>
 <section id="appendix-beyond-gaussian-multiplier-bootstrap" class="slide level2 scrollable" data-visibility="uncounted">
@@ -2108,6 +2198,9 @@ W_1 S W_2^{\mathsf{T}}= \text{svd}(Y^{\mathsf{T}}\color{green}{X})
 </tr>
 </tbody>
 </table>
+</div>
+<div class="footer">
+<p><a href="#/appendix">Appendix</a></p>
 </div>
 
 </section></section>

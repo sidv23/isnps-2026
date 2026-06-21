@@ -33,7 +33,7 @@ jupyter: job-talk
 
 
 
-## {.center}
+## {.center visibility="uncounted"}
 
 +br
 
@@ -70,7 +70,7 @@ jupyter: job-talk
 
 
 
-## {.center}
+## {.center visibility="uncounted"}
 
 ::: {.center}
 **Based on joint work with** <br><br>
@@ -83,7 +83,7 @@ jupyter: job-talk
 :::
 
 
-# Motivation
+# Motivation {visibility="uncounted"}
 
 ::: {.large .center}
 :::
@@ -97,7 +97,7 @@ $$
 
 
 
-## Pairwise Dissimilarity Data {visibility="uncounted" align="center"}
+## Pairwise Dissimilarity Data {align="center"}
 
 :::{.center}
 Many problems in psychology, sociology, ecology, wireless communication,  neuroscience, bioinformatics, etc.
@@ -761,7 +761,7 @@ fig.show()
 :::
 
 
-# Statistical Learning
+# Statistical Learning {visibility="uncounted"}
 
 ## Desiderata - I (Statistical Learning)
 
@@ -884,72 +884,38 @@ Plot.dot(rotatedY, { x: "x", y: "y", r: 4, fill: "blue" })
 
 
 
-## Statistical Estimation and difficulties {auto-animate="false"}
-
-* [**Model:**]{.uva-orange}+br+br 
-$D = \DelXGreen + \EpsRed$ where $\EpsRed = (\color{red}{\eps_{ij}}) \in \Rnn$ is a **symmetric** and **hollow** $n \times n$ random matrix
-
-* [**Parameters:**]{.uva-orange}+br+br
-$\XGreen \in \Rnp$ (configuration matrix underlying $\DelGreen$) [**which consists of $np$ unknown parameters!**]{}
-
-::: {.center .fragment fragment-index=1}
-As $n \uparrow$ &emsp; then &emsp; $\#$parameters = $np\!\uparrow$ too!
-:::
-
-::: {.fragment fragment-index=2}
-* [**Observations**:]{.uva-orange}+br+br
-We have a total of $N = \binom{n}{2}$ observations $\big\{\del_{ij}: i < j\big\}$
-:::
 
 
 
 
 
 
+<!-- ## Assumptions on [$\XGreen$]{.smaller}  and [$\EpsRed$]{.smaller} {auto-animate="true" data-transition="linear"} -->
+## {auto-animate="true" data-transition="linear" align="center"}
 
-
-## Assumptions on [$\XGreen$]{.smaller} and [$\EpsRed$]{.smaller} {auto-animate="true" data-transition="linear"}
-
-::: {.content-box-grey}
-$\XGreen \in \bbX(\params)$ where $\bbX(\params) \subset \Rnp$ is the set of configurations satisfying:
-
-1. **Bounded condition number:** $\hspace{1em}$ $\kappa\inv \le s_p\left(\tfrac{\XGreen}{\sqrt{n}}\right) \le s_1\left(\tfrac{\XGreen}{\sqrt{n}}\right) \le \kappa$
-
-2. **Compactly supported:** $\hspace{4.5em}$ $\ttinf{\XGreen} \le \Rx$
-:::
-
-+br
-
-
-::: {.fragment}
-::: {data-id="cbox1" .content-box-grey style="width: 100%;"}
-::: {data-id="eps-content"}
-$\EpsRed = (\color{red}{\eps_{ij}})$ is a random symmetric hollow matrix with:
-
-1. **Independence:** $\hspace{1em}$ $(\color{red}{\eps_{ij}})$ are independent for $i < j$ with $\E(\color{red}{\eps_{ij}}) = 0$ and $\Var(\color{red}{\eps_{ij}}) = \sigma_{ij}^2$
-2. **Finite $q$th moment:** $\hspace{1em}$ For $q > 4$, $\hspace{1em}$ $\displaystyle\max_{i < j}\norm{\color{red}{\eps_{ij}}}_{L^q} \le \sigma$
-:::
-:::
+::: {.fragment fragment-index=1 .semi-fade-out}
+| | [Assumptions on $\XGreen$]{.large} | |
+|:---|:---:|:---:|
+| [Conpactly supported]{.uva-orange .bold} | | [$\ttinf{\XGreen} \le \Rx$]{.smaller} | 
+| [Bounded condition number]{.uva-orange .bold}  | | [$\hspace{0em}$ $\kappa\inv \le s_p\left(\tfrac{\XGreen}{\sqrt{n}}\right) \le s_1\left(\tfrac{\XGreen}{\sqrt{n}}\right) \le \kappa$]{.smaller} |
+| | | |
 :::
 
 
-
-
-
-## Assumptions on [$\XGreen$]{.smaller} and [$\EpsRed$]{.smaller} {visibility="uncounted" auto-animate="true" data-transition="linear"}
-
-
-
-
-::: {data-id="cbox1" .content-box-grey style="width: 100%;"}
-::: {data-id="eps-content"}
-$\EpsRed = (\color{red}{\eps_{ij}})$ is a random symmetric hollow matrix with:
-
-1. **Independence:** $\hspace{1em}$ $(\color{red}{\eps_{ij}})$ are independent for $i < j$ with $\E(\color{red}{\eps_{ij}}) = 0$ and $\Var(\color{red}{\eps_{ij}}) = \sigma_{ij}^2$
-2. **Finite $q$th moment:** $\hspace{1em}$ For $q > 4$, $\hspace{1em}$ $\displaystyle\max_{i < j}\norm{\color{red}{\eps_{ij}}}_{L^q} \le \sigma$
-:::
+::: {.fragment fragment-index=1 .fade-in-then-semi-out}
+|  | [Assumptions on $\EpsRed$]{.large} | |
+|:---|:---:|:---:|
+| [Independent]{.uva-orange .bold} | | [$\hspace{1.5em}$ $(\color{red}{\eps_{ij}})$ are independent for $i < j$ $\hspace{1.5em}$]{.smaller} |
+| ["Heteroscedastic"]{.uva-orange .bold} | | [$\E(\color{red}{\eps_{ij}}) = 0$ and $\Var(\color{red}{\eps_{ij}}) = \sigma_{ij}^2$]{.smaller} |
+| [Finite $q^{\text{th}}$ moment]{.uva-orange .bold} | | [$\displaystyle\max_{i < j}\norm{\color{red}{\eps_{ij}}}_{L^q} \le \sigma$]{.smaller} |
+| | |
 :::
 
+::: {.fragment fragment-index=2 .fade-in-then-semi-out .smaller}
+
+::: {.center}
+[Examples $\hspace{3em}$]{.bold .Large}
+:::
 
 $$
 \begin{aligned}
@@ -960,6 +926,7 @@ d_{ij} &= \color{green}{\del_{ij}} + \color{red}{2\del_{ij}\xi_{ij} + \xi_{ij}^2
 \end{aligned}
 $$
 where ${\Xi = (\xi_{ij})}$ is a random matrix with iid entries
+:::
 
 
 
@@ -1102,9 +1069,7 @@ where &nbsp; $\bar{c}(\params) = \kappa^2(\kappa + \Rx)$ &emsp; and &emsp; $\und
 ## Illustration
 
 ::: {.center .r-stack}
-![](imgs/mds/plts/p2.png){width=55% .fragment .fade-out fragment-index=1}
-
-![](imgs/mds/plts/p1.png){width=98% .fragment .fade-in fragment-index=1}
+![](imgs/mds/plts/p1.png){width=98%}
 :::
 
 ::: {.footnote .scriptsize}
@@ -1123,7 +1088,7 @@ More [experiments in the appendix](#appendix-fourth-moment-plots)
 
 
 
-# Uncertainty Quantification
+# Uncertainty Quantification {visibility="uncounted"}
 
 
 ## Desiderata - II (Uncertainty Quantification)
@@ -1132,21 +1097,22 @@ More [experiments in the appendix](#appendix-fourth-moment-plots)
 ::::{.columns}
 
 :::{.column width="63%" .center}
-:::{}
+
+<!-- :::{}
 * Let $\XGreen \in \Rnp$ and $D = \DelGreen + \EpsRed$ and 
 $\hX = \mds(D, p)$
-:::
+::: -->
 
-::: {.fragment fragment-index=1}
+::: {}
 :::{.content-box-gray}
-* For any $\color{Goldenrod}{\boldsymbol{\alpha}} \in (0, 1)$
-* Can we construct $\color{Goldenrod}{\boldsymbol{100 \times (1-\alpha)\%}}$ [**_uniform_ confidence sets**]{.uva-orange} 
+* For any $\color{DarkOrange}{\boldsymbol{\alpha}} \in (0, 1)$
+* Can we construct $\color{DarkOrange}{\boldsymbol{100 \times (1-\alpha)\%}}$ [**_uniform_ confidence sets**]{.uva-orange} 
 $$
 \conf_{\alpha} = \prod_{i=1}^n \conf_{\alpha, i} \subset \Rp
 $$
 which provide [**simultaneous coverage***]{.purple} of the true configuration:
 $$
-\boxed{\phantom{\Bigg()} \pr \Big( \exists g \in \euc: \; g(\color{green}{x_i}) \in \conf_{\alpha, i} \;\;\; \color{Purple}{\forall i \in [n]} \Big) \approx \color{Goldenrod}{\boldsymbol{1 - \alpha}} \phantom{\Bigg()}}
+\boxed{\phantom{\Bigg()} \pr \Big( \exists g \in \euc: \; g(\color{green}{x_i}) \in \conf_{\alpha, i} \;\;\; \color{Purple}{\forall i \in [n]} \Big) \approx \color{DarkOrange}{\boldsymbol{1 - \alpha}} \phantom{\Bigg()}}
 $$
 :::
 :::
@@ -1155,7 +1121,6 @@ $$
 
 
 :::{.column width="37%" .center .fragment fragment-index=1}
-+br
 ![](imgs/mds/plts/conf.gif){width="100%"}
 :::
 
@@ -1567,193 +1532,6 @@ $\color{red}{\eps_{ij}} \sim N(0, \del_{ij}^2)$
 
 
 
-## Intuition behind extreme value approximation
-
-::::::: {.small}
-
-$$
-\boxed{
-T_n := \sqrt{n}\; \cdot\; \max_{i \in [n]} \norm{\;\;\color{red}{\hOm_i^{-1/2}\left(x_i -  \hg(\hx_i)\right)}\;\;}
-}
-$$
-
-
-::::: {.r-stack}
-
-
-::: {.r-stack-item .fragment .fade-out fragment-index=1}
-For each fixed $i \in [n]$:
-$$
-\begin{aligned}
-\sqrt{n} \cdot \color{red}{\hOm_i^{-1/2}\left(x_i -  \hg(\hx_i)\right)} &= \frac{1}{\sqrt{n}} \sum_{j=1}^n \eps_{ij}x_j \;\; + \underbrace{h_n}_{\text{higher order terms}}\\
-\phantom{\sqrt{n} \cdot \color{red}{\hOm_i^{-1/2}\left(x_i -  \hg(\hx_i)\right)}} &\phantom{\;\approx\; \frac{1}{\sqrt{n}} (\eps_{i1}x_1 + \eps_{i2} x_2 + \dots + \eps_{in}x_n) \;\longrightarrow\; N(0, I_p)}
-\end{aligned}
-$$
-:::
-
-::: {.r-stack-item .fragment .fade-in-then-out fragment-index=1}
-For each fixed $i \in [n]$ [@li2020central]
-$$
-\begin{aligned}
-\sqrt{n} \cdot \color{red}{\hOm_i^{-1/2}\left(x_i -  \hg(\hx_i)\right)} &\;\approx\; \frac{1}{\sqrt{n}} (\eps_{i1}x_1 + \eps_{i2} x_2 + \dots + \eps_{in}x_n) \;\longrightarrow\; N(0, I_p)\\
-\phantom{\sqrt{n}\cdot \norm{\color{red}{\hOm_i^{-1/2}\left(x_i -  \hg(\hx_i)\right)}} }
-&\phantom{\;\approx\; \frac{1}{\sqrt{n}} \norm{\eps_{i1}x_1 + \eps_{i2} x_2 + \dots + \eps_{in}x_n}  \;\longrightarrow\; \chi_p}
-\end{aligned}
-$$
-
-:::
-
-
-::: {.r-stack-item .fragment .fade-in-then-out fragment-index=2}
-For each fixed $i \in [n]$
-$$
-\begin{aligned}
-\sqrt{n} \cdot \color{red}{\hOm_i^{-1/2}\left(x_i -  \hg(\hx_i)\right)} &\;\approx\; \frac{1}{\sqrt{n}} (\eps_{i1}x_1 + \eps_{i2} x_2 + \dots + \eps_{in}x_n) \;\longrightarrow\; N(0, I_p)\\
-\sqrt{n}\cdot \norm{\;\color{red}{\hOm_i^{-1/2}\left(x_i -  \hg(\hx_i)\right)}\;} 
-&\;\approx\; \frac{1}{\sqrt{n}} \norm{\eps_{i1}x_1 + \eps_{i2} x_2 + \dots + \eps_{in}x_n}  \;\longrightarrow\; \chi_p
-\end{aligned}
-$$
-:::
-
-::: {.r-stack-item .fragment .fade-in-then-out fragment-index=3}
-$$
-\begin{aligned}
-\sqrt{n}\cdot \norm{\;\color{red}{\hOm_1^{-1/2}\left(x_1 -  \hg(\hx_1)\right)}\;} &\;\approx\; \frac{1}{\sqrt{n}} \norm{\eps_{11}x_1 + \eps_{12} x_2 + \dots + \eps_{1n}x_n} \;\longrightarrow\; \chi_p\\
-\sqrt{n}\cdot \norm{\;\color{red}{\hOm_2^{-1/2}\left(x_2 -  \hg(\hx_2)\right)}\;} &\;\approx\; \frac{1}{\sqrt{n}} \norm{\eps_{21}x_1 + \eps_{22} x_2 + \dots + \eps_{2n}x_n} \;\longrightarrow\; \chi_p\\[0.5em]
-\vdots\quad\quad &\;\approx\; \quad\quad\vdots\\[0.5em]
-\sqrt{n}\cdot \norm{\;\color{red}{\hOm_n^{-1/2}\left(x_n -  \hg(\hx_n)\right)}\;} &\;\approx\; \frac{1}{\sqrt{n}} \norm{\eps_{n1}x_1 + \eps_{n2} x_2 + \dots + \eps_{nn}x_n} \;\longrightarrow\; \chi_p
-\end{aligned}
-$$
-
-::: {.content-box-dblue .center style="width: 100% !important;"}
-Maximum of [**independent**]{.uva-orange} $\chi_p$ random variables converges to Gumbel at rate $O\left(\frac{1}{\log{n}}\right)$
-:::
-
-:::
-
-
-
-
-::: {.r-stack-item .fragment .fade-in fragment-index=4}
-$$
-\begin{aligned}
-\sqrt{n}\cdot \norm{\;{\hOm_1^{-1/2}\left(x_1 -  \hg(\hx_1)\right)}\;} &\;\approx\; \frac{1}{\sqrt{n}} \norm{0x_1 + \color{lime}{\eps_{12}} x_2 + \dots + \color{brown}{\eps_{1n}}x_n} \;\longrightarrow\; \chi_p\\
-\sqrt{n}\cdot \norm{\;{\hOm_2^{-1/2}\left(x_2 -  \hg(\hx_2)\right)}\;} &\;\approx\; \frac{1}{\sqrt{n}} \norm{\color{lime}{\eps_{21}}x_1 + 0 x_2 + \dots + \color{magenta}{\eps_{2n}}x_n} \;\longrightarrow\; \chi_p\\[0.5em]
-\vdots\quad\quad &\;\approx\; \quad\quad\vdots\\[0.5em]
-\sqrt{n}\cdot \norm{\;{\hOm_n^{-1/2}\left(x_n -  \hg(\hx_n)\right)}\;} &\;\approx\; \frac{1}{\sqrt{n}} \norm{\color{brown}{\eps_{n1}}x_1 + \color{magenta}{\eps_{n2}} x_2 + \dots + 0x_n} \;\longrightarrow\; \chi_p
-\end{aligned}
-$$
-
-::: {.content-box-dblue style="width: 100% !important;" .center}
-The random variables in $T_n$ are [**not independent**]{.uva-orange}! The main proof uses:+br
-(i) Chen-Stein Poisson approximation &emsp; (ii) a **local** anti-concentration inequality for Gaussian quadratic forms
-:::
-
-:::
-
-
-:::::
-:::::::
-
-
-
-
-
-
-
-
-
-
-
-## Why the bootstrap approximation is better
-
-
-:::: {.columns .small}
-
-::: {.column width="50%"}
-**Population world**
-
-::: {.footnotesize}
-We observe $D = \color{green}{\DelXGreen} + \EpsRed\phantom{{}\b}$ and $\hX = \mds(D, p)\phantom{\hat T_n\b}$
-:::
-:::
-
-::: {.column width="50%"}
-**Bootstrap world**
-
-::: {.footnotesize}
-We observe $D\b = \color{green}{\Del(\hX)} + \EpsRed\b$ and $\hX\b = \mds(D\b, p)$
-:::
-:::
-
-
-+br+br
-
-::: {.r-stack}
-![](imgs/mds/approx1.svg){width="100%" scale=1.6 .fragment .fade-out fragment-index=1}
-
-![](imgs/mds/approx2.svg){width="100%" scale=1.6 .fragment .fade-in-then-out fragment-index=1}
-
-![](imgs/mds/approx3.svg){width="100%" scale=1.6 .fragment .fade-in-then-out fragment-index=2}
-
-![](imgs/mds/approx4.svg){width="100%" scale=1.6 .fragment fragment-index=3}
-:::
-
-::::
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Adaptivity of Multiplier Bootstrap to Heteroscedasticity
-
-::: {.small}
-$\X \in \bbX$ is uniformly spaced on a grid and $d_{ij} = \color{green}{\del_{ij}} + \color{red}{\eps_{ij}}$ with radial sum/difference noise: 
-:::
-
-:::: {.columns .center}
-
-::: {.column width="50%" .center}
-
-$\color{red}{\eps_{ij}} \sim N(0, \|x_i\|^2 + \|x_j\|^2)$
-
-![](imgs/mds/plts/bootstrap/radial-2.png){width="77%"}
-
-:::
-
-::: {.column width="50%" .center}
-
-$\color{red}{\eps_{ij}} \sim N(0, |\|x_i\|^2 - \|x_j\|^2|)$
-
-![](imgs/mds/plts/bootstrap/radial-1.png){width="77%"}
-
-:::
-
-::::
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2054,6 +1832,208 @@ fig.show()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+## Intuition behind extreme value approximation
+
+::::::: {.small}
+
+$$
+\boxed{
+T_n := \sqrt{n}\; \cdot\; \max_{i \in [n]} \norm{\;\;\color{red}{\hOm_i^{-1/2}\left(x_i -  \hg(\hx_i)\right)}\;\;}
+}
+$$
+
+
+::::: {.r-stack}
+
+
+::: {.r-stack-item .fragment .fade-out fragment-index=1}
+For each fixed $i \in [n]$:
+$$
+\begin{aligned}
+\sqrt{n} \cdot \color{red}{\hOm_i^{-1/2}\left(x_i -  \hg(\hx_i)\right)} &= \frac{1}{\sqrt{n}} \sum_{j=1}^n \eps_{ij}x_j \;\; + \underbrace{h_n}_{\text{higher order terms}}\\
+\phantom{\sqrt{n} \cdot \color{red}{\hOm_i^{-1/2}\left(x_i -  \hg(\hx_i)\right)}} &\phantom{\;\approx\; \frac{1}{\sqrt{n}} (\eps_{i1}x_1 + \eps_{i2} x_2 + \dots + \eps_{in}x_n) \;\longrightarrow\; N(0, I_p)}
+\end{aligned}
+$$
+:::
+
+::: {.r-stack-item .fragment .fade-in-then-out fragment-index=1}
+For each fixed $i \in [n]$ [@li2020central]
+$$
+\begin{aligned}
+\sqrt{n} \cdot \color{red}{\hOm_i^{-1/2}\left(x_i -  \hg(\hx_i)\right)} &\;\approx\; \frac{1}{\sqrt{n}} (\eps_{i1}x_1 + \eps_{i2} x_2 + \dots + \eps_{in}x_n) \;\longrightarrow\; N(0, I_p)\\
+\phantom{\sqrt{n}\cdot \norm{\color{red}{\hOm_i^{-1/2}\left(x_i -  \hg(\hx_i)\right)}} }
+&\phantom{\;\approx\; \frac{1}{\sqrt{n}} \norm{\eps_{i1}x_1 + \eps_{i2} x_2 + \dots + \eps_{in}x_n}  \;\longrightarrow\; \chi_p}
+\end{aligned}
+$$
+
+:::
+
+
+::: {.r-stack-item .fragment .fade-in-then-out fragment-index=2}
+For each fixed $i \in [n]$
+$$
+\begin{aligned}
+\sqrt{n} \cdot \color{red}{\hOm_i^{-1/2}\left(x_i -  \hg(\hx_i)\right)} &\;\approx\; \frac{1}{\sqrt{n}} (\eps_{i1}x_1 + \eps_{i2} x_2 + \dots + \eps_{in}x_n) \;\longrightarrow\; N(0, I_p)\\
+\sqrt{n}\cdot \norm{\;\color{red}{\hOm_i^{-1/2}\left(x_i -  \hg(\hx_i)\right)}\;} 
+&\;\approx\; \frac{1}{\sqrt{n}} \norm{\eps_{i1}x_1 + \eps_{i2} x_2 + \dots + \eps_{in}x_n}  \;\longrightarrow\; \chi_p
+\end{aligned}
+$$
+:::
+
+::: {.r-stack-item .fragment .fade-in-then-out fragment-index=3}
+$$
+\begin{aligned}
+\sqrt{n}\cdot \norm{\;\color{red}{\hOm_1^{-1/2}\left(x_1 -  \hg(\hx_1)\right)}\;} &\;\approx\; \frac{1}{\sqrt{n}} \norm{\eps_{11}x_1 + \eps_{12} x_2 + \dots + \eps_{1n}x_n} \;\longrightarrow\; \chi_p\\
+\sqrt{n}\cdot \norm{\;\color{red}{\hOm_2^{-1/2}\left(x_2 -  \hg(\hx_2)\right)}\;} &\;\approx\; \frac{1}{\sqrt{n}} \norm{\eps_{21}x_1 + \eps_{22} x_2 + \dots + \eps_{2n}x_n} \;\longrightarrow\; \chi_p\\[0.5em]
+\vdots\quad\quad &\;\approx\; \quad\quad\vdots\\[0.5em]
+\sqrt{n}\cdot \norm{\;\color{red}{\hOm_n^{-1/2}\left(x_n -  \hg(\hx_n)\right)}\;} &\;\approx\; \frac{1}{\sqrt{n}} \norm{\eps_{n1}x_1 + \eps_{n2} x_2 + \dots + \eps_{nn}x_n} \;\longrightarrow\; \chi_p
+\end{aligned}
+$$
+
+::: {.content-box-dblue .center style="width: 100% !important;"}
+Maximum of [**independent**]{.uva-orange} $\chi_p$ random variables converges to Gumbel at rate $O\left(\frac{1}{\log{n}}\right)$
+:::
+
+:::
+
+
+
+
+::: {.r-stack-item .fragment .fade-in fragment-index=4}
+$$
+\begin{aligned}
+\sqrt{n}\cdot \norm{\;{\hOm_1^{-1/2}\left(x_1 -  \hg(\hx_1)\right)}\;} &\;\approx\; \frac{1}{\sqrt{n}} \norm{0x_1 + \color{lime}{\eps_{12}} x_2 + \dots + \color{brown}{\eps_{1n}}x_n} \;\longrightarrow\; \chi_p\\
+\sqrt{n}\cdot \norm{\;{\hOm_2^{-1/2}\left(x_2 -  \hg(\hx_2)\right)}\;} &\;\approx\; \frac{1}{\sqrt{n}} \norm{\color{lime}{\eps_{21}}x_1 + 0 x_2 + \dots + \color{magenta}{\eps_{2n}}x_n} \;\longrightarrow\; \chi_p\\[0.5em]
+\vdots\quad\quad &\;\approx\; \quad\quad\vdots\\[0.5em]
+\sqrt{n}\cdot \norm{\;{\hOm_n^{-1/2}\left(x_n -  \hg(\hx_n)\right)}\;} &\;\approx\; \frac{1}{\sqrt{n}} \norm{\color{brown}{\eps_{n1}}x_1 + \color{magenta}{\eps_{n2}} x_2 + \dots + 0x_n} \;\longrightarrow\; \chi_p
+\end{aligned}
+$$
+
+::: {.content-box-dblue style="width: 100% !important;" .center}
+The random variables in $T_n$ are [**not independent**]{.uva-orange}! The main proof uses:+br
+(i) Chen-Stein Poisson approximation &emsp; (ii) a **local** anti-concentration inequality for Gaussian quadratic forms
+:::
+
+:::
+
+
+:::::
+:::::::
+
+
+
+
+
+
+
+
+
+
+
+## Why the bootstrap approximation is better
+
+
+:::: {.columns .small}
+
+::: {.column width="50%"}
+**Population world**
+
+::: {.footnotesize}
+We observe $D = \color{green}{\DelXGreen} + \EpsRed\phantom{{}\b}$ and $\hX = \mds(D, p)\phantom{\hat T_n\b}$
+:::
+:::
+
+::: {.column width="50%"}
+**Bootstrap world**
+
+::: {.footnotesize}
+We observe $D\b = \color{green}{\Del(\hX)} + \EpsRed\b$ and $\hX\b = \mds(D\b, p)$
+:::
+:::
+
+
++br+br
+
+::: {.r-stack}
+![](imgs/mds/approx1.svg){width="100%" scale=1.6 .fragment .fade-out fragment-index=1}
+
+![](imgs/mds/approx2.svg){width="100%" scale=1.6 .fragment .fade-in-then-out fragment-index=1}
+
+![](imgs/mds/approx3.svg){width="100%" scale=1.6 .fragment .fade-in-then-out fragment-index=2}
+
+![](imgs/mds/approx4.svg){width="100%" scale=1.6 .fragment fragment-index=3}
+:::
+
+::::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Adaptivity of Multiplier Bootstrap to Heteroscedasticity
+
+::: {.small}
+$\X \in \bbX$ is uniformly spaced on a grid and $d_{ij} = \color{green}{\del_{ij}} + \color{red}{\eps_{ij}}$ with radial sum/difference noise: 
+:::
+
+:::: {.columns .center}
+
+::: {.column width="50%" .center}
+
+$\color{red}{\eps_{ij}} \sim N(0, \|x_i\|^2 + \|x_j\|^2)$
+
+![](imgs/mds/plts/bootstrap/radial-2.png){width="77%"}
+
+:::
+
+::: {.column width="50%" .center}
+
+$\color{red}{\eps_{ij}} \sim N(0, |\|x_i\|^2 - \|x_j\|^2|)$
+
+![](imgs/mds/plts/bootstrap/radial-1.png){width="77%"}
+
+:::
+
+::::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Next Steps
 
 ::: {}
@@ -2145,10 +2125,11 @@ fig.show()
 
 # Bonus Slides {visibility="uncounted"}
 
-## Appendix {visibility="uncounted"}
+## Appendix {#appendix visibility="uncounted"}
 
 * [MDS vs Dimension Reduction](##appendix-mds-pca)
 * [Why CMDS exactly recovers the latent configuration](#appendix-why-cmds-works)
+* [Statistical estimation and difficulties](#appendix-statistical-estimation)
 * Under the hood for CMDS upper bound:
     i. [Procrustes Analysis](#appendix-procrustes)
     ii. [Fuk-Nagaev Matrix Concentration](#appendix-fuk-nagaev)
@@ -2157,6 +2138,9 @@ fig.show()
 * [Local covariance matrices for confidence **ellipsoids**](#appendix-covariance)
 * [Beyond Gaussian multiplier bootstrap](#appendix-beyond-gaussian-multiplier-bootstrap)
 
+
+::: {.footer}
+:::
 
 
 
@@ -2172,6 +2156,14 @@ fig.show()
 | [Spectral algorithm]{.uva-orange} | Classical MDS (CMDS) Algorithm $$\hX = 
 \argmin_{Y \in \Rnp} \| \Delc - YY\tr \|_F^2$$ | Principal Component Analysis (PCA) $$\hX = \argmin_{Y \in \R^{n \times p}} \| X X\tr - YY\tr \|_F^2 $$ |
 | [Nonlinear methods]{.uva-orange} | Isomap, t-SNE, Non-metric MDS, ... | Kernal PCA, LLE, Laplacian Eigenmaps, ... |
+
+
+::: {.footer}
+[Appendix](#appendix)
+:::
+
+
+
 
 
 
@@ -2221,6 +2213,35 @@ Without loss of generality, we can assume that the configuration $\X$ is centere
 :::
 
 
+::: {.footer}
+[Appendix](#appendix)
+:::
+
+
+
+
+
+
+## Statistical Estimation and difficulties {#appendix-statistical-estimation auto-animate="false" visibility="uncounted"}
+
+* [**Model:**]{.uva-orange}+br+br 
+$D = \DelXGreen + \EpsRed$ where $\EpsRed = (\color{red}{\eps_{ij}}) \in \Rnn$ is a **symmetric** and **hollow** $n \times n$ random matrix
+
+* [**Parameters:**]{.uva-orange}+br+br
+$\XGreen \in \Rnp$ (configuration matrix underlying $\DelGreen$) [**which consists of $np$ unknown parameters!**]{}
+
+::: {.center .fragment fragment-index=1}
+As $n \uparrow$ &emsp; then &emsp; $\#$parameters = $np\!\uparrow$ too!
+:::
+
+::: {.fragment fragment-index=2}
+* [**Observations**:]{.uva-orange}+br+br
+We have a total of $N = \binom{n}{2}$ observations $\big\{\del_{ij}: i < j\big\}$
+:::
+
+::: {.footer}
+[Appendix](#appendix)
+:::
 
 
 
@@ -2228,7 +2249,10 @@ Without loss of generality, we can assume that the configuration $\X$ is centere
 
 
 
-## Under the hood - I: Procrustes alignment
+
+
+
+## Under the hood - I: Procrustes alignment {#appendix-procrustes visibility="uncounted"}
 
 For each reconstruction error $\ell_{\text{RMSE}}, \ell_2$ and $\ell_{\ttinft}$, we have **a different choice** of the optimal $g \in \euc$
 
@@ -2253,11 +2277,19 @@ W_1 S W_2\tr = \text{svd}(Y\tr\XGreen)
 $$
 :::
 
+::: {.footer}
+[Appendix](#appendix)
+:::
 
 
 
 
-## Under the hood - I: Procrustes alignment {visibility="uncounted" #appendix-procrustes visibility="uncounted"}
+
+
+
+
+
+## Under the hood - I: Procrustes alignment {visibility="uncounted"}
 
 All the upper bounds are proved using $\hgc$ obtained from the [orthogonal Procrustes solution]{.uva-orange}, e.g.,
 $$
@@ -2280,6 +2312,16 @@ $$
 W_1 S W_2\tr = \text{svd}(Y\tr\XGreen)
 $$
 :::
+
+
+::: {.footer}
+[Appendix](#appendix)
+:::
+
+
+
+
+
 
 
 
@@ -2318,6 +2360,9 @@ $\sigma_2 = \max_{i,j} \|{\eps_{ij}}\|_{L^2}$+br
 [Operator norm version in the appendix](##appendix-fuk-nagaev)
 :::
 
+::: {.footer}
+[Appendix](#appendix)
+:::
 
 
 
@@ -2329,8 +2374,7 @@ $\sigma_2 = \max_{i,j} \|{\eps_{ij}}\|_{L^2}$+br
 
 
 
-
-## Under the hood - II: Fuk-Nagaev matrix concentration
+## Under the hood - II: Fuk-Nagaev matrix concentration {visibility="uncounted"}
 
 :::{.content-box-dblue}
 **Classical Fuk-Nagaev Inequality.** 
@@ -2342,6 +2386,14 @@ $$
 |S_n| \lesssim {\sqrt{t \sum_i \Var(Z_i)}} + {\sigma n^{(r+1)/q}}
 $$
 :::
+
+::: {.footer}
+[Appendix](#appendix)
+:::
+
+
+
+
 
 ## Under the hood - II: Fuk-Nagaev matrix concentration {visibility="uncounted"}
 
@@ -2358,7 +2410,9 @@ $$
 $$
 :::
 
-
+::: {.footer}
+[Appendix](#appendix)
+:::
 
 
 
@@ -2379,6 +2433,14 @@ $$
 * $q > 4$ moments is [necessary]{.uva-orange} for consistency [c.f.,  @tao2010random]
 * where $\bar{c}(\params) = \kappa^2(\kappa + \Rx)$ and $\underline{c}(\params) = \kappa(1+\kappa\Rx)\inv$
 
+::: {.footer}
+[Appendix](#appendix)
+:::
+
+
+
+
+
 
 ## Appendix: Comparison {visibility="uncounted"}
 
@@ -2388,11 +2450,28 @@ $$
 ![](imgs/mds/plts/p22.png){width="100%"}
 
 
+::: {.footer}
+[Appendix](#appendix)
+:::
+
+
+
+
+
+
+
+
+
+
 ## Appendix: Comparison {visibility="uncounted"}
 
 ![](imgs/mds/plts/p11.png){width="100%"}
 ![](imgs/mds/plts/p12.png){width="100%"}
 
+
+::: {.footer}
+[Appendix](#appendix)
+:::
 
 
 
@@ -2416,6 +2495,10 @@ $\EpsRed = (\color{red}{\eps_{ij}})$ is a random symmetric hollow matrix with:
 3. **Non-degenerate*** $\hspace{1.5em}$ For $\msigma > 0$, $\hspace{1em}$ $\displaystyle\min_{i < j}\sigma_{ij} \ge \msigma$
 :::
 
+
+::: {.footer}
+[Appendix](#appendix)
+:::
 
 
 
@@ -2455,6 +2538,10 @@ where $\h{\Sigma}_i = \diag( e_{i1}^2, \dots, e_{in}^2 )$
 This is the analogue of White's correction for heteroscedasticity [@white1980heteroskedasticity]
 :::
 
+::: {.footer}
+[Appendix](#appendix)
+:::
+
 
 
 
@@ -2488,6 +2575,10 @@ where $\mathscr{E}(z, \Om, r) := \{ x \in \R^p : (x - z)\tr \Om^{-1} (x - z) \le
 :::
 :::
 
+::: {.footer}
+[Appendix](#appendix)
+:::
+
 
 
 ## Beyond Gaussian Multiplier Bootstrap {#appendix-beyond-gaussian-multiplier-bootstrap visibility="uncounted"}
@@ -2512,3 +2603,6 @@ $\XGreen \in \R^{350 \times 2}$ is the location of the $350$ largest US cities a
 :::
 
 
+::: {.footer}
+[Appendix](#appendix)
+:::
