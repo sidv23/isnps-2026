@@ -896,7 +896,7 @@ Plot.dot(rotatedY, { x: "x", y: "y", r: 4, fill: "blue" })
 ::: {.fragment fragment-index=1 .semi-fade-out}
 | | [Assumptions on $\XGreen$]{.large} | |
 |:---|:---:|:---:|
-| [Conpactly supported]{.uva-orange .bold} | | [$\ttinf{\XGreen} \le \Rx$]{.smaller} | 
+| [Compactly supported]{.uva-orange .bold} | | [$\ttinf{\XGreen} \le \Rx$]{.smaller} | 
 | [Bounded condition number]{.uva-orange .bold}  | | [$\hspace{0em}$ $\kappa\inv \le s_p\left(\tfrac{\XGreen}{\sqrt{n}}\right) \le s_1\left(\tfrac{\XGreen}{\sqrt{n}}\right) \le \kappa$]{.smaller} |
 | | | |
 :::
@@ -905,7 +905,7 @@ Plot.dot(rotatedY, { x: "x", y: "y", r: 4, fill: "blue" })
 ::: {.fragment fragment-index=1 .fade-in-then-semi-out}
 |  | [Assumptions on $\EpsRed$]{.large} | |
 |:---|:---:|:---:|
-| [Independent]{.uva-orange .bold} | | [$\hspace{1.5em}$ $(\color{red}{\eps_{ij}})$ are independent for $i < j$ $\hspace{1.5em}$]{.smaller} |
+| [Independent]{.uva-orange .bold} | | [$\hspace{1.3em}$ $(\color{red}{\eps_{ij}})$ are independent for $i < j$ $\hspace{1.3em}$]{.smaller} |
 | ["Heteroscedastic"]{.uva-orange .bold} | | [$\E(\color{red}{\eps_{ij}}) = 0$ and $\Var(\color{red}{\eps_{ij}}) = \sigma_{ij}^2$]{.smaller} |
 | [Finite $q^{\text{th}}$ moment]{.uva-orange .bold} | | [$\displaystyle\max_{i < j}\norm{\color{red}{\eps_{ij}}}_{L^q} \le \sigma$]{.smaller} |
 | | |
