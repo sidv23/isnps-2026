@@ -502,267 +502,6 @@ The [**noisy CMDS embedding**]{.uva-orange} $\hX$ reflects the variability in $D
 
 
 
-
-
-
-
-
-
-
-
-
-## Example - 1
-
-
-Suppose $n$ sensors are placed in various locations across the United States, and
-$$
-d_{ij} = \color{red}{\text{noisy}} \text{ squared Euclidean distance between sensors $i$ and $j$}
-$$
-
-::::{.columns}
-:::{.column width="40%" .center}
-![](imgs/mds/plts/D_cities_au.png){width="90%"}
-:::
-:::{.column width="60%"}
-**Are the sensors placed in the following locations?**
-
-* San Diego, CA
-* Phoenix, AZ
-* $\dots$
-* Washington, DC
-
-::: {.content-box-solid-lightorange .center .footnotesize .fragment}
-$$
-\pr\Big( \text{locations}(d_{ij}) \simeq \{\text{San Diego}, \dots, \text{Washington DC}\} \Big)?
-$$
-:::
-:::
-
-::::
-
-
-
-
-## Example - 1 {visibility="uncounted"}
-
-
-
-
-```{python}
-import plotly.graph_objects as go
-import numpy as np
-
-# your matrix
-pts = np.array([
-  [33.395451954774344, -116.56439161038234],
-[48.108025710076475, -122.92849274278078],
-[34.02461082128876, -112.71933666708098],
-[35.61729882163741, -114.72833547890279],
-[45.85967498821038, -109.49033666914245],
-[38.37289482050906, -90.24731696226311],
-[42.228117661145966, -87.1895050727579],
-[41.375254336650364, -82.52162610658272],
-[40.27227181552411, -81.31719495644117],
-[41.080749321883864, -73.2409874547851],
-[29.799471507417657, -87.93195684760049],
-[29.804262181778334, -96.26280221549924],
-[32.255403145659265, -97.63920129263443],
-[34.86077879074841, -97.48276955656243],
-[37.55028764727703, -98.50201856867726],
-# [38.669659368654706, -78.72114542890988],
-[38.5293, -76.3767],
-[42.198688371914685, -72.50471116858739],
-[33.37589451879909, -82.33537390544765],
-[28.66713158331832, -82.40762693948109],
-[35.50496894714642, -105.32059009034614],
-[39.311036495683894, -103.23348820810236],
-[40.37184108073199, -113.49645343304725],
-[38.151089336480155, -122.23163700966431],
-[41.379564699954805, -106.00341934279291],
-[40.96859401421174, -94.56363956247374],
-[45.33417319402169, -94.1289712611423],
-[36.210756845201466, -86.66439950758569],
-[31.910335493320844, -78.73442885210514],
-[32.16531293340556, -105.36009678147337],
-[35.05389959257307, -93.93624630674735],
-])
-
-cities = {
-    "San Diego": (32.7157, -117.1611),
-    "Seattle": (47.6062, -122.3321),
-    "Phoenix": (33.4484, -112.0740),
-    "Las Vegas": (36.1699, -115.1398),
-    "Bozeman": (45.6760, -111.0429),
-    "St Louis": (38.6270, -90.1994),
-    "Chicago": (41.8781, -87.6298),
-    "Cleveland": (41.4993, -81.6944),
-    "Pittsburgh": (40.4406, -79.9959),
-    "New York": (40.7128, -74.0060),
-    "New Orleans": (29.9511, -90.0715),
-    "Houston": (29.7604, -95.3698),
-    "Dallas": (32.7767, -96.7970),
-    "Oklahoma City": (35.4676, -97.5164),
-    "Wichita": (37.6872, -97.3301),
-    # "Charlottesville": (38.0293, -78.4767),
-    "Washington, DC": (38.9072, -77.0369),
-    "Boston": (42.3601, -71.0589),
-    "Atlanta": (33.7490, -84.3880),
-    "Orlando": (28.5383, -81.3792),
-
-    # New additions
-    "Santa Fe": (35.6870, -105.9378),
-    "Denver": (39.7392, -104.9903),
-    "Salt Lake City": (40.7608, -111.8910),
-    "San Francisco": (37.7749, -122.4194),
-    "Cheyenne": (41.1400, -104.8202),
-    "Omaha": (41.2565, -95.9345),
-    "Minneapolis": (44.9778, -93.2650),
-    "Nashville": (36.1627, -86.7816),
-    "Charleston": (32.7765, -79.9311),
-    "El Paso": (31.7619, -106.4850),
-    "Little Rock": (34.7465, -92.2896)
-}
-
-lats = [cities[c][0] for c in cities]
-lons = [cities[c][1] for c in cities]
-labels = list(cities.keys())
-
-fig = go.Figure()
-
-a = 240
-fig.update_layout(
-    geo=dict(
-        scope="usa",
-        projection=go.layout.geo.Projection(type="albers usa"),
-        showland=True,
-        landcolor=f"rgba({a}, {a}, {a}, 1.0)",
-        showsubunits=True,
-        subunitcolor="black",   # state border color
-        subunitwidth=1
-    )
-)
-
-fig.add_trace(go.Scattergeo(
-    lat=pts[:,0],
-    lon=pts[:,1],
-    mode="markers",
-    marker=dict(
-        symbol="circle",
-        size=10,
-        color="black",
-        line=dict(width=1, color="black")
-    ),
-    hoverinfo="skip"        # disables hover
-))
-
-fig.add_trace(go.Scattergeo(
-    lon=lons,
-    lat=lats,
-    text=labels,
-    mode="markers+text",
-    textposition="top center",
-    textfont=dict(
-        size=16,
-    ),
-    marker=dict(
-        size=10,
-        symbol="x",
-        color="red",
-        line=dict(width=0.01, color="red")
-    ),
-    hoverinfo="skip"        # disables hover
-))
-
-fig.update_geos(
-    lataxis=dict(range=[24, 50]),
-    lonaxis=dict(range=[-125, -66])
-)
-# adjust figure size
-
-
-
-fig.show()
-```
-
-
-<p></p>
-::: {.content-box-solid-lightorange .center}
-$\pr(\displaystyle\hX\; {\cong}\;\XGreen)?$
-:::
-
-
-
-
-
-
-
-
-
-## Example - 2
-
-Senators' voting records in the 116th U.S. Congress from 2019--2021 [@lewis2019voteview]
-$$
-d_{ij} = \% \text{disagreement between senators $i$ and $j$ on roll-call votes}
-$$
-$D = (d_{ij}) \in \R^{100 \times 100}$ and let $\hX = \mds(D, 2) \in \R^{100 \times 2}$ be the  embedding
-
-
-::: {.fragment}
-```{python}
-import plotly.express as px
-import pandas as pd
-import numpy as np
-# read distance matrix D from data/senate_116_D.csv
-# no header
-df = pd.read_csv("data/senate_116_D.csv", header=None)
-# read df_codes from data/senate_116_df_codes.csv
-df_codes = pd.read_csv("data/senate_116_df_codes.csv")
-# read X from data/senate_116_X.csv
-X = pd.read_csv("data/senate_116_X.csv", header=None)
-# read Sigmas from data/senate_116_Sigmas.json each as numpy array
-import json
-with open("data/senate_116_Sigma.json", "r") as f:
-    Sigmas = json.load(f)
-    Sigmas = [np.array(Sigma) for Sigma in Sigmas]
-# scatterplot of X colored by party from df_codes
-# white background + no grid + no colorbar + binary colors for 3 party codes
-# red for 200 (Republican), blue for 200 (Republican), purple for 328 (Independent)
-# hover info shows "bioname" from df_codes
-cls = ['red' if p == 200 else 'dodgerblue' if p == 100 else 'purple' for p in df_codes['party_code']]
-
-
-plot_df = pd.DataFrame({
-    "x": X[0],
-    "y": X[1],
-    "party_code": pd.Categorical(df_codes["party_code"]),
-    "bioname": df_codes["bioname"],
-})
-
-fig = px.scatter(
-    plot_df,
-    x="x", y="y",
-    color="party_code",
-    color_discrete_map={100: "dodgerblue", 200: "red", 328: "purple"},
-    hover_name="bioname",
-    hover_data={},  # remove all other hover fields
-)
-
-# show ONLY the bioname (and remove the extra trace-name line)
-fig.update_traces(hovertemplate="%{hovertext}<extra></extra>")
-
-fig.update_traces(hoverlabel_font_size=20, marker=dict(size=15))
-fig.update_layout(template="simple_white", showlegend=False)
-fig.update_xaxes(showgrid=False)
-fig.update_yaxes(showgrid=False)
-fig.update_layout(title_text="US Congress #116 - Senate (2019 - 2021)", title_x=0.5)
-
-fig.show()
-```
-:::
-
-
-# Statistical Learning {visibility="uncounted"}
-
 ## Desiderata - I (Statistical Learning)
 
 
@@ -890,6 +629,447 @@ Plot.dot(rotatedY, { x: "x", y: "y", r: 4, fill: "blue" })
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Example - 1 (Sensor Localization)
+
+
+Suppose $n$ sensors are placed in various locations across the United States, and
+$$
+d_{ij} = \color{red}{\text{noisy}} \text{ squared Euclidean distance between sensors $i$ and $j$}
+$$
+
+::::{.columns}
+:::{.column width="40%" .center}
+![](imgs/mds/plts/D_cities_au.png){width="90%"}
+:::
+:::{.column width="60%"}
+**Are the sensors placed in the following locations?**
+
+* San Diego, CA
+* Phoenix, AZ
+* $\dots$
+* Washington, DC
+
+::: {.content-box-solid-lightorange .center .footnotesize .fragment}
+$$
+\pr\Big( \text{locations}(d_{ij}) \simeq \{\text{San Diego}, \dots, \text{Washington DC}\} \Big)?
+$$
+:::
+:::
+
+::::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Example - 1 {visibility="uncounted"}
+
+
+
+
+```{python}
+import plotly.graph_objects as go
+import numpy as np
+
+# your matrix
+pts = np.array([
+  [33.395451954774344, -116.56439161038234],
+[48.108025710076475, -122.92849274278078],
+[34.02461082128876, -112.71933666708098],
+[35.61729882163741, -114.72833547890279],
+[45.85967498821038, -109.49033666914245],
+[38.37289482050906, -90.24731696226311],
+[42.228117661145966, -87.1895050727579],
+[41.375254336650364, -82.52162610658272],
+[40.27227181552411, -81.31719495644117],
+[41.080749321883864, -73.2409874547851],
+[29.799471507417657, -87.93195684760049],
+[29.804262181778334, -96.26280221549924],
+[32.255403145659265, -97.63920129263443],
+[34.86077879074841, -97.48276955656243],
+[37.55028764727703, -98.50201856867726],
+# [38.669659368654706, -78.72114542890988],
+[38.5293, -76.3767],
+[42.198688371914685, -72.50471116858739],
+[33.37589451879909, -82.33537390544765],
+[28.66713158331832, -82.40762693948109],
+[35.50496894714642, -105.32059009034614],
+[39.311036495683894, -103.23348820810236],
+[40.37184108073199, -113.49645343304725],
+[38.151089336480155, -122.23163700966431],
+[41.379564699954805, -106.00341934279291],
+[40.96859401421174, -94.56363956247374],
+[45.33417319402169, -94.1289712611423],
+[36.210756845201466, -86.66439950758569],
+[31.910335493320844, -78.73442885210514],
+[32.16531293340556, -105.36009678147337],
+[35.05389959257307, -93.93624630674735],
+])
+
+cities = {
+    "San Diego": (32.7157, -117.1611),
+    "Seattle": (47.6062, -122.3321),
+    "Phoenix": (33.4484, -112.0740),
+    "Las Vegas": (36.1699, -115.1398),
+    "Bozeman": (45.6760, -111.0429),
+    "St Louis": (38.6270, -90.1994),
+    "Chicago": (41.8781, -87.6298),
+    "Cleveland": (41.4993, -81.6944),
+    "Pittsburgh": (40.4406, -79.9959),
+    "New York": (40.7128, -74.0060),
+    "New Orleans": (29.9511, -90.0715),
+    "Houston": (29.7604, -95.3698),
+    "Dallas": (32.7767, -96.7970),
+    "Oklahoma City": (35.4676, -97.5164),
+    "Wichita": (37.6872, -97.3301),
+    # "Charlottesville": (38.0293, -78.4767),
+    "Washington, DC": (38.9072, -77.0369),
+    "Boston": (42.3601, -71.0589),
+    "Atlanta": (33.7490, -84.3880),
+    "Orlando": (28.5383, -81.3792),
+
+    # New additions
+    "Santa Fe": (35.6870, -105.9378),
+    "Denver": (39.7392, -104.9903),
+    "Salt Lake City": (40.7608, -111.8910),
+    "San Francisco": (37.7749, -122.4194),
+    "Cheyenne": (41.1400, -104.8202),
+    "Omaha": (41.2565, -95.9345),
+    "Minneapolis": (44.9778, -93.2650),
+    "Nashville": (36.1627, -86.7816),
+    "Charleston": (32.7765, -79.9311),
+    "El Paso": (31.7619, -106.4850),
+    "Little Rock": (34.7465, -92.2896)
+}
+
+lats = [cities[c][0] for c in cities]
+lons = [cities[c][1] for c in cities]
+labels = list(cities.keys())
+
+a = 240
+
+fig = go.Figure()
+fig.update_layout(
+    geo=dict(
+        scope="usa",
+        projection=go.layout.geo.Projection(type="albers usa"),
+        showland=True,
+        landcolor=f"rgba({a}, {a}, {a}, 1.0)",
+        showsubunits=True,
+        subunitcolor="black",   # state border color
+        subunitwidth=1
+    )
+)
+
+fig.add_trace(go.Scattergeo(
+    lat=pts[:,0],
+    lon=pts[:,1],
+    mode="markers",
+    marker=dict(
+        symbol="circle",
+        size=10,
+        color="black",
+        line=dict(width=1, color="black")
+    ),
+    hoverinfo="skip"        # disables hover
+))
+
+fig.add_trace(go.Scattergeo(
+    lon=lons,
+    lat=lats,
+    text=labels,
+    mode="markers+text",
+    textposition="top center",
+    textfont=dict(
+        size=14,
+    ),
+    marker=dict(
+        size=10,
+        symbol="x",
+        color="red",
+        line=dict(width=0.01, color="red")
+    ),
+    hoverinfo="skip"        # disables hover
+))
+
+fig.update_geos(
+    lataxis=dict(range=[24, 50]),
+    lonaxis=dict(range=[-125, -66])
+)
+# adjust figure size
+
+
+
+fig.show()
+```
+
+
+<p></p>
+::: {.content-box-solid-lightorange .center}
+**This tells us:**+br
+
+$\quad\quad$ $\ell(\displaystyle\hX,\; \XGreen) \lesssim R_n$ with probability at least $1-\alpha_n$
+:::
+
+
+
+
+
+
+
+## Example - 1 {visibility="uncounted"}
+
+
+```{python}
+
+ellipses = [
+    np.array([[2.468017077579583, -0.39142097029727185], [-0.39142097029727185, 10.289982779036782]]),
+    np.array([[2.250906098723061, 0.11238004050197975], [0.11238004050197975, 7.588772628436054]]),
+    np.array([[1.1927962770755824, -0.03172295061944705], [-0.03172295061944705, 8.259885002626435]]),
+    np.array([[1.8406536008076417, 0.43800337694479713], [0.43800337694479713, 10.452625908907532]]),
+    np.array([[1.5944867619391174, 0.33968161933149954], [0.33968161933149954, 4.767834664449261]]),
+    np.array([[1.21881992369177, 0.2013772476496925], [0.2013772476496925, 3.2307681191014104]]),
+    np.array([[3.891984094523177, 0.07374895930561526], [0.07374895930561526, 9.320467587921016]]),
+    np.array([[1.4546459336890705, -0.24982534642073528], [-0.24982534642073528, 3.8920963311497423]]),
+    np.array([[3.8432371387420385, -0.1430584400033656], [-0.1430584400033656, 10.309892186856777]]),
+    np.array([[1.5088822387315137, -0.5023502631328222], [-0.5023502631328222, 4.748962962327717]]),
+    np.array([[4.263602342057142, -1.6999153867114396], [-1.6999153867114396, 9.034773668248434]]),
+    np.array([[1.046934186691528, 0.19225180857869922], [0.19225180857869922, 4.843336671539482]]),
+    np.array([[0.783520265070989, 0.413563369927824], [0.413563369927824, 3.030009405731471]]),
+    np.array([[1.6924083470669555, -0.11296900271252386], [-0.11296900271252386, 6.986292520542568]]),
+    np.array([[2.753018506557935, -0.49349319570788175], [-0.49349319570788175, 7.639370563223294]]),
+    np.array([[1.279775680238266, 0.3666922113139228], [0.3666922113139228, 4.80871214220213]]),
+    np.array([[1.708449169704774, -0.4454344166130284], [-0.4454344166130284, 4.783876481597376]]),
+    np.array([[2.1113931780514754, -0.3333267899683792], [-0.3333267899683792, 9.511067085731291]]),
+    np.array([[1.0955276360627721, 0.5103416488925722], [0.5103416488925722, 4.544539746936275]]),
+    np.array([[1.1431929896672604, 0.6707389617601615], [0.6707389617601615, 5.094603284354269]]),
+    np.array([[2.005688002020819, -0.48802726217223813], [-0.48802726217223813, 5.0339543953624]]),
+    np.array([[1.939711341768792, -0.5436713780240532], [-0.5436713780240532, 5.788115319419898]]),
+    np.array([[3.9778613616532974, 0.21292670375766287], [0.21292670375766287, 10.31393281462724]]),
+    np.array([[1.535735186385431, 0.5095400023738197], [0.5095400023738197, 5.414367425750979]]),
+    np.array([[1.1119111955083785, -0.5197743259158305], [-0.5197743259158305, 1.9814023823549625]]),
+    np.array([[2.5329409225953916, -0.18359025032545156], [-0.18359025032545156, 10.52380605919815]]),
+    np.array([[1.2328875577305305, 0.2437246475835416], [0.2437246475835416, 5.745240329350703]]),
+    np.array([[2.004979908731868, -0.060380495187101466], [-0.060380495187101466, 7.286021040411914]]),
+    np.array([[2.2854068119779853, -0.5217193598799783], [-0.5217193598799783, 5.163064894484483]]),
+    np.array([[2.265361526692174, -0.3768095912405867], [-0.3768095912405867, 7.1336234243512635]]),
+]
+```
+
+```{python}
+import numpy as np
+import plotly.graph_objects as go
+
+# pts: (N,2) array of [lat, lon]
+# ellipses: list of N (2,2) SPD "shape" matrices
+
+def ellipse_latlon_points(center_latlon, S, n=80, level=1.0):
+    """
+    Unit ellipsoid/ellipse defined by (x-c)^T S (x-c) = level^2.
+    Here x is [lat, lon] in degrees. Returns arrays (lats, lons).
+
+    If you intended S to be a covariance matrix instead, use S_inv = np.linalg.inv(S)
+    (see note at bottom).
+    """
+    c = np.asarray(center_latlon, dtype=float)          # [lat, lon]
+    S = np.asarray(S, dtype=float)
+    S = np.linalg.inv(S)
+
+    # For (x-c)^T S (x-c) = level^2, we can write:
+    # x = c + (level) * inv(sqrtm(S)) @ u,  where ||u||=1
+    # Compute inv(sqrtm(S)) via eigen-decomposition (S is 2x2 SPD).
+    w, V = np.linalg.eigh(S)
+    inv_sqrt = V @ np.diag(1.0 / np.sqrt(w)) @ V.T      # 2x2
+
+    t = np.linspace(0, 2*np.pi, n, endpoint=True)
+    unit_circle = np.vstack([np.cos(t), np.sin(t)])     # 2 x n
+
+    pts_local = c[:, None] + (level * inv_sqrt @ unit_circle)
+    lats = pts_local[0, :]
+    lons = pts_local[1, :]
+    return lats, lons
+
+fig = go.Figure()
+
+a = 240
+fig.update_layout(
+    geo=dict(
+        scope="usa",
+        projection=go.layout.geo.Projection(type="albers usa"),
+        showland=True,
+        landcolor=f"rgba({a}, {a}, {a}, 0.5)",
+        showsubunits=True,
+        subunitcolor="black",
+        subunitwidth=1
+    )
+)
+
+# original points
+fig.add_trace(go.Scattergeo(
+    lat=pts[:, 0],
+    lon=pts[:, 1],
+    mode="markers",
+    marker=dict(symbol="circle", size=10, color="black", line=dict(width=1, color="black")),
+    hoverinfo="skip"
+))
+
+# ellipses as line loops
+for i, (c, S) in enumerate(zip(pts, ellipses)):
+    elat, elon = ellipse_latlon_points(c, S, n=120, level=1.0)
+
+    # ensure closed loop (toself usually works either way, but this is explicit)
+    elat = np.r_[elat, elat[0]]
+    elon = np.r_[elon, elon[0]]
+
+    fig.add_trace(go.Scattergeo(
+        lat=elat,
+        lon=elon,
+        mode="lines",
+        line=dict(width=1, color="rgba(0,0,0,0.6)"),
+        fill="toself",
+        fillcolor="rgba(0,0,0,0.15)",  # shaded interior
+        hoverinfo="skip",
+        showlegend=False
+    ))
+
+# (optional) city markers from your existing code
+fig.add_trace(go.Scattergeo(
+    lon=lons,
+    lat=lats,
+    text=labels,
+    mode="markers+text",
+    textfont=dict(size=14),
+    textposition="top center",
+    marker=dict(size=10, symbol="x", color="red", line=dict(width=0.01, color="red")),
+    hoverinfo="skip"
+))
+
+fig.update_geos(
+    lataxis=dict(range=[24, 50]),
+    lonaxis=dict(range=[-125, -66])
+)
+
+fig.show()
+
+# NOTE:
+# If your "shape matrix" is actually a covariance matrix Σ and you want the usual covariance ellipse
+# (x-c)^T Σ^{-1} (x-c) = level^2, then call:
+#   elat, elon = ellipse_latlon_points(c, np.linalg.inv(Sigma), level=1.0)
+# or change ellipse_latlon_points to use sqrtm(Σ) instead of inv(sqrtm(S)).
+
+```
+
+
+<p></p>
+::: {.content-box-solid-lightorange .center}
+**It would be nice to have some set $\color{Purple}{\conf_\alpha}$ such that:**+br
+
+$\pr(\displaystyle\XGreen\in {\color{Purple}{\conf_{\alpha}}}) \approx 1-\alpha$
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Desiderata - II (Uncertainty Quantification)
+
+
+::::{.columns}
+
+:::{.column width="63%" .center}
+
+<!-- :::{}
+* Let $\XGreen \in \Rnp$ and $D = \DelGreen + \EpsRed$ and 
+$\hX = \mds(D, p)$
+::: -->
+
+::: {}
+:::{.content-box-gray}
+* For any $\color{DarkOrange}{\boldsymbol{\alpha}} \in (0, 1)$
+* Can we construct $\color{DarkOrange}{\boldsymbol{100 \times (1-\alpha)\%}}$ [**_uniform_ confidence sets**]{.uva-orange} 
+$$
+\conf_{\alpha} = \prod_{i=1}^n \conf_{\alpha, i} \subset \Rp
+$$
+which provide [**simultaneous coverage***]{.purple} of the true configuration:
+$$
+\boxed{\phantom{\Bigg()} \pr \Big( \exists g \in \euc: \; g(\color{green}{x_i}) \in \conf_{\alpha, i} \;\;\; \color{Purple}{\forall i \in [n]} \Big) \approx \color{DarkOrange}{\boldsymbol{1 - \alpha}} \phantom{\Bigg()}}
+$$
+:::
+:::
+
+:::
+
+
+:::{.column width="37%" .center .fragment fragment-index=1}
+![](imgs/mds/plts/conf.gif){width="100%"}
+:::
+
+::::
+
+::: {.footnote .footnotesize .fragment fragment-index=1}
+*modulo rigid transformations
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Statistical Learning {visibility="uncounted"}
+
+
+
+
+
+
+
+
 <!-- ## Assumptions on [$\XGreen$]{.smaller}  and [$\EpsRed$]{.smaller} {auto-animate="true" data-transition="linear"} -->
 ## {auto-animate="true" data-transition="linear" align="center"}
 
@@ -906,7 +1086,7 @@ Plot.dot(rotatedY, { x: "x", y: "y", r: 4, fill: "blue" })
 |  | [Assumptions on $\EpsRed$]{.large} | |
 |:---|:---:|:---:|
 | [Independent]{.uva-orange .bold} | | [$\hspace{1.4em}$ $(\color{red}{\eps_{ij}})$ are independent for $i < j$ $\hspace{1.4em}$]{.smaller} |
-| ["Heteroscedastic"]{.uva-orange .bold} | | [$\E(\color{red}{\eps_{ij}}) = 0$ and $\Var(\color{red}{\eps_{ij}}) = \sigma_{ij}^2$]{.smaller} |
+| [Heteroscedastic]{.uva-orange .bold} | | [$\E(\color{red}{\eps_{ij}}) = 0$ and $\Var(\color{red}{\eps_{ij}}) = \sigma_{ij}^2$]{.smaller} |
 | [Finite $q^{\text{th}}$ moment]{.uva-orange .bold} | | [$\displaystyle\max_{i < j}\norm{\color{red}{\eps_{ij}}}_{L^q} \le \sigma$]{.smaller} |
 | | |
 :::
@@ -1051,7 +1231,7 @@ $$
 ::: {.small .fragment fragment-index=2 .fade-down}
 * $q > 4$ moments is [necessary]{.uva-orange} for consistency
 * Parametric rates (in $n$) for $\ell\rmse$ and minimax-optimal up to absolute constants. Extra [$\sqrt{\log{n}}$]{.small} factor for $\ell_{\ttinft}$ is unavoidable
-* Proof relies on: [(1.) orthogonal Procrustes alignment]{.magenta} + [(2.) Fuk-Nagaev-type matrix concentration]{.uva-orange}
+* Proof relies on: [(1.) orthogonal Procrustes alignment]{.orchid} + [(2.) Fuk-Nagaev-type matrix concentration]{.uva-orange}
 :::
 
 ::: {.footnote .footnotesize .fragment fragment-index=1 .fade-in-then-semi-out}
@@ -1531,230 +1711,80 @@ $\color{red}{\eps_{ij}} \sim N(0, \del_{ij}^2)$
 
 
 
+## Example - 2 (Senate Voting)
+
+Senators' voting records in the 116th U.S. Congress from 2019--2021 [@lewis2019voteview]
+$$
+d_{ij} = \% \text{disagreement between senators $i$ and $j$ on roll-call votes}
+$$
+$D = (d_{ij}) \in \R^{100 \times 100}$ and let $\hX = \mds(D, 2) \in \R^{100 \times 2}$ be the  embedding
 
 
-
-
-
-
-## Sensor Localization - Example 1
-
-
-
-
+::: {.fragment}
 ```{python}
-fig = go.Figure()
-fig.update_layout(
-    geo=dict(
-        scope="usa",
-        projection=go.layout.geo.Projection(type="albers usa"),
-        showland=True,
-        landcolor=f"rgba({a}, {a}, {a}, 1.0)",
-        showsubunits=True,
-        subunitcolor="black",   # state border color
-        subunitwidth=1
-    )
-)
-
-fig.add_trace(go.Scattergeo(
-    lat=pts[:,0],
-    lon=pts[:,1],
-    mode="markers",
-    marker=dict(
-        symbol="circle",
-        size=10,
-        color="black",
-        line=dict(width=1, color="black")
-    ),
-    hoverinfo="skip"        # disables hover
-))
-
-fig.add_trace(go.Scattergeo(
-    lon=lons,
-    lat=lats,
-    text=labels,
-    mode="markers+text",
-    textposition="top center",
-    textfont=dict(
-        size=14,
-    ),
-    marker=dict(
-        size=10,
-        symbol="x",
-        color="red",
-        line=dict(width=0.01, color="red")
-    ),
-    hoverinfo="skip"        # disables hover
-))
-
-fig.update_geos(
-    lataxis=dict(range=[24, 50]),
-    lonaxis=dict(range=[-125, -66])
-)
-# adjust figure size
-
-
-
-fig.show()
-```
-
-
-
-
-
-
-## Sensor Localization - Example 1 {visibility="uncounted"}
-
-
-```{python}
-
-ellipses = [
-    np.array([[2.468017077579583, -0.39142097029727185], [-0.39142097029727185, 10.289982779036782]]),
-    np.array([[2.250906098723061, 0.11238004050197975], [0.11238004050197975, 7.588772628436054]]),
-    np.array([[1.1927962770755824, -0.03172295061944705], [-0.03172295061944705, 8.259885002626435]]),
-    np.array([[1.8406536008076417, 0.43800337694479713], [0.43800337694479713, 10.452625908907532]]),
-    np.array([[1.5944867619391174, 0.33968161933149954], [0.33968161933149954, 4.767834664449261]]),
-    np.array([[1.21881992369177, 0.2013772476496925], [0.2013772476496925, 3.2307681191014104]]),
-    np.array([[3.891984094523177, 0.07374895930561526], [0.07374895930561526, 9.320467587921016]]),
-    np.array([[1.4546459336890705, -0.24982534642073528], [-0.24982534642073528, 3.8920963311497423]]),
-    np.array([[3.8432371387420385, -0.1430584400033656], [-0.1430584400033656, 10.309892186856777]]),
-    np.array([[1.5088822387315137, -0.5023502631328222], [-0.5023502631328222, 4.748962962327717]]),
-    np.array([[4.263602342057142, -1.6999153867114396], [-1.6999153867114396, 9.034773668248434]]),
-    np.array([[1.046934186691528, 0.19225180857869922], [0.19225180857869922, 4.843336671539482]]),
-    np.array([[0.783520265070989, 0.413563369927824], [0.413563369927824, 3.030009405731471]]),
-    np.array([[1.6924083470669555, -0.11296900271252386], [-0.11296900271252386, 6.986292520542568]]),
-    np.array([[2.753018506557935, -0.49349319570788175], [-0.49349319570788175, 7.639370563223294]]),
-    np.array([[1.279775680238266, 0.3666922113139228], [0.3666922113139228, 4.80871214220213]]),
-    np.array([[1.708449169704774, -0.4454344166130284], [-0.4454344166130284, 4.783876481597376]]),
-    np.array([[2.1113931780514754, -0.3333267899683792], [-0.3333267899683792, 9.511067085731291]]),
-    np.array([[1.0955276360627721, 0.5103416488925722], [0.5103416488925722, 4.544539746936275]]),
-    np.array([[1.1431929896672604, 0.6707389617601615], [0.6707389617601615, 5.094603284354269]]),
-    np.array([[2.005688002020819, -0.48802726217223813], [-0.48802726217223813, 5.0339543953624]]),
-    np.array([[1.939711341768792, -0.5436713780240532], [-0.5436713780240532, 5.788115319419898]]),
-    np.array([[3.9778613616532974, 0.21292670375766287], [0.21292670375766287, 10.31393281462724]]),
-    np.array([[1.535735186385431, 0.5095400023738197], [0.5095400023738197, 5.414367425750979]]),
-    np.array([[1.1119111955083785, -0.5197743259158305], [-0.5197743259158305, 1.9814023823549625]]),
-    np.array([[2.5329409225953916, -0.18359025032545156], [-0.18359025032545156, 10.52380605919815]]),
-    np.array([[1.2328875577305305, 0.2437246475835416], [0.2437246475835416, 5.745240329350703]]),
-    np.array([[2.004979908731868, -0.060380495187101466], [-0.060380495187101466, 7.286021040411914]]),
-    np.array([[2.2854068119779853, -0.5217193598799783], [-0.5217193598799783, 5.163064894484483]]),
-    np.array([[2.265361526692174, -0.3768095912405867], [-0.3768095912405867, 7.1336234243512635]]),
-]
-```
-
-```{python}
+import plotly.express as px
+import pandas as pd
 import numpy as np
-import plotly.graph_objects as go
+# read distance matrix D from data/senate_116_D.csv
+# no header
+df = pd.read_csv("data/senate_116_D.csv", header=None)
+# read df_codes from data/senate_116_df_codes.csv
+df_codes = pd.read_csv("data/senate_116_df_codes.csv")
+# read X from data/senate_116_X.csv
+X = pd.read_csv("data/senate_116_X.csv", header=None)
+# read Sigmas from data/senate_116_Sigmas.json each as numpy array
+import json
+with open("data/senate_116_Sigma.json", "r") as f:
+    Sigmas = json.load(f)
+    Sigmas = [np.array(Sigma) for Sigma in Sigmas]
+# scatterplot of X colored by party from df_codes
+# white background + no grid + no colorbar + binary colors for 3 party codes
+# red for 200 (Republican), blue for 200 (Republican), purple for 328 (Independent)
+# hover info shows "bioname" from df_codes
+cls = ['red' if p == 200 else 'dodgerblue' if p == 100 else 'purple' for p in df_codes['party_code']]
 
-# pts: (N,2) array of [lat, lon]
-# ellipses: list of N (2,2) SPD "shape" matrices
 
-def ellipse_latlon_points(center_latlon, S, n=80, level=1.0):
-    """
-    Unit ellipsoid/ellipse defined by (x-c)^T S (x-c) = level^2.
-    Here x is [lat, lon] in degrees. Returns arrays (lats, lons).
+plot_df = pd.DataFrame({
+    "x": X[0],
+    "y": X[1],
+    "party_code": pd.Categorical(df_codes["party_code"]),
+    "bioname": df_codes["bioname"],
+})
 
-    If you intended S to be a covariance matrix instead, use S_inv = np.linalg.inv(S)
-    (see note at bottom).
-    """
-    c = np.asarray(center_latlon, dtype=float)          # [lat, lon]
-    S = np.asarray(S, dtype=float)
-    S = np.linalg.inv(S)
-
-    # For (x-c)^T S (x-c) = level^2, we can write:
-    # x = c + (level) * inv(sqrtm(S)) @ u,  where ||u||=1
-    # Compute inv(sqrtm(S)) via eigen-decomposition (S is 2x2 SPD).
-    w, V = np.linalg.eigh(S)
-    inv_sqrt = V @ np.diag(1.0 / np.sqrt(w)) @ V.T      # 2x2
-
-    t = np.linspace(0, 2*np.pi, n, endpoint=True)
-    unit_circle = np.vstack([np.cos(t), np.sin(t)])     # 2 x n
-
-    pts_local = c[:, None] + (level * inv_sqrt @ unit_circle)
-    lats = pts_local[0, :]
-    lons = pts_local[1, :]
-    return lats, lons
-
-fig = go.Figure()
-
-a = 240
-fig.update_layout(
-    geo=dict(
-        scope="usa",
-        projection=go.layout.geo.Projection(type="albers usa"),
-        showland=True,
-        landcolor=f"rgba({a}, {a}, {a}, 0.5)",
-        showsubunits=True,
-        subunitcolor="black",
-        subunitwidth=1
-    )
+fig = px.scatter(
+    plot_df,
+    x="x", y="y",
+    color="party_code",
+    color_discrete_map={100: "dodgerblue", 200: "red", 328: "purple"},
+    hover_name="bioname",
+    hover_data={},  # remove all other hover fields
 )
 
-# original points
-fig.add_trace(go.Scattergeo(
-    lat=pts[:, 0],
-    lon=pts[:, 1],
-    mode="markers",
-    marker=dict(symbol="circle", size=10, color="black", line=dict(width=1, color="black")),
-    hoverinfo="skip"
-))
+# show ONLY the bioname (and remove the extra trace-name line)
+fig.update_traces(hovertemplate="%{hovertext}<extra></extra>")
 
-# ellipses as line loops
-for i, (c, S) in enumerate(zip(pts, ellipses)):
-    elat, elon = ellipse_latlon_points(c, S, n=120, level=1.0)
-
-    # ensure closed loop (toself usually works either way, but this is explicit)
-    elat = np.r_[elat, elat[0]]
-    elon = np.r_[elon, elon[0]]
-
-    fig.add_trace(go.Scattergeo(
-        lat=elat,
-        lon=elon,
-        mode="lines",
-        line=dict(width=1, color="rgba(0,0,0,0.6)"),
-        fill="toself",
-        fillcolor="rgba(0,0,0,0.15)",  # shaded interior
-        hoverinfo="skip",
-        showlegend=False
-    ))
-
-# (optional) city markers from your existing code
-fig.add_trace(go.Scattergeo(
-    lon=lons,
-    lat=lats,
-    text=labels,
-    mode="markers+text",
-    textfont=dict(size=14),
-    textposition="top center",
-    marker=dict(size=10, symbol="x", color="red", line=dict(width=0.01, color="red")),
-    hoverinfo="skip"
-))
-
-fig.update_geos(
-    lataxis=dict(range=[24, 50]),
-    lonaxis=dict(range=[-125, -66])
-)
+fig.update_traces(hoverlabel_font_size=20, marker=dict(size=15))
+fig.update_layout(template="simple_white", showlegend=False)
+fig.update_xaxes(showgrid=False)
+fig.update_yaxes(showgrid=False)
+fig.update_layout(title_text="US Congress #116 - Senate (2019 - 2021)", title_x=0.5)
 
 fig.show()
-
-# NOTE:
-# If your "shape matrix" is actually a covariance matrix Σ and you want the usual covariance ellipse
-# (x-c)^T Σ^{-1} (x-c) = level^2, then call:
-#   elat, elon = ellipse_latlon_points(c, np.linalg.inv(Sigma), level=1.0)
-# or change ellipse_latlon_points to use sqrtm(Σ) instead of inv(sqrtm(S)).
-
 ```
-
-
-<p></p>
-::: {.content-box-solid-lightorange .center}
-$\pr(\displaystyle\XGreen\in \conf_{\alpha}) \approx 0.9$
 :::
 
 
 
 
-## Senate Voting - Example 2
+
+
+
+
+
+
+
+
+## Example - 2 {visibility="uncounted"}
 
 
 Senators' voting records in the 116th U.S. Congress from 2019--2021 [@lewis2019voteview]
@@ -2337,7 +2367,7 @@ Let $\Eps = (\eps_{ij})$ be an $n \times n$ random matrix where each row $\eps_{
 
 :::: {.fragment fragment-index=1 .semi-fade-out}
 :::{.content-box-dblue .small}
-**Bernstein-Type Concentration.** &emsp; If [$\max_{i,j}|{\eps_{i,j}|} \le K$ a.s.]{.magenta}, then with probability greater than $1 - O({e^{-t}})$,
+**Bernstein-Type Concentration.** &emsp; If [$\max_{i,j}|{\eps_{i,j}|} \le K$ a.s.]{.orchid}, then with probability greater than $1 - O({e^{-t}})$,
 $$
 \norm{\Eps X}\ttinft \lesssim \sigma_2 \sqrt{n (t + \log{p})} + K (t + \log{p})
 $$
@@ -2348,7 +2378,7 @@ $$
 
 :::: {.fragment fragment-index=1 .fade-in}
 :::{.content-box-orange .small}
-**Fuk-Nagaev-Type Concentration [@vishwanath2025minimax]** &emsp; Suppose [$\max_{i,j}\|{\eps_{i,j}\|_{L^q}} \le \sigma$ for $q > 4$]{.magenta}+br Then, for all $0 < r < \frac{(q-4)}{2}$, with probability greater than $1 - O({e^{-t}} + {n^{-r}})$,
+**Fuk-Nagaev-Type Concentration [@vishwanath2025minimax]** &emsp; Suppose [$\max_{i,j}\|{\eps_{i,j}\|_{L^q}} \le \sigma$ for $q > 4$]{.orchid}+br Then, for all $0 < r < \frac{(q-4)}{2}$, with probability greater than $1 - O({e^{-t}} + {n^{-r}})$,
 $$
 \norm{\Eps X}\ttinft \lesssim \sigma_2 \sqrt{n (t + \log{p})} + \sigma n^{(r+2)/q} (t + \log{p})
 $$
