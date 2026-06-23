@@ -33,7 +33,7 @@ jupyter: job-talk
 
 
 
-## {.center visibility="uncounted"}
+## {}
 
 +br
 
@@ -201,7 +201,7 @@ $\longrightarrow$
 
 
 
-## Classical MDS (CMDS) Algorithm {visibility="uncounted"}
+## Classical MDS (CMDS) Algorithm {}
 
 :::::: {layout="[65, 35]" layout-valign="center"}
 
@@ -650,7 +650,7 @@ Plot.dot(rotatedY, { x: "x", y: "y", r: 4, fill: "blue" })
 
 
 
-## Example - 1 (Sensor Localization)
+## Example - 1: Sensor Localization
 
 
 Suppose $n$ sensors are placed in various locations across the United States, and
@@ -1067,14 +1067,16 @@ $$
 
 
 
-
-
-
 <!-- ## Assumptions on [$\XGreen$]{.smaller}  and [$\EpsRed$]{.smaller} {auto-animate="true" data-transition="linear"} -->
 ## {auto-animate="true" data-transition="linear" align="center"}
 
-::: {.fragment fragment-index=1 .semi-fade-out}
-| | [Assumptions on $\XGreen$]{.large} | |
+
+::: {.content-box-gray .center .fragment fragment-index=1 .semi-fade-out}
+$\displaystyle D = \DelXGreen + \EpsRed \quad \text{for} \quad \XGreen \in \bbX(\params)$
+:::
+
+::: {.fragment fragment-index=1 .fade-in-then-semi-out}
+| | [Assumptions on $\XGreen$]{} | |
 |:---|:---:|:---:|
 | [Compactly supported]{.uva-orange .bold} | | [$\ttinf{\XGreen} \le \Rx$]{.smaller} | 
 | [Bounded condition number]{.uva-orange .bold}  | | [$\hspace{0em}$ $\kappa\inv \le s_p\left(\tfrac{\XGreen}{\sqrt{n}}\right) \le s_1\left(\tfrac{\XGreen}{\sqrt{n}}\right) \le \kappa$]{.smaller} |
@@ -1082,19 +1084,18 @@ $$
 :::
 
 
-::: {.fragment fragment-index=1 .fade-in-then-semi-out}
-|  | [Assumptions on $\EpsRed$]{.large} | |
+::: {.fragment fragment-index=2 .fade-in-then-semi-out}
+|  | [Assumptions on $\EpsRed$]{} | |
 |:---|:---:|:---:|
 | [Independent]{.uva-orange .bold} | | [$\hspace{1.4em}$ $(\color{red}{\eps_{ij}})$ are independent for $i < j$ $\hspace{1.4em}$]{.smaller} |
 | [Heteroscedastic]{.uva-orange .bold} | | [$\E(\color{red}{\eps_{ij}}) = 0$ and $\Var(\color{red}{\eps_{ij}}) = \sigma_{ij}^2$]{.smaller} |
-| [Finite $q^{\text{th}}$ moment]{.uva-orange .bold} | | [$\displaystyle\max_{i < j}\norm{\color{red}{\eps_{ij}}}_{L^q} \le \sigma$]{.smaller} |
-| | |
+| [Finite $q^{\text{th}}$ moment]{.uva-orange .bold} | | [For $q > 4,\quad$  $\displaystyle\max_{i < j}\norm{\color{red}{\eps_{ij}}}_{L^q} \le \sigma$]{.smaller} |
 :::
 
-::: {.fragment fragment-index=2 .fade-in-then-semi-out .smaller}
+::: {.fragment fragment-index=3 .fade-in-then-semi-out .smaller}
 
 ::: {.center}
-[Examples $\hspace{3em}$]{.bold .Large}
+[Examples $\hspace{3em}$]{.bold .large}
 :::
 
 $$
@@ -1115,12 +1116,7 @@ where ${\Xi = (\xi_{ij})}$ is a random matrix with iid entries
 
 
 
-
-
-
-
-
-## Statistical Learning {auto-animate="false" align="center"}
+## Signal Recovery {auto-animate="false" align="center"}
 
 
 ::: {.footnotesize .small .center}
@@ -1197,6 +1193,13 @@ $$
 |:---:|:---:|:---:|
 | **RMSE**+br+br $\displaystyle\ell\rmse(\hX,\XGreen) = \frac{1}{\sqrt{n}}\norm{g(\hX) - X}_F$ |   | **$2$-to-$\infty$ uniform error**+br+br $\displaystyle\ell\ttinft(\hX,\XGreen) = \max_{i \in [n]} \norm{g(\hx_i) - x_i}$ |
 :::
+
+
+
+
+
+
+
 
 
 
@@ -1711,7 +1714,7 @@ $\color{red}{\eps_{ij}} \sim N(0, \del_{ij}^2)$
 
 
 
-## Example - 2 (Senate Voting)
+## Example - 2: Senate Voting
 
 Senators' voting records in the 116th U.S. Congress from 2019--2021 [@lewis2019voteview]
 $$
@@ -1875,13 +1878,11 @@ fig.show()
 
 ## Intuition behind extreme value approximation
 
-::::::: {.small}
+::::::: {.small .center}
 
-$$
-\boxed{
+$\boxed{
 T_n := \sqrt{n}\; \cdot\; \max_{i \in [n]} \norm{\;\;\color{red}{\hOm_i^{-1/2}\left(x_i -  \hg(\hx_i)\right)}\;\;}
-}
-$$
+}$
 
 
 ::::: {.r-stack}
@@ -1898,7 +1899,7 @@ $$
 :::
 
 ::: {.r-stack-item .fragment .fade-in-then-out fragment-index=1}
-For each fixed $i \in [n]$ [@li2020central]
+For each fixed $i \in [n]$
 $$
 \begin{aligned}
 \sqrt{n} \cdot \color{red}{\hOm_i^{-1/2}\left(x_i -  \hg(\hx_i)\right)} &\;\approx\; \frac{1}{\sqrt{n}} (\eps_{i1}x_1 + \eps_{i2} x_2 + \dots + \eps_{in}x_n) \;\longrightarrow\; N(0, I_p)\\
@@ -1935,9 +1936,8 @@ $$
 Maximum of [**independent**]{.uva-orange} $\chi_p$ random variables converges to Gumbel at rate $O\left(\frac{1}{\log{n}}\right)$
 :::
 
+
 :::
-
-
 
 
 ::: {.r-stack-item .fragment .fade-in fragment-index=4}
@@ -1960,6 +1960,14 @@ The random variables in $T_n$ are [**not independent**]{.uva-orange}! The main p
 
 :::::
 :::::::
+
+
+::: {.footnote .small}
+::: {r-stack}
+[[@li2020central]]{.fragment fragment-index=1 .fade-in-then-out}
+[[@hall1979rate]]{.fragment fragment-index=3 .fade-in-then-out}
+:::
+:::
 
 
 
@@ -2008,6 +2016,11 @@ We observe $D\b = \color{green}{\Del(\hX)} + \EpsRed\b$ and $\hX\b = \mds(D\b, p
 ::::
 
 
+::: {.footnote .small}
+
+[[@hall2013bootstrap]]{.fragment fragment-index=3 .fade-in-then-out}
+
+:::
 
 
 
@@ -2102,11 +2115,6 @@ $\color{red}{\eps_{ij}} \sim N(0, |\|x_i\|^2 - \|x_j\|^2|)$
 
 
 
-# []{.center style="align-items: center;"} {visibility="uncounted"}
-
-[Thank you.]{.LARGE .uva-orange .bold .text-shadow}
-
-
 
 ## References {visibility="uncounted"}
 
@@ -2114,6 +2122,17 @@ $\color{red}{\eps_{ij}} \sim N(0, |\|x_i\|^2 - \|x_j\|^2|)$
 ::: {#refs}
 :::
 ::::
+
+
+
+
+
+
+# []{.center style="align-items: center;"} {visibility="uncounted"}
+
+[Thank you.]{.LARGE .uva-orange .bold .text-shadow}
+
+
 
 
 
@@ -2157,7 +2176,7 @@ $\color{red}{\eps_{ij}} \sim N(0, |\|x_i\|^2 - \|x_j\|^2|)$
 
 ## Appendix {#appendix visibility="uncounted"}
 
-* [MDS vs Dimension Reduction](##appendix-mds-pca)
+* [MDS vs Dimension Reduction](#appendix-mds-pca)
 * [Why CMDS exactly recovers the latent configuration](#appendix-why-cmds-works)
 * [Statistical estimation and difficulties](#appendix-statistical-estimation)
 * Under the hood for CMDS upper bound:
